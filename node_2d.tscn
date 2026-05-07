@@ -1,0 +1,253 @@
+[gd_scene format=3 uid="uid://bs37obtbhg12o"]
+
+[ext_resource type="Script" uid="uid://dgv3kvaruyq8l" path="res://node_2d.gd" id="1_q6r6c"]
+[ext_resource type="Texture2D" uid="uid://ejs4x1ncbplh" path="res://images/coltecagem.png" id="2_kdubu"]
+[ext_resource type="Texture2D" uid="uid://b2s52540pcb12" path="res://images/jogar.png" id="3_d21ai"]
+[ext_resource type="Texture2D" uid="uid://dov74olo3i5wl" path="res://images/opções.png" id="4_rj586"]
+[ext_resource type="Texture2D" uid="uid://bclmu6h6gwb1t" path="res://images/sair.png" id="5_4d7sh"]
+[ext_resource type="AudioStream" uid="uid://dqxdtpw7fakly" path="res://images/Pátio de Xilofone.mp3" id="6_kdubu"]
+[ext_resource type="Shader" uid="uid://d04jn6iuo7ujw" path="res://node_2d.gdshader" id="7_d21ai"]
+[ext_resource type="Texture2D" uid="uid://c4jqc0wmqxew6" path="res://images/creditos.png" id="7_rj586"]
+[ext_resource type="Texture2D" uid="uid://c7tich13bsxp0" path="res://images/voltar.png" id="8_4d7sh"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ir8iy"]
+load_path = "res://.godot/imported/pixel(melhorzinha.png-4acad51663a255270e0f6d056278ca20.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rj586"]
+shader = ExtResource("7_d21ai")
+shader_parameter/lod = 2.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x0ka3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0h7mo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nr8wp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d2bti"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4d7sh"]
+load_path = "res://.godot/imported/voltar.png-4f8fd462f981f19fd108db40f8f96588.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hqns4"]
+load_path = "res://.godot/imported/audio.png-12d24db5657cd0e41f5d36e0e1b18d3a.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x0ka3"]
+load_path = "res://.godot/imported/acessibilidade.png-4b2c9507543175a482c53084a297e2f0.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0h7mo"]
+load_path = "res://.godot/imported/controles.png-6ab37b612e2f1c5c09cad6b533759541.ctex"
+
+[node name="Node2D" type="Node2D" unique_id=102246682]
+script = ExtResource("1_q6r6c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=644156102]
+position = Vector2(577, 325.00003)
+scale = Vector2(0.68899524, 0.6886291)
+texture = SubResource("CompressedTexture2D_ir8iy")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1908711498]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=943799446]
+texture_filter = 1
+anchors_preset = -1
+anchor_left = 0.24175347
+anchor_right = 0.75824654
+anchor_bottom = 0.4027778
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("2_kdubu")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1188447249]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.0
+offset_top = -55.0
+offset_right = 242.0
+offset_bottom = 258.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 30
+
+[node name="BtnJogar" type="TextureButton" parent="CanvasLayer/VBoxContainer" unique_id=530293524]
+texture_filter = 1
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("3_d21ai")
+stretch_mode = 5
+
+[node name="BtnConfig" type="TextureButton" parent="CanvasLayer/VBoxContainer" unique_id=1185687040]
+texture_filter = 1
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("4_rj586")
+stretch_mode = 5
+
+[node name="BtnSair" type="TextureButton" parent="CanvasLayer/VBoxContainer" unique_id=1628323605]
+texture_filter = 1
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("5_4d7sh")
+stretch_mode = 5
+
+[node name="PainelConfig" type="Panel" parent="CanvasLayer" unique_id=850527000]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FundoEscuro" type="ColorRect" parent="CanvasLayer/PainelConfig" unique_id=2058372265]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.19607843)
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/PainelConfig" unique_id=971235431]
+material = SubResource("ShaderMaterial_rj586")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PainelConfig" unique_id=81055166]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 296.0
+offset_top = 101.0
+offset_right = 1024.0
+offset_bottom = 655.0
+scale = Vector2(0.75, 0.75)
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="BtnVoltar" type="Button" parent="CanvasLayer/PainelConfig/VBoxContainer" unique_id=1023813197]
+custom_minimum_size = Vector2(500, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxEmpty_x0ka3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0h7mo")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_nr8wp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d2bti")
+icon = SubResource("CompressedTexture2D_4d7sh")
+
+[node name="BtnAudio" type="Button" parent="CanvasLayer/PainelConfig/VBoxContainer" unique_id=529364974]
+custom_minimum_size = Vector2(500, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxEmpty_x0ka3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0h7mo")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_nr8wp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d2bti")
+icon = SubResource("CompressedTexture2D_hqns4")
+
+[node name="BtnAcessibilidade" type="Button" parent="CanvasLayer/PainelConfig/VBoxContainer" unique_id=532816219]
+custom_minimum_size = Vector2(500, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxEmpty_x0ka3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0h7mo")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_nr8wp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d2bti")
+icon = SubResource("CompressedTexture2D_x0ka3")
+
+[node name="BtnControle" type="Button" parent="CanvasLayer/PainelConfig/VBoxContainer" unique_id=521978778]
+custom_minimum_size = Vector2(500, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxEmpty_x0ka3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0h7mo")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_nr8wp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d2bti")
+icon = SubResource("CompressedTexture2D_0h7mo")
+
+[node name="BtnCreditos" type="Button" parent="CanvasLayer/PainelConfig/VBoxContainer" unique_id=1900366983]
+custom_minimum_size = Vector2(500, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxEmpty_x0ka3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0h7mo")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_nr8wp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d2bti")
+icon = ExtResource("7_rj586")
+
+[node name="PainelBrilho" type="Control" parent="CanvasLayer/PainelConfig" unique_id=536636230]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 499.0
+offset_top = 292.0
+offset_right = -192.0
+offset_bottom = -208.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0101526, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/PainelConfig/PainelBrilho" unique_id=1929422637]
+layout_mode = 0
+offset_left = -105.16955
+offset_top = -5.1080317
+offset_right = -46.169548
+offset_bottom = 17.891968
+scale = Vector2(2.6315622, 1.6584457)
+pivot_offset = Vector2(220, 400)
+text = "BRILHO"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PainelConfig/PainelBrilho" unique_id=122984742]
+layout_mode = 0
+offset_left = -475.0
+offset_top = -220.0
+offset_right = 231.52771
+offset_bottom = 16.100006
+scale = Vector2(0.6526295, 0.63326514)
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="SliderBrilho" type="HSlider" parent="CanvasLayer/PainelConfig/PainelBrilho/VBoxContainer" unique_id=1739119206]
+custom_minimum_size = Vector2(350, 40)
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="BtnVoltarBrilho" type="TextureButton" parent="CanvasLayer/PainelConfig/PainelBrilho/VBoxContainer" unique_id=1925954954]
+layout_mode = 2
+texture_normal = ExtResource("8_4d7sh")
+
+[node name="OverlayBrilho" type="ColorRect" parent="CanvasLayer" unique_id=902635639]
+anchors_preset = -1
+anchor_right = 1.0020001
+anchor_bottom = 1.003
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -0.30407715
+offset_bottom = -4.944031
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.11764706)
+
+[node name="Musica" type="AudioStreamPlayer2D" parent="." unique_id=1779109365]
+stream = ExtResource("6_kdubu")
+volume_db = -42.329
+autoplay = true
+
+[connection signal="value_changed" from="CanvasLayer/PainelConfig/PainelBrilho/VBoxContainer/SliderBrilho" to="." method="_on_slider_brilho_value_changed"]
