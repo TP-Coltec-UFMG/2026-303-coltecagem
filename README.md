@@ -1,37 +1,64 @@
-2026-303-coltecagem
+# 🎓 COLTECAGEM
 
+> Simule um dia na vida de um estudante do COLTEC!
 
-Sobre o Jogo
-O Jogo, COLTECAGEM simula de forma divertida a rotina de um dia de um estudante do COLTEC, com um tempo delimitado, o jogador chega ao coltec e deve fazer o máximo de atividades e ações possiveis para ganhar pontos, pontos esses que podem vir de varios tipos de coisas diferentes.
+---
 
-Menu Inicial
+## 📖 Sobre o Jogo
 
-"imagem"
-(Imagem do Menu Inicial, mostrando o nome e algumas entradas do jogo)
+**COLTECAGEM** simula de forma divertida a rotina de um dia de um estudante do COLTEC.  
+Com um tempo delimitado, o jogador chega ao COLTEC e deve fazer o máximo de atividades  
+e ações possíveis para ganhar pontos — que podem vir de vários tipos de coisas diferentes!
 
-O Menu do Nosso jogo Contêm as opções:
-Jogar - inicia a gameplay
-Sair - sai do jogo 
-Opções - leva a outro menu de configurações que pode ser visto abaixo:
+---
 
-"imagem"
-(imagem do Menu de configurações com suas opções atuais)
+## 🖥️ Menu Inicial
 
-Esse Menu contêm as opções:
+![Menu Inicial](images/menu_inicial.png)
 
-Audio - regulação do audio do jogo - imagem(display de regulação de audio)
-Acessibilidade - Algumas das nossas opções de acessibilidade para os players como as opções para daltonicos - imagem(imagem do menu de acessibilidade - 4 imagens contendo os 4 filtros de daltonismo - legendas respectivas: protanopia, Deuteranopia, Tritanopia, Acromatopsia
+O menu principal contém as seguintes opções:
 
-controles- configuração dos controles(ainda não foi realizado)
-creditos - creditos aos desenvolvedores - imagems(credito aos desenvolvedores)
-voltar - opção de voltar ao menu principal
+- **Jogar** — inicia a gameplay
+- **Opções** — abre o menu de configurações
+- **Sair** — encerra o jogo
 
-Créditos
-Desenvolvido por
-Dierrisson Wagner
-Gabriel Cruz
-Gustavo Bragança
-João Vitor Guerra
+---
 
+## ⚙️ Menu de Opções
 
+![Menu de Opções](images/menu_opcoes.png)
 
+### 🔊 Áudio
+Regulagem do volume do jogo.
+
+![Controle de Áudio](images/audio.png)
+
+### ♿ Acessibilidade
+Filtros de daltonismo para melhor experiência dos jogadores.
+
+| Protanopia | Deuteranopia | Tritanopia | Acromatopsia |
+|------------|--------------|------------|--------------|
+| ![](images/protanopia.png) | ![](images/deuteranopia.png) | ![](images/tritanopia.png) | ![](images/acromatopsia.png) |
+
+### 🎮 Controles
+Configuração dos controles *(em desenvolvimento)*.
+
+### 🏆 Créditos
+Créditos aos desenvolvedores.
+
+![Créditos](images/creditos.png)
+
+---
+
+## 👥 Desenvolvedores
+
+| Nome |
+|------|
+| Dierrisson Wagner |
+| Gabriel Cruz |
+| Gustavo Bragança |
+| João Vitor Guerra |
+
+---
+
+*Desenvolvido para a disciplina — COLTEC 2026*
