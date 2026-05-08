@@ -26,19 +26,19 @@ O menu principal contém as seguintes opções:
 
 ## ⚙️ Menu de Opções
 
-![Menu de Opções](images/menu_opcoes.png)
+![Menu de Opções](imagens/menu_opcoes.png)
 
 ### 🔊 Áudio
 Regulagem do volume do jogo.
 
-![Controle de Áudio](images/audio.png)
+![Controle de Áudio](imagens/menuaudio.png)
 
 ### ♿ Acessibilidade
 Filtros de daltonismo para melhor experiência dos jogadores.
 
 | Protanopia | Deuteranopia | Tritanopia | Acromatopsia |
 |------------|--------------|------------|--------------|
-| ![](images/protanopia.png) | ![](images/deuteranopia.png) | ![](images/tritanopia.png) | ![](images/acromatopsia.png) |
+| ![](imagens/protanopia.png) | ![](imagens/deuteranopia.png) | ![](imagens/tritanopia.png) | ![](imagens/acromatopsia.png) |
 
 ### 🎮 Controles
 Configuração dos controles *(em desenvolvimento)*.
@@ -46,7 +46,7 @@ Configuração dos controles *(em desenvolvimento)*.
 ### 🏆 Créditos
 Créditos aos desenvolvedores.
 
-![Créditos](images/creditos.png)
+![Créditos](imagens/creditos.png)
 
 ---
 
