@@ -14,7 +14,7 @@ e ações possíveis para ganhar pontos — que podem vir de vários tipos de co
 
 ## 🖥️ Menu Inicial
 
-![Menu Inicial](imagens/Captura de tela 2026-05-08 070945.png)
+![Menu Inicial](imagens/menuinicial.png)
 
 O menu principal contém as seguintes opções:
 
