@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b2s52540pcb12" path="res://images/jogar.png" id="3_d21ai"]
 [ext_resource type="Texture2D" uid="uid://dov74olo3i5wl" path="res://images/opções.png" id="4_rj586"]
 [ext_resource type="Texture2D" uid="uid://bclmu6h6gwb1t" path="res://images/sair.png" id="5_4d7sh"]
+[ext_resource type="Script" uid="uid://bbewdjo64u2xp" path="res://painel_config.gd" id="6_hqns4"]
 [ext_resource type="AudioStream" uid="uid://dqxdtpw7fakly" path="res://images/Pátio de Xilofone.mp3" id="6_kdubu"]
 [ext_resource type="Shader" uid="uid://d04jn6iuo7ujw" path="res://node_2d.gdshader" id="7_d21ai"]
 [ext_resource type="Texture2D" uid="uid://c4jqc0wmqxew6" path="res://images/creditos.png" id="7_rj586"]
@@ -15,7 +16,8 @@ load_path = "res://.godot/imported/pixel(melhorzinha.png-4acad51663a255270e0f6d0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rj586"]
 shader = ExtResource("7_d21ai")
-shader_parameter/lod = 2.0
+shader_parameter/mode = 0
+shader_parameter/severity = 1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x0ka3"]
 
@@ -25,9 +27,6 @@ shader_parameter/lod = 2.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d2bti"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4d7sh"]
-load_path = "res://.godot/imported/voltar.png-4f8fd462f981f19fd108db40f8f96588.ctex"
-
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hqns4"]
 load_path = "res://.godot/imported/audio.png-12d24db5657cd0e41f5d36e0e1b18d3a.ctex"
 
@@ -36,6 +35,44 @@ load_path = "res://.godot/imported/acessibilidade.png-4b2c9507543175a482c53084a2
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0h7mo"]
 load_path = "res://.godot/imported/controles.png-6ab37b612e2f1c5c09cad6b533759541.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4d7sh"]
+load_path = "res://.godot/imported/voltar.png-4f8fd462f981f19fd108db40f8f96588.ctex"
+
+[sub_resource type="GDScript" id="GDScript_ir8iy"]
+script/source = "extends Control
+
+# Substitua o caminho abaixo pelo caminho real do seu ColorRect do daltonismo.
+# Dica: Segure 'Ctrl', clique no ColorRect na árvore e arraste para cá!
+@onready var filtro = $\"../../../../CanvasLayer2/ColorRect\"
+
+# --- FUNÇÕES DOS BOTÕES ---
+
+# Botão para Desligar / Voltar ao Normal
+func _on_btn_normal_pressed():
+	filtro.material.set_shader_parameter(\"mode\", 0)
+
+# Botão 1: Protanopia
+func _on_btn_protanopia_pressed():
+	filtro.material.set_shader_parameter(\"mode\", 1)
+
+# Botão 2: Deuteranopia
+func _on_btn_deuteranopia_pressed():
+	filtro.material.set_shader_parameter(\"mode\", 2)
+
+# Botão 3: Tritanopia
+func _on_btn_tritanopia_pressed():
+	filtro.material.set_shader_parameter(\"mode\", 3)
+
+# Botão 4: Acromatopsia (Escala de Cinza)
+func _on_btn_acromatopsia_pressed():
+	filtro.material.set_shader_parameter(\"mode\", 4)
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ir8iy"]
+shader = ExtResource("7_d21ai")
+shader_parameter/mode = 0
+shader_parameter/severity = 1.0
 
 [node name="Node2D" type="Node2D" unique_id=102246682]
 script = ExtResource("1_q6r6c")
@@ -108,6 +145,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("6_hqns4")
 
 [node name="FundoEscuro" type="ColorRect" parent="CanvasLayer/PainelConfig" unique_id=2058372265]
 layout_mode = 1
@@ -137,16 +175,6 @@ offset_bottom = 655.0
 scale = Vector2(0.75, 0.75)
 theme_override_constants/separation = 20
 alignment = 1
-
-[node name="BtnVoltar" type="Button" parent="CanvasLayer/PainelConfig/VBoxContainer" unique_id=1023813197]
-custom_minimum_size = Vector2(500, 60)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_styles/normal = SubResource("StyleBoxEmpty_x0ka3")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_0h7mo")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_nr8wp")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_d2bti")
-icon = SubResource("CompressedTexture2D_4d7sh")
 
 [node name="BtnAudio" type="Button" parent="CanvasLayer/PainelConfig/VBoxContainer" unique_id=529364974]
 custom_minimum_size = Vector2(500, 60)
@@ -188,6 +216,16 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_nr8wp")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_d2bti")
 icon = ExtResource("7_rj586")
 
+[node name="BtnVoltar" type="Button" parent="CanvasLayer/PainelConfig/VBoxContainer" unique_id=1023813197]
+custom_minimum_size = Vector2(500, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxEmpty_x0ka3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0h7mo")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_nr8wp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d2bti")
+icon = SubResource("CompressedTexture2D_4d7sh")
+
 [node name="PainelBrilho" type="Control" parent="CanvasLayer/PainelConfig" unique_id=536636230]
 layout_mode = 1
 anchors_preset = 15
@@ -203,45 +241,149 @@ scale = Vector2(1.0101526, 1)
 
 [node name="Label" type="Label" parent="CanvasLayer/PainelConfig/PainelBrilho" unique_id=1929422637]
 layout_mode = 0
-offset_left = -105.16955
-offset_top = -5.1080317
-offset_right = -46.169548
-offset_bottom = 17.891968
-scale = Vector2(2.6315622, 1.6584457)
+offset_left = -200.0
+offset_top = -5.108
+offset_right = -141.0
+offset_bottom = 17.892
+scale = Vector2(2.1751578, 1.6582206)
 pivot_offset = Vector2(220, 400)
 text = "BRILHO"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PainelConfig/PainelBrilho" unique_id=122984742]
+[node name="BtnVoltarBrilho" type="TextureButton" parent="CanvasLayer/PainelConfig/PainelBrilho" unique_id=1925954954]
 layout_mode = 0
-offset_left = -475.0
-offset_top = -220.0
-offset_right = 231.52771
-offset_bottom = 16.100006
-scale = Vector2(0.6526295, 0.63326514)
-theme_override_constants/separation = 30
-alignment = 1
+offset_left = -210.0
+offset_top = 240.0
+offset_right = 496.0
+offset_bottom = 326.0
+scale = Vector2(0.79798067, 0.83549744)
+texture_normal = ExtResource("8_4d7sh")
 
-[node name="SliderBrilho" type="HSlider" parent="CanvasLayer/PainelConfig/PainelBrilho/VBoxContainer" unique_id=1739119206]
+[node name="SliderBrilho" type="HSlider" parent="CanvasLayer/PainelConfig/PainelBrilho" unique_id=1739119206]
 custom_minimum_size = Vector2(350, 40)
-layout_mode = 2
+layout_mode = 0
+offset_left = -465.0
+offset_top = -220.0
+offset_right = -115.0
+offset_bottom = -180.0
 max_value = 1.0
 step = 0.1
 value = 1.0
 
-[node name="BtnVoltarBrilho" type="TextureButton" parent="CanvasLayer/PainelConfig/PainelBrilho/VBoxContainer" unique_id=1925954954]
+[node name="DaltonismoVBOX" type="VBoxContainer" parent="CanvasLayer/PainelConfig/PainelBrilho" unique_id=471635633]
+layout_mode = 0
+offset_left = 347.47226
+offset_top = -249.0
+offset_right = 575.16064
+offset_bottom = -12.0
+script = SubResource("GDScript_ir8iy")
+
+[node name="Label" type="Label" parent="CanvasLayer/PainelConfig/PainelBrilho/DaltonismoVBOX" unique_id=1510904839]
 layout_mode = 2
+text = "DALTONISMO"
+
+[node name="BtnNormal" type="Button" parent="CanvasLayer/PainelConfig/PainelBrilho/DaltonismoVBOX" unique_id=1972187129]
+layout_mode = 2
+text = "visao padrão"
+
+[node name="BtnProtanopia" type="Button" parent="CanvasLayer/PainelConfig/PainelBrilho/DaltonismoVBOX" unique_id=63344236]
+layout_mode = 2
+text = "Protanopia"
+
+[node name="BtnDeuteranopia" type="Button" parent="CanvasLayer/PainelConfig/PainelBrilho/DaltonismoVBOX" unique_id=1310606938]
+layout_mode = 2
+text = "Deuteranopia"
+
+[node name="BtnTritanopia" type="Button" parent="CanvasLayer/PainelConfig/PainelBrilho/DaltonismoVBOX" unique_id=247230463]
+layout_mode = 2
+text = "Tritanopia"
+
+[node name="BtnAcromatopsia" type="Button" parent="CanvasLayer/PainelConfig/PainelBrilho/DaltonismoVBOX" unique_id=1096144700]
+layout_mode = 2
+text = "Acromatopsia"
+
+[node name="PainelAudio" type="Control" parent="CanvasLayer/PainelConfig" unique_id=152554455]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PainelConfig/PainelAudio" unique_id=456408650]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 20.0
+offset_right = 1190.0
+offset_bottom = 69.0
+scale = Vector2(1.5959918, 1.862255)
+text = "Volume Geral
+"
+
+[node name="BtnVoltarAudio" type="TextureButton" parent="CanvasLayer/PainelConfig/PainelAudio" unique_id=1585134335]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 550.0
+offset_right = 1452.0
+offset_bottom = 636.0
+scale = Vector2(0.7677961, 0.7626329)
 texture_normal = ExtResource("8_4d7sh")
+
+[node name="SliderAudio" type="HSlider" parent="CanvasLayer/PainelConfig/PainelAudio" unique_id=791851727]
+custom_minimum_size = Vector2(350, 40)
+layout_mode = 0
+offset_left = 30.0
+offset_top = 70.0
+offset_right = 380.0
+offset_bottom = 110.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="PainelCreditos" type="Control" parent="CanvasLayer/PainelConfig" unique_id=1812619156]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/PainelConfig/PainelCreditos" unique_id=1051780849]
+layout_mode = 0
+offset_left = 430.0
+offset_top = 210.0
+offset_right = 570.0
+offset_bottom = 311.0
+scale = Vector2(1.9947706, 1.9605322)
+text = "Gabriel Cruz
+Dierrison Wagner
+Gustavo Bragança
+João Vitor"
+
+[node name="BtnVoltarCreditos" type="TextureButton" parent="CanvasLayer/PainelConfig/PainelCreditos" unique_id=764688668]
+layout_mode = 0
+offset_left = 290.0
+offset_top = 538.0
+offset_right = 990.0
+offset_bottom = 624.0
+scale = Vector2(0.7919242, 0.8626581)
+texture_normal = ExtResource("8_4d7sh")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PainelConfig/PainelCreditos" unique_id=565191549]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="OverlayBrilho" type="ColorRect" parent="CanvasLayer" unique_id=902635639]
 anchors_preset = -1
 anchor_right = 1.0020001
 anchor_bottom = 1.003
-offset_left = 3.0
-offset_top = 3.0
-offset_right = -0.30407715
-offset_bottom = -4.944031
+offset_left = -1.0
+offset_top = -0.99999994
+offset_right = -899.6307
+offset_bottom = -441.87988
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(4.513571, 3.1138766)
 mouse_filter = 2
 color = Color(0, 0, 0, 0.11764706)
 
@@ -250,4 +392,21 @@ stream = ExtResource("6_kdubu")
 volume_db = -42.329
 autoplay = true
 
-[connection signal="value_changed" from="CanvasLayer/PainelConfig/PainelBrilho/VBoxContainer/SliderBrilho" to="." method="_on_slider_brilho_value_changed"]
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=431990520]
+layer = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2" unique_id=1360199721]
+material = SubResource("ShaderMaterial_ir8iy")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[connection signal="value_changed" from="CanvasLayer/PainelConfig/PainelBrilho/SliderBrilho" to="." method="_on_slider_brilho_value_changed"]
+[connection signal="pressed" from="CanvasLayer/PainelConfig/PainelBrilho/DaltonismoVBOX/BtnNormal" to="CanvasLayer/PainelConfig" method="_on_btn_normal_pressed"]
+[connection signal="pressed" from="CanvasLayer/PainelConfig/PainelBrilho/DaltonismoVBOX/BtnProtanopia" to="CanvasLayer/PainelConfig" method="_on_btn_protanopia_pressed"]
+[connection signal="pressed" from="CanvasLayer/PainelConfig/PainelBrilho/DaltonismoVBOX/BtnDeuteranopia" to="CanvasLayer/PainelConfig" method="_on_btn_deuteranopia_pressed"]
+[connection signal="pressed" from="CanvasLayer/PainelConfig/PainelBrilho/DaltonismoVBOX/BtnTritanopia" to="CanvasLayer/PainelConfig" method="_on_btn_tritanopia_pressed"]
+[connection signal="pressed" from="CanvasLayer/PainelConfig/PainelBrilho/DaltonismoVBOX/BtnAcromatopsia" to="CanvasLayer/PainelConfig" method="_on_btn_acromatopsia_pressed"]
