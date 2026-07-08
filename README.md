@@ -6,10 +6,7 @@
 
 ## 📖 Sobre o Jogo
 
-**COLTECAGEM** simula de forma divertida a rotina de um dia de um estudante do COLTEC.  
-Com um tempo delimitado, o jogador chega ao COLTEC e deve fazer o máximo de atividades  
-e ações possíveis para ganhar pontos — que podem vir de vários tipos de coisas diferentes!
-
+**COLTECAGEM** O objetivo é fazer o jogador experimentar um pouco da rotina de um estudante do COLTEC, administrando seu tempo entre aulas, estudos,provas e momentos de lazer.
 ---
 
 ## 🖥️ Menu Inicial
@@ -47,6 +44,36 @@ Configuração dos controles *(em desenvolvimento)*.
 Créditos aos desenvolvedores.
 
 ![Créditos](imagens/creditos.png)
+
+---
+##👤 Personagem Principal
+
+![](images/PersonagemPrincipal.png)
+
+
+## Mapas planejados
+
+Entrada
+Hall / Cantina
+Sala de Aula
+Banheiro
+Grêmio
+
+
+## Atributos
+
+📚 Desempenho Acadêmico
+⚡ Energia
+😵 Estresse
+🤝 Social
+
+
+## 🎯 Objetivo
+
+Ao final da partida o jogador deverá alcançar uma média mínima para ser aprovado.
+
+Entretanto, apenas estudar não é suficiente. Será necessário administrar energia, estresse e relações sociais para conseguir bons resultados.
+
 
 ---
 
