@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://painel_config.gd" id="1"]
+[ext_resource type="Theme" path="res://theme/theme.tres" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/painel_brilho.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://scenes/painel_audio.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://scenes/painel_creditos.tscn" id="5"]
+
+[node name="PainelConfig" type="Control"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2")
+script = ExtResource("1")
+
+[node name="FundoEscuro" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.19607843)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -180.0
+offset_right = 150.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="BtnAudio" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(280, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "ÁUDIO"
+
+[node name="BtnAcessibilidade" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(280, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "ACESSIBILIDADE"
+
+[node name="BtnCreditos" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(280, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "CRÉDITOS"
+
+[node name="BtnVoltar" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(280, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "VOLTAR"
+
+[node name="PainelBrilho" parent="." instance=ExtResource("3")]
+layout_mode = 1
+
+[node name="PainelAudio" parent="." instance=ExtResource("4")]
+layout_mode = 1
+
+[node name="PainelCreditos" parent="." instance=ExtResource("5")]
+layout_mode = 1
