@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3]
 
-[ext_resource type="Script" path="res://painel_brilho.gd" id="1"]
+[ext_resource type="Script" path="/run/user/1679619292/doc/2169682e/painel_brilho.gd" id="1"]
 [ext_resource type="Theme" path="res://theme/theme.tres" id="2"]
 
 [node name="PainelBrilho" type="Control"]

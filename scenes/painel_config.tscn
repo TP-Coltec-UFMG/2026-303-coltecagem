@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3]
 
-[ext_resource type="Script" path="res://painel_config.gd" id="1"]
+[ext_resource type="Script" path="/run/user/1679619292/doc/6b2fbf56/painel_config.gd" id="1"]
 [ext_resource type="Theme" path="res://theme/theme.tres" id="2"]
 [ext_resource type="PackedScene" path="res://scenes/painel_brilho.tscn" id="3"]
 [ext_resource type="PackedScene" path="res://scenes/painel_audio.tscn" id="4"]
