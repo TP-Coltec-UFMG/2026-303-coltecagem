@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3]
 
-[ext_resource type="Script" path="/run/user/1679619292/doc/a119a71e/painel_audio.gd" id="1"]
+[ext_resource type="Script" path="res://Painels/painel_audio.gd" id="1"]
 [ext_resource type="Theme" path="res://theme/theme.tres" id="2"]
 
 [node name="PainelAudio" type="Control"]

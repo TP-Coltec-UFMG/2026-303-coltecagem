@@ -1,0 +1,84 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8p3teste0001"]
+
+[ext_resource type="Script" path="res://debug/teste_estado.gd" id="1"]
+
+[node name="TesteEstado" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Margem" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBox" type="VBoxContainer" parent="Margem"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="LabelStatus" type="RichTextLabel" parent="Margem/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 140)
+bbcode_enabled = true
+fit_content = true
+
+[node name="Botoes" type="HBoxContainer" parent="Margem/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="BtnAula" type="Button" parent="Margem/VBox/Botoes"]
+layout_mode = 2
+text = "Aula"
+
+[node name="BtnMatarAula" type="Button" parent="Margem/VBox/Botoes"]
+layout_mode = 2
+text = "Matar Aula"
+
+[node name="BtnEstudar" type="Button" parent="Margem/VBox/Botoes"]
+layout_mode = 2
+text = "Estudar"
+
+[node name="BtnComer" type="Button" parent="Margem/VBox/Botoes"]
+layout_mode = 2
+text = "Comer"
+
+[node name="BtnDormir" type="Button" parent="Margem/VBox/Botoes"]
+layout_mode = 2
+text = "Dormir"
+
+[node name="BtnEntrosar" type="Button" parent="Margem/VBox/Botoes"]
+layout_mode = 2
+text = "Entrosar"
+
+[node name="Botoes2" type="HBoxContainer" parent="Margem/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="BtnProva" type="Button" parent="Margem/VBox/Botoes2"]
+layout_mode = 2
+text = "Fazer Prova"
+
+[node name="BtnFinal" type="Button" parent="Margem/VBox/Botoes2"]
+layout_mode = 2
+text = "Ver Final"
+
+[node name="BtnReiniciar" type="Button" parent="Margem/VBox/Botoes2"]
+layout_mode = 2
+text = "Reiniciar"
+
+[node name="LabelLog" type="RichTextLabel" parent="Margem/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+scroll_following = true
