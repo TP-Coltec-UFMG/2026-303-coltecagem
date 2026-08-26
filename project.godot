@@ -22,6 +22,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 EstadoJogador="*res://autoload/estado_jogador.gd"
+GerenciadorDeTempo="*uid://dyrh6hlp3m08f"
+GerenciadorDeEventos="*uid://dps7ackmord3y"
 
 [display]
 

@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://buof5gwisjib"]
+
+[ext_resource type="Script" uid="uid://bl6lnxucol422" path="res://debug/teste_tempo.gd" id="1"]
+
+[node name="TesteTempo" type="Control" unique_id=1093477061]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Margem" type="MarginContainer" parent="." unique_id=1923606235]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBox" type="VBoxContainer" parent="Margem" unique_id=471373049]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="LabelStatus" type="RichTextLabel" parent="Margem/VBox" unique_id=968541996]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+
+[node name="Botoes" type="HBoxContainer" parent="Margem/VBox" unique_id=800170222]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="BtnIniciar" type="Button" parent="Margem/VBox/Botoes" unique_id=904623661]
+layout_mode = 2
+text = "Iniciar Dia"
+
+[node name="BtnPausar" type="Button" parent="Margem/VBox/Botoes" unique_id=1288991853]
+layout_mode = 2
+text = "Pausar/Retomar"
+
+[node name="BtnAcao" type="Button" parent="Margem/VBox/Botoes" unique_id=434007267]
+layout_mode = 2
+text = "Fazer Ação"
+
+[node name="LabelLog" type="RichTextLabel" parent="Margem/VBox" unique_id=1790821924]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+scroll_following = true
