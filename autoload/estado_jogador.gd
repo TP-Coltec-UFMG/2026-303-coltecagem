@@ -141,7 +141,13 @@ func _pode_executar(acao: String) -> bool:
 ## Ir para a aula: a ação de MAIOR impacto em desempenho e
 ## estresse, e a que mais custa energia (é o "pacote completo" —
 ## aula + prestar atenção o tempo todo).
-func aula() -> bool:
+##
+## `intensidade` (0.0 a 1.0) escala o efeito — usado por quem
+## controla a aula por tempo real (GerenciadorDeEventos), passando
+## a FRAÇÃO do tempo da aula que o jogador ficou dentro da sala.
+## Chamada sem argumento (intensidade=1.0) continua sendo o efeito
+## cheio, útil pra testes manuais avulsos.
+func aula(intensidade: float = 1.0) -> bool:
 	if not _pode_executar("aula"):
 		return false
 
@@ -149,9 +155,9 @@ func aula() -> bool:
 	if esta_com_energia_zerada():
 		ganho_desempenho = 4 # rende bem menos sem energia
 
-	alterar_atributo("energia", -20)
-	alterar_atributo("estresse", 12)
-	alterar_atributo("desempenho_academico", ganho_desempenho)
+	alterar_atributo("energia", roundi(-20 * intensidade))
+	alterar_atributo("estresse", roundi(12 * intensidade))
+	alterar_atributo("desempenho_academico", roundi(ganho_desempenho * intensidade))
 
 	dias_passados += 1
 	return true
@@ -159,10 +165,13 @@ func aula() -> bool:
 
 ## Matar aula: sem custo de energia. Aumenta social (ficou com os
 ## amigos), mas diminui desempenho e estresse. Nunca é bloqueada.
-func matar_aula() -> bool:
-	alterar_atributo("desempenho_academico", -6)
-	alterar_atributo("estresse", -5)
-	alterar_atributo("social", 5)
+##
+## `intensidade` funciona igual à de aula() — é a FRAÇÃO do tempo
+## da aula que o jogador passou fora da sala.
+func matar_aula(intensidade: float = 1.0) -> bool:
+	alterar_atributo("desempenho_academico", roundi(-6 * intensidade))
+	alterar_atributo("estresse", roundi(-5 * intensidade))
+	alterar_atributo("social", roundi(5 * intensidade))
 
 	dias_passados += 1
 	return true

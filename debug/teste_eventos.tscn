@@ -1,0 +1,165 @@
+[gd_scene format=3 uid="uid://c8p3teste0003"]
+
+[sub_resource type="GDScript" id="GDScript_1nebk"]
+script/source = "extends Control
+## ============================================================
+## Cena de TESTE do GerenciadorDeEventos.
+## ------------------------------------------------------------
+## Inicia o dia sozinha e mostra os avisos/início/fim de aulas e
+## provas em tempo real. Como ainda não existe mapa/Area2D de
+## sala de verdade, tem um botão \"Entrar/Sair da Sala\" que simula
+## a presença do jogador manualmente (jogador_presente_manual).
+##
+## DICA PRA TESTAR MAIS RÁPIDO: as constantes de tempo (aviso,
+## duração da aula, etc) estão no topo do gerenciador_de_eventos.gd
+## — pode reduzir temporariamente pra ver os eventos rolando mais
+## rápido, e voltar ao normal depois.
+## ============================================================
+
+@onready var label_status: RichTextLabel = $Margem/VBox/LabelStatus
+@onready var label_log: RichTextLabel = $Margem/VBox/LabelLog
+@onready var btn_presenca: Button = $Margem/VBox/Botoes/BtnPresenca
+
+
+func _ready() -> void:
+	btn_presenca.pressed.connect(_on_toggle_presenca)
+
+	GerenciadorDeEventos.aula_anunciada.connect(_on_aula_anunciada)
+	GerenciadorDeEventos.aula_iniciada.connect(_on_aula_iniciada)
+	GerenciadorDeEventos.aula_finalizada.connect(_on_aula_finalizada)
+	GerenciadorDeEventos.prova_anunciada.connect(_on_prova_anunciada)
+	GerenciadorDeEventos.prova_iniciada.connect(_on_prova_iniciada)
+	GerenciadorDeEventos.prova_finalizada.connect(_on_prova_finalizada)
+
+	GerenciadorDeTempo.bloco_iniciado.connect(_on_bloco_iniciado)
+	GerenciadorDeTempo.tempo_atualizado.connect(_on_tempo_atualizado)
+
+	GerenciadorDeTempo.iniciar_dia()
+	_log(\"Dia iniciado automaticamente. Aguardando eventos...\")
+	_atualizar_status()
+	_atualizar_botao_presenca()
+
+
+func _on_toggle_presenca() -> void:
+	GerenciadorDeEventos.jogador_presente_manual = not GerenciadorDeEventos.jogador_presente_manual
+	_atualizar_botao_presenca()
+	_log(\"Jogador agora está: %s\" % (\"DENTRO da sala\" if GerenciadorDeEventos.jogador_presente_manual else \"FORA da sala\"))
+
+
+func _atualizar_botao_presenca() -> void:
+	btn_presenca.text = \"Sair da Sala\" if GerenciadorDeEventos.jogador_presente_manual else \"Entrar na Sala\"
+
+
+func _on_bloco_iniciado(indice: int, nome_horario: String, _limite_acoes: int) -> void:
+	_log(\"[b]Bloco %d (%s) — tipo: %s[/b]\" % [indice + 1, nome_horario, GerenciadorDeTempo.tipo_bloco_atual()])
+
+
+func _on_aula_anunciada(sala: String, tempo_aviso: float) -> void:
+	_log(\"[color=yellow]📢 Aula na %s começando em %.0fs![/color]\" % [sala, tempo_aviso])
+
+
+func _on_aula_iniciada(sala: String, duracao: float) -> void:
+	_log(\"[color=green]▶ Aula na %s começou (dura %.0fs)[/color]\" % [sala, duracao])
+
+
+func _on_aula_finalizada(sala: String) -> void:
+	var estava_dentro := GerenciadorDeEventos.jogador_presente_manual
+	if estava_dentro:
+		EstadoJogador.aula()
+		_log(\"Aula na %s terminou — você estava dentro, aula() aplicada.\" % sala)
+	else:
+		EstadoJogador.matar_aula()
+		_log(\"Aula na %s terminou — você estava fora, matar_aula() aplicada.\" % sala)
+	GerenciadorDeTempo.consumir_acao()
+	_atualizar_status()
+
+
+func _on_prova_anunciada(sala: String, tempo_aviso: float) -> void:
+	_log(\"[color=orange]⚠ PROVA chegando! Vai ser na %s em %.0fs — corre lá![/color]\" % [sala, tempo_aviso])
+
+
+func _on_prova_iniciada(sala: String, duracao: float) -> void:
+	_log(\"[color=red]✎ Prova na %s rolando agora (janela de %.0fs pra chegar)[/color]\" % [sala, duracao])
+
+
+func _on_prova_finalizada(sala: String, nota: int) -> void:
+	if nota > 0:
+		_log(\"[b]Prova na %s corrigida! Nota: %d[/b]\" % [sala, nota])
+	else:
+		_log(\"[b][color=red]Você não chegou a tempo na %s — nota ZERO![/color][/b]\" % sala)
+	GerenciadorDeTempo.consumir_acao()
+	_atualizar_status()
+
+
+func _on_tempo_atualizado(_segundos_restantes: float, _progresso: float) -> void:
+	_atualizar_status()
+
+
+func _atualizar_status() -> void:
+	label_status.text = (
+		\"[b]Horário:[/b] %s (bloco %d/%d, tipo: %s)\\n\" +
+		\"[b]Energia:[/b] %d  [b]Estresse:[/b] %d  [b]Social:[/b] %d  [b]Desempenho:[/b] %d\\n\" +
+		\"[b]Aula ativa em:[/b] %s\\n\" +
+		\"[b]Prova ativa em:[/b] %s\"
+	) % [
+		GerenciadorDeTempo.horario_formatado(),
+		GerenciadorDeTempo.indice_bloco + 1,
+		GerenciadorDeTempo.BLOCOS.size(),
+		GerenciadorDeTempo.tipo_bloco_atual(),
+		EstadoJogador.energia,
+		EstadoJogador.estresse,
+		EstadoJogador.social,
+		EstadoJogador.desempenho_academico,
+		\"—\" if GerenciadorDeEventos.sala_com_aula_ativa == \"\" else GerenciadorDeEventos.sala_com_aula_ativa,
+		\"—\" if GerenciadorDeEventos.sala_com_prova_ativa == \"\" else GerenciadorDeEventos.sala_com_prova_ativa,
+	]
+
+
+func _log(texto: String) -> void:
+	label_log.text += texto + \"\\n\"
+"
+
+[node name="TesteEventos" type="Control" unique_id=1085361031]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_1nebk")
+
+[node name="Margem" type="MarginContainer" parent="." unique_id=1829003047]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBox" type="VBoxContainer" parent="Margem" unique_id=1077472248]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="LabelStatus" type="RichTextLabel" parent="Margem/VBox" unique_id=362769270]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+
+[node name="Botoes" type="HBoxContainer" parent="Margem/VBox" unique_id=133901164]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="BtnPresenca" type="Button" parent="Margem/VBox/Botoes" unique_id=794112435]
+layout_mode = 2
+text = "Entrar na Sala"
+
+[node name="LabelLog" type="RichTextLabel" parent="Margem/VBox" unique_id=374179635]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+scroll_following = true
