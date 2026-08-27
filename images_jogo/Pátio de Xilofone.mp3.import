@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dqxdtpw7fakly"
+path="res://.godot/imported/Pátio de Xilofone.mp3-916efcd43015d62e5d26d848501bfd7a.mp3str"
+
+[deps]
+
+source_file="res://images_jogo/Pátio de Xilofone.mp3"
+dest_files=["res://.godot/imported/Pátio de Xilofone.mp3-916efcd43015d62e5d26d848501bfd7a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
