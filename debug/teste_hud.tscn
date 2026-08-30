@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://j6fv2lo2j063"]
+
+[ext_resource type="PackedScene" uid="uid://c8p3hud0001" path="res://HUD/hud.tscn" id="2"]
+
+[sub_resource type="GDScript" id="GDScript_7ojhs"]
+script/source = "extends Control
+## ============================================================
+## Cena de TESTE da HUD.
+## ------------------------------------------------------------
+## Instancia a HUD de verdade (não uma cópia) e dá botões pra
+## disparar ações do EstadoJogador, só pra você ver as barras e o
+## relógio reagindo ao vivo antes de plugar a HUD no World.tscn.
+## ============================================================
+
+@onready var btn_aula: Button = $Botoes/BtnAula
+@onready var btn_estudar: Button = $Botoes/BtnEstudar
+@onready var btn_comer: Button = $Botoes/BtnComer
+@onready var btn_dormir: Button = $Botoes/BtnDormir
+@onready var btn_entrosar: Button = $Botoes/BtnEntrosar
+@onready var btn_prova: Button = $Botoes/BtnProva
+
+
+func _ready() -> void:
+	GerenciadorDeTempo.iniciar_dia()
+
+	btn_aula.pressed.connect(func(): EstadoJogador.aula())
+	btn_estudar.pressed.connect(func(): EstadoJogador.estudar())
+	btn_comer.pressed.connect(func(): EstadoJogador.comer())
+	btn_dormir.pressed.connect(func(): EstadoJogador.dormir())
+	btn_entrosar.pressed.connect(func(): EstadoJogador.entrosar())
+	btn_prova.pressed.connect(func(): EstadoJogador.fazer_prova())
+"
+
+[node name="TesteHud" type="Control" unique_id=693022479]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_7ojhs")
+
+[node name="HUD" parent="." unique_id=346120729 instance=ExtResource("2")]
+
+[node name="Botoes" type="HBoxContainer" parent="." unique_id=512055905]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -260.0
+offset_top = -60.0
+offset_right = 260.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 6
+
+[node name="BtnAula" type="Button" parent="Botoes" unique_id=1789239124]
+layout_mode = 2
+text = "Aula"
+
+[node name="BtnEstudar" type="Button" parent="Botoes" unique_id=1851544391]
+layout_mode = 2
+text = "Estudar"
+
+[node name="BtnComer" type="Button" parent="Botoes" unique_id=515451375]
+layout_mode = 2
+text = "Comer"
+
+[node name="BtnDormir" type="Button" parent="Botoes" unique_id=1341453440]
+layout_mode = 2
+text = "Dormir"
+
+[node name="BtnEntrosar" type="Button" parent="Botoes" unique_id=272264169]
+layout_mode = 2
+text = "Entrosar"
+
+[node name="BtnProva" type="Button" parent="Botoes" unique_id=1629909444]
+layout_mode = 2
+text = "Prova"
