@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://bfvq5k2l2dkch"]
+
+[ext_resource type="Script" uid="uid://cl48gskn5npgw" path="res://Interacao/interagivel.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://bh2x6uofmcld7" path="res://scenes/Character.tscn" id="2"]
+[ext_resource type="Theme" path="res://theme/theme.tres" id="4"]
+[ext_resource type="PackedScene" uid="uid://b1vympcot738" path="res://scenes/Honda.tscn" id="4_qihin"]
+[ext_resource type="PackedScene" uid="uid://fuqdwpgp7tci" path="res://scenes/Kwanza.tscn" id="5_wsav2"]
+[ext_resource type="PackedScene" uid="uid://ggcgbi71wmwt" path="res://scenes/Porteira.tscn" id="6_4obap"]
+[ext_resource type="PackedScene" uid="uid://ckh2fp5xtlt8b" path="res://scenes/Zédu.tscn" id="7_bxg0h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qihin"]
+radius = 38.327538
+
+[node name="TesteDialogo" type="Node2D" unique_id=1723461860]
+
+[node name="Character" parent="." unique_id=1385813945 instance=ExtResource("2")]
+position = Vector2(80, 120)
+
+[node name="NpcHonda" type="Node2D" parent="." unique_id=549458054]
+position = Vector2(219, 119)
+
+[node name="AreaInteracao" type="Area2D" parent="NpcHonda" unique_id=1702191222]
+script = ExtResource("1")
+nome_personagem = "Honda"
+falas = Array[String](["Ô, tudo certo?", "Já foi na cantina hoje? Tão servindo aquele arroz doce de novo.", "Bora, tenho aula agora — te vejo por aí!"])
+
+[node name="LabelDica" type="Label" parent="NpcHonda/AreaInteracao" unique_id=2080684654]
+offset_left = -30.0
+offset_top = -40.0
+offset_right = 30.0
+offset_bottom = -24.0
+theme = ExtResource("4")
+theme_override_font_sizes/font_size = 8
+text = "[E] falar"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcHonda/AreaInteracao" unique_id=278950651]
+position = Vector2(-2, 4)
+shape = SubResource("CircleShape2D_qihin")
+
+[node name="npc" parent="NpcHonda" unique_id=724393367 instance=ExtResource("4_qihin")]
+
+[node name="NpcKwanza" type="Node2D" parent="." unique_id=1740095352]
+position = Vector2(219, 119)
+
+[node name="AreaInteracao" type="Area2D" parent="NpcKwanza" unique_id=1729294755]
+script = ExtResource("1")
+nome_personagem = "Honda"
+falas = Array[String](["Ô, tudo certo?", "Já foi na cantina hoje? Tão servindo aquele arroz doce de novo.", "Bora, tenho aula agora — te vejo por aí!"])
+
+[node name="LabelDica" type="Label" parent="NpcKwanza/AreaInteracao" unique_id=411666277]
+offset_left = -30.0
+offset_top = -40.0
+offset_right = 30.0
+offset_bottom = -24.0
+theme = ExtResource("4")
+theme_override_font_sizes/font_size = 8
+text = "[E] falar"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcKwanza/AreaInteracao" unique_id=1242959817]
+position = Vector2(-174, 69)
+shape = SubResource("CircleShape2D_qihin")
+
+[node name="npc2" parent="NpcKwanza" unique_id=780284905 instance=ExtResource("5_wsav2")]
+position = Vector2(-173, 65)
+
+[node name="NpcPorteira" type="Node2D" parent="." unique_id=1524494778]
+position = Vector2(219, 119)
+
+[node name="AreaInteracao" type="Area2D" parent="NpcPorteira" unique_id=454764261]
+script = ExtResource("1")
+nome_personagem = "Honda"
+falas = Array[String](["Ô, tudo certo?", "Já foi na cantina hoje? Tão servindo aquele arroz doce de novo.", "Bora, tenho aula agora — te vejo por aí!"])
+
+[node name="LabelDica" type="Label" parent="NpcPorteira/AreaInteracao" unique_id=1466839865]
+offset_left = -30.0
+offset_top = -40.0
+offset_right = 30.0
+offset_bottom = -24.0
+theme = ExtResource("4")
+theme_override_font_sizes/font_size = 8
+text = "[E] falar"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcPorteira/AreaInteracao" unique_id=1738058890]
+position = Vector2(-91, -54)
+shape = SubResource("CircleShape2D_qihin")
+
+[node name="npc3" parent="NpcPorteira" unique_id=726406920 instance=ExtResource("6_4obap")]
+position = Vector2(-89, -57)
+
+[node name="NpcZedu" type="Node2D" parent="." unique_id=354888161]
+position = Vector2(219, 119)
+
+[node name="AreaInteracao" type="Area2D" parent="NpcZedu" unique_id=746677940]
+script = ExtResource("1")
+nome_personagem = "Honda"
+falas = Array[String](["Ô, tudo certo?", "Já foi na cantina hoje? Tão servindo aquele arroz doce de novo.", "Bora, tenho aula agora — te vejo por aí!"])
+
+[node name="LabelDica" type="Label" parent="NpcZedu/AreaInteracao" unique_id=519052431]
+offset_left = -30.0
+offset_top = -40.0
+offset_right = 30.0
+offset_bottom = -24.0
+theme = ExtResource("4")
+theme_override_font_sizes/font_size = 8
+text = "[E] falar"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcZedu/AreaInteracao" unique_id=1437585595]
+position = Vector2(-54, 73)
+shape = SubResource("CircleShape2D_qihin")
+
+[node name="npc4" parent="NpcZedu" unique_id=192168920 instance=ExtResource("7_bxg0h")]
+position = Vector2(-53, 68)
+
+[node name="Label" type="Label" parent="." unique_id=2091263398]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 500.0
+offset_bottom = 44.0
+theme = ExtResource("4")
+theme_override_font_sizes/font_size = 10
+text = "WASD pra andar, chegue perto do Honda e aperte E"
+
+[connection signal="jogador_entrou_na_area" from="NpcHonda/AreaInteracao" to="NpcHonda/npc" method="virar_para_jogador"]
+[connection signal="jogador_entrou_na_area" from="NpcKwanza/AreaInteracao" to="NpcKwanza/npc2" method="virar_para_jogador"]
+[connection signal="jogador_entrou_na_area" from="NpcPorteira/AreaInteracao" to="NpcPorteira/npc3" method="virar_para_jogador"]
+[connection signal="jogador_entrou_na_area" from="NpcZedu/AreaInteracao" to="NpcZedu/npc4" method="virar_para_jogador"]
