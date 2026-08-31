@@ -186,7 +186,3 @@ texture = ExtResource("5_5gddd")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot" unique_id=824447831]
 libraries/ = SubResource("AnimationLibrary_1")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=659983484]
-position = Vector2(0, 4)
-zoom = Vector2(3, 3)
