@@ -7,6 +7,8 @@
 [ext_resource type="Theme" path="res://theme/theme.tres" id="7_7hm7w"]
 [ext_resource type="PackedScene" uid="uid://b1vympcot738" path="res://scenes/npcs/Honda.tscn" id="8_y5wrn"]
 [ext_resource type="PackedScene" uid="uid://fuqdwpgp7tci" path="res://scenes/npcs/Kwanza.tscn" id="9_enx2p"]
+[ext_resource type="PackedScene" uid="uid://d280ko5n451cg" path="res://scenes/npcs/Jaime.tscn" id="10_5uvpb"]
+[ext_resource type="PackedScene" uid="uid://c8gy0iue1mcd0" path="res://scenes/npcs/Pete.tscn" id="10_dahpq"]
 [ext_resource type="PackedScene" uid="uid://d83fdlmj5733" path="res://scenes/npcs/Alice.tscn" id="10_tjany"]
 [ext_resource type="Script" uid="uid://cdixun6r1c3yu" path="res://npcs.gd" id="11_w8cmx"]
 [ext_resource type="PackedScene" uid="uid://cr002tmjssnj8" path="res://scenes/npcs/Nicole.tscn" id="12_w8cmx"]
@@ -2746,7 +2748,8 @@ color = Color(0.9, 0.7, 0.1, 0.5)
 [node name="NPCs" type="Node2D" parent="." unique_id=1637162190]
 
 [node name="NpcHonda" type="Node2D" parent="NPCs" unique_id=190770143]
-position = Vector2(286, 146)
+position = Vector2(236, 98)
+metadata/_edit_group_ = true
 
 [node name="AreaInteracao" type="Area2D" parent="NPCs/NpcHonda" unique_id=1070892769]
 script = ExtResource("6_837if")
@@ -2764,11 +2767,11 @@ text = "[E] falar"
 horizontal_alignment = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NpcHonda/AreaInteracao" unique_id=1661802690]
-position = Vector2(-53, -42)
+position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_r3jxo")
 
 [node name="npc" parent="NPCs/NpcHonda" unique_id=724393367 instance=ExtResource("8_y5wrn")]
-position = Vector2(-51, -47)
+position = Vector2(1, -2)
 
 [node name="NpcKwanza" type="Node2D" parent="NPCs" unique_id=1797371189]
 position = Vector2(124, 185)
@@ -2848,6 +2851,60 @@ shape = SubResource("CircleShape2D_8g0vf")
 
 [node name="npc4" parent="NPCs/NpcNicole/AreaInteracao" unique_id=398721354 instance=ExtResource("12_w8cmx")]
 position = Vector2(1, 1)
+script = ExtResource("11_w8cmx")
+
+[node name="NpcJaime" type="Node2D" parent="NPCs" unique_id=1587476532]
+position = Vector2(124, 144)
+
+[node name="AreaInteracao" type="Area2D" parent="NPCs/NpcJaime" unique_id=1244768525]
+position = Vector2(-1, -1)
+script = ExtResource("6_837if")
+nome_personagem = "Jaime"
+falas = Array[String](["JDBC", "Eu gosto de SAP-1", "ANGU!"])
+
+[node name="LabelDica" type="Label" parent="NPCs/NpcJaime/AreaInteracao" unique_id=1842340690]
+offset_left = -34.0
+offset_top = -25.0
+offset_right = 38.0
+offset_bottom = -9.0
+theme = ExtResource("7_7hm7w")
+theme_override_font_sizes/font_size = 8
+text = "[E] falar"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NpcJaime/AreaInteracao" unique_id=845699433]
+position = Vector2(1, 1)
+shape = SubResource("CircleShape2D_8g0vf")
+
+[node name="npc5" parent="NPCs/NpcJaime/AreaInteracao" unique_id=622589184 instance=ExtResource("10_5uvpb")]
+position = Vector2(1, 1)
+script = ExtResource("11_w8cmx")
+
+[node name="NpcPete" type="Node2D" parent="NPCs" unique_id=1789796000]
+position = Vector2(123, 226)
+
+[node name="AreaInteracao" type="Area2D" parent="NPCs/NpcPete" unique_id=135898316]
+position = Vector2(-1, -1)
+script = ExtResource("6_837if")
+nome_personagem = "Pete"
+falas = Array[String](["iai mano?", "bora bandecar mais tarde?", "falou ent brother"])
+
+[node name="LabelDica" type="Label" parent="NPCs/NpcPete/AreaInteracao" unique_id=1621969440]
+offset_left = -34.0
+offset_top = -25.0
+offset_right = 38.0
+offset_bottom = -9.0
+theme = ExtResource("7_7hm7w")
+theme_override_font_sizes/font_size = 8
+text = "[E] falar"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NpcPete/AreaInteracao" unique_id=19045087]
+position = Vector2(1, 1)
+shape = SubResource("CircleShape2D_8g0vf")
+
+[node name="npc6" parent="NPCs/NpcPete/AreaInteracao" unique_id=77293512 instance=ExtResource("10_dahpq")]
+position = Vector2(2, 0)
 script = ExtResource("11_w8cmx")
 
 [node name="Borda1" type="StaticBody2D" parent="." unique_id=717280479]
