@@ -7,9 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://dih4mt0xb10ut" path="res://Tilemap/midcentury_modern_furnitureset.png" id="4_jcfuj"]
 [ext_resource type="Script" uid="uid://cl48gskn5npgw" path="res://Interacao/interagivel.gd" id="5_0uv0p"]
 [ext_resource type="Theme" path="res://theme/theme.tres" id="6_b3faq"]
-[ext_resource type="PackedScene" uid="uid://fuqdwpgp7tci" path="res://scenes/Kwanza.tscn" id="8_ygioq"]
-[ext_resource type="PackedScene" uid="uid://ggcgbi71wmwt" path="res://scenes/Porteira.tscn" id="9_pdh0q"]
-[ext_resource type="PackedScene" uid="uid://ckh2fp5xtlt8b" path="res://scenes/zedu.tscn" id="10_pdh0q"]
+[ext_resource type="PackedScene" uid="uid://fuqdwpgp7tci" path="res://scenes/npcs/Kwanza.tscn" id="8_ygioq"]
+[ext_resource type="PackedScene" uid="uid://ggcgbi71wmwt" path="res://scenes/npcs/Porteira.tscn" id="9_pdh0q"]
+[ext_resource type="PackedScene" uid="uid://ckh2fp5xtlt8b" path="res://scenes/npcs/Duze.tscn" id="10_pdh0q"]
 [ext_resource type="Script" uid="uid://bpfro4mme3qgs" path="res://mapas/area_base.gd" id="area_base"]
 [ext_resource type="Script" uid="uid://m4v3jilfgb3j" path="res://mapas/porta.gd" id="porta_script"]
 
@@ -2118,7 +2118,7 @@ position = Vector2(20, 179)
 [node name="PortaParaHall" type="Area2D" parent="." unique_id=800000001]
 position = Vector2(354, 73)
 script = ExtResource("porta_script")
-cena_destino = "res://scenes/hall.tscn"
+cena_destino = "res://scenes/mapas/hall.tscn"
 ponto_entrada_destino = "EntradaPortaria"
 metadata/_edit_group_ = true
 
@@ -2136,7 +2136,7 @@ color = Color(0.9, 0.7, 0.1, 0.5)
 [node name="PortaParaHall6" type="Area2D" parent="." unique_id=1037679860]
 position = Vector2(-624, -728)
 script = ExtResource("porta_script")
-cena_destino = "res://scenes/hall.tscn"
+cena_destino = "res://scenes/mapas/hall.tscn"
 ponto_entrada_destino = "EntradaPortaria"
 metadata/_edit_group_ = true
 
@@ -2154,7 +2154,7 @@ color = Color(0.9, 0.7, 0.1, 0.5)
 [node name="PortaParaHall5" type="Area2D" parent="." unique_id=825930502]
 position = Vector2(0, -538)
 script = ExtResource("porta_script")
-cena_destino = "res://scenes/hall.tscn"
+cena_destino = "res://scenes/mapas/hall.tscn"
 ponto_entrada_destino = "EntradaPortaria"
 metadata/_edit_group_ = true
 
@@ -2172,7 +2172,7 @@ color = Color(0.9, 0.7, 0.1, 0.5)
 [node name="PortaParaHall4" type="Area2D" parent="." unique_id=970955552]
 position = Vector2(-225, -540)
 script = ExtResource("porta_script")
-cena_destino = "res://scenes/hall.tscn"
+cena_destino = "res://scenes/mapas/hall.tscn"
 ponto_entrada_destino = "EntradaPortaria"
 metadata/_edit_group_ = true
 
@@ -2190,7 +2190,7 @@ color = Color(0.9, 0.7, 0.1, 0.5)
 [node name="PortaParaHall3" type="Area2D" parent="." unique_id=1611556117]
 position = Vector2(929, 74)
 script = ExtResource("porta_script")
-cena_destino = "res://scenes/hall.tscn"
+cena_destino = "res://scenes/mapas/hall.tscn"
 ponto_entrada_destino = "EntradaPortaria"
 metadata/_edit_group_ = true
 
@@ -2208,7 +2208,7 @@ color = Color(0.9, 0.7, 0.1, 0.5)
 [node name="PortaParaHall2" type="Area2D" parent="." unique_id=2107745372]
 position = Vector2(657, 76)
 script = ExtResource("porta_script")
-cena_destino = "res://scenes/hall.tscn"
+cena_destino = "res://scenes/mapas/hall.tscn"
 ponto_entrada_destino = "EntradaPortaria"
 metadata/_edit_group_ = true
 

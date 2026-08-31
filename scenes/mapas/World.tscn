@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://bx0y0uxnqtd82" path="res://Tilemap/Exterior Tiles.png" id="2_bcbcq"]
 [ext_resource type="Script" uid="uid://cl48gskn5npgw" path="res://Interacao/interagivel.gd" id="5_0uv0p"]
 [ext_resource type="Theme" path="res://theme/theme.tres" id="6_b3faq"]
-[ext_resource type="PackedScene" uid="uid://b1vympcot738" path="res://scenes/Honda.tscn" id="7_ygioq"]
-[ext_resource type="PackedScene" uid="uid://fuqdwpgp7tci" path="res://scenes/Kwanza.tscn" id="8_ygioq"]
-[ext_resource type="PackedScene" uid="uid://ggcgbi71wmwt" path="res://scenes/Porteira.tscn" id="9_pdh0q"]
-[ext_resource type="PackedScene" uid="uid://ckh2fp5xtlt8b" path="res://scenes/zedu.tscn" id="10_pdh0q"]
+[ext_resource type="PackedScene" uid="uid://b1vympcot738" path="res://scenes/npcs/Honda.tscn" id="7_ygioq"]
+[ext_resource type="PackedScene" uid="uid://fuqdwpgp7tci" path="res://scenes/npcs/Kwanza.tscn" id="8_ygioq"]
+[ext_resource type="PackedScene" uid="uid://ggcgbi71wmwt" path="res://scenes/npcs/Porteira.tscn" id="9_pdh0q"]
+[ext_resource type="PackedScene" uid="uid://ckh2fp5xtlt8b" path="res://scenes/npcs/Duze.tscn" id="10_pdh0q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ygioq"]
 texture = ExtResource("2_bcbcq")

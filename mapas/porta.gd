@@ -3,7 +3,7 @@ extends Area2D
 ## troca de cena e avisa o próximo mapa em qual Marker2D o
 ## personagem deve aparecer.
 
-## Caminho da cena de destino, ex: "res://scenes/Hall.tscn"
+## Caminho da cena de destino, ex: "res://scenes/mapas/hall.tscn"
 @export_file("*.tscn") var cena_destino: String
 
 ## Nome do Marker2D (dentro da cena de destino) onde o personagem

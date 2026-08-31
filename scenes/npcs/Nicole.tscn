@@ -1,14 +1,13 @@
-[gd_scene format=3 uid="uid://b1vympcot738"]
+[gd_scene format=3 uid="uid://cr002tmjssnj8"]
 
-[ext_resource type="Script" uid="uid://cdixun6r1c3yu" path="res://npcs.gd" id="1_u84jp"]
-[ext_resource type="Texture2D" uid="uid://1x7bjokla03l" path="res://Personagem Principal/legs.png" id="2_0sdo1"]
-[ext_resource type="Texture2D" uid="uid://hggdxl12x8to" path="res://NPCS/Honda/body.png" id="3_u84jp"]
-[ext_resource type="Texture2D" uid="uid://dhkk3jljr82u1" path="res://NPCS/Honda/left.png" id="4_0sdo1"]
-[ext_resource type="Texture2D" uid="uid://dy3t2eeka67oc" path="res://NPCS/Honda/right.png" id="5_4e5f7"]
-[ext_resource type="Texture2D" uid="uid://rd4lt4ny0hja" path="res://NPCS/Honda/head.png" id="6_qtwia"]
+[ext_resource type="Texture2D" uid="uid://1x7bjokla03l" path="res://Personagem Principal/legs.png" id="1_ycaxd"]
+[ext_resource type="Texture2D" uid="uid://dic5y3d22vnou" path="res://NPCS/Nicole/body.png" id="2_1awk4"]
+[ext_resource type="Texture2D" uid="uid://droe36isj20ie" path="res://NPCS/Nicole/left.png" id="3_1v3pk"]
+[ext_resource type="Texture2D" uid="uid://c6mdviknsec6u" path="res://NPCS/Nicole/right.png" id="4_s27fn"]
+[ext_resource type="Texture2D" uid="uid://cww1uo7p38m1l" path="res://NPCS/Nicole/head.png" id="5_1ohdj"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
-size = Vector2(13, 25)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t2j4p"]
+size = Vector2(9, 10)
 
 [sub_resource type="Animation" id="Animation_idle"]
 resource_name = "idle"
@@ -129,58 +128,58 @@ tracks/4/keys = {
 "values": [0.29670597283903605, -0.2617993877991494, 0.29670597283903605]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_1"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u3d5x"]
 _data = {
 &"idle": SubResource("Animation_idle"),
 &"walk": SubResource("Animation_walk")
 }
 
-[node name="Honda" type="CharacterBody2D" unique_id=724393367]
-script = ExtResource("1_u84jp")
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=398721354]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=495185314]
-position = Vector2(-0.5, 2.5)
-shape = SubResource("RectangleShape2D_1")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1706828298]
+position = Vector2(-0.5, 3)
+shape = SubResource("RectangleShape2D_t2j4p")
 
-[node name="Pivot" type="Node2D" parent="." unique_id=1262328910]
+[node name="Pivot" type="Node2D" parent="." unique_id=857022731]
 position = Vector2(-1, 21)
 
-[node name="Legs" type="Node2D" parent="Pivot" unique_id=91427823]
+[node name="Legs" type="Node2D" parent="Pivot" unique_id=181007582]
 position = Vector2(0, 1)
 
-[node name="LegLeft" type="Sprite2D" parent="Pivot/Legs" unique_id=1618111630]
-position = Vector2(-2, -8)
-texture = ExtResource("2_0sdo1")
+[node name="LegLeft" type="Sprite2D" parent="Pivot/Legs" unique_id=1020754064]
+position = Vector2(-2, -11)
+texture = ExtResource("1_ycaxd")
 
-[node name="LegRight" type="Sprite2D" parent="Pivot/Legs" unique_id=800613317]
-position = Vector2(3, -8)
-texture = ExtResource("2_0sdo1")
+[node name="LegRight" type="Sprite2D" parent="Pivot/Legs" unique_id=478244549]
+position = Vector2(3, -11)
+texture = ExtResource("1_ycaxd")
 
-[node name="Body" type="Sprite2D" parent="Pivot" unique_id=1259137092]
+[node name="Body" type="Sprite2D" parent="Pivot" unique_id=1100182713]
 position = Vector2(0, -20)
-texture = ExtResource("3_u84jp")
+texture = ExtResource("2_1awk4")
 
-[node name="ArmLeft" type="Node2D" parent="Pivot/Body" unique_id=673567564]
+[node name="ArmLeft" type="Node2D" parent="Pivot/Body" unique_id=1897348894]
 position = Vector2(-5.000001, 0.98604393)
 
-[node name="ArmLeftSprite" type="Sprite2D" parent="Pivot/Body/ArmLeft" unique_id=784429525]
-position = Vector2(9.536743e-07, 2.013956)
-texture = ExtResource("4_0sdo1")
+[node name="ArmLeftSprite" type="Sprite2D" parent="Pivot/Body/ArmLeft" unique_id=416520219]
+position = Vector2(1.000001, 2.013956)
+texture = ExtResource("3_1v3pk")
 
-[node name="ArmRight" type="Node2D" parent="Pivot/Body" unique_id=490616424]
+[node name="ArmRight" type="Node2D" parent="Pivot/Body" unique_id=1066320700]
 position = Vector2(4, 0.98604393)
 
-[node name="ArmRightSprite" type="Sprite2D" parent="Pivot/Body/ArmRight" unique_id=1336812480]
-position = Vector2(-5.9604645e-08, 2.013956)
-texture = ExtResource("5_4e5f7")
+[node name="ArmRightSprite" type="Sprite2D" parent="Pivot/Body/ArmRight" unique_id=157642173]
+position = Vector2(1, 2.013956)
+texture = ExtResource("4_s27fn")
 
-[node name="Head" type="Node2D" parent="Pivot/Body" unique_id=221332919]
+[node name="Head" type="Node2D" parent="Pivot/Body" unique_id=1227236912]
 position = Vector2(1, -4.495638)
 
-[node name="HeadSprite" type="Sprite2D" parent="Pivot/Body/Head" unique_id=648483184]
-position = Vector2(0, 4.495638)
+[node name="HeadSprite" type="Sprite2D" parent="Pivot/Body/Head" unique_id=1528134857]
+position = Vector2(1.1920929e-07, 4.495638)
+rotation = 0.008726646
 scale = Vector2(-0.9599986, 1)
-texture = ExtResource("6_qtwia")
+texture = ExtResource("5_1ohdj")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot" unique_id=824447831]
-libraries/ = SubResource("AnimationLibrary_1")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot" unique_id=576897195]
+libraries/ = SubResource("AnimationLibrary_u3d5x")
