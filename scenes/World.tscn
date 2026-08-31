@@ -196,7 +196,7 @@ position = Vector2(219, 119)
 [node name="AreaInteracao" type="Area2D" parent="NpcHonda" unique_id=1521753083]
 script = ExtResource("5_0uv0p")
 nome_personagem = "Honda"
-falas = Array[String](["Ô, tudo certo?", "Já foi na cantina hoje? Tão servindo aquele arroz doce de novo.", "Bora, tenho aula agora — te vejo por aí!"])
+falas = Array[String](["Ô, tudo certo? fala com seu porfessor havaiano aqui", "Já fez minha prova? ta molezinha né?", "Bora, tenho aula agora — te vejo por aí!", "Oh yeah"])
 
 [node name="LabelDica" type="Label" parent="NpcHonda/AreaInteracao" unique_id=867333295]
 offset_left = -30.0
@@ -220,8 +220,8 @@ position = Vector2(219, 119)
 
 [node name="AreaInteracao" type="Area2D" parent="NpcKwanza" unique_id=1455161614]
 script = ExtResource("5_0uv0p")
-nome_personagem = "Honda"
-falas = Array[String](["Ô, tudo certo?", "Já foi na cantina hoje? Tão servindo aquele arroz doce de novo.", "Bora, tenho aula agora — te vejo por aí!"])
+nome_personagem = "Kwanza"
+falas = Array[String](["E ai mano? Tranquilo?", "Bora bandecar juntos mais tarde?", "até mmais então"])
 
 [node name="LabelDica" type="Label" parent="NpcKwanza/AreaInteracao" unique_id=1369411829]
 offset_left = -153.0
@@ -245,8 +245,8 @@ position = Vector2(219, 119)
 
 [node name="AreaInteracao" type="Area2D" parent="NpcPorteira" unique_id=1185096828]
 script = ExtResource("5_0uv0p")
-nome_personagem = "Honda"
-falas = Array[String](["Ô, tudo certo?", "Já foi na cantina hoje? Tão servindo aquele arroz doce de novo.", "Bora, tenho aula agora — te vejo por aí!"])
+nome_personagem = "Porteira"
+falas = Array[String](["Bom Dia!", "Não esquce da carteirinha em!"])
 
 [node name="LabelDica" type="Label" parent="NpcPorteira/AreaInteracao" unique_id=1446226803]
 offset_left = 42.0
@@ -270,8 +270,8 @@ position = Vector2(219, 119)
 
 [node name="AreaInteracao" type="Area2D" parent="NpcZedu" unique_id=1080726778]
 script = ExtResource("5_0uv0p")
-nome_personagem = "Honda"
-falas = Array[String](["Ô, tudo certo?", "Já foi na cantina hoje? Tão servindo aquele arroz doce de novo.", "Bora, tenho aula agora — te vejo por aí!"])
+nome_personagem = "Zédu"
+falas = Array[String](["Ô cara, o que voce está fazendo ai?", "Vou tomar seu telefone em!", "Fica esperto!"])
 
 [node name="LabelDica" type="Label" parent="NpcZedu/AreaInteracao" unique_id=746845771]
 offset_left = 61.0

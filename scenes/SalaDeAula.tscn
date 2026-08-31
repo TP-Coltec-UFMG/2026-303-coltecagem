@@ -3273,7 +3273,7 @@ position = Vector2(286, 146)
 [node name="AreaInteracao" type="Area2D" parent="NpcHonda" unique_id=1070892769]
 script = ExtResource("6_837if")
 nome_personagem = "Honda"
-falas = Array[String](["Ô, tudo certo?", "Já foi na cantina hoje? Tão servindo aquele arroz doce de novo.", "Bora, tenho aula agora — te vejo por aí!"])
+falas = Array[String](["Ô, tudo certo?", "já fez a atividade do seu professor Havaiano?", "Bora, tenho aula agora — te vejo por aí!", "Oh yeah"])
 
 [node name="LabelDica" type="Label" parent="NpcHonda/AreaInteracao" unique_id=1334030860]
 offset_left = -30.0
@@ -3299,8 +3299,8 @@ metadata/_edit_group_ = true
 [node name="AreaInteracao" type="Area2D" parent="NpcKwanza" unique_id=860722169]
 position = Vector2(-1, -1)
 script = ExtResource("6_837if")
-nome_personagem = "Honda"
-falas = Array[String](["Ô, tudo certo?", "Já foi na cantina hoje? Tão servindo aquele arroz doce de novo.", "Bora, tenho aula agora — te vejo por aí!"])
+nome_personagem = "Kwanza"
+falas = Array[String](["iai mano?", "bora bandecar mais tarde?", "falou ent brother"])
 
 [node name="LabelDica" type="Label" parent="NpcKwanza/AreaInteracao" unique_id=1975492745]
 offset_left = -34.0
