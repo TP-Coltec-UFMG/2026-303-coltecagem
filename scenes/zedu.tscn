@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://ckh2fp5xtlt8b"]
 
 [ext_resource type="Script" uid="uid://cdixun6r1c3yu" path="res://npcs.gd" id="1_vtssx"]
-[ext_resource type="Texture2D" uid="uid://nwtyqo5qeibl" path="res://Personagem Principal/legs.png" id="2_qf70f"]
-[ext_resource type="Texture2D" uid="uid://cv540shkq73cc" path="res://NPCS/Zédu/body.png" id="3_vtssx"]
-[ext_resource type="Texture2D" uid="uid://c5qjw8u7ojpmo" path="res://NPCS/Zédu/left.png" id="4_qf70f"]
-[ext_resource type="Texture2D" uid="uid://003gqqeidx0k" path="res://NPCS/Zédu/right.png" id="5_62uqu"]
-[ext_resource type="Texture2D" uid="uid://cn0vgvjbc2v2u" path="res://NPCS/Zédu/head.png" id="6_46nkm"]
+[ext_resource type="Texture2D" uid="uid://1x7bjokla03l" path="res://Personagem Principal/legs.png" id="2_qf70f"]
+[ext_resource type="Texture2D" uid="uid://egn4lgi3pd53" path="res://NPCS/Z#U00e9du/body.png" id="3_vtssx"]
+[ext_resource type="Texture2D" uid="uid://lg7dm40xgwbv" path="res://NPCS/Z#U00e9du/left.png" id="4_qf70f"]
+[ext_resource type="Texture2D" uid="uid://chve5hlwi8b3c" path="res://NPCS/Z#U00e9du/right.png" id="5_62uqu"]
+[ext_resource type="Texture2D" uid="uid://c3x36v8olt0ey" path="res://NPCS/Z#U00e9du/head.png" id="6_46nkm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
 size = Vector2(14, 24)

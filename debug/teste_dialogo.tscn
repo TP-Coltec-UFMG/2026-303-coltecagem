@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b1vympcot738" path="res://scenes/Honda.tscn" id="4_qihin"]
 [ext_resource type="PackedScene" uid="uid://fuqdwpgp7tci" path="res://scenes/Kwanza.tscn" id="5_wsav2"]
 [ext_resource type="PackedScene" uid="uid://ggcgbi71wmwt" path="res://scenes/Porteira.tscn" id="6_4obap"]
-[ext_resource type="PackedScene" uid="uid://ckh2fp5xtlt8b" path="res://scenes/Zédu.tscn" id="7_bxg0h"]
+[ext_resource type="PackedScene" uid="uid://ckh2fp5xtlt8b" path="res://scenes/zedu.tscn" id="7_bxg0h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qihin"]
 radius = 38.327538

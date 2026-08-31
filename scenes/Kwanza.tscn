@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://fuqdwpgp7tci"]
 
 [ext_resource type="Script" uid="uid://cdixun6r1c3yu" path="res://npcs.gd" id="1_a7d2f"]
-[ext_resource type="Texture2D" uid="uid://nwtyqo5qeibl" path="res://Personagem Principal/legs.png" id="2_4pl7g"]
+[ext_resource type="Texture2D" uid="uid://1x7bjokla03l" path="res://Personagem Principal/legs.png" id="2_4pl7g"]
 [ext_resource type="Texture2D" uid="uid://hpn2kdt85shc" path="res://NPCS/Kwanza/body.png" id="3_a7d2f"]
 [ext_resource type="Texture2D" uid="uid://b2qmqmgaxr7oo" path="res://NPCS/Kwanza/left.png" id="4_4pl7g"]
 [ext_resource type="Texture2D" uid="uid://m8jvfmkxe0u2" path="res://NPCS/Kwanza/right.png" id="5_c2jxh"]

@@ -1,3 +1,67 @@
 [gd_scene format=3 uid="uid://cljeq814377wq"]
 
+[ext_resource type="PackedScene" uid="uid://bh2x6uofmcld7" path="res://scenes/Character.tscn" id="1"]
+[ext_resource type="Script" uid="uid://bpfro4mme3qgs" path="res://mapas/area_base.gd" id="area_base"]
+[ext_resource type="Script" uid="uid://m4v3jilfgb3j" path="res://mapas/porta.gd" id="porta_script"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hall_porta"]
+size = Vector2(40, 40)
+
 [node name="Hall" type="Node2D" unique_id=57489326]
+script = ExtResource("area_base")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1064186243]
+zoom = Vector2(2.5, 2.5)
+limit_left = 0
+limit_top = 0
+limit_right = 461
+limit_bottom = 260
+
+[node name="Chao" type="ColorRect" parent="." unique_id=1565428688]
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0.35, 0.32, 0.28, 1)
+
+[node name="Character" parent="." unique_id=555860957 instance=ExtResource("1")]
+position = Vector2(320, 180)
+
+[node name="EntradaPortaria" type="Marker2D" parent="." unique_id=756552200]
+position = Vector2(52, 181)
+
+[node name="EntradaSalaDeAula" type="Marker2D" parent="." unique_id=1869640893]
+position = Vector2(411, 179)
+
+[node name="PortaParaPortaria" type="Area2D" parent="." unique_id=1090267800]
+position = Vector2(21, 181)
+script = ExtResource("porta_script")
+cena_destino = "res://scenes/Portaria.tscn"
+ponto_entrada_destino = "EntradaHall"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PortaParaPortaria" unique_id=1606434011]
+shape = SubResource("RectangleShape2D_hall_porta")
+
+[node name="ColorRect" type="ColorRect" parent="PortaParaPortaria" unique_id=1953711780]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0.9, 0.7, 0.1, 0.5)
+
+[node name="PortaParaSalaDeAula" type="Area2D" parent="." unique_id=1683995623]
+position = Vector2(440, 179)
+script = ExtResource("porta_script")
+cena_destino = "res://scenes/SalaDeAula.tscn"
+ponto_entrada_destino = "EntradaHall"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PortaParaSalaDeAula" unique_id=814281517]
+shape = SubResource("RectangleShape2D_hall_porta")
+
+[node name="ColorRect" type="ColorRect" parent="PortaParaSalaDeAula" unique_id=1398054964]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0.2, 0.6, 0.9, 0.5)
+
+[connection signal="body_entered" from="PortaParaPortaria" to="PortaParaPortaria" method="_on_body_entered"]
+[connection signal="body_entered" from="PortaParaSalaDeAula" to="PortaParaSalaDeAula" method="_on_body_entered"]

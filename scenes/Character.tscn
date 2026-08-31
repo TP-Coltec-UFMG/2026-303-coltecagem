@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://bh2x6uofmcld7"]
 
 [ext_resource type="Script" uid="uid://1vwspgcsbn0g" path="res://character.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://nwtyqo5qeibl" path="res://Personagem Principal/legs.png" id="2_citl0"]
-[ext_resource type="Texture2D" uid="uid://dn7m7enlfwqui" path="res://Personagem Principal/body.png" id="3_cxxw8"]
-[ext_resource type="Texture2D" uid="uid://dgykvlod4olrm" path="res://Personagem Principal/Arm_left.png" id="4_cxxw8"]
-[ext_resource type="Texture2D" uid="uid://bk688uhndvybp" path="res://Personagem Principal/head.png" id="5_5gddd"]
-[ext_resource type="Texture2D" uid="uid://budf22wi774lk" path="res://Personagem Principal/Arm_Right.png" id="5_e24yd"]
+[ext_resource type="Texture2D" uid="uid://1x7bjokla03l" path="res://Personagem Principal/legs.png" id="2_citl0"]
+[ext_resource type="Texture2D" uid="uid://bm4dkbqjnd5un" path="res://Personagem Principal/body.png" id="3_cxxw8"]
+[ext_resource type="Texture2D" uid="uid://cogx6x87mcq5i" path="res://Personagem Principal/Arm_left.png" id="4_cxxw8"]
+[ext_resource type="Texture2D" uid="uid://c810j4xcdys70" path="res://Personagem Principal/head.png" id="5_5gddd"]
+[ext_resource type="Texture2D" uid="uid://b8x4pr48wsnx8" path="res://Personagem Principal/Arm_Right.png" id="5_e24yd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
-size = Vector2(13, 20)
+size = Vector2(13, 19)
 
 [sub_resource type="Animation" id="Animation_idle"]
 resource_name = "idle"
@@ -139,7 +139,7 @@ _data = {
 script = ExtResource("1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=495185314]
-position = Vector2(0.5, -1)
+position = Vector2(0.5, -1.5)
 shape = SubResource("RectangleShape2D_1")
 
 [node name="Pivot" type="Node2D" parent="." unique_id=1262328910]

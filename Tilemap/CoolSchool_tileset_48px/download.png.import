@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://003gqqeidx0k"
-path="res://.godot/imported/right.png-c5b08a72b0bc9643cd83fc02d03f75f4.ctex"
+uid="uid://wwh4dof3v4a1"
+path="res://.godot/imported/download.png-8ee4230bfe26c2d45a8096e8f4b8e806.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://NPCS/Zédu/right.png"
-dest_files=["res://.godot/imported/right.png-c5b08a72b0bc9643cd83fc02d03f75f4.ctex"]
+source_file="res://Tilemap/CoolSchool_tileset_48px/download.png"
+dest_files=["res://.godot/imported/download.png-8ee4230bfe26c2d45a8096e8f4b8e806.ctex"]
 
 [params]
 

@@ -1,11 +1,9 @@
 extends Node
 
+## Autoload que guarda estado entre trocas de cena.
+## Não é destruído quando o mapa muda, então serve pra "avisar"
+## o próximo mapa de onde o personagem deve aparecer.
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+## Nome do Marker2D (dentro do próximo mapa) onde o personagem
+## deve ser posicionado assim que a cena carregar.
+var proximo_ponto_entrada: String = ""

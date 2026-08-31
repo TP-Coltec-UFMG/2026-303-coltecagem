@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5qjw8u7ojpmo"
-path="res://.godot/imported/left.png-717c0ab67351e201375ee65054c46c81.ctex"
+uid="uid://lg7dm40xgwbv"
+path="res://.godot/imported/left.png-b2760e0bf0546e50265eef7f566a7b9a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://NPCS/Zédu/left.png"
-dest_files=["res://.godot/imported/left.png-717c0ab67351e201375ee65054c46c81.ctex"]
+source_file="res://NPCS/Z#U00e9du/left.png"
+dest_files=["res://.godot/imported/left.png-b2760e0bf0546e50265eef7f566a7b9a.ctex"]
 
 [params]
 

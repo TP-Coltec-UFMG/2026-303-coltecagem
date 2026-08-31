@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://8r5keoyfxkrl"
+path="res://.godot/imported/P#U00e1tio de Xilofone.mp3-660bfa5edffec7b0714597a9483076f8.mp3str"
+
+[deps]
+
+source_file="res://images_jogo/P#U00e1tio de Xilofone.mp3"
+dest_files=["res://.godot/imported/P#U00e1tio de Xilofone.mp3-660bfa5edffec7b0714597a9483076f8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
