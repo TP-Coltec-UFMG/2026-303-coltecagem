@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://qhrij5n778um" path="res://NPCS/Kwanza/head.png" id="6_ta673"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
-size = Vector2(20, 41)
+size = Vector2(14, 21)
 
 [sub_resource type="Animation" id="Animation_idle"]
 resource_name = "idle"
@@ -139,7 +139,7 @@ _data = {
 script = ExtResource("1_a7d2f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=495185314]
-position = Vector2(0, 4.5)
+position = Vector2(-1, 1.5)
 shape = SubResource("RectangleShape2D_1")
 
 [node name="Pivot" type="Node2D" parent="." unique_id=1262328910]
@@ -149,41 +149,37 @@ position = Vector2(-1, 21)
 position = Vector2(0, 1)
 
 [node name="LegLeft" type="Sprite2D" parent="Pivot/Legs" unique_id=1618111630]
-position = Vector2(-3, -9.000001)
-rotation = 0.20943952
+position = Vector2(-2, -11)
 texture = ExtResource("2_4pl7g")
 
 [node name="LegRight" type="Sprite2D" parent="Pivot/Legs" unique_id=800613317]
-position = Vector2(4.0000005, -9.000001)
-rotation = 0.20943952
+position = Vector2(3, -11)
 texture = ExtResource("2_4pl7g")
 
 [node name="Body" type="Sprite2D" parent="Pivot" unique_id=1259137092]
-position = Vector2(0, -20.420696)
+position = Vector2(0, -20)
 texture = ExtResource("3_a7d2f")
 
 [node name="ArmLeft" type="Node2D" parent="Pivot/Body" unique_id=673567564]
 position = Vector2(-5.000001, 0.98604393)
-rotation = 0.044874363
 
 [node name="ArmLeftSprite" type="Sprite2D" parent="Pivot/Body/ArmLeft" unique_id=784429525]
-position = Vector2(9.536743e-07, 1.0139561)
+position = Vector2(1.000001, -0.98604393)
 texture = ExtResource("4_4pl7g")
 
 [node name="ArmRight" type="Node2D" parent="Pivot/Body" unique_id=490616424]
 position = Vector2(4, 0.98604393)
-rotation = -0.044874363
 
 [node name="ArmRightSprite" type="Sprite2D" parent="Pivot/Body/ArmRight" unique_id=1336812480]
-position = Vector2(0.99999994, 1.0139561)
+position = Vector2(-5.9604645e-08, -0.98604393)
 texture = ExtResource("5_c2jxh")
 
 [node name="Head" type="Node2D" parent="Pivot/Body" unique_id=221332919]
 position = Vector2(1, -4.495638)
-rotation = 0.011218591
 
 [node name="HeadSprite" type="Sprite2D" parent="Pivot/Body/Head" unique_id=648483184]
-position = Vector2(-0.78533936, 4.393152)
+position = Vector2(0, 4.495638)
+rotation = 0.008726646
 scale = Vector2(-0.9599986, 1)
 texture = ExtResource("6_ta673")
 

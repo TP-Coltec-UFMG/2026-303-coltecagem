@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c2f8xvd0hj0qk" path="res://NPCS/Porteira/head.png" id="6_8w28g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
-size = Vector2(20, 41)
+size = Vector2(17, 23)
 
 [sub_resource type="Animation" id="Animation_idle"]
 resource_name = "idle"
@@ -139,7 +139,7 @@ _data = {
 script = ExtResource("1_en2ah")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=495185314]
-position = Vector2(0, 4.5)
+position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_1")
 
 [node name="Pivot" type="Node2D" parent="." unique_id=1262328910]
@@ -149,13 +149,11 @@ position = Vector2(-1, 21)
 position = Vector2(0, 1)
 
 [node name="LegLeft" type="Sprite2D" parent="Pivot/Legs" unique_id=1618111630]
-position = Vector2(-3, -9.000001)
-rotation = 0.20943952
+position = Vector2(-2, -11)
 texture = ExtResource("2_1hvsh")
 
 [node name="LegRight" type="Sprite2D" parent="Pivot/Legs" unique_id=800613317]
-position = Vector2(4.0000005, -9.000001)
-rotation = 0.20943952
+position = Vector2(3, -11)
 texture = ExtResource("2_1hvsh")
 
 [node name="Body" type="Sprite2D" parent="Pivot" unique_id=1259137092]
@@ -166,21 +164,21 @@ texture = ExtResource("3_en2ah")
 position = Vector2(-5.000001, 0.98604393)
 
 [node name="ArmLeftSprite" type="Sprite2D" parent="Pivot/Body/ArmLeft" unique_id=784429525]
-position = Vector2(9.536743e-07, 1.0139561)
+position = Vector2(1.000001, -0.98604393)
 texture = ExtResource("4_1hvsh")
 
 [node name="ArmRight" type="Node2D" parent="Pivot/Body" unique_id=490616424]
 position = Vector2(4, 0.98604393)
 
 [node name="ArmRightSprite" type="Sprite2D" parent="Pivot/Body/ArmRight" unique_id=1336812480]
-position = Vector2(0.99999994, 1.0139561)
+position = Vector2(-5.9604645e-08, -0.98604393)
 texture = ExtResource("5_584mx")
 
 [node name="Head" type="Node2D" parent="Pivot/Body" unique_id=221332919]
 position = Vector2(1, -4.495638)
 
 [node name="HeadSprite" type="Sprite2D" parent="Pivot/Body/Head" unique_id=648483184]
-position = Vector2(-0.78533936, 4.393152)
+position = Vector2(0, 4.495638)
 scale = Vector2(-0.9599986, 1)
 texture = ExtResource("6_8w28g")
 
