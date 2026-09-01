@@ -149,11 +149,11 @@ position = Vector2(-1, 21)
 position = Vector2(0, 1)
 
 [node name="LegLeft" type="Sprite2D" parent="Pivot/Legs" unique_id=1618111630]
-position = Vector2(-2, -11)
+position = Vector2(-2, -12)
 texture = ExtResource("2_54h05")
 
 [node name="LegRight" type="Sprite2D" parent="Pivot/Legs" unique_id=800613317]
-position = Vector2(3, -11)
+position = Vector2(3, -12)
 texture = ExtResource("2_54h05")
 
 [node name="Body" type="Sprite2D" parent="Pivot" unique_id=1259137092]

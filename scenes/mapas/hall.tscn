@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cljeq814377wq"]
+[gd_scene format=3 uid="uid://deesotpfrace5"]
 
 [ext_resource type="PackedScene" uid="uid://bh2x6uofmcld7" path="res://scenes/Character.tscn" id="1"]
 [ext_resource type="Script" uid="uid://bpfro4mme3qgs" path="res://mapas/area_base.gd" id="area_base"]

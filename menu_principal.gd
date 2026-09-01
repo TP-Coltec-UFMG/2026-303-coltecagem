@@ -73,7 +73,7 @@ func fechar_config():
 
 
 func jogar():
-	get_tree().change_scene_to_file("res://scenes/mapas/Portaria.tscn")
+	get_tree().change_scene_to_file("res://scenes/mapas/Coltec.tscn")
 
 
 func sair():
