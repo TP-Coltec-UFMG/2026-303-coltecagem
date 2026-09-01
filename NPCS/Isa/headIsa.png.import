@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lg7dm40xgwbv"
-path="res://.godot/imported/left.png-b2760e0bf0546e50265eef7f566a7b9a.ctex"
+uid="uid://4m0ytf6qbkpf"
+path="res://.godot/imported/headIsa.png-31f13bd1300a110b8d7ef6c407858038.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://NPCS/Z#U00e9du/left.png"
-dest_files=["res://.godot/imported/left.png-b2760e0bf0546e50265eef7f566a7b9a.ctex"]
+source_file="res://NPCS/Isa/headIsa.png"
+dest_files=["res://.godot/imported/headIsa.png-31f13bd1300a110b8d7ef6c407858038.ctex"]
 
 [params]
 

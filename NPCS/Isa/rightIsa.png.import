@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chve5hlwi8b3c"
-path="res://.godot/imported/right.png-68ed6beff1a40f65fdbc461da16cd0f2.ctex"
+uid="uid://c7uq4gusli7kn"
+path="res://.godot/imported/rightIsa.png-3d61f8fd43fe991190c7120c90d69a4c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://NPCS/Z#U00e9du/right.png"
-dest_files=["res://.godot/imported/right.png-68ed6beff1a40f65fdbc461da16cd0f2.ctex"]
+source_file="res://NPCS/Isa/rightIsa.png"
+dest_files=["res://.godot/imported/rightIsa.png-3d61f8fd43fe991190c7120c90d69a4c.ctex"]
 
 [params]
 

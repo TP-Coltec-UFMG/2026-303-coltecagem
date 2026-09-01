@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://egn4lgi3pd53"
-path="res://.godot/imported/body.png-80f52cd51e1d927af9c446a2006b8f57.ctex"
+uid="uid://ci0c03fg7xaei"
+path="res://.godot/imported/rightPedro.png-088a5c439f72c34805a97dcf2dd71eb7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://NPCS/Z#U00e9du/body.png"
-dest_files=["res://.godot/imported/body.png-80f52cd51e1d927af9c446a2006b8f57.ctex"]
+source_file="res://NPCS/Pedrao/rightPedro.png"
+dest_files=["res://.godot/imported/rightPedro.png-088a5c439f72c34805a97dcf2dd71eb7.ctex"]
 
 [params]
 

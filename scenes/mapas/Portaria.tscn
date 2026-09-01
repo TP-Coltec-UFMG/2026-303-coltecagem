@@ -12,6 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://fuqdwpgp7tci" path="res://scenes/npcs/Kwanza.tscn" id="8_ygioq"]
 [ext_resource type="PackedScene" uid="uid://ggcgbi71wmwt" path="res://scenes/npcs/Porteira.tscn" id="9_pdh0q"]
 [ext_resource type="PackedScene" uid="uid://ckh2fp5xtlt8b" path="res://scenes/npcs/Duze.tscn" id="10_pdh0q"]
+[ext_resource type="PackedScene" uid="uid://bej7yvwvrb6tv" path="res://scenes/npcs/Moises.tscn" id="12_0rx81"]
+[ext_resource type="PackedScene" uid="uid://c3r78wbchviux" path="res://scenes/npcs/Isa.tscn" id="12_1mxqb"]
+[ext_resource type="PackedScene" uid="uid://c64reausv1422" path="res://scenes/npcs/Pedrao.tscn" id="12_2g7pk"]
+[ext_resource type="PackedScene" uid="uid://c0et0t746jgln" path="res://scenes/npcs/samuel.tscn" id="13_1mxqb"]
 [ext_resource type="Script" uid="uid://bpfro4mme3qgs" path="res://mapas/area_base.gd" id="area_base"]
 [ext_resource type="Script" uid="uid://m4v3jilfgb3j" path="res://mapas/porta.gd" id="porta_script"]
 
@@ -6833,7 +6837,7 @@ scale = Vector2(2, 2)
 [node name="NPCs" type="Node2D" parent="." unique_id=766406695]
 
 [node name="NpcKwanza" type="Node2D" parent="NPCs" unique_id=1109659231]
-position = Vector2(716, 90)
+position = Vector2(547, 113)
 metadata/_edit_group_ = true
 
 [node name="AreaInteracao" type="Area2D" parent="NPCs/NpcKwanza" unique_id=1455161614]
@@ -6842,21 +6846,121 @@ nome_personagem = "Kwanza"
 falas = Array[String](["Qual foi mano?", "tudo de boa?", "A gete se vê"])
 
 [node name="LabelDica" type="Label" parent="NPCs/NpcKwanza/AreaInteracao" unique_id=1369411829]
-offset_left = -153.0
-offset_top = 5.0
-offset_right = -81.0
-offset_bottom = 21.0
+offset_left = -32.0
+offset_top = -27.0
+offset_right = 40.0
+offset_bottom = -11.0
 theme = ExtResource("6_b3faq")
 theme_override_font_sizes/font_size = 8
 text = "[E] falar"
 horizontal_alignment = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NpcKwanza/AreaInteracao" unique_id=551192734]
-position = Vector2(-120, 39)
+position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_h1bdy")
 
-[node name="npc2" parent="NPCs/NpcKwanza" unique_id=75988228 instance=ExtResource("8_ygioq")]
-position = Vector2(-119, 33)
+[node name="npc2" parent="NPCs/NpcKwanza/AreaInteracao" unique_id=75988228 instance=ExtResource("8_ygioq")]
+position = Vector2(1, -1)
+
+[node name="NpcMoises" type="Node2D" parent="NPCs" unique_id=444251962]
+position = Vector2(304, -209)
+metadata/_edit_group_ = true
+
+[node name="AreaInteracao" type="Area2D" parent="NPCs/NpcMoises" unique_id=1084090251]
+script = ExtResource("5_0uv0p")
+nome_personagem = "Moises"
+falas = Array[String](["Qual foi mano?", "tudo de boa?", "A gete se vê"])
+
+[node name="LabelDica" type="Label" parent="NPCs/NpcMoises/AreaInteracao" unique_id=1438465004]
+offset_left = -32.0
+offset_top = -27.0
+offset_right = 40.0
+offset_bottom = -11.0
+theme = ExtResource("6_b3faq")
+theme_override_font_sizes/font_size = 8
+text = "[E] falar"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NpcMoises/AreaInteracao" unique_id=1849783136]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_h1bdy")
+
+[node name="Moises" parent="NPCs/NpcMoises/AreaInteracao" unique_id=724393367 instance=ExtResource("12_0rx81")]
+
+[node name="NpcIsa" type="Node2D" parent="NPCs" unique_id=263259598]
+position = Vector2(-198, 47)
+metadata/_edit_group_ = true
+
+[node name="AreaInteracao" type="Area2D" parent="NPCs/NpcIsa" unique_id=1110177341]
+script = ExtResource("5_0uv0p")
+nome_personagem = "Isa"
+falas = Array[String](["Qual foi mano?", "tudo de boa?", "A gete se vê"])
+
+[node name="LabelDica" type="Label" parent="NPCs/NpcIsa/AreaInteracao" unique_id=1308879048]
+offset_left = -36.0
+offset_top = -27.0
+offset_right = 36.0
+offset_bottom = -11.0
+theme = ExtResource("6_b3faq")
+theme_override_font_sizes/font_size = 8
+text = "[E] falar"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NpcIsa/AreaInteracao" unique_id=368469125]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_h1bdy")
+
+[node name="Isa" parent="NPCs/NpcIsa/AreaInteracao" unique_id=1417062451 instance=ExtResource("12_1mxqb")]
+
+[node name="NpcPedrao" type="Node2D" parent="NPCs" unique_id=1261729104]
+position = Vector2(-182, -197)
+metadata/_edit_group_ = true
+
+[node name="AreaInteracao" type="Area2D" parent="NPCs/NpcPedrao" unique_id=1831864519]
+script = ExtResource("5_0uv0p")
+nome_personagem = "Pedrao"
+falas = Array[String](["Qual foi mano?", "tudo de boa?", "A gete se vê"])
+
+[node name="LabelDica" type="Label" parent="NPCs/NpcPedrao/AreaInteracao" unique_id=147831990]
+offset_left = -36.0
+offset_top = -28.0
+offset_right = 36.0
+offset_bottom = -12.0
+theme = ExtResource("6_b3faq")
+theme_override_font_sizes/font_size = 8
+text = "[E] falar"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NpcPedrao/AreaInteracao" unique_id=53522346]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_h1bdy")
+
+[node name="Pedrao" parent="NPCs/NpcPedrao/AreaInteracao" unique_id=433293676 instance=ExtResource("12_2g7pk")]
+
+[node name="NpcSamuel" type="Node2D" parent="NPCs" unique_id=1444256087]
+position = Vector2(136, -302)
+metadata/_edit_group_ = true
+
+[node name="AreaInteracao" type="Area2D" parent="NPCs/NpcSamuel" unique_id=1726993209]
+script = ExtResource("5_0uv0p")
+nome_personagem = "Samuel"
+falas = Array[String](["Qual foi mano?", "tudo de boa?", "A gete se vê"])
+
+[node name="LabelDica" type="Label" parent="NPCs/NpcSamuel/AreaInteracao" unique_id=1357666821]
+offset_left = -33.0
+offset_top = -28.0
+offset_right = 39.0
+offset_bottom = -12.0
+theme = ExtResource("6_b3faq")
+theme_override_font_sizes/font_size = 8
+text = "[E] falar"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NpcSamuel/AreaInteracao" unique_id=337095148]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_h1bdy")
+
+[node name="Samuel" parent="NPCs/NpcSamuel/AreaInteracao" unique_id=2006537278 instance=ExtResource("13_1mxqb")]
 
 [node name="NpcPorteira" type="Node2D" parent="NPCs" unique_id=1076523777]
 position = Vector2(223, 495)
@@ -6881,7 +6985,7 @@ horizontal_alignment = 1
 position = Vector2(2, 0)
 shape = SubResource("CircleShape2D_7c4bj")
 
-[node name="npc3" parent="NPCs/NpcPorteira" unique_id=2029857116 instance=ExtResource("9_pdh0q")]
+[node name="npc3" parent="NPCs/NpcPorteira/AreaInteracao" unique_id=2029857116 instance=ExtResource("9_pdh0q")]
 
 [node name="NpcZedu" type="Node2D" parent="NPCs" unique_id=1293903418]
 position = Vector2(148, 57)
@@ -6906,7 +7010,7 @@ horizontal_alignment = 1
 position = Vector2(28, 45)
 shape = SubResource("CircleShape2D_nrtoj")
 
-[node name="npc4" parent="NPCs/NpcZedu" unique_id=1700220734 instance=ExtResource("10_pdh0q")]
+[node name="npc4" parent="NPCs/NpcZedu/AreaInteracao" unique_id=1700220734 instance=ExtResource("10_pdh0q")]
 position = Vector2(28, 40)
 
 [node name="LimitesCamera" type="Area2D" parent="." unique_id=169300821]
@@ -7028,9 +7132,9 @@ offset_right = 20.0
 offset_bottom = 20.0
 color = Color(0.9, 0.7, 0.1, 0.5)
 
-[connection signal="jogador_entrou_na_area" from="NPCs/NpcKwanza/AreaInteracao" to="NPCs/NpcKwanza/npc2" method="virar_para_jogador"]
-[connection signal="jogador_entrou_na_area" from="NPCs/NpcPorteira/AreaInteracao" to="NPCs/NpcPorteira/npc3" method="virar_para_jogador"]
-[connection signal="jogador_entrou_na_area" from="NPCs/NpcZedu/AreaInteracao" to="NPCs/NpcZedu/npc4" method="virar_para_jogador"]
+[connection signal="jogador_entrou_na_area" from="NPCs/NpcKwanza/AreaInteracao" to="NPCs/NpcKwanza/AreaInteracao/npc2" method="virar_para_jogador"]
+[connection signal="jogador_entrou_na_area" from="NPCs/NpcPorteira/AreaInteracao" to="NPCs/NpcPorteira/AreaInteracao/npc3" method="virar_para_jogador"]
+[connection signal="jogador_entrou_na_area" from="NPCs/NpcZedu/AreaInteracao" to="NPCs/NpcZedu/AreaInteracao/npc4" method="virar_para_jogador"]
 [connection signal="body_entered" from="PortaParaHall" to="PortaParaHall" method="_on_body_entered"]
 [connection signal="body_entered" from="PortaParaHall6" to="PortaParaHall6" method="_on_body_entered"]
 [connection signal="body_entered" from="PortaParaHall5" to="PortaParaHall5" method="_on_body_entered"]

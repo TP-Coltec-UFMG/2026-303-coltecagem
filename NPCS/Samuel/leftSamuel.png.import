@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3x36v8olt0ey"
-path="res://.godot/imported/head.png-39fe4ef142cecb8fbc6f0a6ef868d48f.ctex"
+uid="uid://ea1vuisfeggx"
+path="res://.godot/imported/leftSamuel.png-ea452adaa3f3cc90f9e3363ba3779e52.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://NPCS/Z#U00e9du/head.png"
-dest_files=["res://.godot/imported/head.png-39fe4ef142cecb8fbc6f0a6ef868d48f.ctex"]
+source_file="res://NPCS/Samuel/leftSamuel.png"
+dest_files=["res://.godot/imported/leftSamuel.png-ea452adaa3f3cc90f9e3363ba3779e52.ctex"]
 
 [params]
 
