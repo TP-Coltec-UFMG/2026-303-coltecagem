@@ -15,4 +15,4 @@ func _on_body_entered(body: Node2D) -> void:
 	if not body.is_in_group("jogador"):
 		return
 	Global.proximo_ponto_entrada = ponto_entrada_destino
-	get_tree().change_scene_to_file(cena_destino)
+	get_tree().change_scene_to_file.call_deferred(cena_destino)
