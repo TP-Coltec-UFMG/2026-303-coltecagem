@@ -1,0 +1,15 @@
+~ inicio
+João: (Scrollando Reels)
+
+- O professor não liga de você estar mexendo no celular?
+	João: O Honda?? Não, ele só liga se tiver atrapalhando a aula.
+
+	- Tendi. Você me empresta uma folha?
+		João: Não.
+		=> END
+
+	- Tchau
+		=> END
+
+- Tchau
+	=> END

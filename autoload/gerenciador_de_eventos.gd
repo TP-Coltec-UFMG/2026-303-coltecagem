@@ -90,8 +90,7 @@ var jogador_presente_manual: bool = false
 
 
 func _ready() -> void:
-	GerenciadorDeTempo.bloco_iniciado.connect(_on_bloco_iniciado)
-	GerenciadorDeTempo.dia_terminado.connect(_on_dia_terminado)
+	pass
 
 
 func _on_bloco_iniciado(indice: int, _nome_horario: String, _limite_acoes: int) -> void:

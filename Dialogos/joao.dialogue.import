@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://cu327a6dot6ap"
+path="res://.godot/imported/joao.dialogue-f54aab3076646fb6c737a292766862e9.tres"
+
+[deps]
+
+source_file="res://Dialogos/joao.dialogue"
+dest_files=["res://.godot/imported/joao.dialogue-f54aab3076646fb6c737a292766862e9.tres"]
+
+[params]
+
+defaults=true

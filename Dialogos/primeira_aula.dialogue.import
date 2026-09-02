@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://bm1hmyqyk2udx"
+path="res://.godot/imported/primeira_aula.dialogue-c454a729828ada5f275279351506da0d.tres"
+
+[deps]
+
+source_file="res://Dialogos/primeira_aula.dialogue"
+dest_files=["res://.godot/imported/primeira_aula.dialogue-c454a729828ada5f275279351506da0d.tres"]
+
+[params]
+
+defaults=true

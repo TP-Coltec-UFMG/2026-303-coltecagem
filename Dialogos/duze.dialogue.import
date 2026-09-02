@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://cwlsb0qk528jf"
+path="res://.godot/imported/duze.dialogue-afa5cbcdd0dfacea1ca1f7d9c661daa2.tres"
+
+[deps]
+
+source_file="res://Dialogos/duze.dialogue"
+dest_files=["res://.godot/imported/duze.dialogue-afa5cbcdd0dfacea1ca1f7d9c661daa2.tres"]
+
+[params]
+
+defaults=true

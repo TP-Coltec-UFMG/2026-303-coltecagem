@@ -44,6 +44,7 @@ const MOTIVOS_BLOQUEIO := {
 
 @onready var label_horario: Label = $Control/PainelRelogio/LabelHorario
 @onready var label_acoes: Label = $Control/PainelRelogio/LabelAcoes
+@onready var label_bloco: Label = $Control/PainelRelogio/LabelBloco
 
 @onready var painel_aviso: PanelContainer = $Control/PainelAviso
 @onready var label_aviso: Label = $Control/PainelAviso/LabelAviso
@@ -66,13 +67,6 @@ func _ready() -> void:
 	GerenciadorDeTempo.bloco_iniciado.connect(_on_bloco_iniciado)
 	GerenciadorDeTempo.dia_terminado.connect(_on_dia_terminado)
 
-	GerenciadorDeEventos.aula_anunciada.connect(_on_aula_anunciada)
-	GerenciadorDeEventos.prova_anunciada.connect(_on_prova_anunciada)
-	
-	GerenciadorDeEventos.aula_iniciada.connect(_on_aula_iniciada)
-	GerenciadorDeEventos.aula_finalizada.connect(_on_aula_finalizada)
-	GerenciadorDeEventos.prova_iniciada.connect(_on_prova_iniciada)
-	GerenciadorDeEventos.prova_finalizada.connect(_on_prova_finalizada)
 
 	painel_aviso.visible = false
 
@@ -110,6 +104,7 @@ func _on_atributo_alterado(nome: String, _valor_antigo: int, valor_novo: int) ->
 
 func _atualizar_relogio() -> void:
 	label_horario.text = GerenciadorDeTempo.horario_formatado()
+	label_bloco.text = GerenciadorDeTempo.nome_bloco_atual()
 
 
 func _on_tempo_atualizado(_segundos_restantes: float, _progresso: float) -> void:

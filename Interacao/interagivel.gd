@@ -24,6 +24,21 @@ signal jogador_saiu_da_area(jogador: Node2D)
 	"social": +7
 }
 
+@export_group("Missão do Caderno")
+@export var falas_missao: Array[String] = []
+@export var opcoes_missao: Array[OpcaoDialogo] = []
+@export var falas_depois_da_tentativa: Array[String] = []
+
+@export_group("Depois da Missão")
+@export var falas_pos_missao: Array[String] = []
+@export var falas_missao_falhou: Array[String] = []
+
+@export_group("Entrega de Material")
+@export var entrega_caderno: bool = false
+@export var desaparece_ao_obter_material: bool = false
+
+var _tentativa_de_material_ja_feita: bool = false
+var _opcoes_abertas: Array[OpcaoDialogo] = []
 
 var _jogador_por_perto: bool = false
 var _label_dica: Label

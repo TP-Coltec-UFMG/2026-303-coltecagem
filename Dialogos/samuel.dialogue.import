@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://dl8sbstucei6c"
+path="res://.godot/imported/samuel.dialogue-6d8c30224f417938153656356f31ed0b.tres"
+
+[deps]
+
+source_file="res://Dialogos/samuel.dialogue"
+dest_files=["res://.godot/imported/samuel.dialogue-6d8c30224f417938153656356f31ed0b.tres"]
+
+[params]
+
+defaults=true

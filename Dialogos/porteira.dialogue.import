@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://b5wwdajvim22s"
+path="res://.godot/imported/porteira.dialogue-632039c78eefc87bc470dde6ee3d95a9.tres"
+
+[deps]
+
+source_file="res://Dialogos/porteira.dialogue"
+dest_files=["res://.godot/imported/porteira.dialogue-632039c78eefc87bc470dde6ee3d95a9.tres"]
+
+[params]
+
+defaults=true

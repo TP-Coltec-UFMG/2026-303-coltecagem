@@ -6,10 +6,7 @@ extends "res://mapas/area_base.gd"
 ## entra na área de presença da sala.
 ## ============================================================
 
-@export var falas_professor_sentem: Array[String] = [
-	"Bom dia, turma! vamos começar a aula de hoje.",
-	"Senta ai galera.",
-]
+@export var dialogo_primeira_aula: DialogueResource
 
 var _cutscene_ja_aconteceu: bool = false
 
@@ -44,6 +41,9 @@ func _on_jogador_entrou_na_sala(body: Node2D) -> void:
 		print("4. Outro diálogo já está na tela, cancelando a fala do professor.")
 		return
 
-	if not falas_professor_sentem.is_empty():
+	if dialogo_primeira_aula:
 		print("5. Exibindo o diálogo do professor.")
-		DialogoBox.mostrar_dialogo("Professor", falas_professor_sentem)
+		DialogueManager.show_dialogue_balloon(
+			dialogo_primeira_aula,
+			"entrada_sala"
+)

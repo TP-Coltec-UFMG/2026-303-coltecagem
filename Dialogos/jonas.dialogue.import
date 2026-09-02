@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://r1g06lwa87ii"
+path="res://.godot/imported/jonas.dialogue-8ef3eac1aa9fc40d9a08a1892ca53d13.tres"
+
+[deps]
+
+source_file="res://Dialogos/jonas.dialogue"
+dest_files=["res://.godot/imported/jonas.dialogue-8ef3eac1aa9fc40d9a08a1892ca53d13.tres"]
+
+[params]
+
+defaults=true

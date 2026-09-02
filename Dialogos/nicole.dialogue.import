@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://v3y0clg8hpgm"
+path="res://.godot/imported/nicole.dialogue-051e6b450dc0a5a37f3e137d46568f41.tres"
+
+[deps]
+
+source_file="res://Dialogos/nicole.dialogue"
+dest_files=["res://.godot/imported/nicole.dialogue-051e6b450dc0a5a37f3e137d46568f41.tres"]
+
+[params]
+
+defaults=true
