@@ -7800,7 +7800,7 @@ radius = 51.009804
 radius = 15.033297
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_porta_hall"]
-size = Vector2(40, 35)
+size = Vector2(40, 10)
 
 [node name="Coltec" type="Node2D" unique_id=2223203]
 script = ExtResource("1_qjt15")
@@ -8028,25 +8028,24 @@ shape = SubResource("CircleShape2D_nrtoj")
 [node name="npc7" parent="NPCs/NpcZedu/AreaInteracao" unique_id=1700220734 instance=ExtResource("18_24y04")]
 position = Vector2(28, 40)
 
-[node name="SaidaSala" type="Marker2D" parent="." unique_id=705633173]
-position = Vector2(363, 193)
-
-[node name="PortaParaHall3" type="Area2D" parent="." unique_id=1611556117]
+[node name="PortaParaSala" type="Area2D" parent="." unique_id=1611556117]
 position = Vector2(655, 78)
 script = ExtResource("19_2vbt0")
-cena_destino = "res://scenes/mapas/SalaDeAula.tscn"
-metadata/_edit_group_ = true
+cena_destino = "uid://0kj2dttp57n3"
+ponto_entrada_destino = "EntradaColtec"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PortaParaHall3" unique_id=627368850]
-position = Vector2(0, 2.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PortaParaSala" unique_id=627368850]
 shape = SubResource("RectangleShape2D_porta_hall")
 
-[node name="ColorRect" type="ColorRect" parent="PortaParaHall3" unique_id=1267250111]
+[node name="ColorRect" type="ColorRect" parent="PortaParaSala" unique_id=1267250111]
 offset_left = -20.0
-offset_top = -15.0
+offset_top = -5.0
 offset_right = 20.0
-offset_bottom = 20.0
+offset_bottom = 5.0
 color = Color(0.9, 0.7, 0.1, 0.5)
+
+[node name="EntradaSala" type="Marker2D" parent="PortaParaSala" unique_id=705633173]
+position = Vector2(0, 18)
 
 [connection signal="jogador_entrou_na_area" from="NPCs/NpcPedrinho/AreaInteracao" to="NPCs/NpcPedrinho/AreaInteracao/npc1" method="virar_para_jogador"]
 [connection signal="jogador_entrou_na_area" from="NPCs/NpcMoises/AreaInteracao" to="NPCs/NpcMoises/AreaInteracao/npc2" method="virar_para_jogador"]
@@ -8055,4 +8054,4 @@ color = Color(0.9, 0.7, 0.1, 0.5)
 [connection signal="jogador_entrou_na_area" from="NPCs/NpcSamuel/AreaInteracao" to="NPCs/NpcSamuel/AreaInteracao/npc5" method="virar_para_jogador"]
 [connection signal="jogador_entrou_na_area" from="NPCs/NpcPorteira/AreaInteracao" to="NPCs/NpcPorteira/AreaInteracao/npc6" method="virar_para_jogador"]
 [connection signal="jogador_entrou_na_area" from="NPCs/NpcZedu/AreaInteracao" to="NPCs/NpcZedu/AreaInteracao/npc7" method="virar_para_jogador"]
-[connection signal="body_entered" from="PortaParaHall3" to="PortaParaHall3" method="_on_body_entered"]
+[connection signal="body_entered" from="PortaParaSala" to="PortaParaSala" method="_on_body_entered"]

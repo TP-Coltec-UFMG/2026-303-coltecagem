@@ -23,7 +23,7 @@ signal opcao_escolhida(opcao: OpcaoDialogo)
 @onready var label_nome: Label = $Control/Painel/LabelNome
 @onready var label_texto: RichTextLabel = $Control/Painel/LabelTexto
 @onready var label_dica: Label = $Control/Painel/LabelDica
-@onready var opcoes_container: VBoxContainer = $Control/Painel/OpcoesContainer
+@onready var opcoes_container: VBoxContainer = $Control/OpcoesContainer
 
 var _falas: Array[String] = []
 var _opcoes_atuais: Array[OpcaoDialogo] = []

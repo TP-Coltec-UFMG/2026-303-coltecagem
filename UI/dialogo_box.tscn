@@ -33,6 +33,22 @@ grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("2")
 
+[node name="OpcoesContainer" type="VBoxContainer" parent="Control" unique_id=1817613974]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -264.0
+offset_top = -255.0
+offset_right = -52.0
+offset_bottom = -167.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 4
+alignment = 2
+
 [node name="Painel" type="Panel" parent="Control" unique_id=1646584585]
 layout_mode = 1
 anchors_preset = 12
@@ -58,13 +74,16 @@ theme_override_font_sizes/font_size = 14
 text = "Nome"
 
 [node name="LabelTexto" type="RichTextLabel" parent="Control/Painel" unique_id=915179188]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 8.0
 offset_top = 32.0
 offset_right = -8.0
 offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/line_separation = 4
 bbcode_enabled = true
 fit_content = true
@@ -85,19 +104,3 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 10
 text = "▼ continuar"
 horizontal_alignment = 2
-
-[node name="OpcoesContainer" type="VBoxContainer" parent="Control/Painel" unique_id=1817613974]
-visible = false
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -220.0
-offset_top = -96.0
-offset_right = -8.0
-offset_bottom = -8.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_constants/separation = 4

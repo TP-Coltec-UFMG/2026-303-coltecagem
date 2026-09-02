@@ -2,34 +2,34 @@ extends "res://mapas/area_base.gd"
 ## ============================================================
 ## SalaDeAula
 ## ------------------------------------------------------------
-## Especialização de area_base.gd só pra SalaDeAula.tscn: além de
-## posicionar o personagem e ligar a HUD/relógio (comportamento
-## herdado), dispara automaticamente o roteiro inicial — o
-## Professor mandando a turma se sentar — assim que a cena carrega.
-##
-## Como usar (no editor):
-##   Troque o script do nó raiz "SalaDeAula" (que hoje é
-##   mapas/area_base.gd) por este arquivo. Todo o resto da cena
-##   (Camera2D, Tiles, Carteira, etc.) continua igual.
+## Dispara a cutscene do professor na primeira vez que o jogador
+## entra na área de presença da sala.
 ## ============================================================
 
-## Falas do Professor mostradas assim que a sala carrega.
 @export var falas_professor_sentem: Array[String] = [
 	"Bom dia, turma! Já pra dentro, vamos começar a aula.",
 	"Cada um na sua carteira, por favor.",
 ]
 
+var _cutscene_ja_aconteceu: bool = false
+
 
 func _ready() -> void:
 	super._ready()
-	# call_deferred pra garantir que a cena (HUD, Autoloads) já
-	# terminou de entrar em _ready antes de abrirmos o diálogo.
-	call_deferred("_iniciar_cutscene_inicial")
+	
+	# Procura automaticamente qualquer nó de presença na sala para ouvir o sinal
+	var area_presenca = find_child("*Presenca*", true, false)
+	if area_presenca and area_presenca.has_signal("body_entered"):
+		area_presenca.body_entered.connect(_on_jogador_entrou_na_sala)
 
 
-func _iniciar_cutscene_inicial() -> void:
-	if falas_professor_sentem.is_empty():
+func _on_jogador_entrou_na_sala(body: Node2D) -> void:
+	if not body.is_in_group("jogador"):
 		return
-	# Nenhuma ficha do GerenciadorDeTempo é gasta aqui: mostrar_dialogo
-	# só pausa/retoma o relógio, nunca chama consumir_acao().
-	DialogoBox.mostrar_dialogo("Professor", falas_professor_sentem)
+	if _cutscene_ja_aconteceu:
+		return
+
+	_cutscene_ja_aconteceu = true
+
+	if not falas_professor_sentem.is_empty():
+		DialogoBox.mostrar_dialogo("Professor", falas_professor_sentem)

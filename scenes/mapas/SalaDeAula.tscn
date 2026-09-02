@@ -6916,7 +6916,7 @@ sources/0 = SubResource("TileSetAtlasSource_g0nje")
 sources/1 = SubResource("TileSetAtlasSource_837if")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sala_porta"]
-size = Vector2(40, 40)
+size = Vector2(18, 40)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r3jxo"]
 radius = 18.027756
@@ -6947,7 +6947,7 @@ size = Vector2(383, 7)
 size = Vector2(24, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6f8o3"]
-size = Vector2(388, 308)
+size = Vector2(233, 192)
 
 [node name="SalaDeAula" type="Node2D" unique_id=272941245]
 script = ExtResource("sala_de_aula_script")
@@ -6997,25 +6997,23 @@ tile_map_data = PackedByteArray("AAAeABAAAAAMACIAAAAeABEAAAAMACMAAAAfABAAAAANACI
 tile_set = SubResource("TileSet_sn0t7")
 
 [node name="Character" parent="Tiles" unique_id=1051673572 instance=ExtResource("1")]
-position = Vector2(51, 267)
-
-[node name="EntradaHall" type="Marker2D" parent="." unique_id=1420838005]
-position = Vector2(51, 268)
 
 [node name="PortaParaColtec" type="Area2D" parent="." unique_id=1297664855]
-position = Vector2(21, 267)
+position = Vector2(9, 269)
 script = ExtResource("porta_script")
 cena_destino = "uid://bp0fr4t8ia2n0"
-ponto_entrada_destino = "EntradaSalaDeAula"
-metadata/_edit_group_ = true
+ponto_entrada_destino = "EntradaSala"
+
+[node name="EntradaColtec" type="Marker2D" parent="PortaParaColtec" unique_id=1420838005]
+position = Vector2(21, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PortaParaColtec" unique_id=1931354184]
 shape = SubResource("RectangleShape2D_sala_porta")
 
 [node name="ColorRect" type="ColorRect" parent="PortaParaColtec" unique_id=1660786576]
-offset_left = -20.0
+offset_left = -9.0
 offset_top = -20.0
-offset_right = 20.0
+offset_right = 9.0
 offset_bottom = 20.0
 color = Color(0.9, 0.7, 0.1, 0.5)
 
@@ -7123,6 +7121,7 @@ position = Vector2(1, 1)
 shape = SubResource("CircleShape2D_8g0vf")
 
 [node name="npc4" parent="NPCs/NcpPunk/AreaInteracao" unique_id=372456599 instance=ExtResource("12_qy12r")]
+position = Vector2(2, 1)
 
 [node name="NpcBoy2" type="Node2D" parent="NPCs" unique_id=1335980438]
 position = Vector2(253, 148)
@@ -7291,12 +7290,10 @@ text = "aperte [E]"
 horizontal_alignment = 1
 
 [node name="EstarNaSala" type="Area2D" parent="Node2D" unique_id=215637856]
-visible = false
 script = ExtResource("21_j2h3o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/EstarNaSala" unique_id=17162543]
-visible = false
-position = Vector2(8, -65)
+position = Vector2(13.5, -31)
 shape = SubResource("RectangleShape2D_6f8o3")
 
 [connection signal="body_entered" from="PortaParaColtec" to="PortaParaColtec" method="_on_body_entered"]
