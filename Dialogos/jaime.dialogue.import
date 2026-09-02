@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://dvwn13k16u0m6"
+path="res://.godot/imported/jaime.dialogue-5bb3301c24e9ae27e24f595287d3234d.tres"
+
+[deps]
+
+source_file="res://Dialogos/jaime.dialogue"
+dest_files=["res://.godot/imported/jaime.dialogue-5bb3301c24e9ae27e24f595287d3234d.tres"]
+
+[params]
+
+defaults=true

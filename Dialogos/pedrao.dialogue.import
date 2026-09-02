@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://l4ilxx5ury83"
+path="res://.godot/imported/pedrao.dialogue-e9463145e47189d3c66764c28d938f33.tres"
+
+[deps]
+
+source_file="res://Dialogos/pedrao.dialogue"
+dest_files=["res://.godot/imported/pedrao.dialogue-e9463145e47189d3c66764c28d938f33.tres"]
+
+[params]
+
+defaults=true

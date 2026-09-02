@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://3exm04654pk"
+path="res://.godot/imported/douglas.dialogue-e562698d229456df2b58eb27ef4c3d55.tres"
+
+[deps]
+
+source_file="res://Dialogos/douglas.dialogue"
+dest_files=["res://.godot/imported/douglas.dialogue-e562698d229456df2b58eb27ef4c3d55.tres"]
+
+[params]
+
+defaults=true

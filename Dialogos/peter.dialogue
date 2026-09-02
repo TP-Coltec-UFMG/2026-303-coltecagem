@@ -1,0 +1,11 @@
+~ inicio
+Peter: Cole.
+Peter: Precisando de algo?
+
+- Tô precisando de uma folha de caderno. Você tem?
+	Peter: Pode crê, toma aí.
+	Peter: [Você recebeu uma folha de caderno de Peter!]
+	=> END
+
+- Tchau
+	=> END

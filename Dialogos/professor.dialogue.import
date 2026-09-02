@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://cv2iw3x700xcv"
+path="res://.godot/imported/professor.dialogue-2ca9b19a3e6d3124c188bbded4f99869.tres"
+
+[deps]
+
+source_file="res://Dialogos/professor.dialogue"
+dest_files=["res://.godot/imported/professor.dialogue-2ca9b19a3e6d3124c188bbded4f99869.tres"]
+
+[params]
+
+defaults=true

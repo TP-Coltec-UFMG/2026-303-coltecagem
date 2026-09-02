@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://bc4m1jib0f1lw"
+path="res://.godot/imported/moises.dialogue-52e19d4c6cf4a46fd28a5c946975909b.tres"
+
+[deps]
+
+source_file="res://Dialogos/moises.dialogue"
+dest_files=["res://.godot/imported/moises.dialogue-52e19d4c6cf4a46fd28a5c946975909b.tres"]
+
+[params]
+
+defaults=true

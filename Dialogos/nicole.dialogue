@@ -1,0 +1,11 @@
+~ inicio
+Nicole: Oi panaca.
+
+- Como você está?
+	Nicole: Foi mal, mas não tô afim de papo.
+	=> END
+
+- Você pode me emprestar uma folha? [if Global.pode_tentar_material("nicole") /]
+	do Global.registrar_tentativa_material("nicole")
+	Nicole: Sai fora meu, não vou te dar uma folha do meu fichário.
+	=> END

@@ -1,0 +1,18 @@
+~ inicio
+Jaime: E aí, precisando de alguma coisa?
+
+- Você pode me emprestar um caderno?
+	Jaime: Você está precisando de um caderno, é?
+	Jaime: Tudo bem, eu posso te emprestar um dos meus.
+	Jaime: Mas antes, você sabia que existe um animal que caga naturalmente em formato de cubo perfeito, o que impede que as fezes rolem, e por isso ele as usa para marcar território?
+	Jaime: Doido, né.
+	Jaime: Toma aqui o caderno.
+	Jaime: [Você recebeu um caderno de Jaime!]
+	=> END
+
+- Por que você trouxe tantos cadernos para o primeiro dia de aula?
+	Jaime: Porque eu quis.
+	=> END
+
+- Tchau
+	=> END

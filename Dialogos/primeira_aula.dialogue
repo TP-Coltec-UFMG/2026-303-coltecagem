@@ -1,0 +1,35 @@
+~ entrada_sala
+Professor: Bom dia, turma! Vamos começar a aula de hoje.
+Professor: Senta aí, galera.
+=> END
+
+
+~ introducao_carteira
+Professor: É bom que anotem se quiserem revisar depois, mas vai do seu livre-arbítrio.
+=> END
+
+
+~ primeira_interacao_sem_material
+Professor: É bom que anotem se quiserem revisar depois, mas vai do seu livre-arbítrio.
+Jogador: Nooo, esqueci meu caderno...
+Jogador: Chapei.
+Jogador: Vou tentar arrumar uma folha com alguém.
+=> END
+
+
+~ primeira_interacao_com_material
+Professor: É bom que anotem se quiserem revisar depois, mas vai do seu livre-arbítrio.
+Jogador: Beleza, agora que eu tenho uma folha dá pra prestar atenção.
+=> END
+
+
+~ sem_material
+Jogador: Nooo, esqueci meu caderno...
+Jogador: Chapei.
+Jogador: Vou tentar arrumar uma folha com alguém.
+=> END
+
+
+~ com_material
+Jogador: Beleza, agora que eu tenho uma folha dá pra prestar atenção.
+=> END

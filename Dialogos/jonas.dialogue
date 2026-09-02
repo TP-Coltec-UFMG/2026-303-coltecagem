@@ -1,0 +1,11 @@
+~ inicio
+Jonas: Manda a boa.
+
+- Tô precisando de uma folha.
+	Jonas: Qual foi, tá vendo alguma em cima da minha mesa?
+
+	- A... verdade.
+		=> END
+
+- Tchau
+	=> END

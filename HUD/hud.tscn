@@ -157,8 +157,12 @@ theme_override_font_sizes/font_size = 10
 text = "Ações: 2"
 horizontal_alignment = 2
 
+[node name="LabelBloco" type="Label" parent="Control/PainelRelogio" unique_id=229830152]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+
 [node name="PainelAviso" type="PanelContainer" parent="Control" unique_id=1042907469]
-visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
