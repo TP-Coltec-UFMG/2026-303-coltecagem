@@ -7043,7 +7043,7 @@ position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_r3jxo")
 
 [node name="npc" parent="Entidades/NpcHonda/AreaInteracao" unique_id=724393367 instance=ExtResource("8_y5wrn")]
-position = Vector2(1, -2)
+position = Vector2(0, 12)
 
 [node name="NpcPedrinho" type="Node2D" parent="Entidades" unique_id=1797371189]
 position = Vector2(124, 185)

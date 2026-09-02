@@ -7,8 +7,8 @@ extends "res://mapas/area_base.gd"
 ## ============================================================
 
 @export var falas_professor_sentem: Array[String] = [
-	"Bom dia, turma! Já pra dentro, vamos começar a aula.",
-	"Cada um na sua carteira, por favor.",
+	"Bom dia, turma! vamos começar a aula de hoje.",
+	"Senta ai galera.",
 ]
 
 var _cutscene_ja_aconteceu: bool = false
@@ -24,7 +24,7 @@ func _ready() -> void:
 
 
 func _on_jogador_entrou_na_sala(body: Node2D) -> void:
-	print("1. O jogador entrou na área de colisão!")
+	print("1. O jogador entrou na área de colisão")
 	
 	if not body.is_in_group("jogador"):
 		return

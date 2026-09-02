@@ -27,20 +27,21 @@ signal sentou_na_carteira
 
 ## Falas mostradas quando o jogador percebe que esqueceu o caderno.
 @export var falas_sem_caderno: Array[String] = [
-	"Cadê meu caderno? Acho que esqueci em algum lugar...",
-	"Preciso achar meu caderno antes que a aula comece.",
+	"Nooo, esqueci meu caderno...",
+	"Chapei.",
+	"Vou tentar arrumar uma folha com alguém.",
 ]
 
 ## Falas mostradas quando o jogador já tem o caderno e senta.
 @export var falas_com_caderno: Array[String] = [
-	"Beleza, caderno em mãos. Bora prestar atenção na aula.",
+	"Beleza agora que eu tenho uma folha da pra prestar atenção no que esse japonês vai falar.",
 ]
 
 @export_group("Roteiro Inicial (Cutscene)")
 ## Fala do Professor mostrada na PRIMEIRA interação do jogador com
 ## a carteira no dia — o roteiro obrigatório da abertura da aula.
 @export var falas_professor_bom_dia: Array[String] = [
-	"Bom dia, turma! Peguem o material e comecem as atividades.",
+	"É bom que anotem se quiserem revisar depois, mas vai do seu livre arbitrio.",
 ]
 
 ## true até a primeira interação do dia acontecer. Depois disso,
