@@ -159,12 +159,19 @@ func _on_opcao_pressionada(opcao: OpcaoDialogo) -> void:
 	opcoes_container.visible = false
 	opcao_escolhida.emit(opcao)
 
+	# Se a opção tem falas para ler, lê as falas e já prepara as próximas opções
 	if not opcao.falas.is_empty():
-		# A opção abre uma ramificação de falas própria.
 		_falas = opcao.falas
-		_opcoes_atuais = []
+		_opcoes_atuais = opcao.proximas_opcoes # Pega as opções "filhas"
 		_indice_atual = 0
 		_mostrar_fala_atual()
+		
+	# Se a opção não tem fala, mas tem novas opções (ex: submenus diretos)
+	elif not opcao.proximas_opcoes.is_empty():
+		_falas = []
+		_opcoes_atuais = opcao.proximas_opcoes
+		_mostrar_opcoes()
+		
 	else:
 		_encerrar()
 

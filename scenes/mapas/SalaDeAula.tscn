@@ -6924,9 +6924,27 @@ radius = 18.027756
 [sub_resource type="CircleShape2D" id="CircleShape2D_8g0vf"]
 radius = 18.027756
 
+[sub_resource type="Resource" id="Resource_1nprj"]
+script = ExtResource("18_j2h3o")
+texto = "Oi"
+falas = Array[String](["Oi panaca."])
+metadata/_custom_type_script = "uid://d0kqs4kj2mqu1"
+
+[sub_resource type="Resource" id="Resource_w3rju"]
+script = ExtResource("18_j2h3o")
+texto = "Pedir um caderno emprestado"
+falas = Array[String](["Sai fora meu, não vou te dar folha do meu fichario"])
+metadata/_custom_type_script = "uid://d0kqs4kj2mqu1"
+
 [sub_resource type="Resource" id="Resource_j2h3o"]
 script = ExtResource("18_j2h3o")
-texto = "Pedir o caderno emprestado"
+texto = "Como você está?"
+falas = Array[String](["Ai Não enche."])
+metadata/_custom_type_script = "uid://d0kqs4kj2mqu1"
+
+[sub_resource type="Resource" id="Resource_1kk76"]
+script = ExtResource("18_j2h3o")
+texto = "Pedir um caderno emprestado"
 falas = Array[String](["Você está precisando de um caderno é?", "Tudo bem, eu posso te emprestar um dos meus.", "Mas antes, você sabia que existe um animal que caga naturalmente em formato de cubo perfeito, o que impede que as fezes rolem, e por isso ele as usa para marcar território?", "Doido né. ", "Toma aqui o caderno.", "[Você recebeu um caderno de Jaime!]"])
 acao = "entregar_caderno"
 metadata/_custom_type_script = "uid://d0kqs4kj2mqu1"
@@ -7105,7 +7123,6 @@ position = Vector2(-1, -1)
 script = ExtResource("6_837if")
 nome_personagem = "Punk"
 falas = Array[String](["iai mano?", "bora bandecar mais tarde?", "falou ent brother"])
-permite_entrosar = true
 
 [node name="LabelDica" type="Label" parent="Entidades/NcpPunk/AreaInteracao" unique_id=324075746]
 offset_left = -34.0
@@ -7184,7 +7201,9 @@ position = Vector2(253, 225)
 position = Vector2(-1, -1)
 script = ExtResource("6_837if")
 nome_personagem = "Nicole"
-falas = Array[String](["Oi panaca."])
+falas = Array[String]([""])
+opcoes = Array[ExtResource("18_j2h3o")]([SubResource("Resource_1nprj"), SubResource("Resource_w3rju")])
+proximas_opcoes = Array[ExtResource("18_j2h3o")]([SubResource("Resource_j2h3o")])
 
 [node name="LabelDica" type="Label" parent="Entidades/NpcNicole/AreaInteracao" unique_id=89570512]
 offset_left = -34.0
@@ -7212,8 +7231,8 @@ position = Vector2(124, 144)
 position = Vector2(-1, -1)
 script = ExtResource("6_837if")
 nome_personagem = "Jaime"
-falas = Array[String](["E aí, precisando de alguma coisa?s"])
-opcoes = Array[ExtResource("18_j2h3o")]([SubResource("Resource_j2h3o"), SubResource("Resource_n2dk5")])
+falas = Array[String](["E aí, precisando de alguma coisa?"])
+opcoes = Array[ExtResource("18_j2h3o")]([SubResource("Resource_1kk76"), SubResource("Resource_n2dk5")])
 
 [node name="LabelDica" type="Label" parent="Entidades/NpcJaime/AreaInteracao" unique_id=1842340690]
 offset_left = -34.0
