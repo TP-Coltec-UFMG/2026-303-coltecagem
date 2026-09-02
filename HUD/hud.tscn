@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://c8p3hud0001"]
+[gd_scene format=3 uid="uid://y4504a107vo2"]
 
-[ext_resource type="Script" path="res://HUD/hud.gd" id="1"]
+[ext_resource type="Script" uid="uid://j4tuw21b4r7v" path="res://HUD/hud.gd" id="1"]
 [ext_resource type="Theme" path="res://theme/theme.tres" id="2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleEnergia"]
@@ -31,100 +31,107 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
-[node name="HUD" type="CanvasLayer"]
+[sub_resource type="StyleBoxFlat" id="StylePainelAviso"]
+content_margin_left = 14.0
+content_margin_top = 8.0
+content_margin_right = 14.0
+content_margin_bottom = 8.0
+bg_color = Color(0.1, 0.1, 0.12, 0.85)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="HUD" type="CanvasLayer" unique_id=495672821]
 script = ExtResource("1")
 
-[node name="Control" type="Control" parent="."]
-theme = ExtResource("2")
+[node name="Control" type="Control" parent="." unique_id=1019776641]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("2")
 
-[node name="PainelBarras" type="VBoxContainer" parent="Control"]
+[node name="PainelBarras" type="VBoxContainer" parent="Control" unique_id=418718462]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 260.0
 offset_bottom = 140.0
+mouse_filter = 2
 theme_override_constants/separation = 6
-mouse_filter = 2
 
-[node name="Energia" type="VBoxContainer" parent="Control/PainelBarras"]
+[node name="Energia" type="VBoxContainer" parent="Control/PainelBarras" unique_id=397196683]
 layout_mode = 2
-theme_override_constants/separation = 2
 mouse_filter = 2
+theme_override_constants/separation = 2
 
-[node name="Label" type="Label" parent="Control/PainelBarras/Energia"]
+[node name="Label" type="Label" parent="Control/PainelBarras/Energia" unique_id=724801231]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "Energia"
 
-[node name="Barra" type="ProgressBar" parent="Control/PainelBarras/Energia"]
+[node name="Barra" type="ProgressBar" parent="Control/PainelBarras/Energia" unique_id=2088988249]
 custom_minimum_size = Vector2(220, 14)
 layout_mode = 2
 theme_override_styles/fill = SubResource("StyleEnergia")
-max_value = 100.0
 value = 100.0
 show_percentage = false
 
-[node name="Estresse" type="VBoxContainer" parent="Control/PainelBarras"]
+[node name="Estresse" type="VBoxContainer" parent="Control/PainelBarras" unique_id=495162212]
 layout_mode = 2
-theme_override_constants/separation = 2
 mouse_filter = 2
+theme_override_constants/separation = 2
 
-[node name="Label" type="Label" parent="Control/PainelBarras/Estresse"]
+[node name="Label" type="Label" parent="Control/PainelBarras/Estresse" unique_id=1702564677]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "Estresse"
 
-[node name="Barra" type="ProgressBar" parent="Control/PainelBarras/Estresse"]
+[node name="Barra" type="ProgressBar" parent="Control/PainelBarras/Estresse" unique_id=335629337]
 custom_minimum_size = Vector2(220, 14)
 layout_mode = 2
 theme_override_styles/fill = SubResource("StyleEstresse")
-max_value = 100.0
-value = 0.0
 show_percentage = false
 
-[node name="Social" type="VBoxContainer" parent="Control/PainelBarras"]
+[node name="Social" type="VBoxContainer" parent="Control/PainelBarras" unique_id=296754258]
 layout_mode = 2
-theme_override_constants/separation = 2
 mouse_filter = 2
+theme_override_constants/separation = 2
 
-[node name="Label" type="Label" parent="Control/PainelBarras/Social"]
+[node name="Label" type="Label" parent="Control/PainelBarras/Social" unique_id=1641610387]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "Social"
 
-[node name="Barra" type="ProgressBar" parent="Control/PainelBarras/Social"]
+[node name="Barra" type="ProgressBar" parent="Control/PainelBarras/Social" unique_id=1156454142]
 custom_minimum_size = Vector2(220, 14)
 layout_mode = 2
 theme_override_styles/fill = SubResource("StyleSocial")
-max_value = 100.0
 value = 50.0
 show_percentage = false
 
-[node name="Desempenho" type="VBoxContainer" parent="Control/PainelBarras"]
+[node name="Desempenho" type="VBoxContainer" parent="Control/PainelBarras" unique_id=1262420626]
 layout_mode = 2
-theme_override_constants/separation = 2
 mouse_filter = 2
+theme_override_constants/separation = 2
 
-[node name="Label" type="Label" parent="Control/PainelBarras/Desempenho"]
+[node name="Label" type="Label" parent="Control/PainelBarras/Desempenho" unique_id=54316768]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "Desempenho"
 
-[node name="Barra" type="ProgressBar" parent="Control/PainelBarras/Desempenho"]
+[node name="Barra" type="ProgressBar" parent="Control/PainelBarras/Desempenho" unique_id=6002443]
 custom_minimum_size = Vector2(220, 14)
 layout_mode = 2
 theme_override_styles/fill = SubResource("StyleDesempenho")
-max_value = 100.0
 value = 50.0
 show_percentage = false
 
-[node name="PainelRelogio" type="VBoxContainer" parent="Control"]
+[node name="PainelRelogio" type="VBoxContainer" parent="Control" unique_id=827798221]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -134,18 +141,51 @@ offset_top = 16.0
 offset_right = -16.0
 offset_bottom = 60.0
 grow_horizontal = 0
-theme_override_constants/separation = 2
 mouse_filter = 2
+theme_override_constants/separation = 2
 alignment = 2
 
-[node name="LabelHorario" type="Label" parent="Control/PainelRelogio"]
+[node name="LabelHorario" type="Label" parent="Control/PainelRelogio" unique_id=2064659727]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-horizontal_alignment = 2
 text = "07:30"
+horizontal_alignment = 2
 
-[node name="LabelAcoes" type="Label" parent="Control/PainelRelogio"]
+[node name="LabelAcoes" type="Label" parent="Control/PainelRelogio" unique_id=2112678847]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
-horizontal_alignment = 2
 text = "Ações: 2"
+horizontal_alignment = 2
+
+[node name="PainelAviso" type="PanelContainer" parent="Control" unique_id=1042907469]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.0
+offset_top = 16.0
+offset_right = 160.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StylePainelAviso")
+
+[node name="LabelAviso" type="Label" parent="Control/PainelAviso" unique_id=2066008579]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Aula na Sala 1 em 10s"
+horizontal_alignment = 1
+
+[node name="TimerAviso" type="Timer" parent="Control/PainelAviso" unique_id=1600359230]
+one_shot = true
+
+[node name="CamadaAlertas" type="Control" parent="Control" unique_id=1686560397]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

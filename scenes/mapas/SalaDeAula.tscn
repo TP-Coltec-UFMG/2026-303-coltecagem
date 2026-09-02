@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://sxad6wrcja8y" path="res://Tilemap/Escola/TileSet recortadoaaa.png" id="4_hdhyg"]
 [ext_resource type="Texture2D" uid="uid://dcrm8y8q8ss8w" path="res://Tilemap/CoolSchool_tileset_48px/CoolSchool_tileset.png" id="4_lb4dr"]
 [ext_resource type="Texture2D" uid="uid://cpwt73w01kr6q" path="res://Tilemap/Escola/Lixeira.png" id="5_pgkhp"]
-[ext_resource type="Script" uid="uid://cl48gskn5npgw" path="res://Interacao/interagivel.gd" id="6_837if"]
+[ext_resource type="Script" uid="uid://b0habh0iywar3" path="res://Interacao/interagivel.gd" id="6_837if"]
 [ext_resource type="Theme" path="res://theme/theme.tres" id="7_7hm7w"]
 [ext_resource type="PackedScene" uid="uid://b1vympcot738" path="res://scenes/npcs/Honda.tscn" id="8_y5wrn"]
 [ext_resource type="PackedScene" uid="uid://fuqdwpgp7tci" path="res://scenes/npcs/Kwanza.tscn" id="9_enx2p"]
@@ -17,7 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://xqlvqjo5g1um" path="res://scenes/npcs/boy2.tscn" id="12_pgkhp"]
 [ext_resource type="PackedScene" uid="uid://bsy5rlo4v0t0l" path="res://scenes/npcs/Punk.tscn" id="12_qy12r"]
 [ext_resource type="PackedScene" uid="uid://cr002tmjssnj8" path="res://scenes/npcs/Nicole.tscn" id="12_w8cmx"]
-[ext_resource type="Script" uid="uid://bpfro4mme3qgs" path="res://mapas/area_base.gd" id="area_base"]
+[ext_resource type="Script" uid="uid://dfmvqn4rjte7x" path="res://carteira.gd" id="20_vlwr4"]
+[ext_resource type="Script" uid="uid://mm6hipxcn37b" path="res://sala_de_aula_presenca.gd" id="21_j2h3o"]
+[ext_resource type="Script" uid="uid://4l8m1m2nm5yo" path="res://mapas/area_base.gd" id="area_base"]
 [ext_resource type="Script" uid="uid://m4v3jilfgb3j" path="res://mapas/porta.gd" id="porta_script"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dnnwd"]
@@ -6233,8 +6235,11 @@ texture = ExtResource("4_lb4dr")
 16:34/0 = 0
 17:34/0 = 0
 18:34/0 = 0
+18:34/0/y_sort_origin = 10
 19:34/0 = 0
+19:34/0/y_sort_origin = 10
 20:34/0 = 0
+20:34/0/y_sort_origin = 10
 0:35/0 = 0
 1:35/0 = 0
 2:35/0 = 0
@@ -6924,6 +6929,12 @@ size = Vector2(7, 310)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
 size = Vector2(383, 7)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sn0t7"]
+size = Vector2(24, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6f8o3"]
+size = Vector2(388, 308)
+
 [node name="SalaDeAula" type="Node2D" unique_id=272941245]
 script = ExtResource("area_base")
 
@@ -7081,6 +7092,7 @@ position = Vector2(-1, -1)
 script = ExtResource("6_837if")
 nome_personagem = "Punk"
 falas = Array[String](["iai mano?", "bora bandecar mais tarde?", "falou ent brother"])
+permite_entrosar = true
 
 [node name="LabelDica" type="Label" parent="NPCs/NcpPunk/AreaInteracao" unique_id=324075746]
 offset_left = -34.0
@@ -7184,7 +7196,9 @@ position = Vector2(124, 144)
 position = Vector2(-1, -1)
 script = ExtResource("6_837if")
 nome_personagem = "Jaime"
-falas = Array[String](["JDBC", "Eu gosto de SAP-1", "ANGU!"])
+entrega_caderno = true
+falas_entrega_caderno = Array[String](["Você está precisando de um caderno é?", "Tudo bem, eu posso te emprestar um dos meus.", "Mas antes, você sabia que existe um animal que caga naturalmente em formato de cubo perfeito, o que impede que as fezes rolem, e por isso ele as usa para marcar território?", "Doido né. ", "Toma aqui o caderno.", "[Você recebeu um caderno de Jaime]"])
+permite_entrosar = true
 
 [node name="LabelDica" type="Label" parent="NPCs/NpcJaime/AreaInteracao" unique_id=1842340690]
 offset_left = -34.0
@@ -7242,6 +7256,35 @@ shape = SubResource("RectangleShape2D_riqys")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borda2" unique_id=1228379500]
 position = Vector2(191.5, 306.5)
 shape = SubResource("RectangleShape2D_bhunq")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1585283667]
+position = Vector2(188, 222)
+
+[node name="Carteira" type="Area2D" parent="Node2D" unique_id=616365431]
+script = ExtResource("20_vlwr4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Carteira" unique_id=759949007]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_sn0t7")
+
+[node name="LabelDica" type="Label" parent="Node2D/Carteira" unique_id=1024701831]
+offset_left = -37.0
+offset_top = 4.0
+offset_right = 43.0
+offset_bottom = 20.0
+theme = ExtResource("7_7hm7w")
+theme_override_font_sizes/font_size = 8
+text = "aperte [E]"
+horizontal_alignment = 1
+
+[node name="EstarNaSala" type="Area2D" parent="Node2D" unique_id=215637856]
+visible = false
+script = ExtResource("21_j2h3o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/EstarNaSala" unique_id=17162543]
+visible = false
+position = Vector2(8, -65)
+shape = SubResource("RectangleShape2D_6f8o3")
 
 [connection signal="body_entered" from="PortaParaHall" to="PortaParaHall" method="_on_body_entered"]
 [connection signal="jogador_entrou_na_area" from="NPCs/NpcHonda/AreaInteracao" to="NPCs/NpcHonda/AreaInteracao/npc" method="virar_para_jogador"]

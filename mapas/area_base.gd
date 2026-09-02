@@ -8,6 +8,10 @@ extends Node2D
 
 func _ready() -> void:
 	_posicionar_personagem()
+	# A HUD é Autoload: qualquer mapa de gameplay que carregar
+	# mostra ela e (se ainda não estiver rodando) liga o relógio
+	# do dia letivo. Ver HUD/hud.gd -> mostrar_e_iniciar_dia().
+	HUD.mostrar_e_iniciar_dia()
 	
 func _process(_delta: float) -> void:
 	var personagem = get_tree().get_first_node_in_group("jogador")

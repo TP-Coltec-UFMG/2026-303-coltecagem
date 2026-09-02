@@ -26,6 +26,7 @@ EstadoJogador="*res://autoload/estado_jogador.gd"
 GerenciadorDeTempo="*uid://dyrh6hlp3m08f"
 GerenciadorDeEventos="*uid://dps7ackmord3y"
 DialogoBox="*res://UI/dialogo_box.tscn"
+HUD="*uid://y4504a107vo2"
 
 [display]
 
