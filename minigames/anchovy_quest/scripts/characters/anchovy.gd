@@ -1,0 +1,66 @@
+extends CharacterBody2D
+# The anchovy from the "Anchovy Quest" minigame.
+
+
+# A signal emitted when the achnovy is hit by an obstacle.
+signal hit
+
+# A signal emitted when firing a projectile.
+signal shoot( location, direction )
+
+# The player's top speed.
+const MAX_SPEED: float = 400.0
+
+# The difference in speed per second.
+const ACCELERATION: float = 400.0
+# The number of degrees the player can turn in one second.
+const ROTATIONAL_SPEED: float = 180.0
+
+# Whether or not the player is active.
+var allow_movement: bool = false
+
+# The player's current speed.
+var _velocity: Vector2
+
+
+# The point at which the player's projectiles are spawned.
+@onready var _projectile_spawn_point: Marker2D = $ProjectileSpawnPoint
+
+
+# Handle player movement.
+func _physics_process( delta ):
+	var collision = move_and_collide( _velocity * delta )
+	if collision:
+		emit_signal( "hit" )
+		collision.get_collider().explode()
+
+	# Wrap the player around the edges of the screen.
+	position.x = wrapf( position.x, 0, 640.0 )
+	position.y = wrapf( position.y, 0, 480.0 )
+
+
+# Handle player inputs.
+func _process( delta ):
+	if allow_movement:
+		var dspeed = ACCELERATION * delta
+		var ddir = ROTATIONAL_SPEED * delta
+
+		# Rotate the player on left or right inputs.
+		if Input.is_action_pressed( "move_left" ):
+			rotation_degrees -= ddir
+		if Input.is_action_pressed( "move_right" ):
+			rotation_degrees += ddir
+
+		# Accelerate to MAX_SPEED on an up input, decelerate to 0 on a down.
+		if Input.is_action_pressed( "move_down" ):
+			_velocity = _velocity.move_toward(Vector2.ZERO, dspeed)
+		elif Input.is_action_pressed( "move_up" ):
+			_velocity = _velocity.move_toward( \
+					Vector2.RIGHT.rotated(rotation) * MAX_SPEED, dspeed)
+			#_velocity += Vector2.RIGHT.rotated(rotation) * dspeed
+			#_velocity = _velocity.limit_length(MAX_SPEED)
+
+		# Fire a projectile on a press of the space bar.
+		if Input.is_action_just_pressed( "action" ):
+			emit_signal( "shoot", _projectile_spawn_point.global_position, \
+					rotation_degrees )

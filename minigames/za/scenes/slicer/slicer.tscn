@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://minigames/za/images/guides/slicer_guideline.png" type="Texture" id=1]
+[ext_resource path="res://minigames/za/images/slicer/slicer.png" type="Texture" id=2]
+[ext_resource path="res://minigames/za/scripts/slicer/slicer.gd" type="Script" id=3]
+
+[node name="Slicer" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2( 0, 180 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 2 )
+
+[node name="Guideline" type="Sprite2D" parent="."]
+texture = ExtResource( 1 )

@@ -1,0 +1,183 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://minigames/dance/scripts/dance_minigame.gd" type="Script" id=1]
+[ext_resource path="res://minigames/dance/fonts/score_font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://minigames/dance/images/ui/arrow_target.png" type="Texture" id=3]
+[ext_resource path="res://minigames/shared/styles/progress_bar_3.tres" type="StyleBox" id=4]
+[ext_resource path="res://minigames/shared/styles/progress_bar_1.tres" type="StyleBox" id=5]
+[ext_resource path="res://minigames/shared/styles/progress_bar_invisible.tres" type="StyleBox" id=6]
+[ext_resource path="res://minigames/shared/styles/progress_bar_bg.tres" type="StyleBox" id=7]
+[ext_resource path="res://minigames/shared/styles/progress_bar_2.tres" type="StyleBox" id=8]
+
+[node name="DanceMinigame" type="Node2D"]
+script = ExtResource( 1 )
+_instruction = "Dance, Dance, Dance!"
+
+[node name="Background" type="Control" parent="."]
+offset_right = 640.0
+offset_bottom = 480.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpawnPosition" type="Marker2D" parent="."]
+position = Vector2( 320, -60 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Targets" type="Node2D" parent="."]
+position = Vector2( 320, 400 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Left" type="Sprite2D" parent="Targets"]
+modulate = Color( 0, 0, 1, 1 )
+position = Vector2( -120, 0 )
+rotation = -1.5708
+scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+
+[node name="Down" type="Sprite2D" parent="Targets"]
+modulate = Color( 1, 0.501961, 0, 1 )
+position = Vector2( -40, 0 )
+rotation = 3.14159
+scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+
+[node name="Up" type="Sprite2D" parent="Targets"]
+modulate = Color( 0, 1, 0, 1 )
+position = Vector2( 40, 0 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+
+[node name="Right" type="Sprite2D" parent="Targets"]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 120, 0 )
+rotation = 1.5708
+scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+offset_right = 640.0
+offset_bottom = 400.0
+custom_fonts/font = ExtResource( 2 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar1_1" type="ProgressBar" parent="."]
+offset_left = 60.0
+offset_top = 300.0
+offset_right = 260.0
+offset_bottom = 340.0
+rotation = 270.0
+custom_styles/fg = ExtResource( 5 )
+custom_styles/bg = ExtResource( 7 )
+max_value = 8.0
+step = 1.0
+allow_greater = true
+percent_visible = false
+
+[node name="ProgressBar1_2" type="ProgressBar" parent="."]
+offset_left = 540.0
+offset_top = 300.0
+offset_right = 740.0
+offset_bottom = 340.0
+rotation = 270.0
+custom_styles/fg = ExtResource( 5 )
+custom_styles/bg = ExtResource( 7 )
+max_value = 8.0
+step = 1.0
+allow_greater = true
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar2_1" type="ProgressBar" parent="."]
+offset_left = 60.0
+offset_top = 300.0
+offset_right = 260.0
+offset_bottom = 340.0
+rotation = 270.0
+custom_styles/fg = ExtResource( 8 )
+custom_styles/bg = ExtResource( 6 )
+min_value = 8.0
+max_value = 16.0
+step = 1.0
+value = 8.0
+allow_greater = true
+allow_lesser = true
+percent_visible = false
+
+[node name="ProgressBar2_2" type="ProgressBar" parent="."]
+offset_left = 540.0
+offset_top = 300.0
+offset_right = 740.0
+offset_bottom = 340.0
+rotation = 270.0
+custom_styles/fg = ExtResource( 8 )
+custom_styles/bg = ExtResource( 6 )
+min_value = 8.0
+max_value = 16.0
+step = 1.0
+value = 8.0
+allow_greater = true
+allow_lesser = true
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar3_1" type="ProgressBar" parent="."]
+offset_left = 60.0
+offset_top = 300.0
+offset_right = 260.0
+offset_bottom = 340.0
+rotation = 270.0
+custom_styles/fg = ExtResource( 4 )
+custom_styles/bg = ExtResource( 6 )
+min_value = 16.0
+max_value = 32.0
+step = 1.0
+value = 16.0
+allow_greater = true
+allow_lesser = true
+percent_visible = false
+
+[node name="ProgressBar3_2" type="ProgressBar" parent="."]
+offset_left = 540.0
+offset_top = 300.0
+offset_right = 740.0
+offset_bottom = 340.0
+rotation = 270.0
+custom_styles/fg = ExtResource( 4 )
+custom_styles/bg = ExtResource( 6 )
+min_value = 16.0
+max_value = 32.0
+step = 1.0
+value = 16.0
+allow_greater = true
+allow_lesser = true
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ArrowTimer" type="Timer" parent="."]
+wait_time = 0.4
+
+[connection signal="timeout" from="ArrowTimer" to="." method="_spawn_arrow"]

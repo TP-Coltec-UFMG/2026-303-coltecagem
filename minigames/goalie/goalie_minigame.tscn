@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://minigames/goalie/goalie_minigame.gd" type="Script" id=1]
+[ext_resource path="res://minigames/goalie/scenes/characters/football_player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://minigames/goalie/textures/net.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 320, 100 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 100, 240 )
+
+[node name="Minigame" type="Node2D"]
+script = ExtResource( 1 )
+_instruction = "Defend!"
+_win_by_default = true
+
+[node name="Background" type="ColorRect" parent="."]
+show_behind_parent = true
+offset_right = 640.0
+offset_bottom = 480.0
+color = Color( 0.298039, 0.733333, 0.0901961, 1 )
+
+[node name="GoalMarker" type="ColorRect" parent="Background"]
+offset_right = 100.0
+offset_bottom = 480.0
+color = Color( 0.133333, 0.545098, 0.133333, 1 )
+
+[node name="Footballs" type="Node2D" parent="."]
+position = Vector2( 650, 235 )
+
+[node name="FootballPlayer" parent="." instance=ExtResource( 2 )]
+position = Vector2( 120, 235 )
+
+[node name="Walls" type="Node2D" parent="."]
+position = Vector2( 320, 235 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Wall1" type="StaticBody2D" parent="Walls"]
+position = Vector2( 0, -335 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall1"]
+shape = SubResource( 1 )
+
+[node name="Wall2" type="StaticBody2D" parent="Walls"]
+position = Vector2( 0, 325 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall2"]
+shape = SubResource( 1 )
+
+[node name="Wall3" type="StaticBody2D" parent="Walls"]
+position = Vector2( -420, 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall3"]
+shape = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Goal" type="TextureRect" parent="."]
+offset_right = 100.0
+offset_bottom = 480.0
+texture = ExtResource( 3 )
+stretch_mode = 2
+
+[node name="Line2D" type="Line2D" parent="Goal"]
+position = Vector2( 100, 0 )
+points = PoolVector2Array( 0, 0, 0, 480 )
+width = 4.0
+default_color = Color( 1, 1, 0, 1 )
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

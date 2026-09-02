@@ -10,6 +10,20 @@ signal jogador_saiu_da_area(jogador: Node2D)
 @export_group("Escolhas de Diálogo")
 @export var opcoes: Array[OpcaoDialogo] = []
 
+@export_group("Task (opcional)")
+## Cena do minigame que essa interação pode abrir. Preencha isso
+## e crie uma OpcaoDialogo com acao = "iniciar_minigame" (ex: a
+## resposta "Sim" de um "Você pode me ajudar com isso?") pra
+## disparar o minigame quando o jogador escolher essa opção.
+@export var cena_do_minigame: PackedScene
+## Mesmo formato de recompensas usado pelo MinigameTaskArea:
+## nome_do_atributo -> quantidade (ex: "desempenho_academico": 8).
+@export var recompensas_minigame: Dictionary = {
+	"desempenho_academico": 1,
+	"estresse": -3,
+	"social": +7
+}
+
 
 var _jogador_por_perto: bool = false
 var _label_dica: Label
@@ -70,6 +84,40 @@ func _on_dialogo_finalizado() -> void:
 func _on_opcao_escolhida(opcao: OpcaoDialogo) -> void:
 	if not _dialogo_aberto_por_mim:
 		return
-	if not opcoes.has(opcao):
+	if not _opcao_pertence_a_mim(opcao, opcoes):
 		return
-	# Se no futuro você criar novas ações para as opções, coloque-as aqui.
+
+	match opcao.acao:
+		"iniciar_minigame":
+			# Não chama na hora: esse sinal dispara NO MEIO da
+			# lógica do próprio DialogoBox fechando/avançando a
+			# caixa de diálogo. Trocar de cena aqui, síncrono,
+			# arrisca derrubar coisas que o DialogoBox ainda vai
+			# tentar usar em seguida (mesmo tipo de problema de
+			# ordem que já resolvemos no MinigameTaskArea). Um
+			# call_deferred garante que isso só roda depois que o
+			# diálogo terminar de se resolver sozinho.
+			call_deferred("_iniciar_minigame_da_task")
+		# Se no futuro você criar outras ações (ex: "entregar_caderno"),
+		# adicione novos casos aqui.
+
+
+## Busca `opcao` em `lista`, incluindo dentro de proximas_opcoes
+## (submenus), pra confirmar que a escolha realmente pertence a
+## este Interagivel antes de agir sobre ela.
+func _opcao_pertence_a_mim(opcao: OpcaoDialogo, lista: Array[OpcaoDialogo]) -> bool:
+	for item in lista:
+		if item == null:
+			continue
+		if item == opcao:
+			return true
+		if not item.proximas_opcoes.is_empty() and _opcao_pertence_a_mim(opcao, item.proximas_opcoes):
+			return true
+	return false
+
+
+func _iniciar_minigame_da_task() -> void:
+	if cena_do_minigame == null:
+		push_warning("Interagivel '%s': a opção escolhida tem acao = \"iniciar_minigame\", mas 'Cena Do Minigame' não foi preenchida no Inspetor." % nome_personagem)
+		return
+	GerenciadorDeMinigames.iniciar_minigame(cena_do_minigame.resource_path, recompensas_minigame)

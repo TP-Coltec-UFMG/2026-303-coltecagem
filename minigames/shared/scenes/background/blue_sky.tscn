@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://minigames/shared/scripts/background/sky_base.gd" type="Script" id=1]
+[ext_resource path="res://minigames/shared/textures/background/blue_sky.tres" type="Texture" id=2]
+
+[node name="BlueSky" type="Node2D"]
+script = ExtResource( 1 )
+texture = ExtResource( 2 )
+size = Vector2( 640, 480 )

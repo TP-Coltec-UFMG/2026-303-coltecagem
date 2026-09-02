@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://c06vsfoa8a77c"]
+
+[ext_resource type="Script" uid="uid://cbjf3khto1io2" path="res://minigames/pants/pants_minigame.gd" id="1"]
+[ext_resource type="PackedScene" path="res://minigames/shared/scenes/background/blue_sky.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://minigames/pants/scenes/characters/pants_man.tscn" id="3"]
+[ext_resource type="Texture2D" uid="uid://f0k5b4gv7w8b" path="res://minigames/pants/textures/scenery/brick_wall.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://ctotm5xpk5ijp" path="res://minigames/pants/images/characters/fig_leaf.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://clp1k4s83nsm0" path="res://minigames/shared/images/background/cloud_01.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://dv4bve8vwv3tv" path="res://minigames/shared/images/background/cloud_02.png" id="7"]
+[ext_resource type="Script" uid="uid://shgp1ulss2sk" path="res://minigames/shared/scripts/background/windy_cloud.gd" id="8"]
+
+[sub_resource type="Curve2D" id="1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 32, 0, 0, 0, 0, 0, 608, 0)
+}
+point_count = 2
+
+[node name="PantsMinigame" type="Node2D" unique_id=232958977]
+script = ExtResource("1")
+_instruction = "Put on Pants!"
+
+[node name="Sky" parent="." unique_id=610859984 instance=ExtResource("2")]
+
+[node name="Cloud1" type="Sprite2D" parent="." unique_id=1983894065]
+position = Vector2(368, 80)
+texture = ExtResource("6")
+script = ExtResource("8")
+_speed_multiplier = 0.75
+
+[node name="Cloud2" type="Sprite2D" parent="." unique_id=2065495448]
+position = Vector2(160, 96)
+texture = ExtResource("7")
+script = ExtResource("8")
+
+[node name="BrickWall" type="TextureRect" parent="." unique_id=1796028743]
+offset_top = 461.0
+offset_right = 640.0
+offset_bottom = 481.0
+texture = ExtResource("4")
+stretch_mode = 2
+
+[node name="PantsMan" parent="." unique_id=1182114450 instance=ExtResource("3")]
+position = Vector2(320, 461)
+
+[node name="FigLeaf" type="Sprite2D" parent="PantsMan" unique_id=379739346]
+position = Vector2(0, -21.5)
+texture = ExtResource("5")
+
+[node name="PantsPath" type="Path2D" parent="." unique_id=1168790060]
+curve = SubResource("1")
+
+[node name="PantsSpawnPoint" type="PathFollow2D" parent="PantsPath" unique_id=938208892]
+position = Vector2(32, 0)
+
+[node name="PantsTimer" type="Timer" parent="." unique_id=2058764769]
+wait_time = 0.5
+
+[connection signal="timeout" from="PantsTimer" to="." method="_on_PantsTimer_timeout"]
