@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b4oc5q51arc6n" path="res://Minigames_Sistema/minigame_task_area.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://bh2x6uofmcld7" path="res://scenes/Character.tscn" id="2"]
 [ext_resource type="Theme" path="res://theme/theme.tres" id="3"]
-[ext_resource type="PackedScene" uid="uid://c06vsfoa8a77c" path="res://minigames/pants/pants_minigame.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://minigames/ball_tribute/scenes/ball_tribute.tscn" id="3_rjyu3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_area"]
 size = Vector2(48, 48)
@@ -18,7 +18,7 @@ position = Vector2(220, 120)
 
 [node name="AreaTask" type="Area2D" parent="TaskCalca" unique_id=1052065686]
 script = ExtResource("1")
-cena_do_minigame = ExtResource("4")
+cena_do_minigame = ExtResource("3_rjyu3")
 recompensas = {
 "desempenho_academico": 8,
 "estresse": -3
