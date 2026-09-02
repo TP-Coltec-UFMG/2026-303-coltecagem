@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://c8p3teste0006"]
+
+[ext_resource type="Script" uid="uid://b4oc5q51arc6n" path="res://Minigames_Sistema/minigame_task_area.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://bh2x6uofmcld7" path="res://scenes/Character.tscn" id="2"]
+[ext_resource type="Theme" path="res://theme/theme.tres" id="3"]
+[ext_resource type="PackedScene" uid="uid://c06vsfoa8a77c" path="res://minigames/pants/pants_minigame.tscn" id="4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_area"]
+size = Vector2(48, 48)
+
+[node name="TesteMinigame" type="Node2D" unique_id=1472118025]
+
+[node name="Character" parent="." unique_id=8247095 instance=ExtResource("2")]
+position = Vector2(80, 120)
+
+[node name="TaskCalca" type="Node2D" parent="." unique_id=1427680838]
+position = Vector2(220, 120)
+
+[node name="AreaTask" type="Area2D" parent="TaskCalca" unique_id=1052065686]
+script = ExtResource("1")
+cena_do_minigame = ExtResource("4")
+recompensas = {
+"desempenho_academico": 8,
+"estresse": -3
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TaskCalca/AreaTask" unique_id=648158198]
+shape = SubResource("RectangleShape2D_area")
+
+[node name="LabelDica" type="Label" parent="TaskCalca/AreaTask" unique_id=1513115177]
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = -24.0
+theme = ExtResource("3")
+theme_override_font_sizes/font_size = 8
+text = "[E] task: calça"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="." unique_id=167921350]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 560.0
+offset_bottom = 44.0
+theme = ExtResource("3")
+theme_override_font_sizes/font_size = 10
+text = "WASD pra andar, chegue perto da task e aperte E pra jogar 'Put on Pants!'"

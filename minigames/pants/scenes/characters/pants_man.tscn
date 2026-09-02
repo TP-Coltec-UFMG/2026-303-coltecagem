@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://minigames/pants/images/characters/pants_man.png" type="Texture" id=1]
+[ext_resource path="res://minigames/pants/scripts/characters/pants_man.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 5.94512, 4.19326 )
+
+[node name="PantsMan" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource( 1 )
+offset = Vector2( 0, -37 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -4.28088 )
+shape = SubResource( 1 )

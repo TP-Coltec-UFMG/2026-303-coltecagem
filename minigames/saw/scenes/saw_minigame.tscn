@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://minigames/saw/scripts/saw_minigame.gd" type="Script" id=1]
+[ext_resource path="res://minigames/saw/images/log/aft.png" type="Texture" id=2]
+[ext_resource path="res://minigames/saw/images/saw/saw.png" type="Texture" id=3]
+[ext_resource path="res://minigames/saw/images/log/fore.png" type="Texture" id=4]
+[ext_resource path="res://minigames/shared/scenes/ui/keys/right_key.tscn" type="PackedScene" id=5]
+[ext_resource path="res://minigames/shared/scenes/ui/keys/left_key.tscn" type="PackedScene" id=6]
+[ext_resource path="res://minigames/saw/images/log/cover_seam.png" type="Texture" id=7]
+[ext_resource path="res://minigames/saw/images/background/fg.png" type="Texture" id=8]
+
+[node name="SawMinigame" type="Node2D"]
+script = ExtResource( 1 )
+_instruction = "Saw!"
+
+[node name="Background" type="ColorRect" parent="."]
+offset_left = 39.0
+offset_top = 37.0
+offset_right = 403.0
+offset_bottom = 301.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LogAft" type="Sprite2D" parent="."]
+position = Vector2( 168.77, 162.849 )
+texture = ExtResource( 2 )
+
+[node name="Saw" type="Sprite2D" parent="."]
+position = Vector2( 231.246, 135.513 )
+texture = ExtResource( 3 )
+
+[node name="LogFore" type="Sprite2D" parent="."]
+position = Vector2( 240.72, 197.618 )
+texture = ExtResource( 4 )
+
+[node name="SeamCover" type="Sprite2D" parent="."]
+position = Vector2( 240.72, 197.618 )
+texture = ExtResource( 7 )
+
+[node name="Target" type="Marker2D" parent="."]
+position = Vector2( 231.246, 185.513 )
+
+[node name="Foreground" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Prompt" type="Node2D" parent="."]
+position = Vector2( 325.983, 314.571 )
+
+[node name="LeftKey" parent="Prompt" instance=ExtResource( 6 )]
+position = Vector2( -20, 0 )
+animation = "dim"
+
+[node name="RightKey" parent="Prompt" instance=ExtResource( 5 )]
+position = Vector2( 20, 0 )
+animation = "dim"

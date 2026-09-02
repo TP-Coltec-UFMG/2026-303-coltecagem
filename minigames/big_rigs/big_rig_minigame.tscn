@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://minigames/big_rigs/scripts/big_rig_minigame.gd" type="Script" id=1]
+[ext_resource path="res://minigames/big_rigs/images/characters/rig1.png" type="Texture" id=2]
+[ext_resource path="res://minigames/big_rigs/scripts/characters/rig.gd" type="Script" id=3]
+[ext_resource path="res://minigames/big_rigs/images/backgrounds/fg.png" type="Texture" id=4]
+[ext_resource path="res://minigames/big_rigs/images/backgrounds/bg.png" type="Texture" id=5]
+[ext_resource path="res://minigames/big_rigs/images/characters/rig2.png" type="Texture" id=6]
+[ext_resource path="res://minigames/big_rigs/images/misc/trophy.png" type="Texture" id=7]
+[ext_resource path="res://minigames/shared/fonts/modern_DOS.tres" type="DynamicFont" id=8]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1.82016, 463.291, 0, 0, 0, 0, 163.593, 461.075, 0, 0, 0, 0, 221.211, 447.779, 0, 0, 0, 0, 257.776, 418.97, 0, 0, 0, 0, 267.748, 369.108, 0, 0, 0, 0, 284, 237, 0, 0, 0, 0, 318, 176, 0, 0, 0, 0, 352, 152, 0, 0, 0, 0, 395, 148, 0, 0, 0, 0, 421, 165, 0, 0, 0, 0, 439, 200, 0, 0, 0, 0, 451, 254, 0, 0, 0, 0, 481, 276, 0, 0, 0, 0, 514, 282, 0, 0, 0, 0, 541, 277, 0, 0, 0, 0, 572.001, 260, 0, 0, 0, 0, 589.001, 234, 0, 0, 0, 0, 615.77, 233.697 )
+}
+
+[node name="BigRigMinigame" type="Node2D"]
+script = ExtResource( 1 )
+_instruction = "Race that Rig!"
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource( 5 )
+
+[node name="RigPath" type="Path2D" parent="."]
+curve = SubResource( 1 )
+
+[node name="Rig2" type="PathFollow2D" parent="RigPath"]
+position = Vector2( 31.822, 462.88 )
+rotation = -0.0136958
+progress = 30.0
+loop = false
+
+[node name="Sprite" type="Sprite2D" parent="RigPath/Rig2"]
+texture = ExtResource( 6 )
+offset = Vector2( -30, -25 )
+
+[node name="Rig1" type="PathFollow2D" parent="RigPath"]
+position = Vector2( 46.8399, 462.674 )
+rotation = -0.0137021
+progress = 45.0
+loop = false
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite2D" parent="RigPath/Rig1"]
+texture = ExtResource( 2 )
+offset = Vector2( -30, -25 )
+
+[node name="Foreground" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+offset_left = 68.7534
+offset_top = 49.1095
+offset_right = 216.753
+offset_bottom = 212.11
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TextureRect"]
+offset_left = -30.6935
+offset_top = 166.972
+offset_right = 76.3065
+offset_bottom = 180.972
+scale = Vector2( 1.8, 1.96 )
+custom_fonts/font = ExtResource( 8 )
+text = "You're Winner!"
+uppercase = true
+
+[connection signal="finished" from="RigPath/Rig1" to="." method="_on_Rig1_finished"]

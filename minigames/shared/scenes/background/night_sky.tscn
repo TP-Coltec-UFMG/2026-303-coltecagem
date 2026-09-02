@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://minigames/shared/scripts/background/night_sky.gd" type="Script" id=1]
+
+[node name="NightSky" type="Node2D"]
+script = ExtResource( 1 )
+num_stars = 1024
+brightness_min = 0.25
+brightness_max = 1.0
+texture = null
+size = Vector2( 640, 480 )

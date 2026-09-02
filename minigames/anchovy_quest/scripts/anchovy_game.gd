@@ -1,0 +1,91 @@
+extends Minigame
+# The class for the anchovy minigame.
+
+
+# The max & minimum speed of the in-game pizzas.
+const MAX_PIZZA: float = 200.0
+const MIN_PIZZA: float = 100.0
+
+# The max & minimum distance from the player that pizzas will spawn.
+const MIN_DISTANCE: float = 150.0
+const MAX_DISTANCE: float = 300.0
+
+# The scene to be used for the initial pizza instances.
+@export var _pizza: PackedScene
+# The scene to be used for explosion animations.
+@export var _explosion: PackedScene
+# The scene to be used for the player's bullets.
+@export var _bullet: PackedScene
+
+# An array storing the initial pizzas.  Initialized in `_init`
+var pizzas: Array
+
+
+# When the game is initialized, generate three pizzas at random locations.
+func _ready():
+	pizzas = [ _pizza.instantiate(), _pizza.instantiate(), _pizza.instantiate() ]
+	var player_position: Vector2 = $Player.position
+	var pizza_position: Vector2
+	var diff_x: float
+	var diff_y: float
+	var flip: int
+	for pizza in pizzas:
+		# Spawn the pizza a random distance away from the player.
+		diff_x = randf_range(MIN_DISTANCE, MAX_DISTANCE)
+		diff_y = randf_range(MIN_DISTANCE, MAX_DISTANCE)
+		flip = randi()
+		if flip & 1:
+			diff_x *= -1
+		if flip & 2:
+			diff_y *= -1
+		pizza_position = player_position
+		pizza_position.x += diff_x
+		pizza_position.y += diff_y
+		pizza.position = pizza_position
+		add_child( pizza )
+
+
+# Start the game by unlocking the controls and setting the pizzas in motion.
+func start():
+	_unlock_controls = true
+	$Player.allow_movement = true
+
+	# Assign a linear velocity and spin to each of the pizzas.
+	for pizza in pizzas:
+		var velocity = Vector2( randf_range( MIN_PIZZA, MAX_PIZZA ), 0 )
+		velocity = velocity.rotated( deg_to_rad( randi() % 360 ) )
+		pizza.set_slice_velocity( velocity )
+
+
+# If the player makes it to the end of the timer without dying, they win.
+func decide():
+	emit_signal( "won" )
+
+
+# If the player has been hit, replace them with an explosion, remove them
+# from the game, and signal loss.
+func _on_Player_hit():
+	var explosion = _explosion.instantiate()
+	explosion.position = $Player.position
+	add_child( explosion )
+	explosion.play()
+	$Player.queue_free()
+	emit_signal( "lost" )
+
+
+# The player has asked us to fire a projectile.
+func _on_Player_shoot( location, direction ):
+	var bullet = _bullet.instantiate()
+	add_child( bullet )
+	# Place the bullet on the player's designated projectile spawn point.
+	bullet.position = location
+	# Set the bullet's direction appropriately.
+	bullet.set_direction( direction )
+	# Connect the bullet's collision detection.
+	bullet.collided.connect( _on_bullet_collided )
+
+
+# A pepperoni has reported a collision.
+func _on_bullet_collided( data: KinematicCollision2D ):
+	var body = data.get_collider()
+	body.explode()

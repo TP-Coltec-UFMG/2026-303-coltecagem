@@ -1,0 +1,20 @@
+extends Area2D
+# A script for the archer from the "Lose" minigame.
+
+
+# Signals the minigame to spawn an arrow.
+signal shot( arrow, position )
+
+# A scene representing the projectiles this character will fire.
+@export var _arrow: PackedScene
+
+
+# The archer's timer expires, prompting them to shoot an arrow.
+func _on_Timer_timeout():
+	emit_signal( "shot", _arrow, position )
+
+
+# Fluffy has touched the archer and, naturally, must die.
+func _on_Archer_body_entered( body ):
+	body.die()
+	$CollisionShape2D.set_deferred( "disabled", true )
