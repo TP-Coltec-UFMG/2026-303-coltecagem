@@ -12,9 +12,6 @@ func iniciar_dialogo_manager() -> bool:
 	if dialogo_manager_ativo:
 		return false
 
-	if DialogoBox.esta_ativo():
-		return false
-
 	dialogo_manager_ativo = true
 	_retomar_tempo_ao_fechar = GerenciadorDeTempo.rodando
 

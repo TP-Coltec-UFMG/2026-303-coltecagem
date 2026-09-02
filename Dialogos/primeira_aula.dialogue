@@ -19,17 +19,17 @@ Jogador: Vou tentar arrumar uma folha com alguém.
 
 ~ primeira_interacao_com_material
 Professor: É bom que anotem se quiserem revisar depois, mas vai do seu livre-arbítrio.
-Jogador: Beleza, agora que eu tenho uma folha dá pra prestar atenção.
+Beleza, agora que eu tenho uma folha dá pra prestar atenção.
 => END
 
 
 ~ sem_material
-Jogador: Nooo, esqueci meu caderno...
-Jogador: Chapei.
-Jogador: Vou tentar arrumar uma folha com alguém.
+Nooo, esqueci meu caderno...
+Chapei.
+Vou tentar arrumar uma folha com alguém.
 => END
 
 
 ~ com_material
-Jogador: Beleza, agora que eu tenho uma folha dá pra prestar atenção.
+Beleza, agora que eu tenho uma folha dá pra prestar atenção no que esse japonês ta falando.
 => END

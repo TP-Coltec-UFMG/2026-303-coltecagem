@@ -1,9 +1,10 @@
 ~ inicio
 Jonas: Manda a boa.
 
-- Tô precisando de uma folha.
+- Tô precisando de uma folha. [if Global.pode_tentar_material("jonas") /]
+	do Global.registrar_tentativa_material("jonas")
 	Jonas: Qual foi, tá vendo alguma em cima da minha mesa?
-
+	
 	- A... verdade.
 		=> END
 

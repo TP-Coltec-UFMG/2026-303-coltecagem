@@ -25,11 +25,10 @@ Global="*res://global.gd"
 EstadoJogador="*res://autoload/estado_jogador.gd"
 GerenciadorDeTempo="*uid://dyrh6hlp3m08f"
 GerenciadorDeEventos="*uid://dps7ackmord3y"
-DialogoBox="*res://UI/dialogo_box.tscn"
-GerenciadorDeMinigames="*res://Minigames_Sistema/gerenciador_de_minigames.gd"
 HUD="*uid://y4504a107vo2"
 DialogueManager="*uid://c3rodes2l3gxb"
 GerenciadorDeDialogos="*uid://i1ugyxfmd2e"
+GerenciadorDeMinigames="*res://Minigames_Sistema/gerenciador_de_minigames.gd"
 
 [dialogue_manager]
 

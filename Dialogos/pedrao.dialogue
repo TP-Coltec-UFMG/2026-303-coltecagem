@@ -1,11 +1,23 @@
-~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
-=> END
+~ inicio
+Pedrão: Eai, vamo bandecar depois?
+
+- Bora. Por acaso você tem alguma folha pra me emprestar? [if Global.pode_tentar_material("pedrao") /]
+	do Global.registrar_tentativa_material("pedrao")
+	Pedrão: Vish. Vou ficar te devendo, só trago notebook.
+	=> END
+
+- Bora!
+	=> END
+
+
+~ minigame
+Pedrão: E aí, tranquilo? Quer jogar uma partida rápida pra esfriar a cabeça?
+
+- Bora!
+	Pedrão: Demorou! Quero ver se você é bom mesmo.
+	do GerenciadorDeMinigames.iniciar_minigame("res://minigames/pants/pants_minigame.tscn", {"desempenho_academico": 5, "estresse": -10})
+	=> END
+
+- Agora não, tô ocupado.
+	Pedrão: Suave, depois a gente joga então.
+	=> END

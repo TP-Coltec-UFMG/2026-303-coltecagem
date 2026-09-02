@@ -35,15 +35,19 @@ func _on_jogador_entrou_na_sala(body: Node2D) -> void:
 	await get_tree().create_timer(1.5).timeout
 	print("3. O tempo de espera acabou!")
 
-	# Trava de segurança: impede que a fala do professor atropele 
+# Trava de segurança: impede que a fala do professor atropele 
 	# outro diálogo caso você tenha interagido com a carteira nesse meio tempo.
-	if DialogoBox.esta_ativo():
+	if GerenciadorDeDialogos.dialogo_manager_ativo:
 		print("4. Outro diálogo já está na tela, cancelando a fala do professor.")
 		return
 
 	if dialogo_primeira_aula:
 		print("5. Exibindo o diálogo do professor.")
+		
+		# AVISA O GERENCIADOR PARA TRAVAR O JOGADOR AQUI:
+		GerenciadorDeDialogos.iniciar_dialogo_manager() 
+		
 		DialogueManager.show_dialogue_balloon(
 			dialogo_primeira_aula,
 			"entrada_sala"
-)
+		)

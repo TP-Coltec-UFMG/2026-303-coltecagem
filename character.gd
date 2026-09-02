@@ -18,7 +18,7 @@ var _facing := 1  # 1 = direita, -1 = esquerda
 func _physics_process(_delta: float) -> void:
 	# Enquanto a DialogoBox está ativa (cutscenes, conversas, etc),
 	# o jogador fica travado: sem input e sem deslizar.
-	if DialogoBox.esta_ativo():
+	if GerenciadorDeDialogos.dialogo_manager_ativo:
 		velocity = Vector2.ZERO
 		move_and_slide()
 		_update_animation(Vector2.ZERO)

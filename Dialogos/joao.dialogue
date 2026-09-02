@@ -4,7 +4,8 @@ João: (Scrollando Reels)
 - O professor não liga de você estar mexendo no celular?
 	João: O Honda?? Não, ele só liga se tiver atrapalhando a aula.
 
-	- Tendi. Você me empresta uma folha?
+	- Tendi. Você me empresta uma folha? [if Global.pode_tentar_material("joao") /]
+		do Global.registrar_tentativa_material("joao")
 		João: Não.
 		=> END
 

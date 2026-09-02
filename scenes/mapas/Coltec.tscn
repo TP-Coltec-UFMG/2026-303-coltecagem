@@ -10,14 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://c7ylpxtapp02m" path="res://Tilemap/Escola/Catraca.png" id="8_o8hg3"]
 [ext_resource type="PackedScene" uid="uid://bh2x6uofmcld7" path="res://scenes/Character.tscn" id="9_uvx25"]
 [ext_resource type="Script" uid="uid://b0habh0iywar3" path="res://Interacao/interagivel.gd" id="10_rfcp6"]
-[ext_resource type="Script" uid="uid://d0kqs4kj2mqu1" path="res://Interacao/opcao_dialogo.gd" id="11_j7o77"]
+[ext_resource type="Resource" uid="uid://l4ilxx5ury83" path="res://Dialogos/pedrao.dialogue" id="11_j7o77"]
 [ext_resource type="Theme" path="res://theme/theme.tres" id="11_mghkb"]
 [ext_resource type="PackedScene" uid="uid://fuqdwpgp7tci" path="res://scenes/npcs/Kwanza.tscn" id="12_1h65i"]
-[ext_resource type="PackedScene" uid="uid://c06vsfoa8a77c" path="res://minigames/pants/pants_minigame.tscn" id="12_dopji"]
 [ext_resource type="PackedScene" uid="uid://bej7yvwvrb6tv" path="res://scenes/npcs/Moises.tscn" id="13_8o4ag"]
 [ext_resource type="PackedScene" uid="uid://c3r78wbchviux" path="res://scenes/npcs/Isa.tscn" id="14_1nmp8"]
 [ext_resource type="PackedScene" uid="uid://c64reausv1422" path="res://scenes/npcs/Pedrao.tscn" id="15_ef5ak"]
-[ext_resource type="PackedScene" path="res://minigames/anchovy_quest/scenes/anchovy_game.tscn" id="15_r3jq4"]
 [ext_resource type="PackedScene" uid="uid://c0et0t746jgln" path="res://scenes/npcs/samuel.tscn" id="16_u6fkl"]
 [ext_resource type="PackedScene" uid="uid://ggcgbi71wmwt" path="res://scenes/npcs/Porteira.tscn" id="17_h6vow"]
 [ext_resource type="PackedScene" uid="uid://ckh2fp5xtlt8b" path="res://scenes/npcs/Duze.tscn" id="18_24y04"]
@@ -7796,26 +7794,8 @@ texture = ExtResource("8_o8hg3")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_v8mrn")
 
-[sub_resource type="Resource" id="Resource_3ll5q"]
-script = ExtResource("11_j7o77")
-texto = "Claro mano!"
-acao = "iniciar_minigame"
-metadata/_custom_type_script = "uid://d0kqs4kj2mqu1"
-
-[sub_resource type="Resource" id="Resource_j7o77"]
-script = ExtResource("11_j7o77")
-texto = "não, foi mal!"
-falas = Array[String](["Tranquilo mano!"])
-metadata/_custom_type_script = "uid://d0kqs4kj2mqu1"
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_h1bdy"]
 radius = 18.439089
-
-[sub_resource type="Resource" id="Resource_dopji"]
-script = ExtResource("11_j7o77")
-texto = "ah, pode ser"
-acao = "iniciar_minigame"
-metadata/_custom_type_script = "uid://d0kqs4kj2mqu1"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7c4bj"]
 radius = 51.009804
@@ -7880,10 +7860,8 @@ position = Vector2(545, 125)
 
 [node name="AreaInteracao" type="Area2D" parent="Entidades/NpcPedrinho" unique_id=1455161614]
 script = ExtResource("10_rfcp6")
-nome_personagem = "Pedrinho"
-falas = Array[String](["Qual foi mano?", "tudo de boa?", "Aqui, você pode me ajudar a achar minhas calças?"])
-opcoes = Array[ExtResource("11_j7o77")]([SubResource("Resource_3ll5q"), SubResource("Resource_j7o77")])
-cena_do_minigame = ExtResource("12_dopji")
+dialogo = ExtResource("11_j7o77")
+ponto_inicial = "minigame"
 
 [node name="LabelDica" type="Label" parent="Entidades/NpcPedrinho/AreaInteracao" unique_id=1369411829]
 offset_left = -32.0
@@ -7907,10 +7885,6 @@ position = Vector2(304, -209)
 
 [node name="AreaInteracao" type="Area2D" parent="Entidades/NpcMoises" unique_id=1084090251]
 script = ExtResource("10_rfcp6")
-nome_personagem = "Moises"
-falas = Array[String](["Qual foi mano?", "voce gosta de peixes?", "quer ver minha anchova?"])
-opcoes = Array[ExtResource("11_j7o77")]([SubResource("Resource_dopji")])
-cena_do_minigame = ExtResource("15_r3jq4")
 
 [node name="LabelDica" type="Label" parent="Entidades/NpcMoises/AreaInteracao" unique_id=1438465004]
 offset_left = -32.0
@@ -7934,8 +7908,6 @@ position = Vector2(-198, 47)
 
 [node name="AreaInteracao" type="Area2D" parent="Entidades/NpcIsa" unique_id=1110177341]
 script = ExtResource("10_rfcp6")
-nome_personagem = "Isa"
-falas = Array[String](["Qual foi mano?", "tudo de boa?", "A gete se vê"])
 
 [node name="LabelDica" type="Label" parent="Entidades/NpcIsa/AreaInteracao" unique_id=1308879048]
 offset_left = -36.0
@@ -7959,8 +7931,6 @@ position = Vector2(-182, -197)
 
 [node name="AreaInteracao" type="Area2D" parent="Entidades/NpcPedrao" unique_id=1831864519]
 script = ExtResource("10_rfcp6")
-nome_personagem = "Pedrao"
-falas = Array[String](["Qual foi mano?", "tudo de boa?", "A gete se vê"])
 
 [node name="LabelDica" type="Label" parent="Entidades/NpcPedrao/AreaInteracao" unique_id=147831990]
 offset_left = -36.0
@@ -7984,8 +7954,6 @@ position = Vector2(136, -302)
 
 [node name="AreaInteracao" type="Area2D" parent="Entidades/NpcSamuel" unique_id=1726993209]
 script = ExtResource("10_rfcp6")
-nome_personagem = "Samuel"
-falas = Array[String](["Qual foi mano?", "tudo de boa?", "A gete se vê"])
 
 [node name="LabelDica" type="Label" parent="Entidades/NpcSamuel/AreaInteracao" unique_id=1357666821]
 offset_left = -33.0
@@ -8009,8 +7977,6 @@ position = Vector2(310, 408)
 
 [node name="AreaInteracao" type="Area2D" parent="Entidades/NpcPorteira" unique_id=1185096828]
 script = ExtResource("10_rfcp6")
-nome_personagem = "Porteira"
-falas = Array[String](["Bom dia! cadê a carteirinha?", "Melhor para de perder em!", "Não vou ficar abrindo toda hora!"])
 
 [node name="LabelDica" type="Label" parent="Entidades/NpcPorteira/AreaInteracao" unique_id=1446226803]
 offset_left = -36.0
@@ -8034,8 +8000,6 @@ position = Vector2(169, 105)
 
 [node name="AreaInteracao" type="Area2D" parent="Entidades/NpcZedu" unique_id=1080726778]
 script = ExtResource("10_rfcp6")
-nome_personagem = "Zédu"
-falas = Array[String](["Ei garoto!", "Você ta mechendo no telefone?", "Vou tomar seu celular em!"])
 
 [node name="LabelDica" type="Label" parent="Entidades/NpcZedu/AreaInteracao" unique_id=746845771]
 offset_left = -32.0
