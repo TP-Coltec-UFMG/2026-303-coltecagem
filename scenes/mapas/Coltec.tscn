@@ -1,13 +1,13 @@
 [gd_scene format=4 uid="uid://bp0fr4t8ia2n0"]
 
 [ext_resource type="Script" uid="uid://4l8m1m2nm5yo" path="res://mapas/area_base.gd" id="1_qjt15"]
-[ext_resource type="Texture2D" uid="uid://bx0y0uxnqtd82" path="res://Tilemap/Exterior Tiles.png" id="2_j7o77"]
-[ext_resource type="Texture2D" uid="uid://npi2xie8nwh1" path="res://Tilemap/floor_tiles.png" id="3_dopji"]
-[ext_resource type="Texture2D" uid="uid://mqu3t4ab7v8" path="res://Tilemap/Traditional School Asset pack 32x32/Grounds 1.1.png" id="4_r3jq4"]
-[ext_resource type="Texture2D" uid="uid://sxad6wrcja8y" path="res://Tilemap/Escola/TileSet recortadoaaa.png" id="5_4sbu0"]
-[ext_resource type="Texture2D" uid="uid://cyjjtobh55fj2" path="res://Tilemap/CoolSchool_tileset_48px/School_Sem-Sombra.png" id="6_1pm7u"]
-[ext_resource type="Texture2D" uid="uid://dih4mt0xb10ut" path="res://Tilemap/midcentury_modern_furnitureset.png" id="7_plf7k"]
-[ext_resource type="Texture2D" uid="uid://dplxpgyw4m02e" path="res://Tilemap/Escola/Catraca.png" id="8_o8hg3"]
+[ext_resource type="Texture2D" uid="uid://b8hhp4gvgm2uy" path="res://Tilemap/Exterior Tiles.png" id="2_j7o77"]
+[ext_resource type="Texture2D" uid="uid://nr4b25k55ema" path="res://Tilemap/floor_tiles.png" id="3_dopji"]
+[ext_resource type="Texture2D" uid="uid://1w0m1xq3lxef" path="res://Tilemap/Traditional School Asset pack 32x32/Grounds 1.1.png" id="4_r3jq4"]
+[ext_resource type="Texture2D" uid="uid://dfy625vowrb8j" path="res://Tilemap/Escola/TileSet recortadoaaa.png" id="5_4sbu0"]
+[ext_resource type="Texture2D" uid="uid://crlapymbpsjm0" path="res://Tilemap/CoolSchool_tileset_48px/School_Sem-Sombra.png" id="6_1pm7u"]
+[ext_resource type="Texture2D" uid="uid://bgdmbalrfpt5p" path="res://Tilemap/midcentury_modern_furnitureset.png" id="7_plf7k"]
+[ext_resource type="Texture2D" uid="uid://c7ylpxtapp02m" path="res://Tilemap/Escola/Catraca.png" id="8_o8hg3"]
 [ext_resource type="PackedScene" uid="uid://bh2x6uofmcld7" path="res://scenes/Character.tscn" id="9_uvx25"]
 [ext_resource type="Script" uid="uid://b0habh0iywar3" path="res://Interacao/interagivel.gd" id="10_rfcp6"]
 [ext_resource type="Theme" path="res://theme/theme.tres" id="11_mghkb"]
@@ -8028,68 +8028,13 @@ shape = SubResource("CircleShape2D_nrtoj")
 [node name="npc7" parent="NPCs/NpcZedu/AreaInteracao" unique_id=1700220734 instance=ExtResource("18_24y04")]
 position = Vector2(28, 40)
 
-[node name="EntradaHall" type="Marker2D" parent="." unique_id=705633173]
-position = Vector2(352, 430)
-
-[node name="PortaParaHall6" type="Area2D" parent="." unique_id=1037679860]
-position = Vector2(-624, -728)
-script = ExtResource("19_2vbt0")
-cena_destino = "res://scenes/mapas/hall.tscn"
-ponto_entrada_destino = "EntradaPortaria"
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PortaParaHall6" unique_id=1586116020]
-position = Vector2(0, 2.5)
-shape = SubResource("RectangleShape2D_porta_hall")
-
-[node name="ColorRect" type="ColorRect" parent="PortaParaHall6" unique_id=1911971544]
-offset_left = -20.0
-offset_top = -15.0
-offset_right = 20.0
-offset_bottom = 20.0
-color = Color(0.9, 0.7, 0.1, 0.5)
-
-[node name="PortaParaHall5" type="Area2D" parent="." unique_id=825930502]
-position = Vector2(0, -538)
-script = ExtResource("19_2vbt0")
-cena_destino = "res://scenes/mapas/hall.tscn"
-ponto_entrada_destino = "EntradaPortaria"
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PortaParaHall5" unique_id=309857273]
-position = Vector2(0, 2.5)
-shape = SubResource("RectangleShape2D_porta_hall")
-
-[node name="ColorRect" type="ColorRect" parent="PortaParaHall5" unique_id=906753610]
-offset_left = -20.0
-offset_top = -15.0
-offset_right = 20.0
-offset_bottom = 20.0
-color = Color(0.9, 0.7, 0.1, 0.5)
-
-[node name="PortaParaHall4" type="Area2D" parent="." unique_id=970955552]
-position = Vector2(-225, -540)
-script = ExtResource("19_2vbt0")
-cena_destino = "res://scenes/mapas/hall.tscn"
-ponto_entrada_destino = "EntradaPortaria"
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PortaParaHall4" unique_id=827807799]
-position = Vector2(0, 2.5)
-shape = SubResource("RectangleShape2D_porta_hall")
-
-[node name="ColorRect" type="ColorRect" parent="PortaParaHall4" unique_id=1352700866]
-offset_left = -20.0
-offset_top = -15.0
-offset_right = 20.0
-offset_bottom = 20.0
-color = Color(0.9, 0.7, 0.1, 0.5)
+[node name="SaidaSala" type="Marker2D" parent="." unique_id=705633173]
+position = Vector2(363, 193)
 
 [node name="PortaParaHall3" type="Area2D" parent="." unique_id=1611556117]
-position = Vector2(929, 74)
+position = Vector2(655, 78)
 script = ExtResource("19_2vbt0")
-cena_destino = "res://scenes/mapas/hall.tscn"
-ponto_entrada_destino = "EntradaPortaria"
+cena_destino = "res://scenes/mapas/SalaDeAula.tscn"
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PortaParaHall3" unique_id=627368850]
@@ -8110,7 +8055,4 @@ color = Color(0.9, 0.7, 0.1, 0.5)
 [connection signal="jogador_entrou_na_area" from="NPCs/NpcSamuel/AreaInteracao" to="NPCs/NpcSamuel/AreaInteracao/npc5" method="virar_para_jogador"]
 [connection signal="jogador_entrou_na_area" from="NPCs/NpcPorteira/AreaInteracao" to="NPCs/NpcPorteira/AreaInteracao/npc6" method="virar_para_jogador"]
 [connection signal="jogador_entrou_na_area" from="NPCs/NpcZedu/AreaInteracao" to="NPCs/NpcZedu/AreaInteracao/npc7" method="virar_para_jogador"]
-[connection signal="body_entered" from="PortaParaHall6" to="PortaParaHall6" method="_on_body_entered"]
-[connection signal="body_entered" from="PortaParaHall5" to="PortaParaHall5" method="_on_body_entered"]
-[connection signal="body_entered" from="PortaParaHall4" to="PortaParaHall4" method="_on_body_entered"]
 [connection signal="body_entered" from="PortaParaHall3" to="PortaParaHall3" method="_on_body_entered"]

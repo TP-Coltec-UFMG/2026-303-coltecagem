@@ -27,10 +27,6 @@ extends CanvasLayer
 ## transição pra tela de resultados (ainda não existe no projeto).
 signal fim_de_jogo_hud
 
-## Duração (em segundos) que o pop-up de aviso de aula/prova fica
-## visível na tela.
-const DURACAO_AVISO := 4.0
-
 ## Duração (em segundos) da animação do texto flutuante de
 ## bloqueio de ação.
 const DURACAO_ALERTA_FLUTUANTE := 1.2
@@ -51,7 +47,6 @@ const MOTIVOS_BLOQUEIO := {
 
 @onready var painel_aviso: PanelContainer = $Control/PainelAviso
 @onready var label_aviso: Label = $Control/PainelAviso/LabelAviso
-@onready var timer_aviso: Timer = $Control/PainelAviso/TimerAviso
 
 @onready var camada_alertas: Control = $Control/CamadaAlertas
 
@@ -73,8 +68,12 @@ func _ready() -> void:
 
 	GerenciadorDeEventos.aula_anunciada.connect(_on_aula_anunciada)
 	GerenciadorDeEventos.prova_anunciada.connect(_on_prova_anunciada)
+	
+	GerenciadorDeEventos.aula_iniciada.connect(_on_aula_iniciada)
+	GerenciadorDeEventos.aula_finalizada.connect(_on_aula_finalizada)
+	GerenciadorDeEventos.prova_iniciada.connect(_on_prova_iniciada)
+	GerenciadorDeEventos.prova_finalizada.connect(_on_prova_finalizada)
 
-	timer_aviso.timeout.connect(_on_timer_aviso_timeout)
 	painel_aviso.visible = false
 
 	_atualizar_barras()
@@ -133,26 +132,34 @@ func _on_acoes_atualizadas(restantes: int) -> void:
 
 
 # ---------------------------------------------------------------
-# AVISOS DE AULA / PROVA (pop-up temporário no topo)
+# INDICADOR DE STATUS DE AULA / PROVA
 # ---------------------------------------------------------------
 
-func _on_aula_anunciada(nome_sala: String, tempo_aviso: float) -> void:
-	_mostrar_aviso("Aula na %s em %ds" % [nome_sala, roundi(tempo_aviso)])
+func _on_aula_anunciada(nome_sala: String, _tempo_aviso: float) -> void:
+	_atualizar_painel_evento("⏳ Indo para: Aula na %s" % nome_sala, Color(0.9, 0.8, 0.2))
+
+func _on_aula_iniciada(nome_sala: String, _duracao: float) -> void:
+	_atualizar_painel_evento("🟢 EM ANDAMENTO: Aula na %s" % nome_sala, Color(0.2, 0.8, 0.4))
+
+func _on_aula_finalizada(_nome_sala: String, _fracao_dentro: float) -> void:
+	painel_aviso.visible = false
 
 
-func _on_prova_anunciada(nome_sala: String, tempo_aviso: float) -> void:
-	_mostrar_aviso("Prova na %s em %ds!" % [nome_sala, roundi(tempo_aviso)])
+func _on_prova_anunciada(nome_sala: String, _tempo_aviso: float) -> void:
+	_atualizar_painel_evento("⚠️ PROVA! Corra para: %s" % nome_sala, Color(1.0, 0.4, 0.2))
+
+func _on_prova_iniciada(nome_sala: String, _duracao: float) -> void:
+	_atualizar_painel_evento("🔴 EM ANDAMENTO: Prova na %s" % nome_sala, Color(0.9, 0.2, 0.2))
+
+func _on_prova_finalizada(_nome_sala: String, _nota: int) -> void:
+	painel_aviso.visible = false
 
 
-func _mostrar_aviso(texto: String) -> void:
+func _atualizar_painel_evento(texto: String, cor_texto: Color) -> void:
 	label_aviso.text = texto
+	label_aviso.add_theme_color_override("font_color", cor_texto)
 	painel_aviso.visible = true
 	painel_aviso.modulate.a = 1.0
-	timer_aviso.start(DURACAO_AVISO)
-
-
-func _on_timer_aviso_timeout() -> void:
-	painel_aviso.visible = false
 
 
 # ---------------------------------------------------------------

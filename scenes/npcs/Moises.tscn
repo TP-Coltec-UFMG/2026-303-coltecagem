@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://bej7yvwvrb6tv"]
 
 [ext_resource type="Script" uid="uid://cdixun6r1c3yu" path="res://npcs.gd" id="1_6bboe"]
-[ext_resource type="Texture2D" uid="uid://1x7bjokla03l" path="res://Personagem Principal/legs.png" id="2_hj8cn"]
-[ext_resource type="Texture2D" uid="uid://cv3vqanefla2c" path="res://NPCS/Moises/bodyMoises.png" id="3_8rchf"]
-[ext_resource type="Texture2D" uid="uid://c1gaghlwahgbh" path="res://NPCS/Moises/leftMoises.png" id="4_1sxkf"]
-[ext_resource type="Texture2D" uid="uid://c6ru8itixdgl" path="res://NPCS/Moises/headMoises.png" id="5_5hwuc"]
+[ext_resource type="Texture2D" uid="uid://0kom6pkdae75" path="res://Personagem Principal/legs.png" id="2_hj8cn"]
+[ext_resource type="Texture2D" uid="uid://c1udbb6jpydsp" path="res://NPCS/Moises/bodyMoises.png" id="3_8rchf"]
+[ext_resource type="Texture2D" uid="uid://r4cgt4vxe0xg" path="res://NPCS/Moises/leftMoises.png" id="4_1sxkf"]
+[ext_resource type="Texture2D" uid="uid://b3dsid73yt7vd" path="res://NPCS/Moises/headMoises.png" id="5_5hwuc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
 size = Vector2(8, 11)

@@ -1,10 +1,10 @@
 [gd_scene format=4 uid="uid://0kj2dttp57n3"]
 
 [ext_resource type="PackedScene" uid="uid://bh2x6uofmcld7" path="res://scenes/Character.tscn" id="1"]
-[ext_resource type="Texture2D" uid="uid://dih4mt0xb10ut" path="res://Tilemap/midcentury_modern_furnitureset.png" id="3_dnnwd"]
-[ext_resource type="Texture2D" uid="uid://sxad6wrcja8y" path="res://Tilemap/Escola/TileSet recortadoaaa.png" id="4_hdhyg"]
-[ext_resource type="Texture2D" uid="uid://dcrm8y8q8ss8w" path="res://Tilemap/CoolSchool_tileset_48px/CoolSchool_tileset.png" id="4_lb4dr"]
-[ext_resource type="Texture2D" uid="uid://cpwt73w01kr6q" path="res://Tilemap/Escola/Lixeira.png" id="5_pgkhp"]
+[ext_resource type="Texture2D" uid="uid://bgdmbalrfpt5p" path="res://Tilemap/midcentury_modern_furnitureset.png" id="3_dnnwd"]
+[ext_resource type="Texture2D" uid="uid://dfy625vowrb8j" path="res://Tilemap/Escola/TileSet recortadoaaa.png" id="4_hdhyg"]
+[ext_resource type="Texture2D" uid="uid://h1tbs5rc0e4w" path="res://Tilemap/CoolSchool_tileset_48px/CoolSchool_tileset.png" id="4_lb4dr"]
+[ext_resource type="Texture2D" uid="uid://d0qi77save5uj" path="res://Tilemap/Escola/Lixeira.png" id="5_pgkhp"]
 [ext_resource type="Script" uid="uid://b0habh0iywar3" path="res://Interacao/interagivel.gd" id="6_837if"]
 [ext_resource type="Theme" path="res://theme/theme.tres" id="7_7hm7w"]
 [ext_resource type="PackedScene" uid="uid://b1vympcot738" path="res://scenes/npcs/Honda.tscn" id="8_y5wrn"]
@@ -17,10 +17,11 @@
 [ext_resource type="PackedScene" uid="uid://xqlvqjo5g1um" path="res://scenes/npcs/boy2.tscn" id="12_pgkhp"]
 [ext_resource type="PackedScene" uid="uid://bsy5rlo4v0t0l" path="res://scenes/npcs/Punk.tscn" id="12_qy12r"]
 [ext_resource type="PackedScene" uid="uid://cr002tmjssnj8" path="res://scenes/npcs/Nicole.tscn" id="12_w8cmx"]
+[ext_resource type="Script" uid="uid://d0kqs4kj2mqu1" path="res://Interacao/opcao_dialogo.gd" id="18_j2h3o"]
 [ext_resource type="Script" uid="uid://dfmvqn4rjte7x" path="res://carteira.gd" id="20_vlwr4"]
 [ext_resource type="Script" uid="uid://mm6hipxcn37b" path="res://sala_de_aula_presenca.gd" id="21_j2h3o"]
-[ext_resource type="Script" uid="uid://4l8m1m2nm5yo" path="res://mapas/area_base.gd" id="area_base"]
 [ext_resource type="Script" uid="uid://m4v3jilfgb3j" path="res://mapas/porta.gd" id="porta_script"]
+[ext_resource type="Script" uid="uid://b5whyj1eibhhg" path="res://mapas/sala_de_aula.gd" id="sala_de_aula_script"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dnnwd"]
 texture = ExtResource("4_lb4dr")
@@ -6923,6 +6924,19 @@ radius = 18.027756
 [sub_resource type="CircleShape2D" id="CircleShape2D_8g0vf"]
 radius = 18.027756
 
+[sub_resource type="Resource" id="Resource_j2h3o"]
+script = ExtResource("18_j2h3o")
+texto = "Pedir o caderno emprestado"
+falas = Array[String](["Você está precisando de um caderno é?", "Tudo bem, eu posso te emprestar um dos meus.", "Mas antes, você sabia que existe um animal que caga naturalmente em formato de cubo perfeito, o que impede que as fezes rolem, e por isso ele as usa para marcar território?", "Doido né. ", "Toma aqui o caderno.", "[Você recebeu um caderno de Jaime!]"])
+acao = "entregar_caderno"
+metadata/_custom_type_script = "uid://d0kqs4kj2mqu1"
+
+[sub_resource type="Resource" id="Resource_n2dk5"]
+script = ExtResource("18_j2h3o")
+texto = "Porque você trouxe tantos cadernos para o primeiro dia de aula?"
+falas = Array[String](["Porque eu quis."])
+metadata/_custom_type_script = "uid://d0kqs4kj2mqu1"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_riqys"]
 size = Vector2(7, 310)
 
@@ -6936,7 +6950,7 @@ size = Vector2(24, 26)
 size = Vector2(388, 308)
 
 [node name="SalaDeAula" type="Node2D" unique_id=272941245]
-script = ExtResource("area_base")
+script = ExtResource("sala_de_aula_script")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1290405516]
 zoom = Vector2(3, 3)
@@ -6983,22 +6997,22 @@ tile_map_data = PackedByteArray("AAAeABAAAAAMACIAAAAeABEAAAAMACMAAAAfABAAAAANACI
 tile_set = SubResource("TileSet_sn0t7")
 
 [node name="Character" parent="Tiles" unique_id=1051673572 instance=ExtResource("1")]
-position = Vector2(124, 125)
+position = Vector2(51, 267)
 
 [node name="EntradaHall" type="Marker2D" parent="." unique_id=1420838005]
 position = Vector2(51, 268)
 
-[node name="PortaParaHall" type="Area2D" parent="." unique_id=1297664855]
+[node name="PortaParaColtec" type="Area2D" parent="." unique_id=1297664855]
 position = Vector2(21, 267)
 script = ExtResource("porta_script")
-cena_destino = "res://scenes/mapas/hall.tscn"
+cena_destino = "uid://bp0fr4t8ia2n0"
 ponto_entrada_destino = "EntradaSalaDeAula"
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PortaParaHall" unique_id=1931354184]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PortaParaColtec" unique_id=1931354184]
 shape = SubResource("RectangleShape2D_sala_porta")
 
-[node name="ColorRect" type="ColorRect" parent="PortaParaHall" unique_id=1660786576]
+[node name="ColorRect" type="ColorRect" parent="PortaParaColtec" unique_id=1660786576]
 offset_left = -20.0
 offset_top = -20.0
 offset_right = 20.0
@@ -7196,9 +7210,8 @@ position = Vector2(124, 144)
 position = Vector2(-1, -1)
 script = ExtResource("6_837if")
 nome_personagem = "Jaime"
-entrega_caderno = true
-falas_entrega_caderno = Array[String](["Você está precisando de um caderno é?", "Tudo bem, eu posso te emprestar um dos meus.", "Mas antes, você sabia que existe um animal que caga naturalmente em formato de cubo perfeito, o que impede que as fezes rolem, e por isso ele as usa para marcar território?", "Doido né. ", "Toma aqui o caderno.", "[Você recebeu um caderno de Jaime]"])
-permite_entrosar = true
+falas = Array[String](["E aí, precisando de alguma coisa?s"])
+opcoes = Array[ExtResource("18_j2h3o")]([SubResource("Resource_j2h3o"), SubResource("Resource_n2dk5")])
 
 [node name="LabelDica" type="Label" parent="NPCs/NpcJaime/AreaInteracao" unique_id=1842340690]
 offset_left = -34.0
@@ -7286,7 +7299,7 @@ visible = false
 position = Vector2(8, -65)
 shape = SubResource("RectangleShape2D_6f8o3")
 
-[connection signal="body_entered" from="PortaParaHall" to="PortaParaHall" method="_on_body_entered"]
+[connection signal="body_entered" from="PortaParaColtec" to="PortaParaColtec" method="_on_body_entered"]
 [connection signal="jogador_entrou_na_area" from="NPCs/NpcHonda/AreaInteracao" to="NPCs/NpcHonda/AreaInteracao/npc" method="virar_para_jogador"]
 [connection signal="jogador_entrou_na_area" from="NPCs/NpcPedrinho/AreaInteracao" to="NPCs/NpcPedrinho/AreaInteracao/npc2" method="virar_para_jogador"]
 [connection signal="jogador_entrou_na_area" from="NPCs/NpcBoy/AreaInteracao" to="NPCs/NpcBoy/AreaInteracao/npc3" method="virar_para_jogador"]

@@ -36,6 +36,17 @@ signal sentou_na_carteira
 	"Beleza, caderno em mãos. Bora prestar atenção na aula.",
 ]
 
+@export_group("Roteiro Inicial (Cutscene)")
+## Fala do Professor mostrada na PRIMEIRA interação do jogador com
+## a carteira no dia — o roteiro obrigatório da abertura da aula.
+@export var falas_professor_bom_dia: Array[String] = [
+	"Bom dia, turma! Peguem o material e comecem as atividades.",
+]
+
+## true até a primeira interação do dia acontecer. Depois disso,
+## a carteira volta a funcionar no fluxo normal (com/sem caderno).
+var _primeira_interacao_do_dia: bool = true
+
 var _jogador_por_perto: bool = false
 var _label_dica: Label
 
@@ -75,6 +86,36 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	get_viewport().set_input_as_handled()
 
+	# ROTEIRO OBRIGATÓRIO: na primeira vez que o jogador interage
+	# com a carteira no dia, dispara a cutscene do Professor em vez
+	# da lógica normal. Nenhuma ficha do GerenciadorDeTempo é
+	# consumida aqui (nem _iniciar_missao_caderno nem
+	# _sentar_na_carteira chamam consumir_acao), deixando o
+	# jogador livre pra escolher onde gastar as fichas depois.
+	if _primeira_interacao_do_dia:
+		_primeira_interacao_do_dia = false
+		_iniciar_cutscene_bom_dia()
+		return
+
+	if not Global.tem_caderno:
+		_iniciar_missao_caderno()
+	else:
+		_sentar_na_carteira()
+
+
+## Mostra o diálogo do Professor mandando começar as atividades e,
+## assim que ele terminar, encadeia IMEDIATAMENTE o diálogo interno
+## do jogador percebendo que está sem o caderno (o que já liga
+## Global.missao_caderno_ativa via _iniciar_missao_caderno).
+func _iniciar_cutscene_bom_dia() -> void:
+	if falas_professor_bom_dia.is_empty():
+		_continuar_apos_bom_dia()
+		return
+	DialogoBox.dialogo_finalizado.connect(_continuar_apos_bom_dia, CONNECT_ONE_SHOT)
+	DialogoBox.mostrar_dialogo("Professor", falas_professor_bom_dia)
+
+
+func _continuar_apos_bom_dia() -> void:
 	if not Global.tem_caderno:
 		_iniciar_missao_caderno()
 	else:

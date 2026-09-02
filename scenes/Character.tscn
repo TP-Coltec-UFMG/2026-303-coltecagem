@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://bh2x6uofmcld7"]
 
 [ext_resource type="Script" uid="uid://1vwspgcsbn0g" path="res://character.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://1x7bjokla03l" path="res://Personagem Principal/legs.png" id="2_citl0"]
-[ext_resource type="Texture2D" uid="uid://bm4dkbqjnd5un" path="res://Personagem Principal/body.png" id="3_cxxw8"]
-[ext_resource type="Texture2D" uid="uid://cogx6x87mcq5i" path="res://Personagem Principal/Arm_left.png" id="4_cxxw8"]
-[ext_resource type="Texture2D" uid="uid://c810j4xcdys70" path="res://Personagem Principal/head.png" id="5_5gddd"]
-[ext_resource type="Texture2D" uid="uid://b8x4pr48wsnx8" path="res://Personagem Principal/Arm_Right.png" id="5_e24yd"]
+[ext_resource type="Texture2D" uid="uid://0kom6pkdae75" path="res://Personagem Principal/legs.png" id="2_citl0"]
+[ext_resource type="Texture2D" uid="uid://ekgk8d2tta22" path="res://Personagem Principal/body.png" id="3_cxxw8"]
+[ext_resource type="Texture2D" uid="uid://bvvynnvf3qjrt" path="res://Personagem Principal/Arm_left.png" id="4_cxxw8"]
+[ext_resource type="Texture2D" uid="uid://dg7433njj748" path="res://Personagem Principal/head.png" id="5_5gddd"]
+[ext_resource type="Texture2D" uid="uid://b45oh5fc804dr" path="res://Personagem Principal/Arm_Right.png" id="5_e24yd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
 size = Vector2(9, 12)

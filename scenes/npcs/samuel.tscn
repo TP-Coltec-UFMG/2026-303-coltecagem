@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://c0et0t746jgln"]
 
 [ext_resource type="Script" uid="uid://cdixun6r1c3yu" path="res://npcs.gd" id="1_hjqwj"]
-[ext_resource type="Texture2D" uid="uid://1x7bjokla03l" path="res://Personagem Principal/legs.png" id="2_b3hg7"]
-[ext_resource type="Texture2D" uid="uid://bc3egqjrgh6ba" path="res://NPCS/Samuel/bodySamuel.png" id="3_7yp1j"]
-[ext_resource type="Texture2D" uid="uid://ea1vuisfeggx" path="res://NPCS/Samuel/leftSamuel.png" id="4_65cga"]
-[ext_resource type="Texture2D" uid="uid://d17528yhwe3pd" path="res://NPCS/Samuel/rightSamuel.png" id="5_8wgv4"]
-[ext_resource type="Texture2D" uid="uid://cn2ck2cum7kdb" path="res://NPCS/Samuel/headSamuel.png" id="6_4xebc"]
+[ext_resource type="Texture2D" uid="uid://0kom6pkdae75" path="res://Personagem Principal/legs.png" id="2_b3hg7"]
+[ext_resource type="Texture2D" uid="uid://bmrqvb5lhrwdm" path="res://NPCS/Samuel/bodySamuel.png" id="3_7yp1j"]
+[ext_resource type="Texture2D" uid="uid://b0ss872bpwi3i" path="res://NPCS/Samuel/leftSamuel.png" id="4_65cga"]
+[ext_resource type="Texture2D" uid="uid://c3ljd3sd7jdcb" path="res://NPCS/Samuel/rightSamuel.png" id="5_8wgv4"]
+[ext_resource type="Texture2D" uid="uid://0ecoaip1ma0o" path="res://NPCS/Samuel/headSamuel.png" id="6_4xebc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
 size = Vector2(8, 11)

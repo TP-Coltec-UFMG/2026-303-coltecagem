@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://c64reausv1422"]
 
 [ext_resource type="Script" uid="uid://cdixun6r1c3yu" path="res://npcs.gd" id="1_mv0w5"]
-[ext_resource type="Texture2D" uid="uid://1x7bjokla03l" path="res://Personagem Principal/legs.png" id="2_uuhkj"]
-[ext_resource type="Texture2D" uid="uid://dqg0nlnpt1oal" path="res://NPCS/Pedrao/bodyPedro.png" id="3_ns0hf"]
-[ext_resource type="Texture2D" uid="uid://ci0c03fg7xaei" path="res://NPCS/Pedrao/rightPedro.png" id="4_4irqh"]
-[ext_resource type="Texture2D" uid="uid://bppavdl1byys7" path="res://NPCS/Pedrao/leftPedro.png" id="5_1gqy4"]
-[ext_resource type="Texture2D" uid="uid://bhwyhyvcjcom6" path="res://NPCS/Pedrao/headPedro.png" id="6_h77hc"]
+[ext_resource type="Texture2D" uid="uid://0kom6pkdae75" path="res://Personagem Principal/legs.png" id="2_uuhkj"]
+[ext_resource type="Texture2D" uid="uid://b2f1oojvwhr7k" path="res://NPCS/Pedrao/bodyPedro.png" id="3_ns0hf"]
+[ext_resource type="Texture2D" uid="uid://b4swnk3ctibfk" path="res://NPCS/Pedrao/rightPedro.png" id="4_4irqh"]
+[ext_resource type="Texture2D" uid="uid://bclwntlf7whkx" path="res://NPCS/Pedrao/leftPedro.png" id="5_1gqy4"]
+[ext_resource type="Texture2D" uid="uid://dkj3i1a5sfxi4" path="res://NPCS/Pedrao/headPedro.png" id="6_h77hc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
 size = Vector2(8, 11)

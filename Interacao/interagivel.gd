@@ -47,6 +47,13 @@ signal caderno_entregue
 @export var nome_personagem: String = ""
 @export var falas: Array[String] = []
 
+@export_group("Escolhas de Diálogo")
+## Se preenchido, ao final de `falas` (ou de `falas_entrega_caderno`)
+## a DialogoBox mostra estes botões em vez de encerrar sozinha —
+## ex: "Falar sobre a missão" / "Jogar conversa fora". Crie os
+## recursos no Inspetor (Novo Recurso > OpcaoDialogo).
+@export var opcoes: Array[OpcaoDialogo] = []
+
 @export_group("Missão do Caderno")
 ## Se true, este Interagivel devolve o caderno ao jogador quando
 ## a missão estiver ativa e o jogador ainda não tiver o caderno.
@@ -76,6 +83,7 @@ func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
 	DialogoBox.dialogo_finalizado.connect(_on_dialogo_finalizado)
+	DialogoBox.opcao_escolhida.connect(_on_opcao_escolhida)
 
 	if has_node("LabelDica"):
 		_label_dica = $LabelDica
@@ -125,7 +133,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	_dialogo_aberto_por_mim = true
 
 	interagido.emit()
-	DialogoBox.mostrar_dialogo(nome_personagem, falas_para_mostrar)
+	if not opcoes.is_empty():
+		DialogoBox.mostrar_dialogo_com_opcoes(nome_personagem, falas_para_mostrar, opcoes)
+	else:
+		DialogoBox.mostrar_dialogo(nome_personagem, falas_para_mostrar)
 	get_viewport().set_input_as_handled()
 
 
@@ -144,6 +155,26 @@ func _on_dialogo_finalizado() -> void:
 
 	if permite_entrosar:
 		_tentar_entrosar()
+
+
+## Chamado quando QUALQUER opção de diálogo é escolhida na
+## DialogoBox (Autoload único, chega pra todos os Interagivel).
+## Só reage se foi este Interagivel quem abriu o diálogo atual, e
+## se a opção pertence à SUA lista `opcoes` (evita reagir à escolha
+## de outro NPC que por acaso usa a mesma `acao`).
+func _on_opcao_escolhida(opcao: OpcaoDialogo) -> void:
+	if not _dialogo_aberto_por_mim:
+		return
+	if not opcoes.has(opcao):
+		return
+
+	match opcao.acao:
+		"entregar_caderno":
+			_entregar_caderno()
+		"entrosar":
+			_tentar_entrosar()
+		_:
+			pass # ex: "jogar conversa fora" — nenhuma ação, nenhuma ficha gasta
 
 
 func _entregar_caderno() -> void:

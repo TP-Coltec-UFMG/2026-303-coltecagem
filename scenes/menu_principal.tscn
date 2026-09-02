@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dcgajoo7ndmhx" path="res://menu_principal.gd" id="1"]
 [ext_resource type="Theme" path="res://theme/theme.tres" id="2"]
-[ext_resource type="Texture2D" uid="uid://dn8yx8kt5uj7i" path="res://images_jogo/Fundo.png" id="2_nxt0m"]
-[ext_resource type="Texture2D" uid="uid://cvq4jgm8syq3p" path="res://images_jogo/coltecagem.png" id="3"]
-[ext_resource type="AudioStream" uid="uid://8r5keoyfxkrl" path="res://images_jogo/P#U00e1tio de Xilofone.mp3" id="4"]
+[ext_resource type="Texture2D" uid="uid://qc4c8yqbngof" path="res://images_jogo/Fundo.png" id="2_nxt0m"]
+[ext_resource type="Texture2D" uid="uid://b05up4x2jpuea" path="res://images_jogo/coltecagem.png" id="3"]
+[ext_resource type="AudioStream" uid="uid://xsnyeqdu73gk" path="res://images_jogo/P#U00e1tio de Xilofone.mp3" id="4"]
 [ext_resource type="Shader" uid="uid://d04jn6iuo7ujw" path="res://node_2d.gdshader" id="5"]
 [ext_resource type="PackedScene" uid="uid://bprkjldvfna0i" path="res://scenes/paineis/painel_config.tscn" id="6"]
 

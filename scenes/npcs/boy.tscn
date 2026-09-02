@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://xt1n3n4gkfx3"]
 
 [ext_resource type="Script" uid="uid://cdixun6r1c3yu" path="res://npcs.gd" id="1_wqsdo"]
-[ext_resource type="Texture2D" uid="uid://1x7bjokla03l" path="res://Personagem Principal/legs.png" id="2_oa76p"]
-[ext_resource type="Texture2D" uid="uid://dw6jsrjpqovoc" path="res://NPCS/boy1/bodyBoy.png" id="3_x0k4u"]
-[ext_resource type="Texture2D" uid="uid://biknsiu4vhauu" path="res://NPCS/boy1/leftBoy.png" id="4_orcqr"]
-[ext_resource type="Texture2D" uid="uid://y3ms6edlcnaf" path="res://NPCS/boy1/rightBoy.png" id="5_80bxg"]
-[ext_resource type="Texture2D" uid="uid://dkfkrjmx8fcu1" path="res://NPCS/boy1/headBoy.png" id="6_36mbu"]
+[ext_resource type="Texture2D" uid="uid://0kom6pkdae75" path="res://Personagem Principal/legs.png" id="2_oa76p"]
+[ext_resource type="Texture2D" uid="uid://cnj3rrs17ef1n" path="res://NPCS/boy1/bodyBoy.png" id="3_x0k4u"]
+[ext_resource type="Texture2D" uid="uid://ckrg3aoep6ptt" path="res://NPCS/boy1/leftBoy.png" id="4_orcqr"]
+[ext_resource type="Texture2D" uid="uid://c87478isbx83d" path="res://NPCS/boy1/rightBoy.png" id="5_80bxg"]
+[ext_resource type="Texture2D" uid="uid://gpg2q61x4ih6" path="res://NPCS/boy1/headBoy.png" id="6_36mbu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
 size = Vector2(7.5, 10)
@@ -157,12 +157,11 @@ position = Vector2(2, -15)
 texture = ExtResource("2_oa76p")
 
 [node name="Body" type="Sprite2D" parent="Pivot" unique_id=1259137092]
-position = Vector2(0, -20.432917)
+position = Vector2(0, -20)
 texture = ExtResource("3_x0k4u")
 
 [node name="ArmLeft" type="Node2D" parent="Pivot/Body" unique_id=673567564]
 position = Vector2(-5.000001, 0.98604393)
-rotation = 0.046177797
 
 [node name="ArmLeftSprite" type="Sprite2D" parent="Pivot/Body/ArmLeft" unique_id=784429525]
 position = Vector2(-0.99999905, 0.01395607)
@@ -170,7 +169,6 @@ texture = ExtResource("4_orcqr")
 
 [node name="ArmRight" type="Node2D" parent="Pivot/Body" unique_id=490616424]
 position = Vector2(4, 0.98604393)
-rotation = -0.046177797
 
 [node name="ArmRightSprite" type="Sprite2D" parent="Pivot/Body/ArmRight" unique_id=1336812480]
 position = Vector2(0.99999994, 0.01395607)
@@ -178,7 +176,6 @@ texture = ExtResource("5_80bxg")
 
 [node name="Head" type="Node2D" parent="Pivot/Body" unique_id=221332919]
 position = Vector2(1, -4.495638)
-rotation = 0.011544449
 
 [node name="HeadSprite" type="Sprite2D" parent="Pivot/Body/Head" unique_id=648483184]
 position = Vector2(-0.9999999, 0.49563813)

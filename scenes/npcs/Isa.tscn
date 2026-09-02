@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://c3r78wbchviux"]
 
 [ext_resource type="Script" uid="uid://cdixun6r1c3yu" path="res://npcs.gd" id="1_k8fn5"]
-[ext_resource type="Texture2D" uid="uid://1x7bjokla03l" path="res://Personagem Principal/legs.png" id="2_54h05"]
-[ext_resource type="Texture2D" uid="uid://ncm0gmwp7fv0" path="res://NPCS/Isa/bodyISa.png" id="3_cobhr"]
-[ext_resource type="Texture2D" uid="uid://c7uq4gusli7kn" path="res://NPCS/Isa/rightIsa.png" id="4_w2w1q"]
-[ext_resource type="Texture2D" uid="uid://b6qaweharhrid" path="res://NPCS/Isa/leftIsa.png" id="5_awctu"]
-[ext_resource type="Texture2D" uid="uid://4m0ytf6qbkpf" path="res://NPCS/Isa/headIsa.png" id="6_8075q"]
+[ext_resource type="Texture2D" uid="uid://0kom6pkdae75" path="res://Personagem Principal/legs.png" id="2_54h05"]
+[ext_resource type="Texture2D" uid="uid://brvbb2daxggr6" path="res://NPCS/Isa/bodyISa.png" id="3_cobhr"]
+[ext_resource type="Texture2D" uid="uid://cqcuq223j377i" path="res://NPCS/Isa/rightIsa.png" id="4_w2w1q"]
+[ext_resource type="Texture2D" uid="uid://bar11kok62rke" path="res://NPCS/Isa/leftIsa.png" id="5_awctu"]
+[ext_resource type="Texture2D" uid="uid://im6ly1e4moin" path="res://NPCS/Isa/headIsa.png" id="6_8075q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
 size = Vector2(8, 11)

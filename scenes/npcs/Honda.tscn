@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://b1vympcot738"]
 
 [ext_resource type="Script" uid="uid://cdixun6r1c3yu" path="res://npcs.gd" id="1_u84jp"]
-[ext_resource type="Texture2D" uid="uid://1x7bjokla03l" path="res://Personagem Principal/legs.png" id="2_0sdo1"]
-[ext_resource type="Texture2D" uid="uid://hggdxl12x8to" path="res://NPCS/Honda/body.png" id="3_u84jp"]
-[ext_resource type="Texture2D" uid="uid://dhkk3jljr82u1" path="res://NPCS/Honda/left.png" id="4_0sdo1"]
-[ext_resource type="Texture2D" uid="uid://dy3t2eeka67oc" path="res://NPCS/Honda/right.png" id="5_4e5f7"]
-[ext_resource type="Texture2D" uid="uid://rd4lt4ny0hja" path="res://NPCS/Honda/head.png" id="6_qtwia"]
+[ext_resource type="Texture2D" uid="uid://0kom6pkdae75" path="res://Personagem Principal/legs.png" id="2_0sdo1"]
+[ext_resource type="Texture2D" uid="uid://bri2qmaqyoqsw" path="res://NPCS/Honda/body.png" id="3_u84jp"]
+[ext_resource type="Texture2D" uid="uid://bsvgir6twtt2y" path="res://NPCS/Honda/left.png" id="4_0sdo1"]
+[ext_resource type="Texture2D" uid="uid://8uwe1tymh5fw" path="res://NPCS/Honda/right.png" id="5_4e5f7"]
+[ext_resource type="Texture2D" uid="uid://bkdl2sy6agcne" path="res://NPCS/Honda/head.png" id="6_qtwia"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
 size = Vector2(7, 15)

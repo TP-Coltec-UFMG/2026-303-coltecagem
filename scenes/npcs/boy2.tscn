@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://xqlvqjo5g1um"]
 
 [ext_resource type="Script" uid="uid://cdixun6r1c3yu" path="res://npcs.gd" id="1_c85gx"]
-[ext_resource type="Texture2D" uid="uid://1x7bjokla03l" path="res://Personagem Principal/legs.png" id="2_itduo"]
-[ext_resource type="Texture2D" uid="uid://chal77wqi30rp" path="res://NPCS/boy2/body.png" id="3_8vyjh"]
-[ext_resource type="Texture2D" uid="uid://dfc6c2l0u3avs" path="res://NPCS/boy2/left_boy2.png" id="4_slr1r"]
-[ext_resource type="Texture2D" uid="uid://xtrxl7af1uu5" path="res://NPCS/boy2/rightboy2.png" id="5_sxhj3"]
-[ext_resource type="Texture2D" uid="uid://d3fmq8sdfi0jx" path="res://NPCS/boy2/head.png" id="6_jqxkn"]
+[ext_resource type="Texture2D" uid="uid://0kom6pkdae75" path="res://Personagem Principal/legs.png" id="2_itduo"]
+[ext_resource type="Texture2D" uid="uid://b4x354jn107iw" path="res://NPCS/boy2/body.png" id="3_8vyjh"]
+[ext_resource type="Texture2D" uid="uid://cuu01m3nnof73" path="res://NPCS/boy2/left_boy2.png" id="4_slr1r"]
+[ext_resource type="Texture2D" uid="uid://bvkf4ssp0nygd" path="res://NPCS/boy2/rightboy2.png" id="5_sxhj3"]
+[ext_resource type="Texture2D" uid="uid://cqewa7dauqr3f" path="res://NPCS/boy2/head.png" id="6_jqxkn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
 size = Vector2(6, 11)
