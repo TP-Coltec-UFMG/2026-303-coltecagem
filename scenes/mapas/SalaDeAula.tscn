@@ -6921,8 +6921,27 @@ size = Vector2(18, 40)
 [sub_resource type="CircleShape2D" id="CircleShape2D_r3jxo"]
 radius = 18.027756
 
+[sub_resource type="Resource" id="Resource_fmskq"]
+script = ExtResource("18_j2h3o")
+texto = "Bora! Você tem uma folha pra me emprestar?"
+falas = Array[String](["Vish. Tenho não só uso computador."])
+metadata/_custom_type_script = "uid://d0kqs4kj2mqu1"
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_8g0vf"]
 radius = 18.027756
+
+[sub_resource type="Resource" id="Resource_mm65i"]
+script = ExtResource("18_j2h3o")
+texto = "Tendi. Você me empresta uma folha?"
+falas = Array[String](["Não."])
+metadata/_custom_type_script = "uid://d0kqs4kj2mqu1"
+
+[sub_resource type="Resource" id="Resource_1kk76"]
+script = ExtResource("18_j2h3o")
+texto = "O professor não liga de você estar mexendo no celular?"
+falas = Array[String](["O Honda?? Não, ele só liga se tiver atrapalhando a aula."])
+proximas_opcoes = Array[ExtResource("18_j2h3o")]([SubResource("Resource_mm65i")])
+metadata/_custom_type_script = "uid://d0kqs4kj2mqu1"
 
 [sub_resource type="Resource" id="Resource_n2dk5"]
 script = ExtResource("18_j2h3o")
@@ -6936,7 +6955,11 @@ falas = Array[String](["Qual foi, tá vendo alguma em cima da minha mesa? "])
 proximas_opcoes = Array[ExtResource("18_j2h3o")]([SubResource("Resource_n2dk5")])
 metadata/_custom_type_script = "uid://d0kqs4kj2mqu1"
 
-[sub_resource type="Resource" id="Resource_mm65i"]
+[sub_resource type="Resource" id="Resource_dgukw"]
+script = ExtResource("18_j2h3o")
+metadata/_custom_type_script = "uid://d0kqs4kj2mqu1"
+
+[sub_resource type="Resource" id="Resource_f558d"]
 script = ExtResource("18_j2h3o")
 texto = "Como você está?"
 falas = Array[String](["Foi mal, mas não to afim de papo."])
@@ -6946,7 +6969,7 @@ metadata/_custom_type_script = "uid://d0kqs4kj2mqu1"
 script = ExtResource("18_j2h3o")
 texto = "Oi"
 falas = Array[String](["..."])
-proximas_opcoes = Array[ExtResource("18_j2h3o")]([SubResource("Resource_mm65i")])
+proximas_opcoes = Array[ExtResource("18_j2h3o")]([SubResource("Resource_f558d")])
 metadata/_custom_type_script = "uid://d0kqs4kj2mqu1"
 
 [sub_resource type="Resource" id="Resource_w3rju"]
@@ -6955,9 +6978,9 @@ texto = "Pedir um caderno emprestado"
 falas = Array[String](["Sai fora meu, não vou te dar folha do meu fichario"])
 metadata/_custom_type_script = "uid://d0kqs4kj2mqu1"
 
-[sub_resource type="Resource" id="Resource_1kk76"]
+[sub_resource type="Resource" id="Resource_gxlvq"]
 script = ExtResource("18_j2h3o")
-texto = "Pedir um caderno emprestado"
+texto = "Vocêp ode me emprestar um caderno?"
 falas = Array[String](["Você está precisando de um caderno é?", "Tudo bem, eu posso te emprestar um dos meus.", "Mas antes, você sabia que existe um animal que caga naturalmente em formato de cubo perfeito, o que impede que as fezes rolem, e por isso ele as usa para marcar território?", "Doido né. ", "Toma aqui o caderno.", "[Você recebeu um caderno de Jaime!]"])
 acao = "entregar_caderno"
 metadata/_custom_type_script = "uid://d0kqs4kj2mqu1"
@@ -6966,6 +6989,13 @@ metadata/_custom_type_script = "uid://d0kqs4kj2mqu1"
 script = ExtResource("18_j2h3o")
 texto = "Porque você trouxe tantos cadernos para o primeiro dia de aula?"
 falas = Array[String](["Porque eu quis."])
+metadata/_custom_type_script = "uid://d0kqs4kj2mqu1"
+
+[sub_resource type="Resource" id="Resource_4jq3g"]
+script = ExtResource("18_j2h3o")
+texto = "Tô precisando de uma folha de caderno. Você tem ?"
+falas = Array[String](["Pode crê, toma ai", "[Você recebeu uma folha de caderno de Peter!]"])
+acao = "entregar_caderno"
 metadata/_custom_type_script = "uid://d0kqs4kj2mqu1"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sn0t7"]
@@ -7076,16 +7106,17 @@ shape = SubResource("CircleShape2D_r3jxo")
 [node name="npc" parent="Entidades/NpcHonda/AreaInteracao" unique_id=724393367 instance=ExtResource("8_y5wrn")]
 position = Vector2(0, 12)
 
-[node name="NpcPedrinho" type="Node2D" parent="Entidades" unique_id=1797371189]
+[node name="NpcPedroca" type="Node2D" parent="Entidades" unique_id=1797371189]
 position = Vector2(124, 185)
 
-[node name="AreaInteracao" type="Area2D" parent="Entidades/NpcPedrinho" unique_id=860722169]
+[node name="AreaInteracao" type="Area2D" parent="Entidades/NpcPedroca" unique_id=860722169]
 position = Vector2(-1, -1)
 script = ExtResource("6_837if")
-nome_personagem = "Pedrinho"
-falas = Array[String](["iai mano?", "bora bandecar mais tarde?", "falou ent brother"])
+nome_personagem = "Pedroca"
+falas = Array[String](["Eai mano?", "Bora bandecar mais tarde?"])
+opcoes = Array[ExtResource("18_j2h3o")]([SubResource("Resource_fmskq")])
 
-[node name="LabelDica" type="Label" parent="Entidades/NpcPedrinho/AreaInteracao" unique_id=1975492745]
+[node name="LabelDica" type="Label" parent="Entidades/NpcPedroca/AreaInteracao" unique_id=1975492745]
 offset_left = -34.0
 offset_top = -25.0
 offset_right = 38.0
@@ -7095,23 +7126,24 @@ theme_override_font_sizes/font_size = 8
 text = "[E] falar"
 horizontal_alignment = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Entidades/NpcPedrinho/AreaInteracao" unique_id=2008076076]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entidades/NpcPedroca/AreaInteracao" unique_id=2008076076]
 position = Vector2(1, 1)
 shape = SubResource("CircleShape2D_8g0vf")
 
-[node name="npc2" parent="Entidades/NpcPedrinho/AreaInteracao" unique_id=1495627472 instance=ExtResource("9_enx2p")]
+[node name="npc2" parent="Entidades/NpcPedroca/AreaInteracao" unique_id=1495627472 instance=ExtResource("9_enx2p")]
 position = Vector2(1, 11)
 
-[node name="NpcBoy" type="Node2D" parent="Entidades" unique_id=1766561628]
+[node name="NpcJoão" type="Node2D" parent="Entidades" unique_id=1766561628]
 position = Vector2(188, 146)
 
-[node name="AreaInteracao" type="Area2D" parent="Entidades/NpcBoy" unique_id=957414545]
+[node name="AreaInteracao" type="Area2D" parent="Entidades/NpcJoão" unique_id=957414545]
 position = Vector2(-1, -1)
 script = ExtResource("6_837if")
-nome_personagem = "Boy"
-falas = Array[String](["iai mano?", "bora bandecar mais tarde?", "falou ent brother"])
+nome_personagem = "João"
+falas = Array[String](["(Scrollando Reels)"])
+opcoes = Array[ExtResource("18_j2h3o")]([SubResource("Resource_1kk76")])
 
-[node name="LabelDica" type="Label" parent="Entidades/NpcBoy/AreaInteracao" unique_id=1021515046]
+[node name="LabelDica" type="Label" parent="Entidades/NpcJoão/AreaInteracao" unique_id=1021515046]
 offset_left = -34.0
 offset_top = -25.0
 offset_right = 38.0
@@ -7121,11 +7153,11 @@ theme_override_font_sizes/font_size = 8
 text = "[E] falar"
 horizontal_alignment = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Entidades/NpcBoy/AreaInteracao" unique_id=170012543]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entidades/NpcJoão/AreaInteracao" unique_id=170012543]
 position = Vector2(1, 1)
 shape = SubResource("CircleShape2D_8g0vf")
 
-[node name="npc3" parent="Entidades/NpcBoy/AreaInteracao" unique_id=433452140 instance=ExtResource("12_ohxip")]
+[node name="npc3" parent="Entidades/NpcJoão/AreaInteracao" unique_id=433452140 instance=ExtResource("12_ohxip")]
 position = Vector2(1, 10)
 
 [node name="NcpJonas" type="Node2D" parent="Entidades" unique_id=887287533]
@@ -7155,16 +7187,17 @@ shape = SubResource("CircleShape2D_8g0vf")
 [node name="npc4" parent="Entidades/NcpJonas/AreaInteracao" unique_id=372456599 instance=ExtResource("12_qy12r")]
 position = Vector2(1, 8)
 
-[node name="NpcBoy2" type="Node2D" parent="Entidades" unique_id=1335980438]
+[node name="NpcDouglas" type="Node2D" parent="Entidades" unique_id=1335980438]
 position = Vector2(253, 148)
 
-[node name="AreaInteracao" type="Area2D" parent="Entidades/NpcBoy2" unique_id=335148968]
+[node name="AreaInteracao" type="Area2D" parent="Entidades/NpcDouglas" unique_id=335148968]
 position = Vector2(-1, -1)
 script = ExtResource("6_837if")
-nome_personagem = "Boy2"
-falas = Array[String](["iai mano?", "bora bandecar mais tarde?", "falou ent brother"])
+nome_personagem = "Douglas"
+falas = Array[String](["Da lincença, to tentando prestar atenção"])
+opcoes = Array[ExtResource("18_j2h3o")]([SubResource("Resource_dgukw")])
 
-[node name="LabelDica" type="Label" parent="Entidades/NpcBoy2/AreaInteracao" unique_id=717033750]
+[node name="LabelDica" type="Label" parent="Entidades/NpcDouglas/AreaInteracao" unique_id=717033750]
 offset_left = -34.0
 offset_top = -25.0
 offset_right = 38.0
@@ -7174,11 +7207,11 @@ theme_override_font_sizes/font_size = 8
 text = "[E] falar"
 horizontal_alignment = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Entidades/NpcBoy2/AreaInteracao" unique_id=1707100819]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entidades/NpcDouglas/AreaInteracao" unique_id=1707100819]
 position = Vector2(1, 1)
 shape = SubResource("CircleShape2D_8g0vf")
 
-[node name="npc5" parent="Entidades/NpcBoy2/AreaInteracao" unique_id=769930445 instance=ExtResource("12_pgkhp")]
+[node name="npc5" parent="Entidades/NpcDouglas/AreaInteracao" unique_id=769930445 instance=ExtResource("12_pgkhp")]
 position = Vector2(-1, 8)
 
 [node name="NpcAlice" type="Node2D" parent="Entidades" unique_id=1899952082]
@@ -7245,7 +7278,7 @@ position = Vector2(-1, -1)
 script = ExtResource("6_837if")
 nome_personagem = "Jaime"
 falas = Array[String](["E aí, precisando de alguma coisa?"])
-opcoes = Array[ExtResource("18_j2h3o")]([SubResource("Resource_1kk76"), SubResource("Resource_aef4l")])
+opcoes = Array[ExtResource("18_j2h3o")]([SubResource("Resource_gxlvq"), SubResource("Resource_aef4l")])
 
 [node name="LabelDica" type="Label" parent="Entidades/NpcJaime/AreaInteracao" unique_id=1842340690]
 offset_left = -34.0
@@ -7265,16 +7298,17 @@ shape = SubResource("CircleShape2D_8g0vf")
 position = Vector2(0, 12)
 script = ExtResource("11_w8cmx")
 
-[node name="NpcPete" type="Node2D" parent="Entidades" unique_id=1789796000]
+[node name="NpcPeter" type="Node2D" parent="Entidades" unique_id=1789796000]
 position = Vector2(123, 226)
 
-[node name="AreaInteracao" type="Area2D" parent="Entidades/NpcPete" unique_id=135898316]
+[node name="AreaInteracao" type="Area2D" parent="Entidades/NpcPeter" unique_id=135898316]
 position = Vector2(-1, -1)
 script = ExtResource("6_837if")
-nome_personagem = "Pete"
-falas = Array[String](["iai mano?", "bora bandecar mais tarde?", "falou ent brother"])
+nome_personagem = "Peter"
+falas = Array[String](["Cole.", "Presisando de algo?"])
+opcoes = Array[ExtResource("18_j2h3o")]([SubResource("Resource_4jq3g")])
 
-[node name="LabelDica" type="Label" parent="Entidades/NpcPete/AreaInteracao" unique_id=1621969440]
+[node name="LabelDica" type="Label" parent="Entidades/NpcPeter/AreaInteracao" unique_id=1621969440]
 offset_left = -34.0
 offset_top = -25.0
 offset_right = 38.0
@@ -7284,11 +7318,11 @@ theme_override_font_sizes/font_size = 8
 text = "[E] falar"
 horizontal_alignment = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Entidades/NpcPete/AreaInteracao" unique_id=19045087]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entidades/NpcPeter/AreaInteracao" unique_id=19045087]
 position = Vector2(1, 1)
 shape = SubResource("CircleShape2D_8g0vf")
 
-[node name="npc9" parent="Entidades/NpcPete/AreaInteracao" unique_id=77293512 instance=ExtResource("10_dahpq")]
+[node name="npc9" parent="Entidades/NpcPeter/AreaInteracao" unique_id=77293512 instance=ExtResource("10_dahpq")]
 position = Vector2(1, 10)
 script = ExtResource("11_w8cmx")
 
@@ -7336,11 +7370,11 @@ shape = SubResource("RectangleShape2D_bhunq")
 
 [connection signal="body_entered" from="PortaParaColtec" to="PortaParaColtec" method="_on_body_entered"]
 [connection signal="jogador_entrou_na_area" from="Entidades/NpcHonda/AreaInteracao" to="Entidades/NpcHonda/AreaInteracao/npc" method="virar_para_jogador"]
-[connection signal="jogador_entrou_na_area" from="Entidades/NpcPedrinho/AreaInteracao" to="Entidades/NpcPedrinho/AreaInteracao/npc2" method="virar_para_jogador"]
-[connection signal="jogador_entrou_na_area" from="Entidades/NpcBoy/AreaInteracao" to="Entidades/NpcBoy/AreaInteracao/npc3" method="virar_para_jogador"]
+[connection signal="jogador_entrou_na_area" from="Entidades/NpcPedroca/AreaInteracao" to="Entidades/NpcPedroca/AreaInteracao/npc2" method="virar_para_jogador"]
+[connection signal="jogador_entrou_na_area" from="Entidades/NpcJoão/AreaInteracao" to="Entidades/NpcJoão/AreaInteracao/npc3" method="virar_para_jogador"]
 [connection signal="jogador_entrou_na_area" from="Entidades/NcpJonas/AreaInteracao" to="Entidades/NcpJonas/AreaInteracao/npc4" method="virar_para_jogador"]
-[connection signal="jogador_entrou_na_area" from="Entidades/NpcBoy2/AreaInteracao" to="Entidades/NpcBoy2/AreaInteracao/npc5" method="virar_para_jogador"]
+[connection signal="jogador_entrou_na_area" from="Entidades/NpcDouglas/AreaInteracao" to="Entidades/NpcDouglas/AreaInteracao/npc5" method="virar_para_jogador"]
 [connection signal="jogador_entrou_na_area" from="Entidades/NpcAlice/AreaInteracao" to="Entidades/NpcAlice/AreaInteracao/npc6" method="virar_para_jogador"]
 [connection signal="jogador_entrou_na_area" from="Entidades/NpcNicole/AreaInteracao" to="Entidades/NpcNicole/AreaInteracao/npc7" method="virar_para_jogador"]
 [connection signal="jogador_entrou_na_area" from="Entidades/NpcJaime/AreaInteracao" to="Entidades/NpcJaime/AreaInteracao/npc8" method="virar_para_jogador"]
-[connection signal="jogador_entrou_na_area" from="Entidades/NpcPete/AreaInteracao" to="Entidades/NpcPete/AreaInteracao/npc9" method="virar_para_jogador"]
+[connection signal="jogador_entrou_na_area" from="Entidades/NpcPeter/AreaInteracao" to="Entidades/NpcPeter/AreaInteracao/npc9" method="virar_para_jogador"]
