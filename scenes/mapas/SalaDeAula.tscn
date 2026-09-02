@@ -7032,16 +7032,16 @@ shape = SubResource("CircleShape2D_r3jxo")
 [node name="npc" parent="NPCs/NpcHonda/AreaInteracao" unique_id=724393367 instance=ExtResource("8_y5wrn")]
 position = Vector2(1, -2)
 
-[node name="NpcKwanza" type="Node2D" parent="NPCs" unique_id=1797371189]
+[node name="NpcPedrinho" type="Node2D" parent="NPCs" unique_id=1797371189]
 position = Vector2(124, 185)
 
-[node name="AreaInteracao" type="Area2D" parent="NPCs/NpcKwanza" unique_id=860722169]
+[node name="AreaInteracao" type="Area2D" parent="NPCs/NpcPedrinho" unique_id=860722169]
 position = Vector2(-1, -1)
 script = ExtResource("6_837if")
-nome_personagem = "Kwanza"
+nome_personagem = "Pedrinho"
 falas = Array[String](["iai mano?", "bora bandecar mais tarde?", "falou ent brother"])
 
-[node name="LabelDica" type="Label" parent="NPCs/NpcKwanza/AreaInteracao" unique_id=1975492745]
+[node name="LabelDica" type="Label" parent="NPCs/NpcPedrinho/AreaInteracao" unique_id=1975492745]
 offset_left = -34.0
 offset_top = -25.0
 offset_right = 38.0
@@ -7051,11 +7051,11 @@ theme_override_font_sizes/font_size = 8
 text = "[E] falar"
 horizontal_alignment = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NpcKwanza/AreaInteracao" unique_id=2008076076]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NpcPedrinho/AreaInteracao" unique_id=2008076076]
 position = Vector2(1, 1)
 shape = SubResource("CircleShape2D_8g0vf")
 
-[node name="npc2" parent="NPCs/NpcKwanza/AreaInteracao" unique_id=1495627472 instance=ExtResource("9_enx2p")]
+[node name="npc2" parent="NPCs/NpcPedrinho/AreaInteracao" unique_id=1495627472 instance=ExtResource("9_enx2p")]
 position = Vector2(1, 0)
 
 [node name="NpcBoy" type="Node2D" parent="NPCs" unique_id=1766561628]
@@ -7081,7 +7081,7 @@ horizontal_alignment = 1
 position = Vector2(1, 1)
 shape = SubResource("CircleShape2D_8g0vf")
 
-[node name="boy" parent="NPCs/NpcBoy/AreaInteracao" unique_id=433452140 instance=ExtResource("12_ohxip")]
+[node name="npc3" parent="NPCs/NpcBoy/AreaInteracao" unique_id=433452140 instance=ExtResource("12_ohxip")]
 position = Vector2(2, 2)
 
 [node name="NcpPunk" type="Node2D" parent="NPCs" unique_id=887287533]
@@ -7108,7 +7108,7 @@ horizontal_alignment = 1
 position = Vector2(1, 1)
 shape = SubResource("CircleShape2D_8g0vf")
 
-[node name="Punk" parent="NPCs/NcpPunk/AreaInteracao" unique_id=372456599 instance=ExtResource("12_qy12r")]
+[node name="npc4" parent="NPCs/NcpPunk/AreaInteracao" unique_id=372456599 instance=ExtResource("12_qy12r")]
 
 [node name="NpcBoy2" type="Node2D" parent="NPCs" unique_id=1335980438]
 position = Vector2(253, 148)
@@ -7133,7 +7133,7 @@ horizontal_alignment = 1
 position = Vector2(1, 1)
 shape = SubResource("CircleShape2D_8g0vf")
 
-[node name="boy2" parent="NPCs/NpcBoy2/AreaInteracao" unique_id=769930445 instance=ExtResource("12_pgkhp")]
+[node name="npc5" parent="NPCs/NpcBoy2/AreaInteracao" unique_id=769930445 instance=ExtResource("12_pgkhp")]
 
 [node name="NpcAlice" type="Node2D" parent="NPCs" unique_id=1899952082]
 position = Vector2(188, 186)
@@ -7158,7 +7158,7 @@ horizontal_alignment = 1
 position = Vector2(1, 1)
 shape = SubResource("CircleShape2D_8g0vf")
 
-[node name="npc3" parent="NPCs/NpcAlice/AreaInteracao" unique_id=1628234008 instance=ExtResource("10_tjany")]
+[node name="npc6" parent="NPCs/NpcAlice/AreaInteracao" unique_id=1628234008 instance=ExtResource("10_tjany")]
 position = Vector2(1, 0)
 script = ExtResource("11_w8cmx")
 
@@ -7185,7 +7185,7 @@ horizontal_alignment = 1
 position = Vector2(1, 1)
 shape = SubResource("CircleShape2D_8g0vf")
 
-[node name="npc4" parent="NPCs/NpcNicole/AreaInteracao" unique_id=398721354 instance=ExtResource("12_w8cmx")]
+[node name="npc7" parent="NPCs/NpcNicole/AreaInteracao" unique_id=398721354 instance=ExtResource("12_w8cmx")]
 position = Vector2(1, 1)
 script = ExtResource("11_w8cmx")
 
@@ -7214,7 +7214,7 @@ horizontal_alignment = 1
 position = Vector2(1, 1)
 shape = SubResource("CircleShape2D_8g0vf")
 
-[node name="npc5" parent="NPCs/NpcJaime/AreaInteracao" unique_id=622589184 instance=ExtResource("10_5uvpb")]
+[node name="npc8" parent="NPCs/NpcJaime/AreaInteracao" unique_id=622589184 instance=ExtResource("10_5uvpb")]
 position = Vector2(1, 1)
 script = ExtResource("11_w8cmx")
 
@@ -7241,7 +7241,7 @@ horizontal_alignment = 1
 position = Vector2(1, 1)
 shape = SubResource("CircleShape2D_8g0vf")
 
-[node name="npc6" parent="NPCs/NpcPete/AreaInteracao" unique_id=77293512 instance=ExtResource("10_dahpq")]
+[node name="npc9" parent="NPCs/NpcPete/AreaInteracao" unique_id=77293512 instance=ExtResource("10_dahpq")]
 position = Vector2(2, 0)
 script = ExtResource("11_w8cmx")
 
@@ -7288,4 +7288,11 @@ shape = SubResource("RectangleShape2D_6f8o3")
 
 [connection signal="body_entered" from="PortaParaHall" to="PortaParaHall" method="_on_body_entered"]
 [connection signal="jogador_entrou_na_area" from="NPCs/NpcHonda/AreaInteracao" to="NPCs/NpcHonda/AreaInteracao/npc" method="virar_para_jogador"]
-[connection signal="jogador_entrou_na_area" from="NPCs/NpcKwanza/AreaInteracao" to="NPCs/NpcKwanza/AreaInteracao/npc2" method="virar_para_jogador"]
+[connection signal="jogador_entrou_na_area" from="NPCs/NpcPedrinho/AreaInteracao" to="NPCs/NpcPedrinho/AreaInteracao/npc2" method="virar_para_jogador"]
+[connection signal="jogador_entrou_na_area" from="NPCs/NpcBoy/AreaInteracao" to="NPCs/NpcBoy/AreaInteracao/npc3" method="virar_para_jogador"]
+[connection signal="jogador_entrou_na_area" from="NPCs/NcpPunk/AreaInteracao" to="NPCs/NcpPunk/AreaInteracao/npc4" method="virar_para_jogador"]
+[connection signal="jogador_entrou_na_area" from="NPCs/NpcBoy2/AreaInteracao" to="NPCs/NpcBoy2/AreaInteracao/npc5" method="virar_para_jogador"]
+[connection signal="jogador_entrou_na_area" from="NPCs/NpcAlice/AreaInteracao" to="NPCs/NpcAlice/AreaInteracao/npc6" method="virar_para_jogador"]
+[connection signal="jogador_entrou_na_area" from="NPCs/NpcNicole/AreaInteracao" to="NPCs/NpcNicole/AreaInteracao/npc7" method="virar_para_jogador"]
+[connection signal="jogador_entrou_na_area" from="NPCs/NpcJaime/AreaInteracao" to="NPCs/NpcJaime/AreaInteracao/npc8" method="virar_para_jogador"]
+[connection signal="jogador_entrou_na_area" from="NPCs/NpcPete/AreaInteracao" to="NPCs/NpcPete/AreaInteracao/npc9" method="virar_para_jogador"]

@@ -52,3 +52,7 @@ func apply_random_idle_wobble() -> void:
 	tween.tween_property(
 		head, "rotation", randf_range(-0.05, 0.05), 0.6
 	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+
+func _on_area_interacao_jogador_entrou_na_area(jogador: Node2D) -> void:
+	pass # Replace with function body.

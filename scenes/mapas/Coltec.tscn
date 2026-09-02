@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://bp0fr4t8ia2n0"]
 
-[ext_resource type="Script" uid="uid://bpfro4mme3qgs" path="res://mapas/area_base.gd" id="1_qjt15"]
+[ext_resource type="Script" uid="uid://4l8m1m2nm5yo" path="res://mapas/area_base.gd" id="1_qjt15"]
 [ext_resource type="Texture2D" uid="uid://bx0y0uxnqtd82" path="res://Tilemap/Exterior Tiles.png" id="2_j7o77"]
 [ext_resource type="Texture2D" uid="uid://npi2xie8nwh1" path="res://Tilemap/floor_tiles.png" id="3_dopji"]
 [ext_resource type="Texture2D" uid="uid://mqu3t4ab7v8" path="res://Tilemap/Traditional School Asset pack 32x32/Grounds 1.1.png" id="4_r3jq4"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dih4mt0xb10ut" path="res://Tilemap/midcentury_modern_furnitureset.png" id="7_plf7k"]
 [ext_resource type="Texture2D" uid="uid://dplxpgyw4m02e" path="res://Tilemap/Escola/Catraca.png" id="8_o8hg3"]
 [ext_resource type="PackedScene" uid="uid://bh2x6uofmcld7" path="res://scenes/Character.tscn" id="9_uvx25"]
-[ext_resource type="Script" uid="uid://cl48gskn5npgw" path="res://Interacao/interagivel.gd" id="10_rfcp6"]
+[ext_resource type="Script" uid="uid://b0habh0iywar3" path="res://Interacao/interagivel.gd" id="10_rfcp6"]
 [ext_resource type="Theme" path="res://theme/theme.tres" id="11_mghkb"]
 [ext_resource type="PackedScene" uid="uid://fuqdwpgp7tci" path="res://scenes/npcs/Kwanza.tscn" id="12_1h65i"]
 [ext_resource type="PackedScene" uid="uid://bej7yvwvrb6tv" path="res://scenes/npcs/Moises.tscn" id="13_8o4ag"]
@@ -7851,16 +7851,16 @@ scale = Vector2(2, 2)
 
 [node name="NPCs" type="Node2D" parent="." unique_id=766406695]
 
-[node name="NpcKwanza" type="Node2D" parent="NPCs" unique_id=1109659231]
+[node name="NpcPedrinho" type="Node2D" parent="NPCs" unique_id=1109659231]
 position = Vector2(547, 113)
 metadata/_edit_group_ = true
 
-[node name="AreaInteracao" type="Area2D" parent="NPCs/NpcKwanza" unique_id=1455161614]
+[node name="AreaInteracao" type="Area2D" parent="NPCs/NpcPedrinho" unique_id=1455161614]
 script = ExtResource("10_rfcp6")
-nome_personagem = "Kwanza"
+nome_personagem = "Pedrinho"
 falas = Array[String](["Qual foi mano?", "tudo de boa?", "A gete se vê"])
 
-[node name="LabelDica" type="Label" parent="NPCs/NpcKwanza/AreaInteracao" unique_id=1369411829]
+[node name="LabelDica" type="Label" parent="NPCs/NpcPedrinho/AreaInteracao" unique_id=1369411829]
 offset_left = -32.0
 offset_top = -27.0
 offset_right = 40.0
@@ -7870,11 +7870,11 @@ theme_override_font_sizes/font_size = 8
 text = "[E] falar"
 horizontal_alignment = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NpcKwanza/AreaInteracao" unique_id=551192734]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NpcPedrinho/AreaInteracao" unique_id=551192734]
 position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_h1bdy")
 
-[node name="npc1" parent="NPCs/NpcKwanza/AreaInteracao" unique_id=75988228 instance=ExtResource("12_1h65i")]
+[node name="npc1" parent="NPCs/NpcPedrinho/AreaInteracao" unique_id=75988228 instance=ExtResource("12_1h65i")]
 position = Vector2(1, -1)
 
 [node name="NpcMoises" type="Node2D" parent="NPCs" unique_id=444251962]
@@ -8103,7 +8103,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 color = Color(0.9, 0.7, 0.1, 0.5)
 
-[connection signal="jogador_entrou_na_area" from="NPCs/NpcKwanza/AreaInteracao" to="NPCs/NpcKwanza/AreaInteracao/npc1" method="virar_para_jogador"]
+[connection signal="jogador_entrou_na_area" from="NPCs/NpcPedrinho/AreaInteracao" to="NPCs/NpcPedrinho/AreaInteracao/npc1" method="virar_para_jogador"]
 [connection signal="jogador_entrou_na_area" from="NPCs/NpcMoises/AreaInteracao" to="NPCs/NpcMoises/AreaInteracao/npc2" method="virar_para_jogador"]
 [connection signal="jogador_entrou_na_area" from="NPCs/NpcIsa/AreaInteracao" to="NPCs/NpcIsa/AreaInteracao/npc3" method="virar_para_jogador"]
 [connection signal="jogador_entrou_na_area" from="NPCs/NpcPedrao/AreaInteracao" to="NPCs/NpcPedrao/AreaInteracao/npc4" method="virar_para_jogador"]

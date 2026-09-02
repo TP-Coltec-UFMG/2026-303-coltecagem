@@ -31,6 +31,7 @@ signal dialogo_finalizado
 var _falas: Array[String] = []
 var _indice_atual: int = 0
 var _ativo: bool = false
+var _tween: Tween 
 
 
 func _ready() -> void:
@@ -40,13 +41,17 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if not _ativo:
 		return
+		
 	if event.is_action_pressed("ui_accept") or (event is InputEventMouseButton and event.pressed):
-		_avancar()
 		get_viewport().set_input_as_handled()
+		
+		# Se a animação não terminou, o input pula a animação. Se terminou, avança a fala.
+		if label_texto.visible_characters < label_texto.get_total_character_count() and label_texto.visible_characters >= 0:
+			_pular_animacao()
+		else:
+			_avancar()
 
 
-## Começa um diálogo novo. `nome_personagem` pode ser "" pra
-## diálogos sem nome (ex: narração/pensamento do jogador).
 func mostrar_dialogo(nome_personagem: String, falas: Array[String]) -> void:
 	if falas.is_empty():
 		return
@@ -71,19 +76,46 @@ func _avancar() -> void:
 
 
 func _mostrar_fala_atual() -> void:
-	label_texto.text = _falas[_indice_atual]
+	label_dica.visible = false # Esconde a seta de avançar enquanto o texto é digitado
+	
+	var texto := _falas[_indice_atual]
+	label_texto.text = texto
+	label_texto.visible_characters = 0
+	
+	if _tween and _tween.is_valid():
+		_tween.kill()
+		
+	_tween = create_tween()
+	
+	# Calcula o tempo total baseado na quantidade de letras (0.03 segundos por letra)
+	var duracao := texto.length() * 0.03 
+	
+	_tween.tween_property(label_texto, "visible_characters", texto.length(), duracao)
+	_tween.tween_callback(_ao_terminar_animacao)
+
+
+func _pular_animacao() -> void:
+	if _tween and _tween.is_valid():
+		_tween.kill()
+		
+	label_texto.visible_characters = -1 # O valor -1 força todas as letras a aparecerem na hora
+	_ao_terminar_animacao()
+
+
+func _ao_terminar_animacao() -> void:
+	label_dica.visible = true
 	var ultima := _indice_atual == _falas.size() - 1
 	label_dica.text = "[fim]" if ultima else "▼ continuar"
 
 
 func _encerrar() -> void:
+	if _tween and _tween.is_valid():
+		_tween.kill()
 	_ativo = false
 	painel.visible = false
 	dialogo_finalizado.emit()
 
 
-## Fecha o diálogo imediatamente, mesmo no meio de uma fala
-## (ex: se um evento urgente precisar interromper).
 func fechar_imediatamente() -> void:
 	if _ativo:
 		_encerrar()
