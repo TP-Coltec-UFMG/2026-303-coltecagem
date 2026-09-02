@@ -7850,6 +7850,7 @@ position = Vector2(804, 854)
 scale = Vector2(2, 2)
 
 [node name="NPCs" type="Node2D" parent="." unique_id=766406695]
+y_sort_enabled = true
 
 [node name="NpcPedrinho" type="Node2D" parent="NPCs" unique_id=1109659231]
 position = Vector2(547, 113)

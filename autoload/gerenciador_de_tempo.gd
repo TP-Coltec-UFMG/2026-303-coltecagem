@@ -222,6 +222,6 @@ func _horario_para_minutos(horario: String) -> int:
 
 
 func _minutos_para_horario(minutos: int) -> String:
-	var h := int(minutos / 60)
+	var h := int(minutos / 60.0)
 	var m := minutos % 60
 	return "%02d:%02d" % [h, m]

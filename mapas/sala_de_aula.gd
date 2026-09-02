@@ -24,12 +24,26 @@ func _ready() -> void:
 
 
 func _on_jogador_entrou_na_sala(body: Node2D) -> void:
+	print("1. O jogador entrou na área de colisão!")
+	
 	if not body.is_in_group("jogador"):
 		return
 	if _cutscene_ja_aconteceu:
 		return
 
 	_cutscene_ja_aconteceu = true
+	print("2. Iniciando a espera de 1.5 segundos...")
+
+	# Atraso de 1.5 segundos
+	await get_tree().create_timer(1.5).timeout
+	print("3. O tempo de espera acabou!")
+
+	# Trava de segurança: impede que a fala do professor atropele 
+	# outro diálogo caso você tenha interagido com a carteira nesse meio tempo.
+	if DialogoBox.esta_ativo():
+		print("4. Outro diálogo já está na tela, cancelando a fala do professor.")
+		return
 
 	if not falas_professor_sentem.is_empty():
+		print("5. Exibindo o diálogo do professor.")
 		DialogoBox.mostrar_dialogo("Professor", falas_professor_sentem)

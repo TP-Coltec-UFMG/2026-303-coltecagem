@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cqewa7dauqr3f" path="res://NPCS/boy2/head.png" id="6_jqxkn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
-size = Vector2(6, 11)
+size = Vector2(7, 12.5)
 
 [sub_resource type="Animation" id="Animation_idle"]
 resource_name = "idle"
@@ -24,7 +24,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(1, -20), Vector2(1, -20.75), Vector2(1, -20)]
+"values": [Vector2(1, -7), Vector2(1, -7.75), Vector2(1, -7)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -136,28 +136,28 @@ _data = {
 }
 
 [node name="Boy2" type="CharacterBody2D" unique_id=724393367]
+y_sort_enabled = true
 script = ExtResource("1_c85gx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=495185314]
-position = Vector2(-1, 1.5)
+position = Vector2(0.5, -6.25)
 shape = SubResource("RectangleShape2D_1")
 
 [node name="Pivot" type="Node2D" parent="." unique_id=1262328910]
-position = Vector2(-1, 21)
 
 [node name="Legs" type="Node2D" parent="Pivot" unique_id=91427823]
-position = Vector2(0, 1)
+position = Vector2(0, -1)
 
 [node name="LegLeft" type="Sprite2D" parent="Pivot/Legs" unique_id=1618111630]
-position = Vector2(-2, -15)
+position = Vector2(-2, 0)
 texture = ExtResource("2_itduo")
 
 [node name="LegRight" type="Sprite2D" parent="Pivot/Legs" unique_id=800613317]
-position = Vector2(3, -15)
+position = Vector2(3, 0)
 texture = ExtResource("2_itduo")
 
 [node name="Body" type="Sprite2D" parent="Pivot" unique_id=1259137092]
-position = Vector2(1, -20)
+position = Vector2(1, -7)
 texture = ExtResource("3_8vyjh")
 
 [node name="ArmLeft" type="Node2D" parent="Pivot/Body" unique_id=673567564]
