@@ -1,13 +1,5 @@
 extends Resource
 class_name OpcaoDialogo
-## ============================================================
-## OpcaoDialogo
-## ------------------------------------------------------------
-## Representa UM botão de escolha múltipla na DialogoBox (estilo
-## Kindergarten: "Falar sobre a missão" / "Jogar conversa fora").
-## Crie quantos quiser no Inspetor (botão direito > Novo Recurso >
-## OpcaoDialogo) e monte a lista em Interagivel.opcoes.
-## ============================================================
 
 ## Texto exibido no botão.
 @export var texto: String = ""
@@ -17,9 +9,8 @@ class_name OpcaoDialogo
 ## dispara uma ação e encerra o diálogo na hora.
 @export var falas: Array[String] = []
 
-## Nome simbólico de uma ação a executar quando a opção for
-## escolhida. Reconhecidos por padrão em interagivel.gd:
-##   "entregar_caderno" -> entrega o caderno da missão
-##   "entrosar"         -> tenta EstadoJogador.entrosar() (gasta ficha)
-##   ""                 -> nenhuma ação extra (ex: só jogar conversa fora)
+## Nome simbólico de uma ação a executar quando a opção for escolhida.
 @export var acao: String = ""
+
+## Submenus: Próximas opções que vão aparecer DEPOIS que estas falas terminarem.
+@export var proximas_opcoes: Array[OpcaoDialogo] = []

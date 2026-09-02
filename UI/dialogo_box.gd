@@ -147,6 +147,10 @@ func _mostrar_opcoes() -> void:
 		filho.queue_free()
 
 	for opcao in _opcoes_atuais:
+		# Trava de segurança: pula qualquer item vazio deixado no Inspetor
+		if opcao == null:
+			continue
+			
 		var botao := Button.new()
 		botao.text = opcao.texto
 		botao.pressed.connect(_on_opcao_pressionada.bind(opcao))

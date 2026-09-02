@@ -9,7 +9,7 @@ signal jogador_saiu_da_area(jogador: Node2D)
 
 @export_group("Escolhas de Diálogo")
 @export var opcoes: Array[OpcaoDialogo] = []
-@export var proximas_opcoes: Array[OpcaoDialogo] = []
+
 
 var _jogador_por_perto: bool = false
 var _label_dica: Label

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://du4smdwwux35f"
-path="res://.godot/imported/rightPunk.png-36dc4f7f6100ef0bcf341c02d7420918.ctex"
+uid="uid://d0vmpm77ntj7u"
+path="res://.godot/imported/headPunk.png-995f28ff1d4b36a2640050431e5ca523.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://NPCS/punk/rightPunk.png"
-dest_files=["res://.godot/imported/rightPunk.png-36dc4f7f6100ef0bcf341c02d7420918.ctex"]
+source_file="res://NPCS/Jonas/headPunk.png"
+dest_files=["res://.godot/imported/headPunk.png-995f28ff1d4b36a2640050431e5ca523.ctex"]
 
 [params]
 

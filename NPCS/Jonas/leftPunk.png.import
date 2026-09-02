@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cu4676bfrkdx4"
-path="res://.godot/imported/bodyPunk.png-209b68d6d9bc439c936e29f57d81cc9f.ctex"
+uid="uid://bgsgudhntj4cs"
+path="res://.godot/imported/leftPunk.png-12c4d1c4f7a5c8ea31aa16ce29c0c42f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://NPCS/punk/bodyPunk.png"
-dest_files=["res://.godot/imported/bodyPunk.png-209b68d6d9bc439c936e29f57d81cc9f.ctex"]
+source_file="res://NPCS/Jonas/leftPunk.png"
+dest_files=["res://.godot/imported/leftPunk.png-12c4d1c4f7a5c8ea31aa16ce29c0c42f.ctex"]
 
 [params]
 

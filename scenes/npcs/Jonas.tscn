@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://cdixun6r1c3yu" path="res://npcs.gd" id="1_ag8t7"]
 [ext_resource type="Texture2D" uid="uid://0kom6pkdae75" path="res://Personagem Principal/legs.png" id="2_mmnwr"]
-[ext_resource type="Texture2D" uid="uid://cu4676bfrkdx4" path="res://NPCS/punk/bodyPunk.png" id="3_s35va"]
-[ext_resource type="Texture2D" uid="uid://bgsgudhntj4cs" path="res://NPCS/punk/leftPunk.png" id="4_72m78"]
-[ext_resource type="Texture2D" uid="uid://du4smdwwux35f" path="res://NPCS/punk/rightPunk.png" id="5_1bepd"]
-[ext_resource type="Texture2D" uid="uid://d0vmpm77ntj7u" path="res://NPCS/punk/headPunk.png" id="6_hhb78"]
+[ext_resource type="Texture2D" uid="uid://cu4676bfrkdx4" path="res://NPCS/Jonas/bodyPunk.png" id="3_s35va"]
+[ext_resource type="Texture2D" uid="uid://bgsgudhntj4cs" path="res://NPCS/Jonas/leftPunk.png" id="4_72m78"]
+[ext_resource type="Texture2D" uid="uid://du4smdwwux35f" path="res://NPCS/Jonas/rightPunk.png" id="5_1bepd"]
+[ext_resource type="Texture2D" uid="uid://d0vmpm77ntj7u" path="res://NPCS/Jonas/headPunk.png" id="6_hhb78"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
 size = Vector2(6.75, 11)
