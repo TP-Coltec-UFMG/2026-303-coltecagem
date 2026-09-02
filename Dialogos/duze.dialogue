@@ -1,11 +1,9 @@
-~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
-=> END
+~ inicio
+duze: Ei muleque.
+duze: Ta fazendo o que ai?
+- To fazendo nada uai
+	duze: Se eu te pegar no telefone vc vai ficar sem ele, ta entendendo?.
+	=> END
+- Não te interessa coroa
+	duze: ...
+	=> END

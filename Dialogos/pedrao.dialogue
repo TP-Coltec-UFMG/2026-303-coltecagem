@@ -6,7 +6,7 @@ Pedrão: Eai, vamo bandecar depois?
 	Pedrão: Vish. Vou ficar te devendo, só trago notebook.
 	=> END
 
-- Bora!
+- Bora, te encontro lá!
 	=> END
 
 
@@ -15,7 +15,7 @@ Pedrão: E aí, tranquilo? Quer jogar uma partida rápida pra esfriar a cabeça?
 
 - Bora!
 	Pedrão: Demorou! Quero ver se você é bom mesmo.
-	do GerenciadorDeMinigames.iniciar_minigame("res://minigames/anchovy_quest/scenes/anchovy_game.tscn", {"desempenho_academico": 5, "estresse": -10})
+	do GerenciadorDeMinigames.iniciar_minigame("res://minigames/pants/pants_minigame.tscn", {"desempenho_academico": 5, "estresse": -10})
 	=> END
 
 - Agora não, tô ocupado.

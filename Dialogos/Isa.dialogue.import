@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://b0ycgo8ynelu6"
+path="res://.godot/imported/Isa.dialogue-58e8076659a04140d969c5b9ae285a3d.tres"
+
+[deps]
+
+source_file="res://Dialogos/Isa.dialogue"
+dest_files=["res://.godot/imported/Isa.dialogue-58e8076659a04140d969c5b9ae285a3d.tres"]
+
+[params]
+
+defaults=true

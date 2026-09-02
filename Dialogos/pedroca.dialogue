@@ -1,11 +1,10 @@
-~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
-=> END
+~ inicio
+Pedroca: Eai, vamo bandecar depois?
+
+- Bora. Por acaso você tem alguma folha pra me emprestar? [if Global.pode_tentar_material("nome_do_npc")]
+	do Global.registrar_tentativa_material("nome_do_npc")
+	NomeDoNPC: Vish. Vou ficar te devendo, só trago notebook.
+	=> END
+
+- Bora, te encontro lá!
+	=> END

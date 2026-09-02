@@ -15,11 +15,16 @@
 [ext_resource type="PackedScene" uid="uid://fuqdwpgp7tci" path="res://scenes/npcs/Kwanza.tscn" id="12_1h65i"]
 [ext_resource type="PackedScene" uid="uid://bej7yvwvrb6tv" path="res://scenes/npcs/Moises.tscn" id="13_8o4ag"]
 [ext_resource type="PackedScene" uid="uid://c3r78wbchviux" path="res://scenes/npcs/Isa.tscn" id="14_1nmp8"]
+[ext_resource type="Resource" uid="uid://bc4m1jib0f1lw" path="res://Dialogos/moises.dialogue" id="14_plf7k"]
 [ext_resource type="PackedScene" uid="uid://c64reausv1422" path="res://scenes/npcs/Pedrao.tscn" id="15_ef5ak"]
+[ext_resource type="Resource" uid="uid://b0ycgo8ynelu6" path="res://Dialogos/Isa.dialogue" id="16_o8hg3"]
 [ext_resource type="PackedScene" uid="uid://c0et0t746jgln" path="res://scenes/npcs/samuel.tscn" id="16_u6fkl"]
+[ext_resource type="Resource" uid="uid://dl8sbstucei6c" path="res://Dialogos/samuel.dialogue" id="17_4sbu0"]
 [ext_resource type="PackedScene" uid="uid://ggcgbi71wmwt" path="res://scenes/npcs/Porteira.tscn" id="17_h6vow"]
 [ext_resource type="PackedScene" uid="uid://ckh2fp5xtlt8b" path="res://scenes/npcs/Duze.tscn" id="18_24y04"]
+[ext_resource type="Resource" uid="uid://b5wwdajvim22s" path="res://Dialogos/porteira.dialogue" id="19_1pm7u"]
 [ext_resource type="Script" uid="uid://m4v3jilfgb3j" path="res://mapas/porta.gd" id="19_2vbt0"]
+[ext_resource type="Resource" uid="uid://cwlsb0qk528jf" path="res://Dialogos/duze.dialogue" id="21_plf7k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ygioq"]
 texture = ExtResource("2_j7o77")
@@ -7885,6 +7890,7 @@ position = Vector2(304, -209)
 
 [node name="AreaInteracao" type="Area2D" parent="Entidades/NpcMoises" unique_id=1084090251]
 script = ExtResource("10_rfcp6")
+dialogo = ExtResource("14_plf7k")
 
 [node name="LabelDica" type="Label" parent="Entidades/NpcMoises/AreaInteracao" unique_id=1438465004]
 offset_left = -32.0
@@ -7908,6 +7914,7 @@ position = Vector2(-198, 47)
 
 [node name="AreaInteracao" type="Area2D" parent="Entidades/NpcIsa" unique_id=1110177341]
 script = ExtResource("10_rfcp6")
+dialogo = ExtResource("16_o8hg3")
 
 [node name="LabelDica" type="Label" parent="Entidades/NpcIsa/AreaInteracao" unique_id=1308879048]
 offset_left = -36.0
@@ -7931,6 +7938,7 @@ position = Vector2(-182, -197)
 
 [node name="AreaInteracao" type="Area2D" parent="Entidades/NpcPedrao" unique_id=1831864519]
 script = ExtResource("10_rfcp6")
+dialogo = ExtResource("11_j7o77")
 
 [node name="LabelDica" type="Label" parent="Entidades/NpcPedrao/AreaInteracao" unique_id=147831990]
 offset_left = -36.0
@@ -7954,6 +7962,7 @@ position = Vector2(136, -302)
 
 [node name="AreaInteracao" type="Area2D" parent="Entidades/NpcSamuel" unique_id=1726993209]
 script = ExtResource("10_rfcp6")
+dialogo = ExtResource("17_4sbu0")
 
 [node name="LabelDica" type="Label" parent="Entidades/NpcSamuel/AreaInteracao" unique_id=1357666821]
 offset_left = -33.0
@@ -7977,6 +7986,7 @@ position = Vector2(310, 408)
 
 [node name="AreaInteracao" type="Area2D" parent="Entidades/NpcPorteira" unique_id=1185096828]
 script = ExtResource("10_rfcp6")
+dialogo = ExtResource("19_1pm7u")
 
 [node name="LabelDica" type="Label" parent="Entidades/NpcPorteira/AreaInteracao" unique_id=1446226803]
 offset_left = -36.0
@@ -8000,6 +8010,7 @@ position = Vector2(169, 105)
 
 [node name="AreaInteracao" type="Area2D" parent="Entidades/NpcZedu" unique_id=1080726778]
 script = ExtResource("10_rfcp6")
+dialogo = ExtResource("21_plf7k")
 
 [node name="LabelDica" type="Label" parent="Entidades/NpcZedu/AreaInteracao" unique_id=746845771]
 offset_left = -32.0

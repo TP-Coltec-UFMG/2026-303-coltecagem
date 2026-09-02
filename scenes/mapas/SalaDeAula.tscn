@@ -11,18 +11,24 @@
 [ext_resource type="PackedScene" uid="uid://fuqdwpgp7tci" path="res://scenes/npcs/Kwanza.tscn" id="9_enx2p"]
 [ext_resource type="PackedScene" uid="uid://d280ko5n451cg" path="res://scenes/npcs/Jaime.tscn" id="10_5uvpb"]
 [ext_resource type="PackedScene" uid="uid://c8gy0iue1mcd0" path="res://scenes/npcs/Pete.tscn" id="10_dahpq"]
+[ext_resource type="Resource" uid="uid://cv2iw3x700xcv" path="res://Dialogos/professor.dialogue" id="10_dfh44"]
 [ext_resource type="PackedScene" uid="uid://d83fdlmj5733" path="res://scenes/npcs/Alice.tscn" id="10_tjany"]
 [ext_resource type="Script" uid="uid://cdixun6r1c3yu" path="res://npcs.gd" id="11_w8cmx"]
 [ext_resource type="PackedScene" uid="uid://xt1n3n4gkfx3" path="res://scenes/npcs/boy.tscn" id="12_ohxip"]
 [ext_resource type="PackedScene" uid="uid://xqlvqjo5g1um" path="res://scenes/npcs/boy2.tscn" id="12_pgkhp"]
 [ext_resource type="PackedScene" uid="uid://bsy5rlo4v0t0l" path="res://scenes/npcs/Jonas.tscn" id="12_qy12r"]
 [ext_resource type="PackedScene" uid="uid://cr002tmjssnj8" path="res://scenes/npcs/Nicole.tscn" id="12_w8cmx"]
+[ext_resource type="Resource" uid="uid://7phrltagnd14" path="res://Dialogos/pedroca.dialogue" id="13_4jq3g"]
 [ext_resource type="Resource" uid="uid://cu327a6dot6ap" path="res://Dialogos/joao.dialogue" id="15_ss511"]
 [ext_resource type="Resource" uid="uid://r1g06lwa87ii" path="res://Dialogos/jonas.dialogue" id="17_pb0xv"]
 [ext_resource type="Resource" uid="uid://bm1hmyqyk2udx" path="res://Dialogos/primeira_aula.dialogue" id="19_1kk76"]
+[ext_resource type="Resource" uid="uid://brlmfjphy2ynd" path="res://Dialogos/alice.dialogue" id="19_aef4l"]
 [ext_resource type="Resource" uid="uid://3exm04654pk" path="res://Dialogos/douglas.dialogue" id="19_okgbu"]
 [ext_resource type="Script" uid="uid://dfmvqn4rjte7x" path="res://carteira.gd" id="20_vlwr4"]
 [ext_resource type="Script" uid="uid://mm6hipxcn37b" path="res://sala_de_aula_presenca.gd" id="21_j2h3o"]
+[ext_resource type="Resource" uid="uid://v3y0clg8hpgm" path="res://Dialogos/nicole.dialogue" id="22_gxlvq"]
+[ext_resource type="Resource" uid="uid://dvwn13k16u0m6" path="res://Dialogos/jaime.dialogue" id="23_f558d"]
+[ext_resource type="Resource" uid="uid://83igur6lag71" path="res://Dialogos/peter.dialogue" id="25_gxlvq"]
 [ext_resource type="Script" uid="uid://m4v3jilfgb3j" path="res://mapas/porta.gd" id="porta_script"]
 [ext_resource type="Script" uid="uid://b5whyj1eibhhg" path="res://mapas/sala_de_aula.gd" id="sala_de_aula_script"]
 
@@ -7017,6 +7023,8 @@ y_sort_enabled = true
 position = Vector2(236, 98)
 
 [node name="AreaInteracao" type="Area2D" parent="Entidades/NpcHonda" unique_id=1070892769]
+script = ExtResource("6_837if")
+dialogo = ExtResource("10_dfh44")
 
 [node name="LabelDica" type="Label" parent="Entidades/NpcHonda/AreaInteracao" unique_id=1334030860]
 offset_left = -30.0
@@ -7040,6 +7048,8 @@ position = Vector2(124, 185)
 
 [node name="AreaInteracao" type="Area2D" parent="Entidades/NpcPedroca" unique_id=860722169]
 position = Vector2(-1, -1)
+script = ExtResource("6_837if")
+dialogo = ExtResource("13_4jq3g")
 
 [node name="LabelDica" type="Label" parent="Entidades/NpcPedroca/AreaInteracao" unique_id=1975492745]
 offset_left = -34.0
@@ -7085,11 +7095,11 @@ position = Vector2(1, 10)
 
 [node name="NcpJonas" type="Node2D" parent="Entidades" unique_id=887287533]
 position = Vector2(253, 188)
-script = ExtResource("6_837if")
-dialogo = ExtResource("17_pb0xv")
 
 [node name="AreaInteracao" type="Area2D" parent="Entidades/NcpJonas" unique_id=1111136009]
 position = Vector2(-1, -1)
+script = ExtResource("6_837if")
+dialogo = ExtResource("17_pb0xv")
 
 [node name="LabelDica" type="Label" parent="Entidades/NcpJonas/AreaInteracao" unique_id=324075746]
 offset_left = -34.0
@@ -7138,6 +7148,8 @@ position = Vector2(188, 186)
 
 [node name="AreaInteracao" type="Area2D" parent="Entidades/NpcAlice" unique_id=948541364]
 position = Vector2(-1, -1)
+script = ExtResource("6_837if")
+dialogo = ExtResource("19_aef4l")
 
 [node name="LabelDica" type="Label" parent="Entidades/NpcAlice/AreaInteracao" unique_id=1927379246]
 offset_left = -34.0
@@ -7162,6 +7174,8 @@ position = Vector2(253, 225)
 
 [node name="AreaInteracao" type="Area2D" parent="Entidades/NpcNicole" unique_id=527653363]
 position = Vector2(-1, -1)
+script = ExtResource("6_837if")
+dialogo = ExtResource("22_gxlvq")
 
 [node name="LabelDica" type="Label" parent="Entidades/NpcNicole/AreaInteracao" unique_id=89570512]
 offset_left = -34.0
@@ -7187,6 +7201,8 @@ position = Vector2(124, 144)
 
 [node name="AreaInteracao" type="Area2D" parent="Entidades/NpcJaime" unique_id=1244768525]
 position = Vector2(-1, -1)
+script = ExtResource("6_837if")
+dialogo = ExtResource("23_f558d")
 
 [node name="LabelDica" type="Label" parent="Entidades/NpcJaime/AreaInteracao" unique_id=1842340690]
 offset_left = -34.0
@@ -7211,6 +7227,8 @@ position = Vector2(123, 226)
 
 [node name="AreaInteracao" type="Area2D" parent="Entidades/NpcPeter" unique_id=135898316]
 position = Vector2(-1, -1)
+script = ExtResource("6_837if")
+dialogo = ExtResource("25_gxlvq")
 
 [node name="LabelDica" type="Label" parent="Entidades/NpcPeter/AreaInteracao" unique_id=1621969440]
 offset_left = -34.0
