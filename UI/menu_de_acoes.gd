@@ -14,6 +14,10 @@ extends CanvasLayer
 ## Os botões se desabilitam sozinhos quando não há mais ações no
 ## bloco, e reaparecem habilitados no próximo bloco.
 ##
+## É Autoload (igual HUD e DialogoBox) — sobrevive à troca de
+## mapa sozinho. Começa escondido; quem mostra é a primeira cena
+## de gameplay que carregar, via mostrar() (ver area_base.gd).
+##
 ## IMPORTANTE: essas chamadas usam o efeito CHEIO (intensidade
 ## padrão) de cada ação — é o "clique único" do menu, pensado pra
 ## ações que não têm (ainda) uma mecânica de presença/tempo real
@@ -36,6 +40,8 @@ var _botoes: Array[Button] = []
 
 
 func _ready() -> void:
+	visible = false
+
 	_botoes = [btn_aula, btn_matar_aula, btn_estudar, btn_comer, btn_dormir, btn_entrosar]
 
 	btn_aula.pressed.connect(func(): _tentar_acao("aula", func(): return EstadoJogador.aula()))
@@ -52,11 +58,20 @@ func _ready() -> void:
 	label_aviso.text = ""
 	_atualizar_botoes()
 
+	# Rede de segurança: se por qualquer motivo de ordem de sinais
+	# os botões ficarem com o estado errado no primeiro frame,
+	# isso força uma re-checagem um frame depois, já com todos os
+	# Autoloads e a cena do mapa totalmente prontos.
+	call_deferred("_atualizar_botoes")
 
-## Executa a ação (via callable) só se ainda houver ficha
-## disponível no bloco atual, e consome a ficha se a ação
-## realmente aconteceu (alguns métodos retornam false quando
-## bloqueados por estresse alto, ex: aula()/estudar()/entrosar()).
+
+## Chame isso a partir de qualquer mapa de gameplay assim que ele
+## carregar (ver area_base.gd), igual já se faz com HUD.
+func mostrar() -> void:
+	visible = true
+	_atualizar_botoes()
+
+
 func _tentar_acao(nome: String, chamada: Callable) -> void:
 	if not GerenciadorDeTempo.pode_agir():
 		_mostrar_aviso("Sem ações disponíveis nesse período!")

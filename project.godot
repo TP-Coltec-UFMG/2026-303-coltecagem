@@ -29,6 +29,7 @@ HUD="*uid://y4504a107vo2"
 DialogueManager="*uid://c3rodes2l3gxb"
 GerenciadorDeDialogos="*uid://i1ugyxfmd2e"
 GerenciadorDeMinigames="*res://Minigames_Sistema/gerenciador_de_minigames.gd"
+MenuDeAcoes="*res://UI/menu_de_acoes.tscn"
 
 [dialogue_manager]
 
