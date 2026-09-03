@@ -29,6 +29,7 @@
 [ext_resource type="Resource" uid="uid://v3y0clg8hpgm" path="res://Dialogos/nicole.dialogue" id="22_gxlvq"]
 [ext_resource type="Resource" uid="uid://dvwn13k16u0m6" path="res://Dialogos/jaime.dialogue" id="23_f558d"]
 [ext_resource type="Resource" uid="uid://83igur6lag71" path="res://Dialogos/peter.dialogue" id="25_gxlvq"]
+[ext_resource type="Resource" uid="uid://cqxrl48gwsrk8" path="res://Dialogos/papel.dialogue" id="32_4jq3g"]
 [ext_resource type="Script" uid="uid://m4v3jilfgb3j" path="res://mapas/porta.gd" id="porta_script"]
 [ext_resource type="Script" uid="uid://b5whyj1eibhhg" path="res://mapas/sala_de_aula.gd" id="sala_de_aula_script"]
 
@@ -7280,6 +7281,7 @@ shape = SubResource("RectangleShape2D_6f8o3")
 [node name="PapelInteragivel" type="Area2D" parent="Variaveis" unique_id=1589527849]
 position = Vector2(182, -30)
 script = ExtResource("6_837if")
+dialogo = ExtResource("32_4jq3g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Variaveis/PapelInteragivel" unique_id=1558910573]
 shape = SubResource("RectangleShape2D_qr0ht")

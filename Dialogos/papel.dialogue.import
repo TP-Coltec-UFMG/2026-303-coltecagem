@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://cqxrl48gwsrk8"
+path="res://.godot/imported/papel.dialogue-4e71623a568291b5d21c5245e1dbc00d.tres"
+
+[deps]
+
+source_file="res://Dialogos/papel.dialogue"
+dest_files=["res://.godot/imported/papel.dialogue-4e71623a568291b5d21c5245e1dbc00d.tres"]
+
+[params]
+
+defaults=true

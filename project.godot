@@ -85,7 +85,7 @@ action={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://Dialogos/nicole.dialogue", "res://Dialogos/primeira_aula.dialogue", "res://Dialogos/professor.dialogue", "res://Dialogos/alice.dialogue", "res://Dialogos/douglas.dialogue", "res://Dialogos/jaime.dialogue", "res://Dialogos/peter.dialogue", "res://Dialogos/jonas.dialogue", "res://Dialogos/joao.dialogue", "res://Dialogos/pedroca.dialogue", "res://Dialogos/duze.dialogue", "res://Dialogos/porteira.dialogue", "res://Dialogos/pedrao.dialogue", "res://Dialogos/samuel.dialogue", "res://Dialogos/moises.dialogue", "res://Dialogos/Isa.dialogue")
+locale/translations_pot_files=PackedStringArray("res://Dialogos/nicole.dialogue", "res://Dialogos/primeira_aula.dialogue", "res://Dialogos/professor.dialogue", "res://Dialogos/alice.dialogue", "res://Dialogos/douglas.dialogue", "res://Dialogos/jaime.dialogue", "res://Dialogos/peter.dialogue", "res://Dialogos/jonas.dialogue", "res://Dialogos/joao.dialogue", "res://Dialogos/pedroca.dialogue", "res://Dialogos/duze.dialogue", "res://Dialogos/porteira.dialogue", "res://Dialogos/pedrao.dialogue", "res://Dialogos/samuel.dialogue", "res://Dialogos/moises.dialogue", "res://Dialogos/Isa.dialogue", "res://Dialogos/papel.dialogue")
 
 [physics]
 
