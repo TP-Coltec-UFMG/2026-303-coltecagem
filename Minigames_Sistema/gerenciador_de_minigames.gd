@@ -32,6 +32,8 @@ const FRACAO_RECOMPENSA_DERROTA := 0.5
 const TEMPO_TELA_RESULTADO := 1.4
 
 var _cena_para_voltar: String = ""
+var _posicao_para_voltar: Vector2 = Vector2.ZERO
+var _tinha_posicao_para_voltar: bool = false
 var _recompensas: Dictionary = {}
 var _minigame_atual: Node = null
 
@@ -44,6 +46,13 @@ func iniciar_minigame(caminho_cena_minigame: String, recompensas: Dictionary) ->
 	var cena_atual := get_tree().current_scene
 	_cena_para_voltar = cena_atual.scene_file_path
 	_recompensas = recompensas
+
+	# Guarda onde o personagem estava, pra devolver ele exatamente
+	# ali quando o minigame acabar (em vez do spawn padrão do mapa).
+	var personagem := get_tree().get_first_node_in_group("jogador")
+	_tinha_posicao_para_voltar = personagem != null
+	if personagem:
+		_posicao_para_voltar = personagem.global_position
 
 	GerenciadorDeTempo.pausar_dia()
 
@@ -100,11 +109,35 @@ func _on_minigame_terminou(venceu: bool) -> void:
 
 	_aplicar_recompensas(venceu)
 	GerenciadorDeTempo.retomar_dia()
-	get_tree().change_scene_to_file(_cena_para_voltar)
+
+	var erro := get_tree().change_scene_to_file(_cena_para_voltar)
+	if erro == OK:
+		await _restaurar_posicao_do_jogador()
+	else:
+		push_error("GerenciadorDeMinigames: falha ao voltar pra '%s' (erro %d)." % [_cena_para_voltar, erro])
 
 	_minigame_atual = null
 	_recompensas = {}
 	_cena_para_voltar = ""
+	_tinha_posicao_para_voltar = false
+
+
+## Espera a cena de volta terminar de carregar e reposiciona o
+## personagem exatamente onde ele estava antes do minigame — sem
+## isso, ele voltaria pro spawn padrão do mapa (Marker2D de
+## Global.proximo_ponto_entrada, ou a posição salva na cena).
+func _restaurar_posicao_do_jogador() -> void:
+	if not _tinha_posicao_para_voltar:
+		return
+
+	var tentativas := 0
+	while get_tree().current_scene == null and tentativas < 60:
+		await get_tree().process_frame
+		tentativas += 1
+
+	var personagem := get_tree().get_first_node_in_group("jogador")
+	if personagem:
+		personagem.global_position = _posicao_para_voltar
 
 
 ## Mostra uma telinha simples de "Você conseguiu!" / "Quase lá..."
