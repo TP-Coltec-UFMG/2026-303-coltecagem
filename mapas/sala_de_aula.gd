@@ -8,6 +8,7 @@ var _pergunta_ja_feita: bool = false # Evita que ele pergunte toda vez que você
 
 func _ready() -> void:
 	super._ready()
+	Global.mapa_atual = "SalaDeAula"
 	var area_presenca = find_child("*Presenca*", true, false)
 	if area_presenca and area_presenca.has_signal("body_entered"):
 		area_presenca.body_entered.connect(_on_jogador_entrou_na_sala)

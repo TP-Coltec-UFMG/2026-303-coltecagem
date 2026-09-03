@@ -7,6 +7,11 @@ extends Node2D
 @onready var camera: Camera2D = $Camera2D
 
 func _ready() -> void:
+	# Por padrão, qualquer mapa é "genérico" (não é uma sala
+	# específica reconhecida pelo GerenciadorDeEventos). Mapas
+	# especiais sobrescrevem isso no próprio _ready() deles, DEPOIS
+	# de chamar super._ready() (ver mapas/sala_de_aula.gd).
+	Global.mapa_atual = ""
 	_posicionar_personagem()
 	# A HUD é Autoload: qualquer mapa de gameplay que carregar
 	# mostra ela e (se ainda não estiver rodando) liga o relógio
