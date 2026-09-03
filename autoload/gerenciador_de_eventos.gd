@@ -2,23 +2,23 @@ extends Node
 ## ============================================================
 ## GerenciadorDeEventos
 ## ------------------------------------------------------------
-## Sorteia e dispara as "aulas" e "provas" aleatórias descritas no
-## brainstorm, sempre em 3 fases:
-##   1. ANÚNCIO — "aula de X começando na sala Y em Z segundos"
+## Sorteia e dispara as "aulas" e "provas" durante os blocos de
+## horário, sempre em 3 fases:
+##   1. ANÚNCIO — "aula começando em Z segundos"
 ##   2. EXECUÇÃO — a aula/prova acontece por uma duração
 ##   3. FIM — encerra e (no caso da prova) calcula o resultado
 ##
-## Este script NÃO sabe decidir sozinho se o jogador está "dentro"
-## ou "fora" da sala — isso depende do mapa (Area2D), que ainda
-## não existe (issue "Mapas/Tilemaps"). Por isso ele expõe
-## `jogador_presente_na_sala(sala)`, que por enquanto é respondida
-## manualmente (ver `jogador_presente_manual` mais abaixo) e depois
-## deve ser trocada pela consulta real de posição do personagem.
+## A presença do jogador na sala é decidida por
+## jogador_presente_na_sala(), que checa Global.mapa_atual (setado
+## por mapas/sala_de_aula.gd) — ou seja, ela reflete onde o
+## personagem está DE VERDADE no mapa, e continua valendo mesmo se
+## um minigame abrir uma cena por cima (minigames não mexem em
+## Global.mapa_atual).
 ##
 ## Quem for aplicar os efeitos em EstadoJogador (aula()/matar_aula())
 ## deve ouvir os sinais aula_iniciada/aula_finalizada e, durante
 ## esse intervalo, chamar aula() ou matar_aula() com base em onde o
-## jogador está. Isso fica pra quando tivermos a Area2D de sala.
+## jogador está.
 ## ============================================================
 
 signal aula_anunciada(nome_sala: String, tempo_aviso: float)
@@ -37,10 +37,14 @@ signal prova_finalizada(nome_sala: String, nota: int)
 # CONFIGURAÇÃO
 # ---------------------------------------------------------------
 
-## Nomes das salas onde aulas/provas podem acontecer. PLACEHOLDER
-## até a issue de Mapas definir as salas de verdade — troquem essa
-## lista pelos nomes reais das Area2D quando existirem.
-var salas_de_aula: Array[String] = ["Sala 1", "Sala 2", "Sala 3"]
+## Nome exibido nos avisos/banners. Hoje só existe uma sala de
+## aula de verdade no mapa (mapas/SalaDeAula.tscn) — se um dia
+## vocês tiverem mais de uma, isso volta a ser uma lista sorteada.
+const NOME_SALA_DE_AULA := "Sala de Aula"
+
+## Identificador que Global.mapa_atual precisa ter pra contar como
+## "dentro da sala de aula" (ver mapas/sala_de_aula.gd).
+const ID_MAPA_SALA_DE_AULA := "SalaDeAula"
 
 ## Intervalo de espera aleatória entre o fim de uma aula e o
 ## anúncio da próxima
@@ -82,10 +86,9 @@ var sala_com_prova_ativa: String = ""
 ## única prova do dia. Sorteado quando o dia começa.
 var bloco_da_prova: int = -1
 
-## PLACEHOLDER — enquanto não existe detecção real de posição do
-## personagem (Area2D de sala), qualquer script pode setar isso
-## manualmente (ex: a cena de teste) pra simular "o jogador está
-## na sala X agora".
+## Usado só pela cena de debug (debug/teste_eventos.tscn) pra
+## simular presença sem precisar do mapa de verdade. No jogo real,
+## jogador_presente_na_sala() ignora isso e olha Global.mapa_atual.
 var jogador_presente_manual: bool = false
 
 
@@ -144,7 +147,7 @@ func _agendar_proxima_aula() -> void:
 
 
 func _disparar_aula() -> void:
-	var sala: String = salas_de_aula[randi() % salas_de_aula.size()]
+	var sala: String = NOME_SALA_DE_AULA
 	var tempo_aviso := randf_range(TEMPO_AVISO_MIN, TEMPO_AVISO_MAX)
 
 	aula_anunciada.emit(sala, tempo_aviso)
@@ -198,7 +201,7 @@ func _disparar_aula() -> void:
 # ---------------------------------------------------------------
 
 func _agendar_prova() -> void:
-	var sala: String = salas_de_aula[randi() % salas_de_aula.size()]
+	var sala: String = NOME_SALA_DE_AULA
 
 	prova_anunciada.emit(sala, TEMPO_AVISO_PROVA)
 	await get_tree().create_timer(TEMPO_AVISO_PROVA).timeout
@@ -220,8 +223,9 @@ func _agendar_prova() -> void:
 	prova_finalizada.emit(sala, nota)
 
 
-## Verifica se o jogador está na sala indicada. PLACEHOLDER: hoje
-## só olha a flag manual (ver comentário dela lá em cima). Troquem
-## por uma consulta real de posição/Area2D quando o mapa existir.
+## Verifica se o jogador está na sala de aula de verdade. Usa
+## Global.mapa_atual (a fonte real, setada por sala_de_aula.gd) OU
+## a flag manual de debug — o "ou" existe só pra não quebrar a
+## cena de teste antiga.
 func jogador_presente_na_sala(_sala: String) -> bool:
-	return jogador_presente_manual
+	return jogador_presente_manual or Global.mapa_atual == ID_MAPA_SALA_DE_AULA
