@@ -5,6 +5,14 @@ signal missao_caderno_finalizada(com_sucesso: bool)
 
 var proximo_ponto_entrada: String = ""
 
+## Nome do mapa de gameplay em que o jogador está agora de verdade
+## (setado por mapas/area_base.gd, e sobrescrito por mapas
+## específicos tipo SalaDeAula — ver mapas/sala_de_aula.gd).
+## Importante: uma troca de cena pra dentro de um MINIGAME não
+## passa por area_base.gd, então isso continua marcando o mapa
+## real mesmo com um minigame aberto por cima.
+var mapa_atual: String = ""
+
 var tem_caderno: bool = false
 var missao_caderno_ativa: bool = false
 var missao_caderno_falhou: bool = false
