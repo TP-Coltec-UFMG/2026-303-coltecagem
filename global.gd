@@ -5,6 +5,14 @@ signal missao_caderno_finalizada(com_sucesso: bool)
 
 var proximo_ponto_entrada: String = ""
 
+## Preenchidos por GerenciadorDeMinigames.iniciar_minigame() logo
+## antes de trocar de cena pro minigame: guardam a posição exata
+## (em pixels) de onde o personagem estava no mapa, pra ele voltar
+## pro mesmo lugar (e não pro spawn/Marker2D da porta) quando o
+## minigame terminar. Ver mapas/area_base.gd -> _posicionar_personagem().
+var retornando_de_minigame: bool = false
+var posicao_retorno_minigame: Vector2 = Vector2.ZERO
+
 var tem_caderno: bool = false
 var missao_caderno_ativa: bool = false
 var missao_caderno_falhou: bool = false

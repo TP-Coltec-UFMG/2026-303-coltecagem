@@ -45,12 +45,23 @@ func iniciar_minigame(caminho_cena_minigame: String, recompensas: Dictionary) ->
 	_cena_para_voltar = cena_atual.scene_file_path
 	_recompensas = recompensas
 
+	# Guarda o pixel exato de onde o personagem está agora, pra
+	# ele voltar pro mesmo lugar (e não pro spawn/porta do mapa)
+	# quando o minigame terminar. Ver area_base.gd -> _posicionar_personagem().
+	var personagem := get_tree().get_first_node_in_group("jogador")
+	if personagem:
+		Global.posicao_retorno_minigame = personagem.global_position
+		Global.retornando_de_minigame = true
+	else:
+		Global.retornando_de_minigame = false
+
 	GerenciadorDeTempo.pausar_dia()
 
 	var erro := get_tree().change_scene_to_file(caminho_cena_minigame)
 	if erro != OK:
 		push_error("GerenciadorDeMinigames: change_scene_to_file('%s') falhou com erro %d — a cena provavelmente tem um problema de carregamento (script com erro, .tscn corrompido/formato incompatível, etc). Confira o painel Output do editor." % [caminho_cena_minigame, erro])
 		GerenciadorDeTempo.retomar_dia()
+		Global.retornando_de_minigame = false
 		return
 
 	# A troca de cena do Godot passa por um estado intermediário em
