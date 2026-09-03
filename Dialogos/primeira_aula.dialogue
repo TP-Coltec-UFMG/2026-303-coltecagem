@@ -31,5 +31,21 @@ Vou tentar arrumar uma folha com alguém.
 
 
 ~ com_material
-Beleza, agora que eu tenho uma folha dá pra prestar atenção no que esse japonês ta falando.
-=> END
+Beleza, agora que eu tenho uma folha...
+
+- Focar na explicação do Japonês (Gasta 1 ação) [if GerenciadorDeTempo.pode_agir() /]
+	do GerenciadorDeTempo.consumir_acao()
+	do EstadoJogador.aula()
+	Jogador: (Anotando tudo. Minha mão dói, mas entendi a matéria).
+	=> END
+
+- Dar uma pescada na mesa (Dormir) (Gasta 1 ação) [if GerenciadorDeTempo.pode_agir() /]
+	do GerenciadorDeTempo.consumir_acao()
+	do EstadoJogador.alterar_atributo("energia", 15)
+	do EstadoJogador.alterar_atributo("desempenho_academico", -10)
+	do EstadoJogador.alterar_atributo("estresse", -10)
+	Jogador: (Você dormiu um pouco babando no papel. Ninguém percebeu, mas você perdeu metade da matéria).
+	=> END
+
+- Só ficar olhando pro nada.
+	=> END

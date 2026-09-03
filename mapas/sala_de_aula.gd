@@ -1,53 +1,35 @@
 extends "res://mapas/area_base.gd"
-## ============================================================
-## SalaDeAula
-## ------------------------------------------------------------
-## Dispara a cutscene do professor na primeira vez que o jogador
-## entra na área de presença da sala.
-## ============================================================
 
 @export var dialogo_primeira_aula: DialogueResource
+@export var dialogo_professor: DialogueResource # Arraste o professor.dialogue aqui no Inspetor
 
 var _cutscene_ja_aconteceu: bool = false
-
+var _pergunta_ja_feita: bool = false # Evita que ele pergunte toda vez que você entrar
 
 func _ready() -> void:
 	super._ready()
-	
-	# Procura automaticamente qualquer nó de presença na sala para ouvir o sinal
 	var area_presenca = find_child("*Presenca*", true, false)
 	if area_presenca and area_presenca.has_signal("body_entered"):
 		area_presenca.body_entered.connect(_on_jogador_entrou_na_sala)
 
-
 func _on_jogador_entrou_na_sala(body: Node2D) -> void:
-	print("1. O jogador entrou na área de colisão")
-	
 	if not body.is_in_group("jogador"):
 		return
-	if _cutscene_ja_aconteceu:
-		return
-
-	_cutscene_ja_aconteceu = true
-	print("2. Iniciando a espera de 1.5 segundos...")
-
-	# Atraso de 1.5 segundos
-	await get_tree().create_timer(1.5).timeout
-	print("3. O tempo de espera acabou!")
-
-# Trava de segurança: impede que a fala do professor atropele 
-	# outro diálogo caso você tenha interagido com a carteira nesse meio tempo.
-	if GerenciadorDeDialogos.dialogo_manager_ativo:
-		print("4. Outro diálogo já está na tela, cancelando a fala do professor.")
-		return
-
-	if dialogo_primeira_aula:
-		print("5. Exibindo o diálogo do professor.")
 		
-		# AVISA O GERENCIADOR PARA TRAVAR O JOGADOR AQUI:
-		GerenciadorDeDialogos.iniciar_dialogo_manager() 
+	if not _cutscene_ja_aconteceu:
+		_cutscene_ja_aconteceu = true
+		await get_tree().create_timer(1.5).timeout
 		
-		DialogueManager.show_dialogue_balloon(
-			dialogo_primeira_aula,
-			"entrada_sala"
-		)
+		if not GerenciadorDeDialogos.dialogo_manager_ativo:
+			GerenciadorDeDialogos.iniciar_dialogo_manager()
+			DialogueManager.show_dialogue_balloon(dialogo_primeira_aula, "entrada_sala")
+			
+	# Dispara a pergunta surpresa 15 segundos DEPOIS que o jogador entrou na sala
+	elif not _pergunta_ja_feita:
+		_pergunta_ja_feita = true
+		await get_tree().create_timer(15.0).timeout # Ajuste o tempo que preferir
+		
+		# Só chama o balão se não houver outro diálogo rolando
+		if not GerenciadorDeDialogos.dialogo_manager_ativo:
+			GerenciadorDeDialogos.iniciar_dialogo_manager()
+			DialogueManager.show_dialogue_balloon(dialogo_professor, "pergunta_surpresa")

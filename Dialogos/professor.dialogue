@@ -4,3 +4,19 @@ Honda: Já fez a atividade do seu professor Havaiano?
 Honda: Bora, tenho aula agora — te vejo por aí!
 Honda: Oh yeah
 => END
+
+~ pergunta_surpresa
+
+Honda: E é por isso que essa estrutura se comporta assim... Alguém sabe me dizer qual é o erro comum aqui?
+
+- Levantar a mão e responder (Gasta 1 ação) [if GerenciadorDeTempo.pode_agir()]
+	do GerenciadorDeTempo.consumir_acao()
+	do EstadoJogador.alterar_atributo("desempenho_academico", 10)
+	do EstadoJogador.alterar_atributo("estresse", 5)
+	Jogador: É esquecer de inicializar a variável antes do loop!
+	Honda: Exatamente! Muito bem, vejo que alguém prestou atenção.
+	=> END
+
+- Abaixar a cabeça e não fazer contato visual.
+	Honda: Ninguém? Bom, vou explicar de novo desde o começo...
+	=> END

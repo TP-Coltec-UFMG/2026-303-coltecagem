@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://l4ilxx5ury83"
+path="res://.godot/imported/pedrinho.dialogue-e39347b6561868a83510bfdae63334f3.tres"
+
+[deps]
+
+source_file="res://Dialogos/pedrinho.dialogue"
+dest_files=["res://.godot/imported/pedrinho.dialogue-e39347b6561868a83510bfdae63334f3.tres"]
+
+[params]
+
+defaults=true

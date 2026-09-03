@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://b0habh0iywar3" path="res://Interacao/interagivel.gd" id="6_837if"]
 [ext_resource type="Theme" path="res://theme/theme.tres" id="7_7hm7w"]
 [ext_resource type="PackedScene" uid="uid://b1vympcot738" path="res://scenes/npcs/Honda.tscn" id="8_y5wrn"]
-[ext_resource type="PackedScene" uid="uid://fuqdwpgp7tci" path="res://scenes/npcs/Kwanza.tscn" id="9_enx2p"]
+[ext_resource type="PackedScene" uid="uid://fuqdwpgp7tci" path="res://scenes/npcs/Pedrinho.tscn" id="9_enx2p"]
 [ext_resource type="PackedScene" uid="uid://d280ko5n451cg" path="res://scenes/npcs/Jaime.tscn" id="10_5uvpb"]
 [ext_resource type="PackedScene" uid="uid://c8gy0iue1mcd0" path="res://scenes/npcs/Pete.tscn" id="10_dahpq"]
 [ext_resource type="Resource" uid="uid://cv2iw3x700xcv" path="res://Dialogos/professor.dialogue" id="10_dfh44"]
@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://xqlvqjo5g1um" path="res://scenes/npcs/boy2.tscn" id="12_pgkhp"]
 [ext_resource type="PackedScene" uid="uid://bsy5rlo4v0t0l" path="res://scenes/npcs/Jonas.tscn" id="12_qy12r"]
 [ext_resource type="PackedScene" uid="uid://cr002tmjssnj8" path="res://scenes/npcs/Nicole.tscn" id="12_w8cmx"]
-[ext_resource type="Resource" uid="uid://7phrltagnd14" path="res://Dialogos/pedroca.dialogue" id="13_4jq3g"]
+[ext_resource type="Resource" uid="uid://l4ilxx5ury83" path="res://Dialogos/pedrinho.dialogue" id="13_4jq3g"]
 [ext_resource type="Resource" uid="uid://cu327a6dot6ap" path="res://Dialogos/joao.dialogue" id="15_ss511"]
 [ext_resource type="Resource" uid="uid://r1g06lwa87ii" path="res://Dialogos/jonas.dialogue" id="17_pb0xv"]
 [ext_resource type="Resource" uid="uid://bm1hmyqyk2udx" path="res://Dialogos/primeira_aula.dialogue" id="19_1kk76"]
@@ -7008,13 +7008,6 @@ position = Vector2(21, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PortaParaColtec" unique_id=1931354184]
 shape = SubResource("RectangleShape2D_sala_porta")
 
-[node name="ColorRect" type="ColorRect" parent="PortaParaColtec" unique_id=1660786576]
-offset_left = -9.0
-offset_top = -20.0
-offset_right = 9.0
-offset_bottom = 20.0
-color = Color(0.9, 0.7, 0.1, 0.5)
-
 [node name="Entidades" type="Node2D" parent="." unique_id=1637162190]
 y_sort_enabled = true
 
@@ -7044,15 +7037,15 @@ shape = SubResource("CircleShape2D_r3jxo")
 [node name="npc" parent="Entidades/NpcHonda/AreaInteracao" unique_id=724393367 instance=ExtResource("8_y5wrn")]
 position = Vector2(0, 12)
 
-[node name="NpcPedroca" type="Node2D" parent="Entidades" unique_id=1797371189]
+[node name="NpcPedrinho" type="Node2D" parent="Entidades" unique_id=1797371189]
 position = Vector2(124, 185)
 
-[node name="AreaInteracao" type="Area2D" parent="Entidades/NpcPedroca" unique_id=860722169]
+[node name="AreaInteracao" type="Area2D" parent="Entidades/NpcPedrinho" unique_id=860722169]
 position = Vector2(-1, -1)
 script = ExtResource("6_837if")
 dialogo = ExtResource("13_4jq3g")
 
-[node name="LabelDica" type="Label" parent="Entidades/NpcPedroca/AreaInteracao" unique_id=1975492745]
+[node name="LabelDica" type="Label" parent="Entidades/NpcPedrinho/AreaInteracao" unique_id=1975492745]
 offset_left = -34.0
 offset_top = -25.0
 offset_right = 38.0
@@ -7062,11 +7055,11 @@ theme_override_font_sizes/font_size = 8
 text = "[E] falar"
 horizontal_alignment = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Entidades/NpcPedroca/AreaInteracao" unique_id=2008076076]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entidades/NpcPedrinho/AreaInteracao" unique_id=2008076076]
 position = Vector2(1, 1)
 shape = SubResource("CircleShape2D_8g0vf")
 
-[node name="npc2" parent="Entidades/NpcPedroca/AreaInteracao" unique_id=1495627472 instance=ExtResource("9_enx2p")]
+[node name="npc2" parent="Entidades/NpcPedrinho/AreaInteracao" unique_id=1495627472 instance=ExtResource("9_enx2p")]
 position = Vector2(1, 11)
 
 [node name="NpcJoão" type="Node2D" parent="Entidades" unique_id=1766561628]

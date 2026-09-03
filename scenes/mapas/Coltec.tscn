@@ -11,9 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://bpj378clfyni5" path="res://Tilemap/Hidrante.png" id="9_o8hg3"]
 [ext_resource type="PackedScene" uid="uid://bh2x6uofmcld7" path="res://scenes/Character.tscn" id="9_uvx25"]
 [ext_resource type="Script" uid="uid://b0habh0iywar3" path="res://Interacao/interagivel.gd" id="10_rfcp6"]
-[ext_resource type="Resource" uid="uid://l4ilxx5ury83" path="res://Dialogos/pedrao.dialogue" id="11_j7o77"]
+[ext_resource type="Resource" uid="uid://l4ilxx5ury83" path="res://Dialogos/pedrinho.dialogue" id="11_j7o77"]
 [ext_resource type="Theme" path="res://theme/theme.tres" id="11_mghkb"]
-[ext_resource type="PackedScene" uid="uid://fuqdwpgp7tci" path="res://scenes/npcs/Kwanza.tscn" id="12_1h65i"]
+[ext_resource type="PackedScene" uid="uid://fuqdwpgp7tci" path="res://scenes/npcs/Pedrinho.tscn" id="12_1h65i"]
 [ext_resource type="PackedScene" uid="uid://bej7yvwvrb6tv" path="res://scenes/npcs/Moises.tscn" id="13_8o4ag"]
 [ext_resource type="PackedScene" uid="uid://c3r78wbchviux" path="res://scenes/npcs/Isa.tscn" id="14_1nmp8"]
 [ext_resource type="Resource" uid="uid://bc4m1jib0f1lw" path="res://Dialogos/moises.dialogue" id="14_plf7k"]
@@ -9138,7 +9138,7 @@ tile_set = SubResource("TileSet_bhunq")
 [node name="Decoracao2" type="TileMapLayer" parent="TilesMap" unique_id=685325644]
 y_sort_enabled = true
 scale = Vector2(0.75, 0.75)
-tile_map_data = PackedByteArray("AAApAAUAAAAVAB4AAAAqAAUAAAAWAB4AAAAuAAUAAAAVAB4AAAAvAAUAAAAWAB4AAAAiANT/AAAGAAkAAAAiANX/AAAGAAoAAAAiANb/AAAGAAsAAAAiANf/AAAGAAwAAAAjANT/AAAHAAkAAAAjANX/AAAHAAoAAAAjANb/AAAHAAsAAAAjANf/AAAHAAwAAAAjANj/AAAHAAoAAAAiANn/AAAGAAsAAAAiANr/AAAGAAwAAAAjANn/AAAHAAsAAAAjANr/AAAHAAwAAAAjANv/AAAHAA0AAAAuAAMAAAAWAB4AAAAbAAMAAAAKABYAAAApAAMAAAAVAB4AAAAqAAMAAAAWAB4AAAAtAAMAAgAWAB4AAAAYAAMAAgAIABYAAAAZAAMAAgAJABYAAAAXAAMAAgAHABYAAAAWAAMAAgAGABYAAAATAO//AAAFAAgAAAAiANj/AAAGAAoAAAAVAAAAAgAFABMAAAAVAAEAAgAFABQAAAAVAAIAAgAFABUAAAAVAAMAAgAFABYAAAAWAAAAAgAGABMAAAAWAAEAAgAGABQAAAAWAAIAAgAGABUAAAAXAAAAAgAHABMAAAAXAAEAAgAHABQAAAAXAAIAAgAHABUAAAAYAAAAAgAIABMAAAAYAAEAAgAIABQAAAAYAAIAAgAIABUAAAAZAAAAAgAJABMAAAAZAAEAAgAJABQAAAAZAAIAAgAJABUAAAAmAAEAAgAUABwAAAAmAAIAAgAUAB0AAAAnAAEAAgAVABwAAAAnAAIAAgAVAB0AAAAnAAMAAgAVAB4AAAAoAAEAAgAWABwAAAAoAAIAAgAWAB0AAAAoAAMAAgAWAB4AAAApAAEAAgAXABwAAAApAAIAAgAXAB0AAAAaAAAAAgAKABMAAAAaAAEAAgAKABQAAAAaAAIAAgAKABUAAAAaAAMAAgAKABYAAAArAAEAAgAUABwAAAArAAIAAgAUAB0AAAAsAAEAAgAVABwAAAAsAAIAAgAVAB0AAAAsAAMAAgAVAB4AAAAtAAEAAgAWABwAAAAtAAIAAgAWAB0AAAAuAAEAAgAXABwAAAAuAAIAAgAXAB0AAAAiANv/AAAGAA0AAAA=")
+tile_map_data = PackedByteArray("AAApAAUAAAAVAB4AAAAqAAUAAAAWAB4AAAAuAAUAAAAVAB4AAAAvAAUAAAAWAB4AAAAiANT/AAAGAAkAAAAiANX/AAAGAAoAAAAiANb/AAAGAAsAAAAiANf/AAAGAAwAAAAjANT/AAAHAAkAAAAjANX/AAAHAAoAAAAjANb/AAAHAAsAAAAjANf/AAAHAAwAAAAjANj/AAAHAAoAAAAiANn/AAAGAAsAAAAiANr/AAAGAAwAAAAjANn/AAAHAAsAAAAjANr/AAAHAAwAAAAjANv/AAAHAA0AAAAuAAMAAAAWAB4AAAAbAAMAAAAKABYAAAApAAMAAAAVAB4AAAAqAAMAAAAWAB4AAAAtAAMAAgAWAB4AAAAYAAMAAgAIABYAAAAZAAMAAgAJABYAAAAXAAMAAgAHABYAAAAWAAMAAgAGABYAAAATAO//AAAFAAgAAAAiANj/AAAGAAoAAAAVAAAAAgAFABMAAAAVAAEAAgAFABQAAAAVAAIAAgAFABUAAAAVAAMAAgAFABYAAAAWAAAAAgAGABMAAAAWAAEAAgAGABQAAAAWAAIAAgAGABUAAAAXAAAAAgAHABMAAAAXAAEAAgAHABQAAAAXAAIAAgAHABUAAAAYAAAAAgAIABMAAAAYAAEAAgAIABQAAAAYAAIAAgAIABUAAAAZAAAAAgAJABMAAAAZAAEAAgAJABQAAAAZAAIAAgAJABUAAAAmAAEAAgAUABwAAAAmAAIAAgAUAB0AAAAnAAEAAgAVABwAAAAnAAIAAgAVAB0AAAAnAAMAAgAVAB4AAAAoAAEAAgAWABwAAAAoAAIAAgAWAB0AAAAoAAMAAgAWAB4AAAApAAEAAgAXABwAAAApAAIAAgAXAB0AAAAaAAAAAgAKABMAAAAaAAEAAgAKABQAAAAaAAIAAgAKABUAAAAaAAMAAgAKABYAAAArAAEAAgAUABwAAAArAAIAAgAUAB0AAAAsAAEAAgAVABwAAAAsAAIAAgAVAB0AAAAsAAMAAgAVAB4AAAAtAAEAAgAWABwAAAAtAAIAAgAWAB0AAAAuAAEAAgAXABwAAAAuAAIAAgAXAB0AAAAiANv/AAAGAA0AAADx/+r/AAAPABIAAAA=")
 tile_set = SubResource("TileSet_6f8o3")
 
 [node name="Mesa" type="TileMapLayer" parent="TilesMap" unique_id=956440775]
@@ -9166,7 +9166,6 @@ position = Vector2(545, 125)
 [node name="AreaInteracao" type="Area2D" parent="Entidades/NpcPedrinho" unique_id=1455161614]
 script = ExtResource("10_rfcp6")
 dialogo = ExtResource("11_j7o77")
-ponto_inicial = "minigame"
 
 [node name="LabelDica" type="Label" parent="Entidades/NpcPedrinho/AreaInteracao" unique_id=1369411829]
 offset_left = -32.0
@@ -9338,17 +9337,10 @@ ponto_entrada_destino = "EntradaColtec"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PortaParaSala" unique_id=627368850]
 shape = SubResource("RectangleShape2D_porta_hall")
 
-[node name="ColorRect" type="ColorRect" parent="PortaParaSala" unique_id=1267250111]
-offset_left = -20.0
-offset_top = -5.0
-offset_right = 20.0
-offset_bottom = 5.0
-color = Color(0.9, 0.7, 0.1, 0.5)
-
 [node name="EntradaSala" type="Marker2D" parent="PortaParaSala" unique_id=705633173]
 position = Vector2(0, 18)
 
-[connection signal="jogador_entrou_na_area" from="Entidades/NpcPedrinho/AreaInteracao" to="Entidades/NpcPedrinho/AreaInteracao/npc1" method="virar_para_jogador"]
+[connection signal="jogador_entrou_na_area" from="Entidades/NpcPedrinho/AreaInteracao" to="Entidades/NpcPedrinho/AreaInteracao/npc1" method="_on_area_interacao_jogador_entrou_na_area"]
 [connection signal="jogador_entrou_na_area" from="Entidades/NpcMoises/AreaInteracao" to="Entidades/NpcMoises/AreaInteracao/npc2" method="virar_para_jogador"]
 [connection signal="jogador_entrou_na_area" from="Entidades/NpcIsa/AreaInteracao" to="Entidades/NpcIsa/AreaInteracao/npc3" method="virar_para_jogador"]
 [connection signal="jogador_entrou_na_area" from="Entidades/NpcPedrao/AreaInteracao" to="Entidades/NpcPedrao/AreaInteracao/npc4" method="virar_para_jogador"]

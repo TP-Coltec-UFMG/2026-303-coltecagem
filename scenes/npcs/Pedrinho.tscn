@@ -135,7 +135,7 @@ _data = {
 &"walk": SubResource("Animation_walk")
 }
 
-[node name="Kwanza" type="CharacterBody2D" unique_id=724393367]
+[node name="Pedrinho" type="CharacterBody2D" unique_id=724393367]
 y_sort_enabled = true
 script = ExtResource("1_a7d2f")
 

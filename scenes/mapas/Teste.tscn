@@ -1,12 +1,12 @@
 [gd_scene format=4 uid="uid://dm5h3n8mwmy0j"]
 
 [ext_resource type="PackedScene" uid="uid://bh2x6uofmcld7" path="res://scenes/Character.tscn" id="1"]
-[ext_resource type="Texture2D" uid="uid://npi2xie8nwh1" path="res://Tilemap/floor_tiles.png" id="1_2dftf"]
-[ext_resource type="Texture2D" uid="uid://bx0y0uxnqtd82" path="res://Tilemap/Exterior Tiles.png" id="2_bcbcq"]
-[ext_resource type="Script" uid="uid://cl48gskn5npgw" path="res://Interacao/interagivel.gd" id="5_0uv0p"]
+[ext_resource type="Texture2D" uid="uid://nr4b25k55ema" path="res://Tilemap/floor_tiles.png" id="1_2dftf"]
+[ext_resource type="Texture2D" uid="uid://b8hhp4gvgm2uy" path="res://Tilemap/Exterior Tiles.png" id="2_bcbcq"]
+[ext_resource type="Script" uid="uid://b0habh0iywar3" path="res://Interacao/interagivel.gd" id="5_0uv0p"]
 [ext_resource type="Theme" path="res://theme/theme.tres" id="6_b3faq"]
 [ext_resource type="PackedScene" uid="uid://b1vympcot738" path="res://scenes/npcs/Honda.tscn" id="7_ygioq"]
-[ext_resource type="PackedScene" uid="uid://fuqdwpgp7tci" path="res://scenes/npcs/Kwanza.tscn" id="8_ygioq"]
+[ext_resource type="PackedScene" uid="uid://fuqdwpgp7tci" path="res://scenes/npcs/Pedrinho.tscn" id="8_ygioq"]
 [ext_resource type="PackedScene" uid="uid://ggcgbi71wmwt" path="res://scenes/npcs/Porteira.tscn" id="9_pdh0q"]
 [ext_resource type="PackedScene" uid="uid://ckh2fp5xtlt8b" path="res://scenes/npcs/Duze.tscn" id="10_pdh0q"]
 

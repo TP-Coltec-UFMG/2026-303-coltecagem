@@ -1,3 +1,21 @@
 ~ inicio
 Alice: Se eu escutar esse Chines falando por mais 5 minutos a minha cabeça explode.
 => END
+
+if Global.tem_caderno
+	Alice: (Anotando loucamente com 5 canetas de cores diferentes).
+	
+	- Me ajuda a entender isso? (Gasta 1 ação) [if GerenciadorDeTempo.pode_agir()]
+		do GerenciadorDeTempo.consumir_acao()
+		do EstadoJogador.alterar_atributo("desempenho_academico", 8)
+		do EstadoJogador.alterar_atributo("energia", -5)
+		Alice: Ai, tá bom, mas rápido! Essa parte aqui conecta com a fórmula de cima, entendeu?
+		Jogador: Ahhh, agora faz sentido! Valeu.
+		=> END
+		
+	- Deixar ela estudar.
+		=> END
+
+else
+	Alice: Se eu escutar esse Chinês falando por mais 5 minutos a minha cabeça explode.
+	=> END

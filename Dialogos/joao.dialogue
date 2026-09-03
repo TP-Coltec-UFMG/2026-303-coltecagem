@@ -14,3 +14,19 @@ João: (Scrollando Reels)
 
 - Tchau
 	=> END
+	
+if Global.tem_caderno
+	João: (Scrollando o feed de boa debaixo da carteira...)
+
+	- Ver os vídeos com ele (Gasta 1 ação) [if GerenciadorDeTempo.pode_agir()]
+		do GerenciadorDeTempo.consumir_acao()
+		do EstadoJogador.alterar_atributo("social", 5)
+		do EstadoJogador.alterar_atributo("desempenho_academico", -5)
+		do EstadoJogador.alterar_atributo("estresse", -5)
+		João: Mano, olha esse vídeo do cara mogando os betas.
+		Jogador: KKKKKKKKKKKK, manda pra mim depois.
+		=> END
+
+	- Deixa pra lá, vou focar na aula.
+		João: Beleza.
+		=> END

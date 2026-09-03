@@ -6,18 +6,19 @@ Pedrão: Eai, vamo bandecar depois?
 	Pedrão: Vish. Vou ficar te devendo, só trago notebook.
 	=> END
 
-- Bora, te encontro lá!
+- Bora.
 	=> END
 
 
 ~ minigame
-Pedrão: E aí, tranquilo? Quer jogar uma partida rápida pra esfriar a cabeça?
+Pedrão: Cara... perdi minhas calças me ajuda a procurar?
 
-- Bora!
-	Pedrão: Demorou! Quero ver se você é bom mesmo.
+- Bora! (Gasta 1 ação) [if GerenciadorDeTempo.pode_agir() /]
+	do GerenciadorDeTempo.consumir_acao()
+	Pedrão:Valeu cara não é todo mundo que ajuda um amigo a procurar a calça.
 	do GerenciadorDeMinigames.iniciar_minigame("res://minigames/pants/pants_minigame.tscn", {"desempenho_academico": 5, "estresse": -10})
 	=> END
 
 - Agora não, tô ocupado.
-	Pedrão: Suave, depois a gente joga então.
+	Pedrão: Suave
 	=> END

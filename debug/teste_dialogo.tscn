@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://bfvq5k2l2dkch"]
 
-[ext_resource type="Script" uid="uid://cl48gskn5npgw" path="res://Interacao/interagivel.gd" id="1"]
+[ext_resource type="Script" uid="uid://b0habh0iywar3" path="res://Interacao/interagivel.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://bh2x6uofmcld7" path="res://scenes/Character.tscn" id="2"]
 [ext_resource type="Theme" path="res://theme/theme.tres" id="4"]
 [ext_resource type="PackedScene" uid="uid://b1vympcot738" path="res://scenes/npcs/Honda.tscn" id="4_qihin"]
-[ext_resource type="PackedScene" uid="uid://fuqdwpgp7tci" path="res://scenes/npcs/Kwanza.tscn" id="5_wsav2"]
+[ext_resource type="PackedScene" uid="uid://fuqdwpgp7tci" path="res://scenes/npcs/Pedrinho.tscn" id="5_wsav2"]
 [ext_resource type="PackedScene" uid="uid://ggcgbi71wmwt" path="res://scenes/npcs/Porteira.tscn" id="6_4obap"]
 [ext_resource type="PackedScene" uid="uid://ckh2fp5xtlt8b" path="res://scenes/npcs/Duze.tscn" id="7_bxg0h"]
 

@@ -1,11 +1,18 @@
-~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
-=> END
+~ inicio
+
+if Global.tem_caderno
+	Jogador: É apenas uma folha em branco. Eu já tenho meu material para a aula.
+	=> END
+elif Global.missao_caderno_ativa
+	if Global.pode_tentar_material("papel")
+		do Global.registrar_tentativa_material("papel")
+		Jogador: Olha só, uma folha em branco dando sopa na mesa.
+		[Você pegou a folha de papel!]
+		do Global.receber_material()
+		=> END
+	else
+		Jogador: Não tenho tempo de pegar isso agora, a aula já vai começar de verdade!
+		=> END
+else
+	Jogador: É apenas uma folha em branco de alguém.
+	=> END
