@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://minigames/pegar_bonecos/jogador_placeholder.png" id="1_3vyb7"]
+[ext_resource type="Script" path="res://minigames/pegar_bonecos/player.gd" id="1_g2els"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
+radius = 62.008064
+
+[node name="Player" type="CharacterBody2D" unique_id=937382420]
+script = ExtResource("1_g2els")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2122686537]
+scale = Vector2(0.05439019, 0.05439019)
+texture = ExtResource("1_3vyb7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=910851998]
+shape = SubResource("CircleShape2D_g2els")

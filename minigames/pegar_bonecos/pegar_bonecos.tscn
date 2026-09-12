@@ -1,0 +1,130 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://minigames/pegar_bonecos/platform_minigame.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://minigames/pegar_bonecos/fundo.jpg" id="2_bg"]
+[ext_resource type="Texture2D" path="res://minigames/pegar_bonecos/boneco.png" id="3_stud"]
+[ext_resource type="Script" path="res://minigames/pegar_bonecos/studs.gd" id="4_stud_script"]
+[ext_resource type="PackedScene" path="res://minigames/pegar_bonecos/player.tscn" id="5_player"]
+[ext_resource type="PackedScene" path="res://minigames/pegar_bonecos/timer.tscn" id="6_timer"]
+
+[sub_resource type="RectangleShape2D" id="Rect_Ground"]
+size = Vector2(1800.0, 160.0)
+
+[sub_resource type="RectangleShape2D" id="Rect_Step1"]
+size = Vector2(280.0, 28.0)
+
+[sub_resource type="RectangleShape2D" id="Rect_Step2"]
+size = Vector2(220.0, 28.0)
+
+[sub_resource type="RectangleShape2D" id="Rect_Step3"]
+size = Vector2(180.0, 28.0)
+
+[sub_resource type="CircleShape2D" id="CircleShape_stud"]
+radius = 42.0
+
+[node name="PegarBonecos" type="Node2D"]
+script = ExtResource("1_script")
+time_limit = 12.0
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 3840.0
+offset_bottom = 2160.0
+scale = Vector2(0.30006558, 0.30006558)
+texture = ExtResource("2_bg")
+
+[node name="Ground" type="StaticBody2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(576.0, 655.0)
+shape = SubResource("Rect_Ground")
+[node name="ColorRect" type="ColorRect" parent="Ground"]
+offset_left = -324.0
+offset_top = 575.0
+offset_right = 1476.0
+offset_bottom = 735.0
+color = Color(0, 0, 0, 1)
+
+[node name="Step1" type="StaticBody2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Step1"]
+position = Vector2(380.0, 490.0)
+shape = SubResource("Rect_Step1")
+[node name="ColorRect" type="ColorRect" parent="Step1"]
+offset_left = 240.0
+offset_top = 476.0
+offset_right = 520.0
+offset_bottom = 504.0
+color = Color(0, 0, 0, 1)
+
+[node name="Step2" type="StaticBody2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Step2"]
+position = Vector2(620.0, 400.0)
+shape = SubResource("Rect_Step2")
+[node name="ColorRect" type="ColorRect" parent="Step2"]
+offset_left = 510.0
+offset_top = 386.0
+offset_right = 730.0
+offset_bottom = 414.0
+color = Color(0, 0, 0, 1)
+
+[node name="Step3" type="StaticBody2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Step3"]
+position = Vector2(850.0, 310.0)
+shape = SubResource("Rect_Step3")
+[node name="ColorRect" type="ColorRect" parent="Step3"]
+offset_left = 760.0
+offset_top = 296.0
+offset_right = 940.0
+offset_bottom = 324.0
+color = Color(0, 0, 0, 1)
+
+[node name="Stud" type="Node2D" parent="."]
+position = Vector2(380.0, 430.0)
+script = ExtResource("4_stud_script")
+[node name="Stud" type="TextureRect" parent="Stud"]
+offset_left = -40.0
+offset_top = -75.0
+offset_right = 40.0
+offset_bottom = 0.0
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("3_stud")
+[node name="Area2D" type="Area2D" parent="Stud"]
+collision_mask = 1
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stud/Area2D"]
+position = Vector2(0, -38)
+shape = SubResource("CircleShape_stud")
+
+[node name="Stud2" type="Node2D" parent="."]
+position = Vector2(620.0, 340.0)
+script = ExtResource("4_stud_script")
+[node name="Stud" type="TextureRect" parent="Stud2"]
+offset_left = -40.0
+offset_top = -75.0
+offset_right = 40.0
+offset_bottom = 0.0
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("3_stud")
+[node name="Area2D" type="Area2D" parent="Stud2"]
+collision_mask = 1
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stud2/Area2D"]
+position = Vector2(0, -38)
+shape = SubResource("CircleShape_stud")
+
+[node name="Stud3" type="Node2D" parent="."]
+position = Vector2(850.0, 250.0)
+script = ExtResource("4_stud_script")
+[node name="Stud" type="TextureRect" parent="Stud3"]
+offset_left = -40.0
+offset_top = -75.0
+offset_right = 40.0
+offset_bottom = 0.0
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("3_stud")
+[node name="Area2D" type="Area2D" parent="Stud3"]
+collision_mask = 1
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stud3/Area2D"]
+position = Vector2(0, -38)
+shape = SubResource("CircleShape_stud")
+
+[node name="Player" parent="." instance=ExtResource("5_player")]
+position = Vector2(147.0, 512.9919)
+
+[node name="timer" parent="." instance=ExtResource("6_timer")]

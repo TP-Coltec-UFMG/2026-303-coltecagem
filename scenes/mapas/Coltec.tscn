@@ -9239,6 +9239,7 @@ position = Vector2(-182, -197)
 [node name="AreaInteracao" type="Area2D" parent="Entidades/NpcPedrao" unique_id=1831864519]
 script = ExtResource("10_rfcp6")
 dialogo = ExtResource("11_j7o77")
+ponto_inicial = "minigame"
 
 [node name="LabelDica" type="Label" parent="Entidades/NpcPedrao/AreaInteracao" unique_id=147831990]
 offset_left = -36.0

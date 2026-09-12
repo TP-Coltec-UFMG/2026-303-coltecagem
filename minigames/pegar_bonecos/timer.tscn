@@ -1,0 +1,14 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://minigames/pegar_bonecos/timer.gd" id="1_srplv"]
+
+[node name="timer" type="Node2D" unique_id=792065173]
+script = ExtResource("1_srplv")
+
+[node name="timer" type="RichTextLabel" parent="." unique_id=281513863]
+offset_left = 530.0
+offset_top = 2.0
+offset_right = 747.0
+offset_bottom = 158.0
+theme_override_constants/outline_size = 24
+theme_override_font_sizes/normal_font_size = 84

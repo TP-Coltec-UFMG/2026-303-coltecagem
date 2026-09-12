@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://bh2x6uofmcld7" path="res://scenes/Character.tscn" id="2"]
 [ext_resource type="Script" uid="uid://b0habh0iywar3" path="res://Interacao/interagivel.gd" id="2_lwlg0"]
 [ext_resource type="Theme" path="res://theme/theme.tres" id="3"]
-[ext_resource type="Resource" uid="uid://l4ilxx5ury83" path="res://Dialogos/pedrao.dialogue" id="3_n0ru0"]
-[ext_resource type="PackedScene" uid="uid://fuqdwpgp7tci" path="res://scenes/npcs/Kwanza.tscn" id="5_gadyx"]
+[ext_resource type="Resource" uid="uid://l4ilxx5ury83" path="res://Dialogos/pedrinho.dialogue" id="3_n0ru0"]
+[ext_resource type="PackedScene" uid="uid://fuqdwpgp7tci" path="res://scenes/npcs/Pedrinho.tscn" id="5_gadyx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b6d4f"]
 radius = 18.439089
