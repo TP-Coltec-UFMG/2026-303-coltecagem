@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://d00nnirqm3xhw"]
+
+[ext_resource type="Script" uid="uid://d3mh2eeypj5bs" path="res://nanogames/thing_factory/conveyor/conveyor.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dda8ru2q82a5m" path="res://nanogames/thing_factory/conveyor/_assets/vent.svg" id="2"]
+[ext_resource type="Texture2D" uid="uid://cft2us7qx55y8" path="res://nanogames/thing_factory/conveyor/_assets/conveyor.svg" id="3"]
+
+[node name="Conveyor" type="TextureRect" unique_id=561216516]
+offset_right = 960.0
+offset_bottom = 64.0
+texture = ExtResource("3")
+stretch_mode = 1
+script = ExtResource("1")
+
+[node name="Entrance" type="Sprite2D" parent="." unique_id=2116187773]
+z_index = 1
+position = Vector2(-110, -18)
+texture = ExtResource("2")
+
+[node name="Exit" type="Sprite2D" parent="." unique_id=2033301787]
+z_index = 1
+position = Vector2(1070, -18)
+texture = ExtResource("2")
+flip_h = true
+
+[node name="SpawnStart" type="Marker2D" parent="." unique_id=533559811]
+z_index = 1
+position = Vector2(-64, -47)
+
+[node name="SpawnEnd" type="Marker2D" parent="." unique_id=1051726494]
+z_index = 1
+position = Vector2(1024, -47)

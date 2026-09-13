@@ -15,7 +15,7 @@ Pedrão: Cara... perdi minhas calças me ajuda a procurar?
 
 - Bora! (Gasta 1 ação) 
 	Pedrão:Valeu cara não é todo mundo que ajuda um amigo a procurar a calça.
-	do GerenciadorDeMinigames.iniciar_minigame("res://minigames/pegar_bonecos/pegar_bonecos.tscn", {"desempenho_academico": 5, "estresse": -10})
+	do GerenciadorDeMinigames.iniciar_minigame("res://minigames/shuffle_dance_minigame.tscn", {"desempenho_academico": 5, "estresse": -10})
 	=> END
 
 - Agora não, tô ocupado.

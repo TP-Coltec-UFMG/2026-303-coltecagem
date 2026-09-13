@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://cjxy77qgblx4w"]
+
+[ext_resource type="Script" uid="uid://b60gb6jgx0fpo" path="res://nanogames/fliperama/bumper/bumper.gd" id="1_ckbbu"]
+[ext_resource type="AudioStream" uid="uid://c68m7nrvtyee7" path="res://nanogames/fliperama/bumper/_assets/hit.wav" id="2_bmn0q"]
+[ext_resource type="Texture2D" uid="uid://bg2lchwwxde6c" path="res://nanogames/fliperama/bumper/_assets/bumper.png" id="2_iw5bq"]
+[ext_resource type="Material" uid="uid://i77a6kf2hnrc" path="res://nanogames/fliperama/_resources/light.tres" id="3_rxqob"]
+
+[sub_resource type="Gradient" id="Gradient_bmn0q"]
+offsets = PackedFloat32Array(0, 0.7)
+colors = PackedColorArray(1, 1, 1, 0.5, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_iw5bq"]
+gradient = SubResource("Gradient_bmn0q")
+width = 200
+height = 200
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1rskf"]
+radius = 60.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lmhbf"]
+radius = 40.0
+
+[sub_resource type="Animation" id="Animation_iw5bq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Light:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bmn0q"]
+resource_name = "switch_color"
+length = 0.5
+capture_included = true
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Light:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 2,
+"values": [Color(1, 0.388235, 0.278431, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rxqob"]
+_data = {
+&"RESET": SubResource("Animation_iw5bq"),
+&"switch_color": SubResource("Animation_bmn0q")
+}
+
+[node name="Bumper" type="Area2D" unique_id=679098309]
+z_index = 5
+input_pickable = false
+monitorable = false
+script = ExtResource("1_ckbbu")
+metadata/_edit_group_ = true
+
+[node name="Bump" type="Sprite2D" parent="." unique_id=1347205779]
+texture = ExtResource("2_iw5bq")
+
+[node name="Light" type="Sprite2D" parent="." unique_id=339471451]
+self_modulate = Color(0, 1, 1, 1)
+material = ExtResource("3_rxqob")
+texture = SubResource("GradientTexture2D_iw5bq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=679882140]
+shape = SubResource("CircleShape2D_1rskf")
+
+[node name="Base" type="StaticBody2D" parent="." unique_id=799456131]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Base" unique_id=1885068680]
+shape = SubResource("CircleShape2D_lmhbf")
+
+[node name="Noise" type="AudioStreamPlayer2D" parent="." unique_id=1051791170]
+stream = ExtResource("2_bmn0q")
+bus = &"Effects"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2043808569]
+libraries/ = SubResource("AnimationLibrary_rxqob")

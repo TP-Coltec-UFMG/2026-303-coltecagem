@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://bgnuqio0btses"]
+
+[ext_resource type="Script" uid="uid://da3qthq627xpb" path="res://nanogames/fliperama/flippers/flippers.gd" id="1_2c06q"]
+[ext_resource type="Texture2D" uid="uid://duo3n02v4rx3o" path="res://nanogames/fliperama/flippers/_assets/flipper.png" id="2_l5j1j"]
+[ext_resource type="AudioStream" uid="uid://c76tkgcyclr1d" path="res://nanogames/fliperama/flippers/_assets/move.wav" id="2_vnfx0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_70dwq"]
+radius = 21.0
+height = 174.0
+
+[sub_resource type="Animation" id="Animation_vnfx0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.91986]
+}
+
+[sub_resource type="Animation" id="Animation_2c06q"]
+resource_name = "move"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.91986, 0.872665, 1.91986]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l5j1j"]
+_data = {
+&"RESET": SubResource("Animation_vnfx0"),
+&"move": SubResource("Animation_2c06q")
+}
+
+[sub_resource type="Animation" id="Animation_s8tnc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.91986]
+}
+
+[sub_resource type="Animation" id="Animation_l5j1j"]
+resource_name = "move"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-1.91986, -0.872665, -1.91986]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vpkyn"]
+_data = {
+&"RESET": SubResource("Animation_s8tnc"),
+&"move": SubResource("Animation_l5j1j")
+}
+
+[node name="Flippers" type="Node2D" unique_id=1106573595]
+z_index = 5
+script = ExtResource("1_2c06q")
+metadata/_edit_vertical_guides_ = [-48.0]
+metadata/_edit_horizontal_guides_ = [62.0]
+
+[node name="Left" type="AnimatableBody2D" parent="." unique_id=1655644154]
+position = Vector2(-190, -1)
+rotation = 1.91986
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Left" unique_id=2096244568]
+position = Vector2(0, -65)
+rotation = -1.5708
+texture = ExtResource("2_l5j1j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left" unique_id=878905483]
+position = Vector2(0, -65)
+shape = SubResource("CapsuleShape2D_70dwq")
+
+[node name="Noise" type="AudioStreamPlayer2D" parent="Left" unique_id=882065799]
+stream = ExtResource("2_vnfx0")
+bus = &"Effects"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Left" unique_id=1552766790]
+callback_mode_process = 0
+libraries/ = SubResource("AnimationLibrary_l5j1j")
+
+[node name="Right" type="AnimatableBody2D" parent="." unique_id=46948936]
+position = Vector2(190, 0)
+rotation = -1.91986
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Right" unique_id=405874299]
+position = Vector2(0, -65)
+rotation = -1.5708
+texture = ExtResource("2_l5j1j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right" unique_id=283371648]
+position = Vector2(0, -65)
+shape = SubResource("CapsuleShape2D_70dwq")
+
+[node name="Noise" type="AudioStreamPlayer2D" parent="Right" unique_id=1795793832]
+stream = ExtResource("2_vnfx0")
+bus = &"Effects"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Right" unique_id=1692153567]
+callback_mode_process = 0
+libraries/ = SubResource("AnimationLibrary_vpkyn")

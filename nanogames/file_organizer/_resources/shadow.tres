@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://crr0xb3j4id67"]
+
+[ext_resource type="Shader" uid="uid://btr44ygtctkmh" path="res://shaders/texture_blur.gdshader" id="1_fgc3v"]
+
+[resource]
+shader = ExtResource("1_fgc3v")
+shader_parameter/strength = 6.0

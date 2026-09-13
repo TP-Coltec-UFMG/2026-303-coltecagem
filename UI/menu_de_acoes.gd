@@ -72,7 +72,7 @@ func mostrar() -> void:
 	_atualizar_botoes()
 
 
-func _tentar_acao(nome: String, chamada: Callable) -> void:
+func _tentar_acao(_nome: String, chamada: Callable) -> void:
 	if not GerenciadorDeTempo.pode_agir():
 		_mostrar_aviso("Sem ações disponíveis nesse período!")
 		return

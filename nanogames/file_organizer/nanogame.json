@@ -1,0 +1,27 @@
+{
+    "name": "File Organizer",
+    "kickoff": "ORGANIZE!",
+    "description": "Hard to be productive with a desktop this messy. Put those files in their respective folders, so you can at least stay organized while procrastinating.",
+    "author": "Librerama",
+    "input": "DRAG_DROP",
+    "inputModifier": "NONE",
+    "timer": "OBJECTIVE",
+    "tags": "Desktop,Folder,KDE,OS",
+    "licenseCode": "GPL_3_LATER",
+    "licenseAssets": "CC_BY_SA_4",
+    "source": "https://codeberg.org/Librerama/librerama/src/master/nanogames/file_organizer",
+    "thirdParty": [
+        {
+            "name": "Ocean Sound Theme",
+            "author": "Guilherme Marçal Silva",
+            "license": "CC_BY_SA_4",
+            "source": "https://invent.kde.org/plasma/ocean-sound-theme"
+        },
+        {
+            "name": "Voices",
+            "author": "Kim Lightyear",
+            "license": "CC_BY_SA_3",
+            "source": "https://opengameart.org/content/voices-0"
+        }
+    ]
+}
