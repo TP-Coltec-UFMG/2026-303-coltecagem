@@ -1,0 +1,39 @@
+{
+	"name": "Fliperama",
+	"kickoff": "KEEP IN!",
+	"description": "In Brazil, \"fliperama\" was an old term for arcade machines and their venues, with \"fliper\" coming from the flippers in pinball, the ones you will be using to keep that ball from falling into the pit.",
+	"author": "Librerama",
+	"input": "FLIPPERS",
+	"inputModifier": "NONE",
+	"timer": "SURVIVAL",
+	"tags": "Arcade,Pinball",
+	"licenseCode": "GPL_3_LATER",
+	"licenseAssets": "CC_BY_SA_4",
+	"source": "https://codeberg.org/Librerama/librerama/src/master/nanogames/fliperama",
+	"thirdParty": [
+		{
+			"name": "boss",
+			"author": "Jan125",
+			"license": "OGA_BY_3",
+			"source": "https://opengameart.org/content/stereotypical-90s-space-shooter-music"
+		},
+		{
+			"name": "Bumper Hit",
+			"author": "GameBoy",
+			"license": "CC_BY_4",
+			"source": "https://freesound.org/people/GameBoy/sounds/653201/"
+		},
+		{
+			"name": "pinball-flipper hits",
+			"author": "David Schaffer",
+			"license": "CC0",
+			"source": "https://freesound.org/people/schafferdavid/sounds/450270/"
+		},
+		{
+			"name": "Rocket Launch",
+			"author": "Jarusca",
+			"license": "CC0",
+			"source": "https://freesound.org/people/Jarusca/sounds/521377/"
+		}
+	]
+}

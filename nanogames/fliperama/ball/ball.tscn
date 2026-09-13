@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bh0xb5l657h2u"]
+
+[ext_resource type="Texture2D" uid="uid://nlebtcoin46s" path="res://nanogames/fliperama/ball/_assets/ball.png" id="1_ageqc"]
+[ext_resource type="Script" uid="uid://c7qrdoc0dvnig" path="res://nanogames/fliperama/ball/ball.gd" id="1_gajav"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gajav"]
+bounce = 0.3
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_70dwq"]
+radius = 26.0
+
+[node name="Ball" type="RigidBody2D" unique_id=1645322934]
+physics_material_override = SubResource("PhysicsMaterial_gajav")
+gravity_scale = 1.5
+freeze = true
+continuous_cd = 1
+script = ExtResource("1_gajav")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=386358578]
+texture = ExtResource("1_ageqc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1163446087]
+shape = SubResource("CircleShape2D_70dwq")
+
+[node name="Noise" type="AudioStreamPlayer2D" parent="." unique_id=41594877]
+bus = &"Effects"

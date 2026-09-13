@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://minigames/_shared_librerama/nanogame_adapter.gd" id="1"]
+[ext_resource type="PackedScene" path="res://nanogames/gravity_shift/main.tscn" id="2"]
+
+[node name="gravity_shift_minigame" type="Node2D"]
+script = ExtResource("1")
+cena_nanogame = ExtResource("2")
+dificuldade = 2

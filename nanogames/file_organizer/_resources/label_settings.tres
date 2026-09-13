@@ -1,0 +1,11 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://btet0w35ngm34"]
+
+[ext_resource type="FontFile" uid="uid://c3ok5jf8a42y0" path="res://fonts/noto_sans_regular.ttf" id="1_qnvsp"]
+
+[resource]
+line_spacing = 2.0
+font = ExtResource("1_qnvsp")
+font_size = 20
+shadow_size = 6
+shadow_color = Color(0, 0, 0, 0.588235)
+shadow_offset = Vector2(0, 0)
