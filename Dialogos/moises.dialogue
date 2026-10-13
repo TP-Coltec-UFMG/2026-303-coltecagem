@@ -2,5 +2,12 @@
 moises: iai calouro!
 moises: ta animado pra calourada?
 - O que é calourada?
-	moises: Meu Deus... não vou nem responder essa pergunta.
-	=> END
+	moises: Meu Deus... vou nem responder essa pergunta...
+	moises: enfim, ta afim de jogar umas cartas?
+	
+	- Tô Sim!
+		do GerenciadorDeMinigames.iniciar_minigame("res://minigames/shuffle_dance_minigame.tscn", {"desempenho_academico": 5, "estresse": -10})
+		=> END
+	- Agora não!
+		moises: Ce que sabe!
+		=> END

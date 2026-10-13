@@ -15,17 +15,11 @@
 [ext_resource type="Theme" path="res://theme/theme.tres" id="11_mghkb"]
 [ext_resource type="PackedScene" uid="uid://fuqdwpgp7tci" path="res://scenes/npcs/Pedrinho.tscn" id="12_1h65i"]
 [ext_resource type="PackedScene" uid="uid://bej7yvwvrb6tv" path="res://scenes/npcs/Moises.tscn" id="13_8o4ag"]
-[ext_resource type="PackedScene" uid="uid://c3r78wbchviux" path="res://scenes/npcs/Isa.tscn" id="14_1nmp8"]
 [ext_resource type="Resource" uid="uid://bc4m1jib0f1lw" path="res://Dialogos/moises.dialogue" id="14_plf7k"]
 [ext_resource type="PackedScene" uid="uid://c64reausv1422" path="res://scenes/npcs/Pedrao.tscn" id="15_ef5ak"]
-[ext_resource type="Resource" uid="uid://b0ycgo8ynelu6" path="res://Dialogos/Isa.dialogue" id="16_o8hg3"]
-[ext_resource type="PackedScene" uid="uid://c0et0t746jgln" path="res://scenes/npcs/samuel.tscn" id="16_u6fkl"]
-[ext_resource type="Resource" uid="uid://dl8sbstucei6c" path="res://Dialogos/samuel.dialogue" id="17_4sbu0"]
 [ext_resource type="PackedScene" uid="uid://ggcgbi71wmwt" path="res://scenes/npcs/Porteira.tscn" id="17_h6vow"]
-[ext_resource type="PackedScene" uid="uid://ckh2fp5xtlt8b" path="res://scenes/npcs/Duze.tscn" id="18_24y04"]
 [ext_resource type="Resource" uid="uid://b5wwdajvim22s" path="res://Dialogos/porteira.dialogue" id="19_1pm7u"]
 [ext_resource type="Script" uid="uid://m4v3jilfgb3j" path="res://mapas/porta.gd" id="19_2vbt0"]
-[ext_resource type="Resource" uid="uid://cwlsb0qk528jf" path="res://Dialogos/duze.dialogue" id="21_plf7k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ygioq"]
 texture = ExtResource("2_j7o77")
@@ -9098,9 +9092,6 @@ radius = 18.439089
 [sub_resource type="CircleShape2D" id="CircleShape2D_7c4bj"]
 radius = 51.009804
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_nrtoj"]
-radius = 15.033297
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_porta_hall"]
 size = Vector2(40, 10)
 
@@ -9166,6 +9157,7 @@ position = Vector2(545, 125)
 [node name="AreaInteracao" type="Area2D" parent="Entidades/NpcPedrinho" unique_id=1455161614]
 script = ExtResource("10_rfcp6")
 dialogo = ExtResource("11_j7o77")
+ponto_inicial = "minigame2"
 
 [node name="LabelDica" type="Label" parent="Entidades/NpcPedrinho/AreaInteracao" unique_id=1369411829]
 offset_left = -32.0
@@ -9209,30 +9201,6 @@ shape = SubResource("CircleShape2D_h1bdy")
 [node name="npc2" parent="Entidades/NpcMoises/AreaInteracao" unique_id=724393367 instance=ExtResource("13_8o4ag")]
 position = Vector2(-1, 12)
 
-[node name="NpcIsa" type="Node2D" parent="Entidades" unique_id=263259598]
-position = Vector2(-198, 47)
-
-[node name="AreaInteracao" type="Area2D" parent="Entidades/NpcIsa" unique_id=1110177341]
-script = ExtResource("10_rfcp6")
-dialogo = ExtResource("16_o8hg3")
-
-[node name="LabelDica" type="Label" parent="Entidades/NpcIsa/AreaInteracao" unique_id=1308879048]
-offset_left = -36.0
-offset_top = -27.0
-offset_right = 36.0
-offset_bottom = -11.0
-theme = ExtResource("11_mghkb")
-theme_override_font_sizes/font_size = 8
-text = "[E] falar"
-horizontal_alignment = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Entidades/NpcIsa/AreaInteracao" unique_id=368469125]
-position = Vector2(0, 1)
-shape = SubResource("CircleShape2D_h1bdy")
-
-[node name="npc3" parent="Entidades/NpcIsa/AreaInteracao" unique_id=1417062451 instance=ExtResource("14_1nmp8")]
-position = Vector2(-1, 10)
-
 [node name="NpcPedrao" type="Node2D" parent="Entidades" unique_id=1261729104]
 position = Vector2(-182, -197)
 
@@ -9258,30 +9226,6 @@ shape = SubResource("CircleShape2D_h1bdy")
 [node name="npc4" parent="Entidades/NpcPedrao/AreaInteracao" unique_id=433293676 instance=ExtResource("15_ef5ak")]
 position = Vector2(-1, 11)
 
-[node name="NpcSamuel" type="Node2D" parent="Entidades" unique_id=1444256087]
-position = Vector2(153, -254)
-
-[node name="AreaInteracao" type="Area2D" parent="Entidades/NpcSamuel" unique_id=1726993209]
-script = ExtResource("10_rfcp6")
-dialogo = ExtResource("17_4sbu0")
-
-[node name="LabelDica" type="Label" parent="Entidades/NpcSamuel/AreaInteracao" unique_id=1357666821]
-offset_left = -33.0
-offset_top = -28.0
-offset_right = 39.0
-offset_bottom = -12.0
-theme = ExtResource("11_mghkb")
-theme_override_font_sizes/font_size = 8
-text = "[E] falar"
-horizontal_alignment = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Entidades/NpcSamuel/AreaInteracao" unique_id=337095148]
-position = Vector2(0, 1)
-shape = SubResource("CircleShape2D_h1bdy")
-
-[node name="npc5" parent="Entidades/NpcSamuel/AreaInteracao" unique_id=2006537278 instance=ExtResource("16_u6fkl")]
-position = Vector2(-1, 9)
-
 [node name="NpcPorteira" type="Node2D" parent="Entidades" unique_id=1076523777]
 position = Vector2(308, 371)
 
@@ -9306,29 +9250,6 @@ shape = SubResource("CircleShape2D_7c4bj")
 [node name="npc6" parent="Entidades/NpcPorteira/AreaInteracao" unique_id=2029857116 instance=ExtResource("17_h6vow")]
 position = Vector2(1, 16)
 
-[node name="NpcZedu" type="Node2D" parent="Entidades" unique_id=1293903418]
-position = Vector2(169, 105)
-
-[node name="AreaInteracao" type="Area2D" parent="Entidades/NpcZedu" unique_id=1080726778]
-script = ExtResource("10_rfcp6")
-dialogo = ExtResource("21_plf7k")
-
-[node name="LabelDica" type="Label" parent="Entidades/NpcZedu/AreaInteracao" unique_id=746845771]
-offset_left = -32.0
-offset_top = -40.0
-offset_right = 40.0
-offset_bottom = -24.0
-theme = ExtResource("11_mghkb")
-theme_override_font_sizes/font_size = 8
-text = "[E] falar"
-horizontal_alignment = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Entidades/NpcZedu/AreaInteracao" unique_id=369925306]
-position = Vector2(1, -11)
-shape = SubResource("CircleShape2D_nrtoj")
-
-[node name="npc7" parent="Entidades/NpcZedu/AreaInteracao" unique_id=1700220734 instance=ExtResource("18_24y04")]
-
 [node name="PortaParaSala" type="Area2D" parent="." unique_id=1611556117]
 position = Vector2(655, 78)
 script = ExtResource("19_2vbt0")
@@ -9343,9 +9264,6 @@ position = Vector2(0, 18)
 
 [connection signal="jogador_entrou_na_area" from="Entidades/NpcPedrinho/AreaInteracao" to="Entidades/NpcPedrinho/AreaInteracao/npc1" method="_on_area_interacao_jogador_entrou_na_area"]
 [connection signal="jogador_entrou_na_area" from="Entidades/NpcMoises/AreaInteracao" to="Entidades/NpcMoises/AreaInteracao/npc2" method="virar_para_jogador"]
-[connection signal="jogador_entrou_na_area" from="Entidades/NpcIsa/AreaInteracao" to="Entidades/NpcIsa/AreaInteracao/npc3" method="virar_para_jogador"]
 [connection signal="jogador_entrou_na_area" from="Entidades/NpcPedrao/AreaInteracao" to="Entidades/NpcPedrao/AreaInteracao/npc4" method="virar_para_jogador"]
-[connection signal="jogador_entrou_na_area" from="Entidades/NpcSamuel/AreaInteracao" to="Entidades/NpcSamuel/AreaInteracao/npc5" method="virar_para_jogador"]
 [connection signal="jogador_entrou_na_area" from="Entidades/NpcPorteira/AreaInteracao" to="Entidades/NpcPorteira/AreaInteracao/npc6" method="virar_para_jogador"]
-[connection signal="jogador_entrou_na_area" from="Entidades/NpcZedu/AreaInteracao" to="Entidades/NpcZedu/AreaInteracao/npc7" method="virar_para_jogador"]
 [connection signal="body_entered" from="PortaParaSala" to="PortaParaSala" method="_on_body_entered"]
