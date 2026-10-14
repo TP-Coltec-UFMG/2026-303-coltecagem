@@ -3279,7 +3279,10 @@ radius = 15.033297
 radius = 18.439089
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(65, 79)
+size = Vector2(65, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(66, 42)
 
 [node name="SegundoAndar" type="Node2D" unique_id=810865725]
 script = ExtResource("1_gkcal")
@@ -3352,15 +3355,30 @@ shape = SubResource("CircleShape2D_ji3np")
 [node name="npc5" parent="Entidades/NpcSamuel/AreaInteracao" unique_id=899145573 instance=ExtResource("10_nau1q")]
 position = Vector2(-1, 9)
 
-[node name="PortalParaXxx" type="Area2D" parent="." unique_id=2112568297]
+[node name="PortalParaTerceiro" type="Area2D" parent="." unique_id=2112568297]
 script = ExtResource("2_jhong")
+cena_destino = "uid://doub4yrfat6b7"
+ponto_entrada_destino = "PortalParaSegundot"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PortalParaXxx" unique_id=686787956]
-position = Vector2(32.5, -22.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PortalParaTerceiro" unique_id=686787956]
+position = Vector2(32.5, 0)
 shape = SubResource("RectangleShape2D_g4v7s")
 
-[node name="EntradaYyy" type="Marker2D" parent="PortalParaXxx" unique_id=1465658288]
+[node name="EntradaTerceiro" type="Marker2D" parent="PortalParaTerceiro" unique_id=1465658288]
 position = Vector2(88, 79)
+
+[node name="PortalParaPrimeiro" type="Area2D" parent="." unique_id=1165618861]
+script = ExtResource("2_jhong")
+cena_destino = "uid://bp0fr4t8ia2n0"
+ponto_entrada_destino = "EntradaSegundop"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PortalParaPrimeiro" unique_id=134843432]
+position = Vector2(34, -42)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="EntradaPrimeiro" type="Marker2D" parent="PortalParaPrimeiro" unique_id=1678859221]
 
 [connection signal="jogador_entrou_na_area" from="Entidades/NpcZedu/AreaInteracao" to="Entidades/NpcZedu/AreaInteracao/npc7" method="virar_para_jogador"]
 [connection signal="jogador_entrou_na_area" from="Entidades/NpcSamuel/AreaInteracao" to="Entidades/NpcSamuel/AreaInteracao/npc5" method="virar_para_jogador"]
+[connection signal="body_entered" from="PortalParaTerceiro" to="PortalParaTerceiro" method="_on_body_entered"]
+[connection signal="body_entered" from="PortalParaPrimeiro" to="PortalParaPrimeiro" method="_on_body_entered"]

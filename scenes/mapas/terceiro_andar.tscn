@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://b0ycgo8ynelu6" path="res://Dialogos/Isa.dialogue" id="5_7jgx7"]
 [ext_resource type="Theme" path="res://theme/theme.tres" id="6_yq4j4"]
 [ext_resource type="PackedScene" uid="uid://c3r78wbchviux" path="res://scenes/npcs/Isa.tscn" id="7_gudeg"]
+[ext_resource type="Script" uid="uid://m4v3jilfgb3j" path="res://mapas/porta.gd" id="8_7jgx7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_die6n"]
 texture = ExtResource("1_v6ors")
@@ -3272,7 +3273,10 @@ sources/1 = SubResource("TileSetAtlasSource_p6q6l")
 radius = 18.439089
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(33, 79)
+size = Vector2(33, 75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(32, 20)
 
 [node name="TerceiroAndar" type="Node2D" unique_id=583041301]
 
@@ -3320,13 +3324,29 @@ shape = SubResource("CircleShape2D_yu5ni")
 [node name="npc3" parent="Entidades/NpcIsa/AreaInteracao" unique_id=145740227 instance=ExtResource("7_gudeg")]
 position = Vector2(-1, 10)
 
-[node name="Area2D" type="Area2D" parent="." unique_id=253419801]
+[node name="PortalParaSegundot" type="Area2D" parent="." unique_id=253419801]
+script = ExtResource("8_7jgx7")
+cena_destino = "uid://bc7itjlnnvbsf"
+ponto_entrada_destino = "EntradaTerceiro"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1755599264]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PortalParaSegundot" unique_id=1755599264]
 position = Vector2(47.5, 40.5)
 shape = SubResource("RectangleShape2D_g4v7s")
 
-[node name="Marker2D" type="Marker2D" parent="Area2D" unique_id=1814396666]
+[node name="PortalParaSegundot" type="Marker2D" parent="PortalParaSegundot" unique_id=1814396666]
 position = Vector2(5, 7)
 
+[node name="PortalParaSala" type="Area2D" parent="." unique_id=1740620225]
+script = ExtResource("8_7jgx7")
+cena_destino = "uid://0kj2dttp57n3"
+ponto_entrada_destino = "EntradaColtec"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PortalParaSala" unique_id=2115827574]
+position = Vector2(-143, -118)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="EntradaSala" type="Marker2D" parent="PortalParaSala" unique_id=1144567688]
+
 [connection signal="jogador_entrou_na_area" from="Entidades/NpcIsa/AreaInteracao" to="Entidades/NpcIsa/AreaInteracao/npc3" method="virar_para_jogador"]
+[connection signal="body_entered" from="PortalParaSegundot" to="PortalParaSegundot" method="_on_body_entered"]
+[connection signal="body_entered" from="PortalParaSala" to="PortalParaSala" method="_on_body_entered"]

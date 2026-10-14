@@ -9250,20 +9250,20 @@ shape = SubResource("CircleShape2D_7c4bj")
 [node name="npc6" parent="Entidades/NpcPorteira/AreaInteracao" unique_id=2029857116 instance=ExtResource("17_h6vow")]
 position = Vector2(1, 16)
 
-[node name="PortaParaSala" type="Area2D" parent="." unique_id=1611556117]
+[node name="PortaParaSegundop" type="Area2D" parent="." unique_id=1611556117]
 position = Vector2(655, 78)
 script = ExtResource("19_2vbt0")
-cena_destino = "uid://0kj2dttp57n3"
-ponto_entrada_destino = "EntradaColtec"
+cena_destino = "uid://bc7itjlnnvbsf"
+ponto_entrada_destino = "EntradaPrimeiro"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PortaParaSala" unique_id=627368850]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PortaParaSegundop" unique_id=627368850]
 shape = SubResource("RectangleShape2D_porta_hall")
 
-[node name="EntradaSala" type="Marker2D" parent="PortaParaSala" unique_id=705633173]
+[node name="EntradaSegundop" type="Marker2D" parent="PortaParaSegundop" unique_id=705633173]
 position = Vector2(0, 18)
 
 [connection signal="jogador_entrou_na_area" from="Entidades/NpcPedrinho/AreaInteracao" to="Entidades/NpcPedrinho/AreaInteracao/npc1" method="_on_area_interacao_jogador_entrou_na_area"]
 [connection signal="jogador_entrou_na_area" from="Entidades/NpcMoises/AreaInteracao" to="Entidades/NpcMoises/AreaInteracao/npc2" method="virar_para_jogador"]
 [connection signal="jogador_entrou_na_area" from="Entidades/NpcPedrao/AreaInteracao" to="Entidades/NpcPedrao/AreaInteracao/npc4" method="virar_para_jogador"]
 [connection signal="jogador_entrou_na_area" from="Entidades/NpcPorteira/AreaInteracao" to="Entidades/NpcPorteira/AreaInteracao/npc6" method="virar_para_jogador"]
-[connection signal="body_entered" from="PortaParaSala" to="PortaParaSala" method="_on_body_entered"]
+[connection signal="body_entered" from="PortaParaSegundop" to="PortaParaSegundop" method="_on_body_entered"]
