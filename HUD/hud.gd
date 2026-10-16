@@ -66,6 +66,12 @@ func _ready() -> void:
 	GerenciadorDeTempo.acoes_atualizadas.connect(_on_acoes_atualizadas)
 	GerenciadorDeTempo.bloco_iniciado.connect(_on_bloco_iniciado)
 	GerenciadorDeTempo.dia_terminado.connect(_on_dia_terminado)
+	GerenciadorDeEventos.aula_anunciada.connect(_on_aula_anunciada)
+	GerenciadorDeEventos.aula_iniciada.connect(_on_aula_iniciada)
+	GerenciadorDeEventos.aula_finalizada.connect(_on_aula_finalizada)
+	GerenciadorDeEventos.prova_anunciada.connect(_on_prova_anunciada)
+	GerenciadorDeEventos.prova_iniciada.connect(_on_prova_iniciada)
+	GerenciadorDeEventos.prova_finalizada.connect(_on_prova_finalizada)
 
 
 	painel_aviso.visible = false
@@ -211,5 +217,6 @@ func _on_dia_terminado() -> void:
 ## a mostrar a HUD — não reinicia o dia que já está em andamento.
 func mostrar_e_iniciar_dia() -> void:
 	visible = true
+	_atualizar_barras()
 	if not GerenciadorDeTempo.rodando:
 		GerenciadorDeTempo.iniciar_dia()

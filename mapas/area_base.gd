@@ -17,10 +17,7 @@ func _ready() -> void:
 	# mostra ela e (se ainda não estiver rodando) liga o relógio
 	# do dia letivo. Ver HUD/hud.gd -> mostrar_e_iniciar_dia().
 	HUD.mostrar_e_iniciar_dia()
-	# MenuDeAcoes também é Autoload, pelo mesmo motivo: precisa
-	# aparecer em qualquer mapa de gameplay sem precisar ser colado
-	# manualmente em cada cena nova.
-	MenuDeAcoes.mostrar()
+	
 
 func _process(_delta: float) -> void:
 	var personagem = get_tree().get_first_node_in_group("jogador")
@@ -28,7 +25,7 @@ func _process(_delta: float) -> void:
 		camera.global_position = personagem.global_position
 
 func _posicionar_personagem() -> void:
-
+	Global.ultima_troca_de_mapa_ms = Time.get_ticks_msec()
 	var nome_ponto := Global.proximo_ponto_entrada
 	if nome_ponto == "":
 		return
@@ -43,3 +40,4 @@ func _posicionar_personagem() -> void:
 		return
 
 	personagem.global_position = marker.global_position
+	print("[", name, "] jogador em ", personagem.global_position, " (ponto ", nome_ponto, ")")

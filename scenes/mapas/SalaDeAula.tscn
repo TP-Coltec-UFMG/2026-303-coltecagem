@@ -6999,7 +6999,7 @@ tile_set = SubResource("TileSet_sn0t7")
 [node name="PortaParaColtec" type="Area2D" parent="." unique_id=1297664855]
 position = Vector2(9, 269)
 script = ExtResource("porta_script")
-cena_destino = "uid://bp0fr4t8ia2n0"
+cena_destino = "uid://doub4yrfat6b7"
 ponto_entrada_destino = "EntradaSala"
 
 [node name="EntradaColtec" type="Marker2D" parent="PortaParaColtec" unique_id=1420838005]

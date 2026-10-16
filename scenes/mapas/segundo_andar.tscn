@@ -3298,14 +3298,17 @@ tile_map_data = PackedByteArray("AAAAAAUAAQAGAA4AAAAAAAYAAQAGAA4AAAAAAAcAAQAGAA0
 tile_set = SubResource("TileSet_r4psv")
 
 [node name="TilesMap" type="Node2D" parent="." unique_id=1150773346]
+position = Vector2(1, 8)
 
 [node name="Moveis" type="TileMapLayer" parent="TilesMap" unique_id=503916476]
 
 [node name="Decoracao" type="TileMapLayer" parent="TilesMap" unique_id=584796284]
 
 [node name="Entidades" type="Node2D" parent="." unique_id=1500394203]
+position = Vector2(-6, 7)
 
 [node name="Character" parent="Entidades" unique_id=724393367 instance=ExtResource("2_xkhj8")]
+position = Vector2(-38, -21)
 
 [node name="NpcZedu" type="Node2D" parent="Entidades" unique_id=92558236]
 position = Vector2(-74, 112)
@@ -3356,27 +3359,30 @@ shape = SubResource("CircleShape2D_ji3np")
 position = Vector2(-1, 9)
 
 [node name="PortalParaTerceiro" type="Area2D" parent="." unique_id=2112568297]
+position = Vector2(9, 2)
 script = ExtResource("2_jhong")
 cena_destino = "uid://doub4yrfat6b7"
-ponto_entrada_destino = "PortalParaSegundot"
+ponto_entrada_destino = "EntradaSegundo"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PortalParaTerceiro" unique_id=686787956]
-position = Vector2(32.5, 0)
+position = Vector2(25, -55)
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="EntradaTerceiro" type="Marker2D" parent="PortalParaTerceiro" unique_id=1465658288]
-position = Vector2(88, 79)
+position = Vector2(-32, -52)
 
 [node name="PortalParaPrimeiro" type="Area2D" parent="." unique_id=1165618861]
+position = Vector2(-9, -2)
 script = ExtResource("2_jhong")
 cena_destino = "uid://bp0fr4t8ia2n0"
 ponto_entrada_destino = "EntradaSegundop"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PortalParaPrimeiro" unique_id=134843432]
-position = Vector2(34, -42)
+position = Vector2(42, 4)
 shape = SubResource("RectangleShape2D_yf5fn")
 
 [node name="EntradaPrimeiro" type="Marker2D" parent="PortalParaPrimeiro" unique_id=1678859221]
+position = Vector2(-12, 15)
 
 [connection signal="jogador_entrou_na_area" from="Entidades/NpcZedu/AreaInteracao" to="Entidades/NpcZedu/AreaInteracao/npc7" method="virar_para_jogador"]
 [connection signal="jogador_entrou_na_area" from="Entidades/NpcSamuel/AreaInteracao" to="Entidades/NpcSamuel/AreaInteracao/npc5" method="virar_para_jogador"]

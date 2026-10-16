@@ -71,6 +71,9 @@ const INTERVALO_AMOSTRAGEM_PRESENCA := 0.5
 const TEMPO_AVISO_PROVA := 5.0
 const DURACAO_JANELA_PROVA := 8.0
 
+## Pausa entre o fim da aula e o aviso da prova, no bloco da prova
+const ESPERA_ANTES_DA_PROVA_MIN := 3.0
+const ESPERA_ANTES_DA_PROVA_MAX := 8.0
 
 # ---------------------------------------------------------------
 # ESTADO INTERNO
@@ -89,13 +92,15 @@ var bloco_da_prova: int = -1
 ## Usado só pela cena de debug (debug/teste_eventos.tscn) pra
 ## simular presença sem precisar do mapa de verdade. No jogo real,
 ## jogador_presente_na_sala() ignora isso e olha Global.mapa_atual.
+## SERVE SÓ PRA DEBUG
 var jogador_presente_manual: bool = false
 
 
 func _ready() -> void:
-	pass
-
-
+	GerenciadorDeTempo.bloco_iniciado.connect(_on_bloco_iniciado)
+	GerenciadorDeTempo.dia_terminado.connect(_on_dia_terminado)
+	Engine.time_scale = 15.0
+	#use a função acima se precisar acelerar o tempo
 func _on_bloco_iniciado(indice: int, _nome_horario: String, _limite_acoes: int) -> void:
 	# No primeiro bloco do dia, sorteia em qual bloco de aula vai
 	# cair a prova (só uma por dia, pra não virar avalanche).
@@ -107,11 +112,7 @@ func _on_bloco_iniciado(indice: int, _nome_horario: String, _limite_acoes: int) 
 	if GerenciadorDeTempo.tipo_bloco_atual() != "aula":
 		return # não sorteia aula/prova em recreio ou almoço
 
-	_agendar_proxima_aula()
-
-	if indice == bloco_da_prova:
-		_agendar_prova()
-
+	_rodar_bloco_de_aula(indice)
 
 func _indices_dos_blocos_de_aula() -> Array:
 	var indices := []
@@ -125,35 +126,43 @@ func _on_dia_terminado() -> void:
 	sala_com_aula_ativa = ""
 	sala_com_prova_ativa = ""
 
-
+## Espera `segundos` de TEMPO DO JOGO: só conta quando o relógio do
+## dia está rodando (não conta durante diálogo nem minigame).
+func _esperar(segundos: float) -> void:
+	var acumulado := 0.0
+	while acumulado < segundos:
+		await get_tree().process_frame
+		if GerenciadorDeTempo.rodando:
+			acumulado += get_process_delta_time()
+			
 # ---------------------------------------------------------------
 # FLUXO DA AULA (anúncio → execução → fim → encadeia a próxima)
 # ---------------------------------------------------------------
 
-func _agendar_proxima_aula() -> void:
+func _rodar_bloco_de_aula(indice: int) -> void:
 	var espera := randf_range(ESPERA_ENTRE_AULAS_MIN, ESPERA_ENTRE_AULAS_MAX)
-	await get_tree().create_timer(espera).timeout
-
-	# se o bloco já mudou (ex: virou recreio) enquanto esperávamos,
-	# não dispara a aula
-	if GerenciadorDeTempo.tipo_bloco_atual() != "aula":
+	await _esperar(espera)
+	if GerenciadorDeTempo.indice_bloco != indice:
 		return
 
-	await _disparar_aula()
+	await _disparar_aula(indice)
 
-	# encadeia a próxima aula, se ainda estivermos num bloco de aula
-	if GerenciadorDeTempo.tipo_bloco_atual() == "aula":
-		_agendar_proxima_aula()
+	if indice == bloco_da_prova and GerenciadorDeTempo.indice_bloco == indice:
+		var pausa := randf_range(ESPERA_ANTES_DA_PROVA_MIN, ESPERA_ANTES_DA_PROVA_MAX)
+		await _esperar(pausa)
+		if GerenciadorDeTempo.indice_bloco == indice:
+			await _agendar_prova()
 
 
-func _disparar_aula() -> void:
+func _disparar_aula(indice: int) -> void:
+	print("AULA no bloco ", indice)
 	var sala: String = NOME_SALA_DE_AULA
 	var tempo_aviso := randf_range(TEMPO_AVISO_MIN, TEMPO_AVISO_MAX)
 
 	aula_anunciada.emit(sala, tempo_aviso)
-	await get_tree().create_timer(tempo_aviso).timeout
+	await _esperar(tempo_aviso)
 
-	if GerenciadorDeTempo.tipo_bloco_atual() != "aula":
+	if GerenciadorDeTempo.indice_bloco != indice:
 		return # o bloco acabou durante o aviso; cancela a aula
 
 	var duracao := randf_range(DURACAO_AULA_MIN, DURACAO_AULA_MAX)
@@ -169,7 +178,7 @@ func _disparar_aula() -> void:
 	var tempo_dentro := 0.0
 	while tempo_decorrido < duracao:
 		var intervalo: float = minf(INTERVALO_AMOSTRAGEM_PRESENCA, duracao - tempo_decorrido)
-		await get_tree().create_timer(intervalo).timeout
+		await _esperar(intervalo)
 		tempo_decorrido += intervalo
 		if jogador_presente_na_sala(sala):
 			tempo_dentro += intervalo
@@ -180,6 +189,7 @@ func _disparar_aula() -> void:
 	# Aplica os dois efeitos proporcionalmente. Se o jogador ficou
 	# 70% do tempo dentro e 30% fora, ele recebe 70% do efeito de
 	# aula() E 30% do efeito de matar_aula() — não é um "ou outro".
+	print("Presença nesta aula: ", snappedf(fracao_dentro, 0.01))
 	if fracao_dentro > 0.0:
 		EstadoJogador.aula(fracao_dentro)
 	if fracao_fora > 0.0:
@@ -189,8 +199,6 @@ func _disparar_aula() -> void:
 	# — esse contador pode ficar "adiantado". Não afeta nada hoje
 	# (não é usado em verificar_final), mas ajustem se for usar pra
 	# alguma coisa importante depois.
-
-	GerenciadorDeTempo.consumir_acao()
 
 	sala_com_aula_ativa = ""
 	aula_finalizada.emit(sala, fracao_dentro)
@@ -204,12 +212,12 @@ func _agendar_prova() -> void:
 	var sala: String = NOME_SALA_DE_AULA
 
 	prova_anunciada.emit(sala, TEMPO_AVISO_PROVA)
-	await get_tree().create_timer(TEMPO_AVISO_PROVA).timeout
+	await _esperar(TEMPO_AVISO_PROVA)
 
 	sala_com_prova_ativa = sala
 	prova_iniciada.emit(sala, DURACAO_JANELA_PROVA)
 
-	await get_tree().create_timer(DURACAO_JANELA_PROVA).timeout
+	await _esperar(DURACAO_JANELA_PROVA)
 
 	# Regra do brainstorm: se o jogador não chegou a tempo, nota 0.
 	# Se chegou, calcula a nota de verdade.
@@ -217,7 +225,6 @@ func _agendar_prova() -> void:
 	if jogador_presente_na_sala(sala):
 		nota = EstadoJogador.fazer_prova()
 
-	GerenciadorDeTempo.consumir_acao()
 
 	sala_com_prova_ativa = ""
 	prova_finalizada.emit(sala, nota)

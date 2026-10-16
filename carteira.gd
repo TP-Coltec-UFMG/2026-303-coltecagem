@@ -89,7 +89,6 @@ func _ativar_missao_se_necessario() -> void:
 
 func _iniciar_cutscene_bom_dia() -> void:
 	if Global.tem_caderno:
-		GerenciadorDeEventos.jogador_presente_manual = true
 		sentou_na_carteira.emit()
 		_mostrar_dialogo("primeira_interacao_com_material")
 	else:
@@ -103,6 +102,5 @@ func _iniciar_missao_caderno() -> void:
 
 
 func _sentar_na_carteira() -> void:
-	GerenciadorDeEventos.jogador_presente_manual = true
 	sentou_na_carteira.emit()
 	_mostrar_dialogo("com_material")

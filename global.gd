@@ -5,6 +5,10 @@ signal missao_caderno_finalizada(com_sucesso: bool)
 
 var proximo_ponto_entrada: String = ""
 
+## Momento (em ms) em que o último mapa terminou de carregar.
+## As portas usam isso para ignorar o jogador logo após uma troca.
+var ultima_troca_de_mapa_ms: int = 0
+
 ## Nome do mapa de gameplay em que o jogador está agora de verdade
 ## (setado por mapas/area_base.gd, e sobrescrito por mapas
 ## específicos tipo SalaDeAula — ver mapas/sala_de_aula.gd).
@@ -89,3 +93,22 @@ func falhar_missao_caderno() -> void:
 	missao_caderno_ativa = false
 	missao_caderno_falhou = true
 	missao_caderno_finalizada.emit(false)
+	
+	
+## Zera TUDO que é estado de partida, para "Jogar de novo".
+func reiniciar_partida() -> void:
+	EstadoJogador.reiniciar()
+
+	tem_caderno = false
+	missao_caderno_ativa = false
+	missao_caderno_falhou = false
+	tentativas_material_feitas.clear()
+
+	proximo_ponto_entrada = ""
+	mapa_atual = ""
+	ultima_troca_de_mapa_ms = 0
+
+	GerenciadorDeEventos.sala_com_aula_ativa = ""
+	GerenciadorDeEventos.sala_com_prova_ativa = ""
+	GerenciadorDeEventos.bloco_da_prova = -1
+	GerenciadorDeEventos.jogador_presente_manual = false
