@@ -31,6 +31,8 @@ signal aula_finalizada(nome_sala: String, fracao_dentro: float)
 signal prova_anunciada(nome_sala: String, tempo_aviso: float)
 signal prova_iniciada(nome_sala: String, duracao: float)
 signal prova_finalizada(nome_sala: String, nota: int)
+## compareceu = false: o jogador não estava na sala (nota 0)
+signal prova_resultado(compareceu: bool, nota: int)
 
 
 # ---------------------------------------------------------------
@@ -99,7 +101,7 @@ var jogador_presente_manual: bool = false
 func _ready() -> void:
 	GerenciadorDeTempo.bloco_iniciado.connect(_on_bloco_iniciado)
 	GerenciadorDeTempo.dia_terminado.connect(_on_dia_terminado)
-	Engine.time_scale = 15.0
+	#Engine.time_scale = 15.0
 	#use a função acima se precisar acelerar o tempo
 func _on_bloco_iniciado(indice: int, _nome_horario: String, _limite_acoes: int) -> void:
 	# No primeiro bloco do dia, sorteia em qual bloco de aula vai
@@ -221,14 +223,14 @@ func _agendar_prova() -> void:
 
 	# Regra do brainstorm: se o jogador não chegou a tempo, nota 0.
 	# Se chegou, calcula a nota de verdade.
+	var compareceu := jogador_presente_na_sala(sala)
 	var nota := 0
-	if jogador_presente_na_sala(sala):
+	if compareceu:
 		nota = EstadoJogador.fazer_prova()
 
-
 	sala_com_prova_ativa = ""
+	prova_resultado.emit(compareceu, nota)
 	prova_finalizada.emit(sala, nota)
-
 
 ## Verifica se o jogador está na sala de aula de verdade. Usa
 ## Global.mapa_atual (a fonte real, setada por sala_de_aula.gd) OU

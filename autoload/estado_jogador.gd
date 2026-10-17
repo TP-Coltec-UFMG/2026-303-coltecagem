@@ -70,6 +70,8 @@ var desempenho_academico: int = 50
 
 ## Última nota tirada em prova (-1 = nenhuma prova feita ainda)
 var ultima_nota: int = -1
+## Fator sorte da última prova (a tela de resultado mostra)
+var ultimo_fator_sorte: int = 0
 
 ## Contador simples de dias/ações passadas
 var dias_passados: int = 0
@@ -241,6 +243,7 @@ func entrosar() -> bool:
 ## quiserem evoluir a fórmula.
 func fazer_prova() -> int:
 	var fator_sorte := randi_range(FATOR_SORTE_MIN, FATOR_SORTE_MAX)
+	ultimo_fator_sorte = fator_sorte
 	var nota := clampi(desempenho_academico + fator_sorte, 0, 100)
 
 	ultima_nota = nota

@@ -29,7 +29,7 @@ const FRACAO_RECOMPENSA_DERROTA := 0.5
 ## Quanto tempo (em segundos) a telinha de resultado ("Você
 ## conseguiu!" / "Quase lá...") fica visível antes de voltar pro
 ## mapa.
-const TEMPO_TELA_RESULTADO := 1.4
+const TEMPO_TELA_RESULTADO := 2.4
 
 var _cena_para_voltar: String = ""
 var _posicao_para_voltar: Vector2 = Vector2.ZERO
@@ -37,12 +37,18 @@ var _tinha_posicao_para_voltar: bool = false
 var _recompensas: Dictionary = {}
 var _minigame_atual: Node = null
 
+## true enquanto um minigame está sendo aberto ou jogado
+func esta_ocupado() -> bool:
+	return _cena_para_voltar != ""
+
 
 ## Ponto de entrada: caminho da cena do minigame (res://...) e um
 ## dicionário nome_do_atributo -> quantidade (mesmos nomes usados
 ## em EstadoJogador: "energia", "estresse", "social",
 ## "desempenho_academico"). Pode ser positivo ou negativo.
 func iniciar_minigame(caminho_cena_minigame: String, recompensas: Dictionary) -> void:
+	if esta_ocupado():
+		return
 	var cena_atual := get_tree().current_scene
 	_cena_para_voltar = cena_atual.scene_file_path
 	_recompensas = recompensas
@@ -59,6 +65,7 @@ func iniciar_minigame(caminho_cena_minigame: String, recompensas: Dictionary) ->
 	var erro := get_tree().change_scene_to_file(caminho_cena_minigame)
 	if erro != OK:
 		push_error("GerenciadorDeMinigames: change_scene_to_file('%s') falhou com erro %d — a cena provavelmente tem um problema de carregamento (script com erro, .tscn corrompido/formato incompatível, etc). Confira o painel Output do editor." % [caminho_cena_minigame, erro])
+		_cena_para_voltar = ""
 		GerenciadorDeTempo.retomar_dia()
 		return
 
@@ -75,6 +82,7 @@ func iniciar_minigame(caminho_cena_minigame: String, recompensas: Dictionary) ->
 
 	if get_tree().current_scene == null:
 		push_error("GerenciadorDeMinigames: current_scene continua null depois de 60 frames esperando a troca para '%s'. A cena não deve ter carregado." % caminho_cena_minigame)
+		_cena_para_voltar = ""
 		GerenciadorDeTempo.retomar_dia()
 		return
 
@@ -153,28 +161,57 @@ func _mostrar_tela_resultado(venceu: bool) -> void:
 
 	var fundo := ColorRect.new()
 	fundo.color = Color(0, 0, 0, 0.45)
-	fundo.set_anchors_preset(Control.PRESET_FULL_RECT)
 	camada.add_child(fundo)
+	fundo.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+
+	var caixa := VBoxContainer.new()
+	caixa.alignment = BoxContainer.ALIGNMENT_CENTER
+	caixa.add_theme_constant_override("separation", 10)
+	camada.add_child(caixa)
+	caixa.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 
 	var label := Label.new()
 	label.text = "Você conseguiu!" if venceu else "Quase lá..."
-	label.set_anchors_preset(Control.PRESET_CENTER)
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	label.add_theme_font_size_override("font_size", 28)
 	label.add_theme_color_override("font_color", Color(1, 1, 1))
-	camada.add_child(label)
+	caixa.add_child(label)
+
+	var detalhe := Label.new()
+	detalhe.text = _texto_das_recompensas(venceu)
+	detalhe.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	detalhe.add_theme_font_size_override("font_size", 18)
+	detalhe.add_theme_color_override("font_color", Color(1, 1, 1, 0.85))
+	caixa.add_child(detalhe)
 
 	_minigame_atual.add_child(camada)
 
-	# O jogo pode estar pausado (pausar_dia costuma pausar a árvore),
-	# então usamos um timer que ignora pause pra garantir que a
-	# telinha realmente fica visível pelo tempo certo.
+	# O jogo pode estar pausado, então usamos um timer que ignora
+	# pause pra garantir que a telinha fica visível pelo tempo certo.
 	var timer := get_tree().create_timer(TEMPO_TELA_RESULTADO, true, false, true)
 	await timer.timeout
 
 	if is_instance_valid(camada):
 		camada.queue_free()
+
+
+## Ex: "Social +10   Energia -6". Usa os mesmos valores de
+## _aplicar_recompensas (metade ao perder).
+func _texto_das_recompensas(venceu: bool) -> String:
+	var fator := 1.0 if venceu else FRACAO_RECOMPENSA_DERROTA
+	var nomes := {
+		"energia": "Energia",
+		"estresse": "Estresse",
+		"social": "Social",
+		"desempenho_academico": "Desempenho",
+	}
+	var partes: PackedStringArray = []
+	for atributo in _recompensas.keys():
+		var quantidade := roundi(_recompensas[atributo] * fator)
+		if quantidade == 0:
+			continue
+		partes.append("%s %+d" % [nomes.get(atributo, atributo), quantidade])
+	return "   ".join(partes)
 
 
 func _aplicar_recompensas(venceu: bool) -> void:

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cr76yjs805cki"]
+
+[ext_resource type="Script" uid="uid://b84vbiblg0rum" path="res://Minigames_Sistema/objeto_minigame.gd" id="1_bglxl"]
+[ext_resource type="Texture2D" uid="uid://cpamyqtjy22eb" path="res://icon.svg" id="2_gso4h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(76, 44)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g4v7s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(56, 16)
+
+[node name="ObjetoMinigame" type="Area2D" unique_id=160694507]
+script = ExtResource("1_bglxl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=668306943]
+position = Vector2(-4, 1)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=222811784]
+position = Vector2(-2, 3.0000076)
+scale = Vector2(0.453125, 0.171875)
+texture = ExtResource("2_gso4h")
+
+[node name="Corpo" type="StaticBody2D" parent="." unique_id=498786381]
+position = Vector2(-1, -1)
+physics_material_override = SubResource("PhysicsMaterial_g4v7s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Corpo" unique_id=1635614764]
+position = Vector2(-2, 4)
+shape = SubResource("RectangleShape2D_yf5fn")

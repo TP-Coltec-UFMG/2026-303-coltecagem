@@ -9,27 +9,34 @@ Pedrão: Eai, vamo bandecar depois?
 - Bora.
 	=> END
 
-
 ~ minigame
-Pedrão: Cara... perdi minhas calças me ajuda a procurar?
+if not Global.estacao_disponivel("npc_pedrao")
+	Pedrão: Valeu pela ajuda! Achei as calças... por enquanto.
+	=> END
+Pedrão: Cara... perdi minhas calças, me ajuda a procurar?
 
-- Bora! (Gasta 1 ação) 
-	Pedrão:Valeu cara não é todo mundo que ajuda um amigo a procurar a calça.
-	do GerenciadorDeMinigames.iniciar_minigame("res://minigames/pants/pants_minigame.tscn", {"desempenho_academico": 5, "estresse": -10})
+- Bora!
+	Pedrão: Valeu cara, não é todo mundo que ajuda um amigo a procurar a calça.
+	do Global.iniciar_cooldown("npc_pedrao", 60)
+	do GerenciadorDeMinigames.iniciar_minigame("res://minigames/pants/pants_minigame.tscn", {"social": 10, "energia": -6})
 	=> END
 
 - Agora não, tô ocupado.
 	Pedrão: Suave
 	=> END
+
 ~ minigame2
-Pedrão: Cara... perdi minhas calças me ajuda a procurar?
+if not Global.estacao_disponivel("npc_pedrinho")
+	Pedrinho: Valeu! Já achei a minha mala, tá tudo certo.
+	=> END
+Pedrinho: Cara... esqueci qual dessas malas é a minha. Me ajuda a achar?
 
-- Bora! (Gasta 1 ação) 
-	Pedrão:Valeu cara não é todo mundo que ajuda um amigo a procurar a calça.
-	do GerenciadorDeMinigames.iniciar_minigame("res://minigames/suitcase_by_case_minigame.tscn", {"desempenho_academico": 5, "estresse": -10})
+- Bora!
+	Pedrinho: Valeu! Aquela era mesmo a minha.
+	do Global.iniciar_cooldown("npc_pedrinho", 90)
+	do GerenciadorDeMinigames.iniciar_minigame("res://minigames/suitcase_by_case_minigame.tscn", {"desempenho_academico": 6, "estresse": 4, "energia": -2})
 	=> END
 
 - Agora não, tô ocupado.
-	Pedrão: Suave
+	Pedrinho: Suave
 	=> END
-	

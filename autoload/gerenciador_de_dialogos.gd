@@ -15,8 +15,8 @@ func iniciar_dialogo_manager() -> bool:
 	dialogo_manager_ativo = true
 	_retomar_tempo_ao_fechar = GerenciadorDeTempo.rodando
 
-	if _retomar_tempo_ao_fechar:
-		GerenciadorDeTempo.pausar_dia()
+	if _retomar_tempo_ao_fechar and not GerenciadorDeMinigames.esta_ocupado():
+		GerenciadorDeTempo.retomar_dia()
 
 	return true
 

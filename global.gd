@@ -24,6 +24,16 @@ var missao_caderno_falhou: bool = false
 # Guarda quem já recebeu o pedido de material.
 var tentativas_material_feitas: Dictionary = {}
 
+## Relógio de jogo: soma só enquanto o dia está rodando
+## (não conta durante diálogo, minigame ou tela de prova).
+var tempo_de_jogo: float = 0.0
+
+## id da estação de minigame -> tempo_de_jogo em que ela libera de novo
+var estacoes_liberam_em: Dictionary = {}
+
+func _process(delta: float) -> void:
+	if GerenciadorDeTempo.rodando:
+		tempo_de_jogo += delta
 
 func iniciar_missao_caderno() -> void:
 	# Interagir novamente com a carteira não reinicia a missão.
@@ -95,6 +105,21 @@ func falhar_missao_caderno() -> void:
 	missao_caderno_finalizada.emit(false)
 	
 	
+## Cooldown de NPCs que abrem minigame. O id é livre
+## (ex: "npc_pedrao"); usa o mesmo relógio das estações.
+func estacao_disponivel(id: String) -> bool:
+	return segundos_para_liberar(id) <= 0.0
+
+
+func segundos_para_liberar(id: String) -> float:
+	var libera_em: float = estacoes_liberam_em.get(id, 0.0)
+	return maxf(0.0, libera_em - tempo_de_jogo)
+
+
+func iniciar_cooldown(id: String, segundos: float) -> void:
+	estacoes_liberam_em[id] = tempo_de_jogo + segundos
+	
+	
 ## Zera TUDO que é estado de partida, para "Jogar de novo".
 func reiniciar_partida() -> void:
 	EstadoJogador.reiniciar()
@@ -112,3 +137,6 @@ func reiniciar_partida() -> void:
 	GerenciadorDeEventos.sala_com_prova_ativa = ""
 	GerenciadorDeEventos.bloco_da_prova = -1
 	GerenciadorDeEventos.jogador_presente_manual = false
+	
+	tempo_de_jogo = 0.0
+	estacoes_liberam_em.clear()

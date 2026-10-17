@@ -1,12 +1,16 @@
 ~ inicio
+if not Global.estacao_disponivel("npc_moises")
+	moises: Já joguei demais por agora, volta daqui a pouco!
+	=> END
 moises: iai calouro!
 moises: ta animado pra calourada?
 - O que é calourada?
 	moises: Meu Deus... vou nem responder essa pergunta...
 	moises: enfim, ta afim de jogar umas cartas?
-	
+
 	- Tô Sim!
-		do GerenciadorDeMinigames.iniciar_minigame("res://minigames/shuffle_dance_minigame.tscn", {"desempenho_academico": 5, "estresse": -10})
+		do Global.iniciar_cooldown("npc_moises", 60)
+		do GerenciadorDeMinigames.iniciar_minigame("res://minigames/shuffle_dance_minigame.tscn", {"social": 10, "energia": -6})
 		=> END
 	- Agora não!
 		moises: Ce que sabe!
