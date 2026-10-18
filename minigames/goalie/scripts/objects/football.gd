@@ -30,8 +30,7 @@ func _physics_process(delta):
 	if moving:
 		# Move the ball according to its `_velocity`, checking for collisions
 		# as we go.
-		var collision: KinematicCollision2D = move_and_collide(_velocity * delta,
-				true)
+		var collision: KinematicCollision2D = move_and_collide(_velocity * delta)
 		# Bounce off of anything we collide with.
 		if collision:
 			_velocity = _velocity.bounce(collision.get_normal())

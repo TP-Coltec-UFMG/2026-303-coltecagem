@@ -31,12 +31,17 @@ const FRACAO_RECOMPENSA_DERROTA := 0.5
 ## mapa.
 const TEMPO_TELA_RESULTADO := 2.4
 
+## Tempo máximo de um minigame. Passou disso, o jogo é obrigado a decidir
+## (vitória ou derrota) chamando o decide() dele.
+const TEMPO_LIMITE_MINIGAME := 12.0
+
+
 var _cena_para_voltar: String = ""
 var _posicao_para_voltar: Vector2 = Vector2.ZERO
 var _tinha_posicao_para_voltar: bool = false
 var _recompensas: Dictionary = {}
 var _minigame_atual: Node = null
-
+var _resultado_dado := false
 ## true enquanto um minigame está sendo aberto ou jogado
 func esta_ocupado() -> bool:
 	return _cena_para_voltar != ""
@@ -100,14 +105,26 @@ func _conectar_minigame_atual() -> void:
 		push_error("GerenciadorDeMinigames: a cena '%s' não parece seguir o contrato Minigame (sem sinais won/lost)." % _minigame_atual.name)
 		return
 
+	_resultado_dado = false
 	_minigame_atual.won.connect(_on_minigame_terminou.bind(true))
 	_minigame_atual.lost.connect(_on_minigame_terminou.bind(false))
 
 	if _minigame_atual.has_method("start"):
 		_minigame_atual.start()
 
+	_contar_tempo_limite(_minigame_atual)
+
+func _contar_tempo_limite(jogo: Node) -> void:
+	await get_tree().create_timer(TEMPO_LIMITE_MINIGAME).timeout
+	if _resultado_dado or jogo != _minigame_atual or not is_instance_valid(jogo):
+		return
+	if jogo.has_method("decide"):
+		jogo.decide()
 
 func _on_minigame_terminou(venceu: bool) -> void:
+	if _resultado_dado:
+		return
+	_resultado_dado = true
 	# Trava o minigame (spawn de calças, movimento, etc) enquanto
 	# mostra o resultado, se o minigame tiver isso implementado.
 	if _minigame_atual and _minigame_atual.has_method("stop"):

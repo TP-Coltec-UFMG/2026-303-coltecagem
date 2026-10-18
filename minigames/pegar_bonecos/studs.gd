@@ -27,6 +27,6 @@ func _on_body_entered(body: Node2D) -> void:
 	if _collected or not body is CharacterBody2D:
 		return
 	_collected = true
-	self_area.monitoring = false
+	self_area.set_deferred("monitoring", false)
 	stud_collected.emit()
 	hide()
