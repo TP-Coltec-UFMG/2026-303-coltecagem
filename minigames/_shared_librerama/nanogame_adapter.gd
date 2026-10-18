@@ -58,7 +58,12 @@ extends Minigame
 ## antes da cena ser trocada.
 @export var tempo_apos_fim: float = 1.0
 
+## Tempo máximo do jogo depois que ele começa. Se estourar, conta
+## como derrota. 0 = sem limite.
+@export var tempo_limite: float = 15.0
+
 var _instancia: Node = null
+var _terminou := false
 
 
 func start() -> void:
@@ -90,9 +95,15 @@ func start() -> void:
 	# chamado), _instancia já não existe mais — não tenta continuar.
 	if not is_instance_valid(_instancia):
 		return
-
+	
 	if _instancia.has_method("nanogame_start"):
 		_instancia.nanogame_start()
+
+	if tempo_limite > 0.0:
+		await get_tree().create_timer(tempo_limite).timeout
+		if not _terminou and is_instance_valid(_instancia):
+			_terminou = true
+			lost.emit()
 
 
 func stop() -> void:
@@ -103,6 +114,10 @@ func stop() -> void:
 
 
 func _on_nanogame_ended(has_won: bool) -> void:
+	if _terminou:
+		return
+	_terminou = true
+	
 	if tempo_apos_fim > 0.0:
 		await get_tree().create_timer(tempo_apos_fim).timeout
 

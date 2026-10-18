@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cc5c550rsf0tm"]
+
+[ext_resource type="Script" uid="uid://b4tu0gt1sdrda" path="res://debug/teste_minigames.gd" id="1_ejiwh"]
+
+[node name="TesteMinigames" type="Control" unique_id=1911508500]
+layout_mode = 3
+anchor_right = 1.0040001
+anchor_bottom = 0.125
+offset_top = 81.0
+offset_right = 0.39196777
+offset_bottom = 564.0
+script = ExtResource("1_ejiwh")
