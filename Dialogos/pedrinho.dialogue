@@ -13,7 +13,7 @@ Pedrão: Eai, vamo bandecar depois?
 if not Global.estacao_disponivel("npc_pedrao")
 	Pedrão: Valeu pela ajuda! Achei as calças... por enquanto.
 	=> END
-Pedrão: Cara... perdi minhas calças, me ajuda a procurar?
+Pedrão: Cara... perdi minhas calças, me ajuda a procurar aqui no achados e perdidos?
 
 - Bora!
 	Pedrão: Valeu cara, não é todo mundo que ajuda um amigo a procurar a calça.
@@ -27,9 +27,9 @@ Pedrão: Cara... perdi minhas calças, me ajuda a procurar?
 
 ~ minigame2
 if not Global.estacao_disponivel("npc_pedrinho")
-	Pedrinho: Valeu! Já achei a minha mala, tá tudo certo.
+	Pedrinho: Valeu! Já achei a minha mochila, tá tudo certo.
 	=> END
-Pedrinho: Cara... esqueci qual dessas malas é a minha. Me ajuda a achar?
+Pedrinho: Cara... esqueci onde deixei minha mochila. Me ajuda a achar?
 
 - Bora!
 	Pedrinho: Valeu! Aquela era mesmo a minha.

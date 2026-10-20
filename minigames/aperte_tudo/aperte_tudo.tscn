@@ -1,83 +1,85 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://dkfignxv3wehe"]
 
-[ext_resource type="Script" path="res://minigames/aperte_tudo/click_minigame.gd" id="1_script"]
-[ext_resource type="Texture2D" path="res://minigames/aperte_tudo/fundo.jpg" id="2_bg"]
-[ext_resource type="Texture2D" path="res://minigames/aperte_tudo/boneco.png" id="3_stud"]
-[ext_resource type="Script" path="res://minigames/aperte_tudo/button.gd" id="3_btn"]
+[ext_resource type="Script" uid="uid://drdigyvhshb0b" path="res://minigames/aperte_tudo/click_minigame.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://cuik4u5rfrify" path="res://minigames/aperte_tudo/Quadro de Avisos Escolar em Pixel Art.png" id="2_ny78o"]
+[ext_resource type="Texture2D" uid="uid://cknx5xobxpacm" path="res://minigames/aperte_tudo/Cartaz Pixelado de Procurado Retro.png" id="3_8b4of"]
+[ext_resource type="Script" uid="uid://d3sjb1vt14vjk" path="res://minigames/aperte_tudo/button.gd" id="3_btn"]
 [ext_resource type="PackedScene" path="res://minigames/aperte_tudo/timer.tscn" id="6_timer"]
 
-[node name="ApertaTudo" type="Node2D"]
+[node name="ApertaTudo" type="Node2D" unique_id=1819320108]
 script = ExtResource("1_script")
-time_limit = 8.0
-buttons_required = 7
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=1578909089]
 offset_right = 3840.0
 offset_bottom = 2160.0
 scale = Vector2(0.30006558, 0.30006558)
-texture = ExtResource("2_bg")
+texture = ExtResource("2_ny78o")
 
-[node name="Button_1" type="TextureButton" parent="."]
-offset_left = 70.0
-offset_top = 60.0
-offset_right = 470.0
-offset_bottom = 411.0
-scale = Vector2(0.55, 0.55)
-texture_normal = ExtResource("3_stud")
+[node name="Button_1" type="TextureButton" parent="." unique_id=88745179]
+offset_left = 138.0
+offset_top = 78.0
+offset_right = 1162.0
+offset_bottom = 1614.0
+rotation = -0.12834904
+scale = Vector2(0.20892619, 0.18509616)
+texture_normal = ExtResource("3_8b4of")
 script = ExtResource("3_btn")
 
-[node name="Button_2" type="TextureButton" parent="."]
-offset_left = 320.0
-offset_top = 40.0
-offset_right = 720.0
-offset_bottom = 391.0
-scale = Vector2(0.38, 0.38)
-texture_normal = ExtResource("3_stud")
+[node name="Button_2" type="TextureButton" parent="." unique_id=2103289811]
+offset_left = 396.0
+offset_top = 68.0
+offset_right = 1420.0
+offset_bottom = 1604.0
+scale = Vector2(0.22360326, 0.18446599)
+texture_normal = ExtResource("3_8b4of")
 script = ExtResource("3_btn")
 
-[node name="Button_3" type="TextureButton" parent="."]
-offset_left = 580.0
-offset_top = 90.0
-offset_right = 980.0
-offset_bottom = 441.0
-scale = Vector2(0.48, 0.48)
-texture_normal = ExtResource("3_stud")
+[node name="Button_3" type="TextureButton" parent="." unique_id=1374630840]
+offset_left = 604.00006
+offset_top = 83.00001
+offset_right = 1628.0
+offset_bottom = 1619.0
+scale = Vector2(0.21818168, 0.21217836)
+texture_normal = ExtResource("3_8b4of")
 script = ExtResource("3_btn")
 
-[node name="Button_4" type="TextureButton" parent="."]
-offset_left = 860.0
-offset_top = 55.0
-offset_right = 1260.0
-offset_bottom = 406.0
-scale = Vector2(0.42, 0.42)
-texture_normal = ExtResource("3_stud")
+[node name="Button_4" type="TextureButton" parent="." unique_id=1043962601]
+offset_left = 785.0001
+offset_top = 70.0
+offset_right = 1809.0001
+offset_bottom = 1606.0
+rotation = -0.062900126
+scale = Vector2(0.17914398, 0.17301494)
+texture_normal = ExtResource("3_8b4of")
 script = ExtResource("3_btn")
 
-[node name="Button_5" type="TextureButton" parent="."]
-offset_left = 120.0
-offset_top = 360.0
-offset_right = 520.0
-offset_bottom = 711.0
-scale = Vector2(0.52, 0.52)
-texture_normal = ExtResource("3_stud")
+[node name="Button_5" type="TextureButton" parent="." unique_id=1481165291]
+offset_left = 278.0
+offset_top = 173.0
+offset_right = 1302.0
+offset_bottom = 1709.0
+rotation = 0.24329706
+scale = Vector2(0.21066669, 0.17532791)
+texture_normal = ExtResource("3_8b4of")
 script = ExtResource("3_btn")
 
-[node name="Button_6" type="TextureButton" parent="."]
-offset_left = 450.0
-offset_top = 400.0
-offset_right = 850.0
-offset_bottom = 751.0
-scale = Vector2(0.35, 0.35)
-texture_normal = ExtResource("3_stud")
+[node name="Button_6" type="TextureButton" parent="." unique_id=301927489]
+offset_left = 504.00003
+offset_top = 201.00003
+offset_right = 1528.0
+offset_bottom = 1737.0
+rotation = 0.09850475
+scale = Vector2(0.22777776, 0.18934424)
+texture_normal = ExtResource("3_8b4of")
 script = ExtResource("3_btn")
 
-[node name="Button_7" type="TextureButton" parent="."]
-offset_left = 780.0
-offset_top = 340.0
-offset_right = 1180.0
-offset_bottom = 691.0
-scale = Vector2(0.58, 0.58)
-texture_normal = ExtResource("3_stud")
+[node name="Button_7" type="TextureButton" parent="." unique_id=108417064]
+offset_left = 752.0
+offset_top = 272.0
+offset_right = 1776.0
+offset_bottom = 1808.0
+scale = Vector2(0.18176046, 0.142998)
+texture_normal = ExtResource("3_8b4of")
 script = ExtResource("3_btn")
 
-[node name="timer" parent="." instance=ExtResource("6_timer")]
+[node name="timer" parent="." unique_id=391871193 instance=ExtResource("6_timer")]

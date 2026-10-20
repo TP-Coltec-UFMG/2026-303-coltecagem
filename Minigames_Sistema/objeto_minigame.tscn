@@ -4,18 +4,18 @@
 [ext_resource type="Texture2D" uid="uid://cpamyqtjy22eb" path="res://icon.svg" id="2_gso4h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(76, 44)
+size = Vector2(37, 31)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g4v7s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
-size = Vector2(56, 16)
+size = Vector2(20, 16)
 
 [node name="ObjetoMinigame" type="Area2D" unique_id=160694507]
 script = ExtResource("1_bglxl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=668306943]
-position = Vector2(-4, 1)
+position = Vector2(-1.5, 2.5)
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=222811784]
@@ -28,5 +28,5 @@ position = Vector2(-1, -1)
 physics_material_override = SubResource("PhysicsMaterial_g4v7s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Corpo" unique_id=1635614764]
-position = Vector2(-2, 4)
+position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_yf5fn")
