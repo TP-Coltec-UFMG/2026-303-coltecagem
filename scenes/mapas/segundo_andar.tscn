@@ -15,7 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://h1tbs5rc0e4w" path="res://Tilemap/CoolSchool_tileset_48px/CoolSchool_tileset.png" id="11_8aq0l"]
 [ext_resource type="PackedScene" uid="uid://cr76yjs805cki" path="res://Minigames_Sistema/objeto_minigame.tscn" id="12_ixsdo"]
 [ext_resource type="PackedScene" path="res://minigames/gadget_inspection_minigame.tscn" id="13_nau1q"]
+[ext_resource type="Texture2D" uid="uid://d2kjm801h2jlc" path="res://Tilemap/CoolSchool_tileset_48px/Osciloscópio Retrô em Pixel Art (1).png" id="14_eokm0"]
 [ext_resource type="PackedScene" uid="uid://dkfignxv3wehe" path="res://minigames/aperte_tudo/aperte_tudo.tscn" id="14_nau1q"]
+[ext_resource type="Texture2D" uid="uid://b4p78c2khku8j" path="res://minigames/aperte_tudo/Quadro de Avisos em Pixel Art.png" id="16_ji3np"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_qw6hl"]
 
@@ -3999,8 +4001,13 @@ social = -2
 desempenho_academico = 5
 texto_dica = "[E] Regule o aparelho"
 
-[node name="ObjetoMinigame" parent="Entidades" unique_id=1180518268 instance=ExtResource("12_ixsdo")]
-position = Vector2(5, 157)
+[node name="Sprite2D2" type="Sprite2D" parent="Entidades/aparelhoeletronico" unique_id=831817371]
+position = Vector2(-1.000061, 5)
+scale = Vector2(0.012037072, 0.012615929)
+texture = ExtResource("14_eokm0")
+
+[node name="quadrodeavisos" parent="Entidades" unique_id=1180518268 instance=ExtResource("12_ixsdo")]
+position = Vector2(-153, 265)
 categoria = "Estudo"
 cena_do_minigame = ExtResource("14_nau1q")
 energia = 5
@@ -4008,6 +4015,11 @@ estresse = 3
 social = 7
 desempenho_academico = -2
 texto_dica = "[E] pegue os cartazes"
+
+[node name="Sprite2D2" type="Sprite2D" parent="Entidades/quadrodeavisos" unique_id=1004410410]
+position = Vector2(-1.9999995, 0.99998474)
+scale = Vector2(0.04785156, 0.045898434)
+texture = ExtResource("16_ji3np")
 
 [node name="PortalParaTerceiro" type="Area2D" parent="." unique_id=2112568297]
 position = Vector2(9, 2)
