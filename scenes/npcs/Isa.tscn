@@ -172,7 +172,7 @@ flip_h = true
 position = Vector2(4, 0.98604393)
 
 [node name="ArmRightSprite" type="Sprite2D" parent="Pivot/Body/ArmRight" unique_id=1336812480]
-position = Vector2(0.03804362, -1.7859681)
+position = Vector2(0, -0.98604417)
 texture = ExtResource("5_awctu")
 
 [node name="Head" type="Node2D" parent="Pivot/Body" unique_id=221332919]
