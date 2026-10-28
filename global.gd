@@ -31,6 +31,10 @@ var tempo_de_jogo: float = 0.0
 ## id da estação de minigame -> tempo_de_jogo em que ela libera de novo
 var estacoes_liberam_em: Dictionary = {}
 
+## Marcas que precisam sobreviver à troca de mapa (a sala recarrega a cada entrada)
+var cutscene_sala_feita: bool = false
+var pergunta_surpresa_feita: bool = false
+
 func _process(delta: float) -> void:
 	if GerenciadorDeTempo.rodando:
 		tempo_de_jogo += delta
@@ -132,3 +136,5 @@ func reiniciar_partida() -> void:
 	
 	tempo_de_jogo = 0.0
 	estacoes_liberam_em.clear()
+	cutscene_sala_feita = false
+	pergunta_surpresa_feita = false
