@@ -229,7 +229,14 @@ func _agendar_prova() -> void:
 		nota = EstadoJogador.fazer_prova()
 
 	sala_com_prova_ativa = ""
+
+	# A consequência é calculada antes, para a tela de resultado mostrar,
+	# e aplicada logo depois de emitir o resultado.
+	var delta := EstadoJogador.consequencia_da_prova(compareceu, nota)
+	EstadoJogador.ultimo_delta_prova = delta
 	prova_resultado.emit(compareceu, nota)
+	if delta != 0:
+		EstadoJogador.alterar_atributo("desempenho_academico", delta)
 	prova_finalizada.emit(sala, nota)
 
 ## Verifica se o jogador está na sala de aula de verdade. Usa

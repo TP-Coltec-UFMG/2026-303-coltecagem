@@ -15,7 +15,7 @@ var _etiqueta: Label
 var _titulo: Label
 var _detalhe: Label
 var _contagem: Label
-
+var _consequencia: Label
 
 func _ready() -> void:
 	layer = 90 # abaixo da TelaFinal (100)
@@ -60,7 +60,12 @@ func _montar_interface() -> void:
 	_detalhe.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_detalhe.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	caixa.add_child(_detalhe)
-
+	
+	_consequencia = Label.new()
+	_consequencia.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_consequencia.add_theme_font_size_override("font_size", 16)
+	caixa.add_child(_consequencia)
+	
 	_contagem = Label.new()
 	_contagem.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_contagem.modulate = Color(1, 1, 1, 0.5)
@@ -88,7 +93,14 @@ func _on_prova_resultado(compareceu: bool, nota: int) -> void:
 		_titulo.add_theme_color_override("font_color", COR_PERDEU)
 		_detalhe.add_theme_font_size_override("font_size", 40)
 		_detalhe.text = "Nota 0!!!"
-
+		
+	var delta := EstadoJogador.ultimo_delta_prova
+	if delta != 0:
+		_consequencia.text = "Desempenho %+d" % delta
+		_consequencia.add_theme_color_override("font_color", COR_PASSOU if delta > 0 else COR_PERDEU)
+	else:
+		_consequencia.text = ""
+		
 	var dia_rodava := GerenciadorDeTempo.rodando
 	GerenciadorDeTempo.pausar_dia()
 	get_tree().paused = true

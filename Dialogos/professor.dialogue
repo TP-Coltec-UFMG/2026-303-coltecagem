@@ -9,8 +9,8 @@ Honda: Oh yeah
 
 Honda: E é por isso que essa estrutura se comporta assim... Alguém sabe me dizer qual é o erro comum aqui?
 
-- Levantar a mão e responder (Gasta 1 ação) [if GerenciadorDeTempo.pode_agir()]
-	do GerenciadorDeTempo.consumir_acao()
+- Levantar a mão e responder
+	do EstadoJogador.alterar_atributo("desempenho_academico", 10)
 	do EstadoJogador.alterar_atributo("desempenho_academico", 10)
 	do EstadoJogador.alterar_atributo("estresse", 5)
 	Jogador: É esquecer de inicializar a variável antes do loop!

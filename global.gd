@@ -61,23 +61,15 @@ func pode_tentar_material(alvo: String) -> bool:
 	if GerenciadorDeTempo.indice_bloco >= GerenciadorDeTempo.BLOCOS.size():
 		return false
 
-	return (
-		GerenciadorDeTempo.acoes_restantes
-		== GerenciadorDeTempo.ACOES_ILIMITADAS
-		or GerenciadorDeTempo.acoes_restantes > 0
-	)
+	return true
 
 
 func registrar_tentativa_material(alvo: String) -> bool:
 	if not pode_tentar_material(alvo):
 		return false
 
-	# Já perguntou para essa pessoa: não cobra outra ação.
 	if tentativas_material_feitas.has(alvo):
 		return true
-
-	if not GerenciadorDeTempo.consumir_acao():
-		return false
 
 	tentativas_material_feitas[alvo] = true
 	return true

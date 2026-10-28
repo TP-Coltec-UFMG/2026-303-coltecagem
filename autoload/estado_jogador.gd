@@ -53,7 +53,11 @@ const FATOR_SORTE_MAX := 15
 ## Nota mínima pra passar (canvas: "Objetivo: Chegar no final com
 ## Nota >= 60")
 const MEDIA_APROVACAO := 60
-
+## Consequência da prova no desempenho acadêmico
+const PROVA_PENALIDADE_FALTA := -15
+const PROVA_PENALIDADE_NOTA_BAIXA := -5
+const PROVA_BONUS_NOTA_ALTA := 5
+const PROVA_NOTA_ALTA := 80
 
 # ---------------------------------------------------------------
 # ATRIBUTOS DO ESTUDANTE (sempre entre 0 e 100)
@@ -72,7 +76,8 @@ var desempenho_academico: int = 50
 var ultima_nota: int = -1
 ## Fator sorte da última prova (a tela de resultado mostra)
 var ultimo_fator_sorte: int = 0
-
+## Quanto o desempenho mudou por causa da última prova (a tela de resultado mostra)
+var ultimo_delta_prova: int = 0
 ## Contador simples de dias/ações passadas
 var dias_passados: int = 0
 
@@ -255,7 +260,16 @@ func fazer_prova() -> int:
 
 	return nota
 
-
+## Quanto o desempenho deve mudar por causa da prova. Não aplica nada,
+## só calcula (quem chama aplica com alterar_atributo).
+func consequencia_da_prova(compareceu: bool, nota: int) -> int:
+	if not compareceu:
+		return PROVA_PENALIDADE_FALTA
+	if nota >= PROVA_NOTA_ALTA:
+		return PROVA_BONUS_NOTA_ALTA
+	if nota < MEDIA_APROVACAO:
+		return PROVA_PENALIDADE_NOTA_BAIXA
+	return 0
 # =================================================================
 # FINAIS DO JOGO
 # =================================================================
@@ -339,4 +353,5 @@ func reiniciar() -> void:
 	social = 50
 	desempenho_academico = 50
 	ultima_nota = -1
+	ultimo_delta_prova = 0
 	dias_passados = 0

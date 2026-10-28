@@ -5,8 +5,8 @@ Alice: Se eu escutar esse Chines falando por mais 5 minutos a minha cabeça expl
 if Global.tem_caderno
 	Alice: (Anotando loucamente com 5 canetas de cores diferentes).
 	
-	- Me ajuda a entender isso? (Gasta 1 ação) [if GerenciadorDeTempo.pode_agir()]
-		do GerenciadorDeTempo.consumir_acao()
+	- Me ajuda a entender isso? [if Global.estacao_disponivel("npc_alice") /]
+		do Global.iniciar_cooldown("npc_alice", 300)
 		do EstadoJogador.alterar_atributo("desempenho_academico", 8)
 		do EstadoJogador.alterar_atributo("energia", -5)
 		Alice: Ai, tá bom, mas rápido! Essa parte aqui conecta com a fórmula de cima, entendeu?

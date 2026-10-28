@@ -152,12 +152,6 @@ theme_override_font_sizes/font_size = 20
 text = "07:30"
 horizontal_alignment = 2
 
-[node name="LabelAcoes" type="Label" parent="Control/PainelRelogio" unique_id=2112678847]
-layout_mode = 2
-theme_override_font_sizes/font_size = 10
-text = "Ações: 2"
-horizontal_alignment = 2
-
 [node name="LabelBloco" type="Label" parent="Control/PainelRelogio" unique_id=229830152]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10

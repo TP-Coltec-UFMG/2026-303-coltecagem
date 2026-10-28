@@ -14,8 +14,8 @@ João: (Scrollando Reels)
 if Global.tem_caderno
 	João: (Scrollando o feed de boa debaixo da carteira...)
 
-	- Ver os vídeos com ele (Gasta 1 ação) [if GerenciadorDeTempo.pode_agir()]
-		do GerenciadorDeTempo.consumir_acao()
+	- Ver os vídeos com ele [if Global.estacao_disponivel("npc_joao") /]
+		do Global.iniciar_cooldown("npc_joao", 150)
 		do EstadoJogador.alterar_atributo("social", 5)
 		do EstadoJogador.alterar_atributo("desempenho_academico", -5)
 		do EstadoJogador.alterar_atributo("estresse", -5)
