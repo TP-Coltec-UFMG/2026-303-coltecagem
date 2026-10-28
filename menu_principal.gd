@@ -10,8 +10,20 @@ extends Node2D
 @onready var btn_config: Button = $CanvasLayer/VBoxContainer/BtnConfig
 @onready var btn_sair: Button = $CanvasLayer/VBoxContainer/BtnSair
 
+const TelaComoJogar := preload("res://UI/tela_como_jogar.gd")
+var _tela_como_jogar: Control = null
 
 func _ready():
+	var btn_como_jogar := Button.new()
+	btn_como_jogar.text = "COMO JOGAR"
+	btn_como_jogar.custom_minimum_size = btn_jogar.custom_minimum_size
+	btn_como_jogar.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	menu_principal_box.add_child(btn_como_jogar)
+	menu_principal_box.move_child(btn_como_jogar, btn_config.get_index())
+	menu_principal_box.add_theme_constant_override("separation", 20)
+	btn_como_jogar.pressed.connect(abrir_como_jogar)
+	_conectar_hover(btn_como_jogar)
+
 	btn_jogar.pressed.connect(jogar)
 	btn_config.pressed.connect(abrir_config)
 	btn_sair.pressed.connect(sair)
@@ -31,7 +43,6 @@ func _ready():
 
 	aplicar_brilho(1.0)
 	aplicar_audio(1.0)
-
 
 func _conectar_hover_recursivo(node: Node):
 	for filho in node.get_children():
@@ -71,11 +82,28 @@ func fechar_config():
 		logo.visible = true
 	)
 
+func abrir_como_jogar():
+	if _tela_como_jogar != null:
+		return
+	menu_principal_box.visible = false
+	logo.visible = false
+	_tela_como_jogar = TelaComoJogar.new()
+	var camada: Node = $CanvasLayer
+	camada.add_child(_tela_como_jogar)
+	# Fica abaixo do brilho, para os filtros de acessibilidade valerem nela também.
+	camada.move_child(_tela_como_jogar, overlay_brilho.get_index())
+	_tela_como_jogar.voltar.connect(fechar_como_jogar)
+
+
+func fechar_como_jogar():
+	if is_instance_valid(_tela_como_jogar):
+		_tela_como_jogar.queue_free()
+	_tela_como_jogar = null
+	menu_principal_box.visible = true
+	logo.visible = true
 
 func jogar():
 	get_tree().change_scene_to_file("res://scenes/mapas/Coltec.tscn")
-
-
 func sair():
 	get_tree().quit()
 

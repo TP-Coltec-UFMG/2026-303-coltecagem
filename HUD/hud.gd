@@ -43,7 +43,6 @@ const MOTIVOS_BLOQUEIO := {
 @onready var barra_desempenho: ProgressBar = $Control/PainelBarras/Desempenho/Barra
 
 @onready var label_horario: Label = $Control/PainelRelogio/LabelHorario
-@onready var label_acoes: Label = $Control/PainelRelogio/LabelAcoes
 @onready var label_bloco: Label = $Control/PainelRelogio/LabelBloco
 
 @onready var painel_aviso: PanelContainer = $Control/PainelAviso
@@ -63,7 +62,6 @@ func _ready() -> void:
 	EstadoJogador.acao_bloqueada.connect(_on_acao_bloqueada)
 
 	GerenciadorDeTempo.tempo_atualizado.connect(_on_tempo_atualizado)
-	GerenciadorDeTempo.acoes_atualizadas.connect(_on_acoes_atualizadas)
 	GerenciadorDeTempo.bloco_iniciado.connect(_on_bloco_iniciado)
 	GerenciadorDeTempo.dia_terminado.connect(_on_dia_terminado)
 	GerenciadorDeEventos.aula_anunciada.connect(_on_aula_anunciada)
@@ -78,7 +76,6 @@ func _ready() -> void:
 
 	_atualizar_barras()
 	_atualizar_relogio()
-	_atualizar_acoes(GerenciadorDeTempo.acoes_restantes)
 
 
 # ---------------------------------------------------------------
@@ -120,16 +117,6 @@ func _on_tempo_atualizado(_segundos_restantes: float, _progresso: float) -> void
 func _on_bloco_iniciado(_indice: int, _nome_horario: String, _limite_acoes: int) -> void:
 	_atualizar_relogio()
 
-
-func _atualizar_acoes(restantes: int) -> void:
-	if restantes == GerenciadorDeTempo.ACOES_ILIMITADAS:
-		label_acoes.text = "Ações: livre"
-	else:
-		label_acoes.text = "Ações: %d" % restantes
-
-
-func _on_acoes_atualizadas(restantes: int) -> void:
-	_atualizar_acoes(restantes)
 
 
 # ---------------------------------------------------------------
