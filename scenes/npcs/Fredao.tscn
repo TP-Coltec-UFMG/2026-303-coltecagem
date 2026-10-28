@@ -1,0 +1,190 @@
+[gd_scene format=3 uid="uid://k5lujenwk641"]
+
+[ext_resource type="Script" uid="uid://cdixun6r1c3yu" path="res://npcs.gd" id="1_eybxx"]
+[ext_resource type="Texture2D" uid="uid://0kom6pkdae75" path="res://Personagem Principal/legs.png" id="2_kv4ad"]
+[ext_resource type="Texture2D" uid="uid://oal0ln2s54g4" path="res://NPCS/Fredao/Fred1.png" id="3_w8xdb"]
+[ext_resource type="Texture2D" uid="uid://c7j35b5j18yqp" path="res://NPCS/Fredao/Fred2.png" id="4_35ves"]
+[ext_resource type="Texture2D" uid="uid://cdfovc5rie3i3" path="res://NPCS/Fredao/Fred3.png" id="5_6hmtp"]
+[ext_resource type="Texture2D" uid="uid://1a75awpusqeh" path="res://NPCS/Fredao/Fred0.png" id="6_ldqxf"]
+
+[sub_resource type="Animation" id="Animation_idle"]
+resource_name = "idle"
+loop_mode = 1
+step = 0.0625
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -11), Vector2(0, -11.75), Vector2(0, -11)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/ArmLeft:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.08, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/ArmRight:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.08, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/Head:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.03, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_walk"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+step = 0.0625
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -20), Vector2(0, -21), Vector2(0, -20), Vector2(0, -21), Vector2(0, -20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Legs/LegLeft:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.20943951023931956, -0.20943951023931956, 0.20943951023931956]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Legs/LegRight:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3125, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.20943951023931956, -0.20943951023931956, 0.20943951023931956]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/ArmLeft:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.29670597283903605, 0.2617993877991494, -0.29670597283903605]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Body/ArmRight:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.29670597283903605, -0.2617993877991494, 0.29670597283903605]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_805v0"]
+_data = {
+&"idle": SubResource("Animation_idle"),
+&"walk": SubResource("Animation_walk")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(12, 21)
+
+[node name="Fredao" type="CharacterBody2D" unique_id=1975547707]
+script = ExtResource("1_eybxx")
+
+[node name="Pivot" type="Node2D" parent="." unique_id=121469752]
+
+[node name="Legs" type="Node2D" parent="Pivot" unique_id=1657576744]
+position = Vector2(0, -1)
+
+[node name="LegLeft" type="Sprite2D" parent="Pivot/Legs" unique_id=734935562]
+position = Vector2(-2, 1)
+texture = ExtResource("2_kv4ad")
+
+[node name="LegRight" type="Sprite2D" parent="Pivot/Legs" unique_id=640662666]
+position = Vector2(3, 1)
+texture = ExtResource("2_kv4ad")
+
+[node name="Body" type="Sprite2D" parent="Pivot" unique_id=1625067892]
+position = Vector2(0, -11.654617)
+texture = ExtResource("3_w8xdb")
+
+[node name="ArmLeft" type="Node2D" parent="Pivot/Body" unique_id=1865161046]
+position = Vector2(-7, 4)
+rotation = 0.06982583
+
+[node name="ArmLeftSprite" type="Sprite2D" parent="Pivot/Body/ArmLeft" unique_id=684540789]
+position = Vector2(1.9302748, -1.6684135)
+texture = ExtResource("4_35ves")
+
+[node name="ArmRight" type="Node2D" parent="Pivot/Body" unique_id=657257037]
+position = Vector2(4, 0.98604393)
+rotation = -0.06982583
+
+[node name="ArmRightSprite" type="Sprite2D" parent="Pivot/Body/ArmRight" unique_id=1740044339]
+position = Vector2(2, 1.0139558)
+texture = ExtResource("5_6hmtp")
+flip_h = true
+
+[node name="Head" type="Node2D" parent="Pivot/Body" unique_id=2137672007]
+position = Vector2(1, -4.495638)
+rotation = 0.022543542
+
+[node name="HeadSprite" type="Sprite2D" parent="Pivot/Body/Head" unique_id=1666050219]
+position = Vector2(2.9802322e-08, -0.5043621)
+rotation = 0.008726646
+scale = Vector2(-0.9599986, 1)
+texture = ExtResource("6_ldqxf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot" unique_id=858976763]
+libraries/ = SubResource("AnimationLibrary_805v0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=358979578]
+position = Vector2(0, -10.5)
+shape = SubResource("RectangleShape2D_g4v7s")

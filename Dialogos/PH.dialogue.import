@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://cssm1slx57pko"
+path="res://.godot/imported/PH.dialogue-3aabcb4ff17283ae1238a18149dace0b.tres"
+
+[deps]
+
+source_file="res://Dialogos/PH.dialogue"
+dest_files=["res://.godot/imported/PH.dialogue-3aabcb4ff17283ae1238a18149dace0b.tres"]
+
+[params]
+
+defaults=true

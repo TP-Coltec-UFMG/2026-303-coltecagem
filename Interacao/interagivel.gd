@@ -56,3 +56,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	DialogueManager.show_dialogue_balloon(dialogo, ponto_inicial)
 	get_viewport().set_input_as_handled()
 	
+
+
+func _on_jogador_entrou_na_area(jogador: Node2D) -> void:
+	pass # Replace with function body.

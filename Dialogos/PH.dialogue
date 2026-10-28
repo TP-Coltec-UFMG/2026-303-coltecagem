@@ -1,0 +1,10 @@
+~ inicio
+PH: Fala Maluco.
+- Colé
+	=> END
+- ta sentindo esse vento?
+	do Global.iniciar_cooldown("npc_ph", 90)
+	do GerenciadorDeMinigames.iniciar_minigame("res://minigames/wind/scenes/wind_minigame.tscn", {"desempenho_academico": 6, "estresse": 4, "energia": -2})
+	PH: OLOKO.
+	=> END
+
