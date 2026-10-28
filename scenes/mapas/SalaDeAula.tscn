@@ -6953,7 +6953,7 @@ script = ExtResource("sala_de_aula_script")
 dialogo_primeira_aula = ExtResource("19_1kk76")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1290405516]
-zoom = Vector2(3, 3)
+zoom = Vector2(4, 4)
 limit_left = 0
 limit_top = 0
 limit_right = 383

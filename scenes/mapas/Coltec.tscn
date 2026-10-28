@@ -9111,7 +9111,7 @@ size = Vector2(32, 58)
 script = ExtResource("1_qjt15")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=55302878]
-zoom = Vector2(3, 3)
+zoom = Vector2(4, 4)
 limit_left = -1348
 limit_top = -856
 limit_right = 1121
@@ -9266,6 +9266,7 @@ position = Vector2(1, 16)
 
 [node name="pizzanacantina" parent="Entidades" unique_id=160694507 instance=ExtResource("20_r3jq4")]
 position = Vector2(292, -189)
+categoria = "Comida"
 cena_do_minigame = ExtResource("21_4sbu0")
 energia = 5
 estresse = -6
@@ -9275,6 +9276,7 @@ texto_dica = "[E] Acho que vou pegar um pedaço dessa pizza aqui"
 
 [node name="bichonolixo" parent="Entidades" unique_id=1630904923 instance=ExtResource("20_r3jq4")]
 position = Vector2(-970, -243)
+categoria = "Social"
 cena_do_minigame = ExtResource("22_4sbu0")
 energia = -2
 estresse = -4
@@ -9284,6 +9286,7 @@ texto_dica = "[E] \"Acho que tem um bixho dentro da lixeira!\""
 
 [node name="goleironaquadra" parent="Entidades" unique_id=1261535174 instance=ExtResource("20_r3jq4")]
 position = Vector2(885, -334)
+categoria = "Ação"
 cena_do_minigame = ExtResource("23_1pm7u")
 energia = -4
 estresse = -5
@@ -9293,6 +9296,7 @@ texto_dica = "[E] defenda o gol"
 
 [node name="madeira" parent="Entidades" unique_id=1068246420 instance=ExtResource("20_r3jq4")]
 position = Vector2(1011, 136)
+categoria = "Relax"
 cena_do_minigame = ExtResource("24_plf7k")
 energia = -3
 estresse = -3
@@ -9302,6 +9306,7 @@ texto_dica = "[E] ajude o madeira em seu trabalho"
 
 [node name="Baseballnaquadra" parent="Entidades" unique_id=961208240 instance=ExtResource("20_r3jq4")]
 position = Vector2(705, -645)
+categoria = "Ação"
 cena_do_minigame = ExtResource("25_o8hg3")
 energia = -3
 estresse = -3

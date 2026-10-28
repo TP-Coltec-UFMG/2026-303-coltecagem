@@ -3919,7 +3919,7 @@ size = Vector2(15, 16)
 script = ExtResource("1_gkcal")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=725084185]
-zoom = Vector2(3, 3)
+zoom = Vector2(4, 4)
 limit_left = -633
 limit_top = -199
 limit_right = 422
@@ -4001,6 +4001,7 @@ texto_dica = "[E] Regule o aparelho"
 
 [node name="ObjetoMinigame" parent="Entidades" unique_id=1180518268 instance=ExtResource("12_ixsdo")]
 position = Vector2(5, 157)
+categoria = "Estudo"
 cena_do_minigame = ExtResource("14_nau1q")
 energia = 5
 estresse = 3

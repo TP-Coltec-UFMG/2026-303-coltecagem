@@ -35,6 +35,10 @@ const TEMPO_TELA_RESULTADO := 2.4
 ## (vitória ou derrota) chamando o decide() dele.
 const TEMPO_LIMITE_MINIGAME := 12.0
 
+const Instrucoes := preload("res://Minigames_Sistema/instrucoes_minigames.gd")
+
+## Tempo máximo da tela de instruções (o jogador pode pular apertando uma tecla).
+const TEMPO_INSTRUCOES := 4.0
 
 var _cena_para_voltar: String = ""
 var _posicao_para_voltar: Vector2 = Vector2.ZERO
@@ -109,11 +113,79 @@ func _conectar_minigame_atual() -> void:
 	_minigame_atual.won.connect(_on_minigame_terminou.bind(true))
 	_minigame_atual.lost.connect(_on_minigame_terminou.bind(false))
 
-	if _minigame_atual.has_method("start"):
-		_minigame_atual.start()
+	var jogo := _minigame_atual
+	await _mostrar_instrucoes(jogo)
+	if not is_instance_valid(jogo) or jogo != _minigame_atual:
+		return
 
-	_contar_tempo_limite(_minigame_atual)
+	if jogo.has_method("start"):
+		jogo.start()
 
+	_contar_tempo_limite(jogo)
+
+
+## Mostra nome, controles e objetivo por até TEMPO_INSTRUCOES segundos.
+## Qualquer tecla ou clique pula (depois de 0,8 s, para não pular sem querer).
+func _mostrar_instrucoes(jogo: Node) -> void:
+	var dados: Array = Instrucoes.TEXTOS.get(jogo.scene_file_path, [])
+	if dados.is_empty():
+		return
+
+	var camada := CanvasLayer.new()
+	camada.layer = 100
+
+	var fundo := ColorRect.new()
+	fundo.color = Color(0, 0, 0, 0.75)
+	camada.add_child(fundo)
+	fundo.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+
+	var caixa := VBoxContainer.new()
+	caixa.alignment = BoxContainer.ALIGNMENT_CENTER
+	caixa.add_theme_constant_override("separation", 14)
+	camada.add_child(caixa)
+	caixa.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+
+	var titulo := Label.new()
+	titulo.text = dados[0]
+	titulo.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	titulo.add_theme_font_size_override("font_size", 34)
+	caixa.add_child(titulo)
+
+	var objetivo := Label.new()
+	objetivo.text = dados[2]
+	objetivo.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	objetivo.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	objetivo.custom_minimum_size = Vector2(700, 0)
+	objetivo.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	objetivo.add_theme_font_size_override("font_size", 20)
+	caixa.add_child(objetivo)
+
+	var controles := Label.new()
+	controles.text = "Controles: " + dados[1]
+	controles.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	controles.add_theme_font_size_override("font_size", 22)
+	controles.add_theme_color_override("font_color", Color(1.0, 0.85, 0.3))
+	caixa.add_child(controles)
+
+	var dica := Label.new()
+	dica.text = "Aperte qualquer tecla para começar"
+	dica.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	dica.add_theme_font_size_override("font_size", 14)
+	dica.modulate = Color(1, 1, 1, 0.6)
+	caixa.add_child(dica)
+
+	jogo.add_child(camada)
+
+	var decorrido := 0.0
+	while decorrido < TEMPO_INSTRUCOES:
+		await get_tree().process_frame
+		decorrido += get_process_delta_time()
+		if decorrido > 0.8 and Input.is_anything_pressed():
+			break
+
+	if is_instance_valid(camada):
+		camada.queue_free()
+		
 func _contar_tempo_limite(jogo: Node) -> void:
 	await get_tree().create_timer(TEMPO_LIMITE_MINIGAME).timeout
 	if _resultado_dado or jogo != _minigame_atual or not is_instance_valid(jogo):
