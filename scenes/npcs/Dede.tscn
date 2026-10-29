@@ -152,12 +152,11 @@ position = Vector2(2, -3)
 texture = ExtResource("2_wbgtf")
 
 [node name="Body" type="Sprite2D" parent="Pivot" unique_id=619497115]
-position = Vector2(0, -11.340637)
+position = Vector2(0, -11)
 texture = ExtResource("3_ewm4u")
 
 [node name="ArmLeft" type="Node2D" parent="Pivot/Body" unique_id=1878201707]
 position = Vector2(-5.000001, 0.98604393)
-rotation = 0.03633465
 
 [node name="ArmLeftSprite" type="Sprite2D" parent="Pivot/Body/ArmLeft" unique_id=268757160]
 position = Vector2(1.0000008, -0.9860443)
@@ -166,7 +165,6 @@ flip_h = true
 
 [node name="ArmRight" type="Node2D" parent="Pivot/Body" unique_id=803893564]
 position = Vector2(4, 0.98604393)
-rotation = -0.03633465
 
 [node name="ArmRightSprite" type="Sprite2D" parent="Pivot/Body/ArmRight" unique_id=733833346]
 position = Vector2(1.1920929e-07, -0.98604417)
@@ -174,7 +172,6 @@ texture = ExtResource("5_f5ds8")
 
 [node name="Head" type="Node2D" parent="Pivot/Body" unique_id=1252520499]
 position = Vector2(1, -4.495638)
-rotation = 0.027250987
 
 [node name="HeadSprite" type="Sprite2D" parent="Pivot/Body/Head" unique_id=1564029768]
 position = Vector2(-1.9999998, -2.504362)
@@ -182,8 +179,7 @@ rotation = 0.008726646
 scale = Vector2(-0.9599986, 1)
 texture = ExtResource("6_8uhak")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot/Body/Head" unique_id=855876397]
-root_node = NodePath("../../..")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot" unique_id=855876397]
 libraries/ = SubResource("AnimationLibrary_bp6l2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2108283505]
