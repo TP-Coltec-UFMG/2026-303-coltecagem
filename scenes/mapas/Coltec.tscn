@@ -22,6 +22,7 @@
 [ext_resource type="Script" uid="uid://m4v3jilfgb3j" path="res://mapas/porta.gd" id="19_2vbt0"]
 [ext_resource type="PackedScene" uid="uid://cr76yjs805cki" path="res://Minigames_Sistema/objeto_minigame.tscn" id="20_r3jq4"]
 [ext_resource type="PackedScene" path="res://minigames/za/scenes/za_minigame.tscn" id="21_4sbu0"]
+[ext_resource type="PackedScene" uid="uid://cao1rixd5xm65" path="res://scenes/npcs/Dede.tscn" id="21_ef5ak"]
 [ext_resource type="PackedScene" path="res://minigames/ragdoll/scenes/ragdoll.tscn" id="22_4sbu0"]
 [ext_resource type="Texture2D" uid="uid://b3dvhahk78m2r" path="res://Tilemap/CoolSchool_tileset_48px/Pizza pixel-art com pepperoni em fundo transparente.png" id="22_rfcp6"]
 [ext_resource type="PackedScene" path="res://minigames/goalie/goalie_minigame.tscn" id="23_1pm7u"]
@@ -31,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://wgd4wc0pwa0e" path="res://Tilemap/CoolSchool_tileset_48px/Bola_de_futebol_pixelada_retrô-removebg-preview.png" id="26_8o4ag"]
 [ext_resource type="Texture2D" uid="uid://kpyr3r27rog8" path="res://Tilemap/CoolSchool_tileset_48px/Bata de laboratório e serrote em pixel art.png" id="27_1h65i"]
 [ext_resource type="Texture2D" uid="uid://cfny1gyodu5km" path="res://HUD/Morcegos e Bola em Pixel Art.png" id="27_rfcp6"]
+[ext_resource type="PackedScene" uid="uid://bfnmvoagwy0ds" path="res://scenes/npcs/PH.tscn" id="31_1nmp8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ygioq"]
 texture = ExtResource("2_j7o77")
@@ -9404,7 +9406,7 @@ sources/1 = SubResource("TileSetAtlasSource_uvx25")
 radius = 18.439089
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7c4bj"]
-radius = 51.009804
+radius = 18.973665
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_porta_hall"]
 size = Vector2(40, 97.5)
@@ -9572,6 +9574,55 @@ shape = SubResource("CircleShape2D_7c4bj")
 [node name="npc6" parent="Entidades/NpcPorteira/AreaInteracao" unique_id=2029857116 instance=ExtResource("17_h6vow")]
 position = Vector2(1, 16)
 
+[node name="NpcPH" type="Node2D" parent="Entidades" unique_id=1721666256]
+
+[node name="AreaInteracao" type="Area2D" parent="Entidades/NpcPH" unique_id=1308305661]
+position = Vector2(606, -170)
+script = ExtResource("10_rfcp6")
+dialogo = ExtResource("19_1pm7u")
+
+[node name="LabelDica" type="Label" parent="Entidades/NpcPH/AreaInteracao" unique_id=1311407314]
+offset_left = -36.0
+offset_top = -18.0
+offset_right = 36.0
+offset_bottom = -2.0
+theme = ExtResource("11_mghkb")
+theme_override_font_sizes/font_size = 8
+text = "[E] falar"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entidades/NpcPH/AreaInteracao" unique_id=1300098712]
+position = Vector2(2, -186)
+shape = SubResource("CircleShape2D_7c4bj")
+
+[node name="Ph" parent="Entidades/NpcPH/AreaInteracao" unique_id=411447271 instance=ExtResource("31_1nmp8")]
+position = Vector2(3, -174)
+
+[node name="Npcdede" type="Node2D" parent="Entidades" unique_id=1623170546]
+position = Vector2(-49, -103)
+
+[node name="AreaInteracao" type="Area2D" parent="Entidades/Npcdede" unique_id=1988150396]
+position = Vector2(-1116, -185)
+script = ExtResource("10_rfcp6")
+dialogo = ExtResource("19_1pm7u")
+
+[node name="LabelDica" type="Label" parent="Entidades/Npcdede/AreaInteracao" unique_id=948640734]
+offset_left = -36.0
+offset_top = -18.0
+offset_right = 36.0
+offset_bottom = -2.0
+theme = ExtResource("11_mghkb")
+theme_override_font_sizes/font_size = 8
+text = "[E] falar"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entidades/Npcdede/AreaInteracao" unique_id=1821853918]
+position = Vector2(-7, -31)
+shape = SubResource("CircleShape2D_7c4bj")
+
+[node name="Dede" parent="Entidades/Npcdede/AreaInteracao" unique_id=2117501886 instance=ExtResource("21_ef5ak")]
+position = Vector2(-4, -21)
+
 [node name="pizzanacantina" parent="Entidades" unique_id=160694507 instance=ExtResource("20_r3jq4")]
 position = Vector2(292, -189)
 categoria = "Comida"
@@ -9647,6 +9698,30 @@ texto_dica = "[E] Baseball na Ed. Física"
 position = Vector2(-2.5000224, -1.5000314)
 scale = Vector2(0.019387128, 0.021341471)
 texture = ExtResource("27_rfcp6")
+
+[node name="NpcGabrielfern" type="Node2D" parent="Entidades" unique_id=66909741]
+position = Vector2(-74, -80)
+
+[node name="AreaInteracao" type="Area2D" parent="Entidades/NpcGabrielfern" unique_id=888698784]
+script = ExtResource("10_rfcp6")
+dialogo = ExtResource("19_1pm7u")
+
+[node name="LabelDica" type="Label" parent="Entidades/NpcGabrielfern/AreaInteracao" unique_id=380441091]
+offset_left = -36.0
+offset_top = -18.0
+offset_right = 36.0
+offset_bottom = -2.0
+theme = ExtResource("11_mghkb")
+theme_override_font_sizes/font_size = 8
+text = "[E] falar"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entidades/NpcGabrielfern/AreaInteracao" unique_id=811477299]
+position = Vector2(2, 9)
+shape = SubResource("CircleShape2D_7c4bj")
+
+[node name="NpcFred" type="Node2D" parent="Entidades" unique_id=588635771]
+position = Vector2(-74, -110)
 
 [node name="PortaParaSegundop" type="Area2D" parent="." unique_id=1611556117]
 position = Vector2(-23, -524)
