@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://bv7jfsrqqtn58"
+path="res://.godot/imported/alemao.dialogue-633e6f86b32026b22b7e999324498d33.tres"
+
+[deps]
+
+source_file="res://Dialogos/alemao.dialogue"
+dest_files=["res://.godot/imported/alemao.dialogue-633e6f86b32026b22b7e999324498d33.tres"]
+
+[params]
+
+defaults=true
