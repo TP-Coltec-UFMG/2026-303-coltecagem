@@ -42,7 +42,7 @@ signal prova_resultado(compareceu: bool, nota: int)
 ## Nome exibido nos avisos/banners. Hoje só existe uma sala de
 ## aula de verdade no mapa (mapas/SalaDeAula.tscn) — se um dia
 ## vocês tiverem mais de uma, isso volta a ser uma lista sorteada.
-const NOME_SALA_DE_AULA := "Sala de Aula (3º andar)"
+const NOME_SALA_DE_AULA := "Sala de Aula"
 
 ## Identificador que Global.mapa_atual precisa ter pra contar como
 ## "dentro da sala de aula" (ver mapas/sala_de_aula.gd).
@@ -55,8 +55,8 @@ const ESPERA_ENTRE_AULAS_MAX := 6.0
 
 ## Tempo de aviso antes da aula começar de fato (canvas/brainstorm
 ## não dá um número exato — chute inicial)
-const TEMPO_AVISO_MIN := 9.0
-const TEMPO_AVISO_MAX := 14.0
+const TEMPO_AVISO_MIN := 5.0
+const TEMPO_AVISO_MAX := 10.0
 
 ## Duração da aula em si (brainstorm: "pode durar de 30 a 50 segundos")
 const DURACAO_AULA_MIN := 30.0
@@ -70,8 +70,8 @@ const INTERVALO_AMOSTRAGEM_PRESENCA := 0.5
 
 ## Prova: aviso mais curto (é surpresa) e uma janela pequena pro
 ## jogador chegar até a sala
-const TEMPO_AVISO_PROVA := 6.0
-const DURACAO_JANELA_PROVA := 10.0
+const TEMPO_AVISO_PROVA := 5.0
+const DURACAO_JANELA_PROVA := 8.0
 
 ## Pausa entre o fim da aula e o aviso da prova, no bloco da prova
 const ESPERA_ANTES_DA_PROVA_MIN := 3.0
@@ -170,9 +170,6 @@ func _disparar_aula(indice: int) -> void:
 	var duracao := randf_range(DURACAO_AULA_MIN, DURACAO_AULA_MAX)
 	sala_com_aula_ativa = sala
 	aula_iniciada.emit(sala, duracao)
-	_agendar_pergunta_surpresa()
-
-
 
 	# Amostra a presença do jogador várias vezes ao longo da aula
 	# em vez de só checar no instante final — é isso que faz o
@@ -208,21 +205,7 @@ func _disparar_aula(indice: int) -> void:
 	sala_com_aula_ativa = ""
 	aula_finalizada.emit(sala, fracao_dentro)
 
-## Uma vez por partida: 8 s depois de uma aula começar, se o jogador está
-## na sala e nada mais está rolando, o Honda faz a pergunta surpresa.
-func _agendar_pergunta_surpresa() -> void:
-	if Global.pergunta_surpresa_feita:
-		return
-	await _esperar(8.0)
-	if Global.pergunta_surpresa_feita or sala_com_aula_ativa == "":
-		return
-	if Global.mapa_atual != ID_MAPA_SALA_DE_AULA:
-		return
-	if GerenciadorDeDialogos.dialogo_manager_ativo or GerenciadorDeMinigames.esta_ocupado():
-		return
-	Global.pergunta_surpresa_feita = true
-	GerenciadorDeDialogos.iniciar_dialogo_manager()
-	DialogueManager.show_dialogue_balloon(load("res://Dialogos/professor.dialogue"), "pergunta_surpresa")
+
 # ---------------------------------------------------------------
 # FLUXO DA PROVA (anúncio → janela pra chegar → resultado)
 # ---------------------------------------------------------------
