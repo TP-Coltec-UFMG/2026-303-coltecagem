@@ -3,12 +3,12 @@ extends RefCounted
 ## A chave é o caminho da cena do minigame (a mesma usada em iniciar_minigame).
 
 const TEXTOS := {
-	"res://minigames/ragdoll/scenes/ragdoll.tscn": ["bicho", "Nada", "nada"],
-	"res://minigames/saw/scenes/saw_minigame.tscn": ["Madeira", "A / D alternados", "Alternar A e D para serrar o tronco até ele partir."],
+	"res://minigames/ragdoll/scenes/ragdoll.tscn": ["Ragdoll", "Nada (não apertar tecla)", "Ficar parado até o tempo acabar. Apertar qualquer tecla faz perder."],
+	"res://minigames/saw/scenes/saw_minigame.tscn": ["Saw", "A / D alternados", "Alternar A e D para serrar o tronco até ele partir."],
 	"res://minigames/baseball/scenes/baseball_minigame.tscn": ["Baseball", "Espaço", "Rebater a bola na hora certa."],
-	"res://minigames/platformer/scenes/platformer_minigame.tscn": ["Saida", "WASD", "Chegar na saída desviando das armadilhas."],
-	"res://minigames/za/scenes/za_minigame.tscn": ["Pizza", "A / D + Espaço", "Fatiar a pizza alinhando o cortador."],
-	"res://minigames/big_rigs/big_rig_minigame.tscn": ["Caminhão", "A / D", "Corrida de caminhão contra outro caminhão."],
+	"res://minigames/platformer/scenes/platformer_minigame.tscn": ["Platformer", "WASD", "Chegar na saída desviando das armadilhas."],
+	"res://minigames/za/scenes/za_minigame.tscn": ["Za", "A / D + Espaço", "Fatiar a pizza alinhando o cortador."],
+	"res://minigames/big_rigs/big_rig_minigame.tscn": ["Big Rigs", "A / D", "Corrida de caminhão contra outro caminhão."],
 	"res://minigames/wind/scenes/wind_minigame.tscn": ["Wind", "A / D", "Manter o equilíbrio contra o vento."],
 	"res://minigames/shooter/scenes/shooter_frame.tscn": ["Shooter", "WASD + Espaço", "Atirar nos inimigos até bater a meta de abates."],
 	"res://minigames/anchovy_quest/scenes/anchovy_game.tscn": ["Anchovy Quest", "WASD + Espaço", "Atirar nas pizzas que se aproximam."],
@@ -16,7 +16,7 @@ const TEXTOS := {
 	"res://minigames/pants/pants_minigame.tscn": ["Pants", "A / D", "Vestir a calça certa (já usado pelo Pedrão)."],
 	"res://minigames/pitfall/pitfall_minigame_frame.tscn": ["Pitfall", "A / D + Espaço", "Atravessar o rio pulando entre plataformas."],
 	"res://minigames/dance/scenes/dance_minigame.tscn": ["Dance", "WASD (setas na tela)", "Acertar as setas no ritmo, estilo DDR."],
-	"res://minigames/goalie/goalie_minigame.tscn": ["Gol", "W / S", "Defender as bolas jogadas contra você"],
+	"res://minigames/goalie/goalie_minigame.tscn": ["Goalie", "W / S", "Defender as bolas jogadas contra você, estilo Pong."],
 	"res://minigames/jump/jump_minigame.tscn": ["Jump", "W / Espaço", "Pular os obstáculos que empurram você."],
 	"res://minigames/bother/bother_minigame.tscn": ["Bother", "Espaço", "Cutucar o gato até a barra encher."],
 	"res://minigames/ball_tribute/scenes/ball_tribute.tscn": ["Ball Tribute", "WASD", "Guiar a bola sem bater nas paredes. Descrição inferida do script, confirmar jogando."],
