@@ -70,7 +70,8 @@ func iniciar_minigame(caminho_cena_minigame: String, recompensas: Dictionary) ->
 		_posicao_para_voltar = personagem.global_position
 
 	GerenciadorDeTempo.pausar_dia()
-
+	GerenciadorDeDialogos.forcar_fim()
+		
 	var erro := get_tree().change_scene_to_file(caminho_cena_minigame)
 	if erro != OK:
 		push_error("GerenciadorDeMinigames: change_scene_to_file('%s') falhou com erro %d — a cena provavelmente tem um problema de carregamento (script com erro, .tscn corrompido/formato incompatível, etc). Confira o painel Output do editor." % [caminho_cena_minigame, erro])
