@@ -27,8 +27,6 @@
 [ext_resource type="PackedScene" path="res://minigames/goalie/goalie_minigame.tscn" id="23_1pm7u"]
 [ext_resource type="PackedScene" path="res://minigames/saw/scenes/saw_minigame.tscn" id="24_plf7k"]
 [ext_resource type="PackedScene" path="res://minigames/baseball/scenes/baseball_minigame.tscn" id="25_o8hg3"]
-[ext_resource type="Texture2D" uid="uid://wgd4wc0pwa0e" path="res://Tilemap/CoolSchool_tileset_48px/Bola_de_futebol_pixelada_retrô-removebg-preview.png" id="26_8o4ag"]
-[ext_resource type="Texture2D" uid="uid://kpyr3r27rog8" path="res://Tilemap/CoolSchool_tileset_48px/Bata de laboratório e serrote em pixel art.png" id="27_1h65i"]
 [ext_resource type="Texture2D" uid="uid://cfny1gyodu5km" path="res://HUD/Morcegos e Bola em Pixel Art.png" id="27_rfcp6"]
 [ext_resource type="PackedScene" uid="uid://bfnmvoagwy0ds" path="res://scenes/npcs/PH.tscn" id="31_1nmp8"]
 
